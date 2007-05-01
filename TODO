@@ -1,0 +1,33 @@
+BUGS and IMPROVEMENTS for next releases
+
+Important
+=========
+-Click amb el botó dret a camp de cerca: pronunciar la paraula
+-Actualitzar amb un click: per tenir les últimes paraules de Dacco
+-O si no es fa "actualitzar amb un click", un enllaç a la pàgina per baixar els
+diccionaris!
+
+-ñ -> no troba el diccionari
+
+-tradueix de forma automàtica el que troba al portapapers
+-popup amb la traducció quan es seleccióna alguna cosa
+
+Maybe?
+======
+-Clicant a sobre una paraula: buscar la traducció
+-Automatically recognize if word is English or Catalan
+-Irregular verbs?
+-Verb conjugator
+-Buscar per verbs irregulars
+
+-Compilation option (or ask root password) to disable report 
+ new word and suggestions (for schools)
+
+-Regex support
+-Botons massa alts
+-Separar error: escriure una paraula i aquesta ha de començar amb lletra
+
+Misc
+====
+-Use valgrind to detect memory leaks
+-Clean code

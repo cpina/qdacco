@@ -1,0 +1,93 @@
+qdacco 0.6c (April 2007)
+===========
+-Allows to read using Festival from search field, not only from definition result
+
+qdacco 0.6b (April 2007)
+===========
+-Fixed problem with Key Down
+
+qdacco 0.6a (April 2007)
+===========
+-Ctrl+L to select search bar
+-Resized some button (in Catalan was too small)
+-Changed some texts
+-Always showing "Report as new entry" button
+-Fixed a bug: was sending as new word and not sending suggestions
+
+
+qdacco 0.6 (April 2007)
+==========
+-MAJOR: Incremental search
+-MAJOR: Festival integration (In Linux)
+
+-Option to ignore the accents
+-Option to ignore case of words (there is some words in capital letters)
+
+-Removed option to search "closest matches"
+
+-Fix bug: words with capital letters (London) was changing the searched text
+-Sending suggeriments to Dacco: includes if it is a Linux or Windows version
+
+-Minor code improvements
+
+qdacco 0.5d (October 2006)
+===========
+-Some internal changes
+-Graphical interface is in layouts: before there were problems in some
+window managers
+
+qdacco 0.5c (October 2006)
+==========
+-Closes Debian Bug #391913: fixed compilation using Qt 4.2
+
+qdacco 0.5[a,b] (October 2006)
+==========
+-Minor bugfixes in User Interfaces
+-Minor bugfixes in translations texts
+
+qdacco 0.5 (October 2006)
+==========
+-MAJOR: Ported to Qt 4 (version 4.1)
+-MAJOR: Show more information (english and catalan examples, notes of use, etc.)
+-MAJOR: Show links to photos/flickr. Clicking on them opens web browser, if
+configured
+-Other minor changes due previous ones
+
+QDacco 0.4 (April 2006)
+==========
+-MAJOR: Button to send new words to Dacco server
+-MAJOR: Button to send comments to Dacco server
+-MAJOR: Better usability (changed UI)
+
+-Showing closest entries when word is not found
+-Closes Debian Bug #361331: errors when compiling with using g++ 4.1
+
+-Lot of minor changes in graphic user interface
+-New icons. Mainly from Crystal theme of KDE
+-Improved catalan traduction
+
+QDacco 0.3a (January 2006)
+===========
+-Changed name of executable file from QDacco* to qdacco
+-Added an icon
+-Added ./configure, make, make install support
+-Added support for Debian PATH'S
+-Translation strings are inside code
+
+QDacco 0.3 (October 2005)
+==========
+-Copy button copies search term and result to clipboard
+-Semi-automatic detection of data directory
+-Debug mode (-d flag)
+-Copyright note
+-Code is cleaner
+-README and LLEGEIXME files
+-INSTALL and INSTALACIO files
+-First execution in GNU/Linux: autodetecting Language
+-Bug fixed: in Windows, some wrong characters
+-Bug fixed: changing user interface language
+-Bugs fixeds: lots of little bugs
+
+QDacco 0.2 (September 2005)
+==========
+-Initial public release

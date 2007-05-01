@@ -1,0 +1,67 @@
+qdacco
+
+Nota
+====
+Per baixar-se els diccionaris:
+http://prdownloads.sourceforge.net/dacco/dacco-0.9.zip?download
+
+
+Instruccions generals d'instal·lació
+====================================
+Nota prèvia: Debian té paquet de dacco i qdacco. Per tant no cal compilar-ho,
+instal·lant el paquet és suficient. Altres distribucions poden ser
+compatibles.
+
+Quan executeu qdacco per primer cop, demanarà a l'usuari informació
+de configuració (idioma per defecte, directori de dades, etc.)
+
+Algunes distribucions de qdacco venen ja amb les dades, en aquest cas
+serà suficient presionar "Bé" per tal de continuar. Altrament, s'haurà
+de seleccionar el directori on hi ha els fitxers Dacco (és a dir, 
+el directori 'dictionaries').
+
+Si es necessiten els fitxers de dades, es poden trobar aquí:
+http://prdownloads.sourceforge.net/dacco/dacco-0.9.zip?download
+
+Instruccions sistemes Unix
+==========================
+Per tal de compilar qDacco, en distribucions basades en Debian
+es necessiten els següents paquets (els quals tenen un nom similar
+en altres distribucions):
+libqt4-core
+libqt4-debug  #es treurà aquesta dependència en futures versions
+libqt4-debug-dev
+libqt4-dev
+libqt4-gui
+qt4-dev-tools
+
+Per tal d'instal·lar-los, es necessita executar (es necessitarà ser root
+per fer-ho):
+apt-get install libqt4-core libqt4-debug libqt4-debug-dev libqt4-dev libqt4-gui qt4-dev-tools
+
+Cal descomprimir el fitxer de qdacco (tar -zxvf qdacco-X.tar.gz) i executar:
+cd qdacco
+./configure
+make
+make install (com a root)
+
+I ja es podrà executar qdacco mitjançant el seu nom:
+qdacco
+
+
+Potser voldreu afegir un accés directe al teu escriptori o gestor de
+finestres.
+El fitxer executable de qDacco es trobarà a /usr/local/bin/qdacco
+
+Festival
+========
+Festival és un sintetitzador de veu. Sol estar disponible al paquet
+festival. Si el teniu instal·lat qdacco el pot fer servir (veure la
+configuració) i pronunciar les paraules.
+
+
+**Llegir 'Instruccions generals d'instal·lació'
+
+
+Carles Pina i Estany, 2007
+carles@pina.cat

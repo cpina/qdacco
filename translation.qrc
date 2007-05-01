@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/" >
+        <file>qdacco_ca.qm</file>
+    </qresource>
+</RCC>

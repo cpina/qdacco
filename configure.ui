@@ -1,0 +1,405 @@
+<ui version="4.0" >
+ <class>Configure</class>
+ <widget class="QDialog" name="Configure" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>461</width>
+    <height>330</height>
+   </rect>
+  </property>
+  <property name="sizePolicy" >
+   <sizepolicy>
+    <hsizetype>5</hsizetype>
+    <vsizetype>5</vsizetype>
+    <horstretch>144</horstretch>
+    <verstretch>30</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>461</width>
+    <height>330</height>
+   </size>
+  </property>
+  <property name="maximumSize" >
+   <size>
+    <width>390</width>
+    <height>330</height>
+   </size>
+  </property>
+  <property name="windowTitle" >
+   <string>Configure</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="icons.qrc" >:/icons/qdacco.png</iconset>
+  </property>
+  <widget class="QWidget" name="layoutWidget" >
+   <property name="geometry" >
+    <rect>
+     <x>290</x>
+     <y>290</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>0</number>
+    </property>
+    <property name="spacing" >
+     <number>3</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="ok" >
+      <property name="text" >
+       <string>&amp;Ok</string>
+      </property>
+      <property name="icon" >
+       <iconset resource="icons.qrc" >:/icons/button_ok.png</iconset>
+      </property>
+      <property name="shortcut" >
+       <string>Alt+O</string>
+      </property>
+      <property name="default" >
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="cancel" >
+      <property name="text" >
+       <string>&amp;Cancel</string>
+      </property>
+      <property name="icon" >
+       <iconset resource="icons.qrc" >:/icons/button_cancel.png</iconset>
+      </property>
+      <property name="shortcut" >
+       <string>Alt+C</string>
+      </property>
+      <property name="autoDefault" >
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>441</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="currentIndex" >
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab_4" >
+    <attribute name="title" >
+     <string>Basic</string>
+    </attribute>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>411</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="0" column="1" >
+       <widget class="QComboBox" name="traduccio_defecte" >
+        <item>
+         <property name="text" >
+          <string>Catalan->English</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>English->Catalan</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="3" column="1" >
+       <widget class="QCheckBox" name="ignorar_majuscules" >
+        <property name="text" >
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0" >
+       <widget class="QLabel" name="lemail" >
+        <property name="text" >
+         <string>E-Mail:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" >
+       <widget class="QLabel" name="ldiccionari" >
+        <property name="text" >
+         <string>Default dictionary:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" >
+       <widget class="QLabel" name="lnom" >
+        <property name="text" >
+         <string>Name:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" >
+       <widget class="QCheckBox" name="ignorar_accents" >
+        <property name="text" >
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" >
+       <widget class="QLabel" name="laccents" >
+        <property name="text" >
+         <string>Ignore accents:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="buddy" >
+         <cstring>ignorar_accents</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" >
+       <widget class="QComboBox" name="idioma_defecte" >
+        <item>
+         <property name="text" >
+          <string>Catalan</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>English</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="3" column="0" >
+       <widget class="QLabel" name="lmajuscules" >
+        <property name="text" >
+         <string>Match case:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="buddy" >
+         <cstring>ignorar_majuscules</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" >
+       <widget class="QLabel" name="lidioma" >
+        <property name="text" >
+         <string>Default language:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1" >
+       <widget class="QLineEdit" name="email" >
+        <property name="toolTip" >
+         <string>If you send some suggestions or bug reports to Dacco, we will know your e-mail. This is not compulsory</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1" >
+       <widget class="QLineEdit" name="nom" >
+        <property name="toolTip" >
+         <string>If you send some suggestions or bug reports to Dacco, we will know your name. This is not compulsory</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3" >
+    <attribute name="title" >
+     <string>Advanced</string>
+    </attribute>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>411</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="0" column="2" >
+       <widget class="QToolButton" name="busca_fitxer" >
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/fileopen.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" >
+       <widget class="QLabel" name="ldirectori" >
+        <property name="text" >
+         <string>Dictionary directory:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2" >
+       <widget class="QToolButton" name="busca_browser" >
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/fileopen.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" >
+       <widget class="QLineEdit" name="festival" />
+      </item>
+      <item row="1" column="1" >
+       <widget class="QLineEdit" name="browser" >
+        <property name="toolTip" >
+         <string>Select the dictionaries directory on your system</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2" >
+       <widget class="QToolButton" name="busca_festival" >
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/fileopen.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" >
+       <widget class="QLabel" name="lfestival" >
+        <property name="text" >
+         <string>Festival executable (speech synthesis program)</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="wordWrap" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3" >
+       <widget class="QToolButton" name="ajuda" >
+        <property name="text" >
+         <string>...</string>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/help.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" >
+       <widget class="QLineEdit" name="directori" >
+        <property name="toolTip" >
+         <string>Select the dictionaries directory on your system</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3" >
+       <widget class="QToolButton" name="ajuda_browser" >
+        <property name="text" >
+         <string>...</string>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/help.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3" >
+       <widget class="QToolButton" name="ajuda_festival" >
+        <property name="text" >
+         <string>...</string>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/help.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" >
+       <widget class="QLabel" name="lbrowser" >
+        <property name="text" >
+         <string>Browser:</string>
+        </property>
+        <property name="alignment" >
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <tabstops>
+  <tabstop>traduccio_defecte</tabstop>
+  <tabstop>idioma_defecte</tabstop>
+  <tabstop>ignorar_accents</tabstop>
+  <tabstop>ignorar_majuscules</tabstop>
+  <tabstop>nom</tabstop>
+  <tabstop>email</tabstop>
+  <tabstop>ok</tabstop>
+  <tabstop>cancel</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>directori</tabstop>
+  <tabstop>busca_fitxer</tabstop>
+  <tabstop>ajuda</tabstop>
+  <tabstop>browser</tabstop>
+  <tabstop>busca_browser</tabstop>
+  <tabstop>ajuda_browser</tabstop>
+  <tabstop>festival</tabstop>
+  <tabstop>busca_festival</tabstop>
+  <tabstop>ajuda_festival</tabstop>
+ </tabstops>
+ <resources>
+  <include location="icons.qrc" />
+ </resources>
+ <connections/>
+</ui>

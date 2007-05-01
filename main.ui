@@ -1,0 +1,360 @@
+<ui version="4.0" >
+ <class>Main</class>
+ <widget class="QMainWindow" name="Main" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>190</width>
+    <height>244</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>190</width>
+    <height>180</height>
+   </size>
+  </property>
+  <property name="windowTitle" >
+   <string>qdacco</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="icons.qrc" >:/icons/qdacco.png</iconset>
+  </property>
+  <property name="toolTip" >
+   <string/>
+  </property>
+  <widget class="QWidget" name="widget" >
+   <layout class="QGridLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item row="0" column="0" >
+     <layout class="QVBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="MyLineEdit" name="paraula" >
+          <property name="focusPolicy" >
+           <enum>Qt::StrongFocus</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="Buscar" >
+          <property name="minimumSize" >
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="focusPolicy" >
+           <enum>Qt::StrongFocus</enum>
+          </property>
+          <property name="text" >
+           <string>&amp;Search</string>
+          </property>
+          <property name="shortcut" >
+           <string>Ctrl+F</string>
+          </property>
+          <property name="checkable" >
+           <bool>false</bool>
+          </property>
+          <property name="autoDefault" >
+           <bool>true</bool>
+          </property>
+          <property name="default" >
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="TextBrowser" native="1" name="definicio" />
+      </item>
+      <item>
+       <widget class="MyListWidget" name="llistat" />
+      </item>
+      <item>
+       <widget class="QTextEdit" name="clipboard" />
+      </item>
+      <item>
+       <widget class="QLabel" name="actiu" >
+        <property name="sizePolicy" >
+         <sizepolicy>
+          <hsizetype>5</hsizetype>
+          <vsizetype>0</vsizetype>
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize" >
+         <size>
+          <width>100</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="wordWrap" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="report" >
+        <property name="text" >
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QToolBar" name="toolBar" >
+   <property name="orientation" >
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <attribute name="toolBarArea" >
+    <number>4</number>
+   </attribute>
+  </widget>
+  <widget class="QMenuBar" name="MenuBar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>190</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="helpMenu" >
+    <property name="title" >
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="helpAboutAction" />
+   </widget>
+   <widget class="QMenu" name="File" >
+    <property name="title" >
+     <string>&amp;File</string>
+    </property>
+    <addaction name="fileChangeDictionaryAction" />
+    <addaction name="separator" />
+    <addaction name="editConfigureAction" />
+    <addaction name="editQuitAction" />
+   </widget>
+   <widget class="QMenu" name="Edit" >
+    <property name="title" >
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="editCopyAction" />
+    <addaction name="editPasteAction" />
+    <addaction name="separator" />
+    <addaction name="editSelectAction" />
+   </widget>
+   <addaction name="File" />
+   <addaction name="Edit" />
+   <addaction name="helpMenu" />
+  </widget>
+  <action name="editCopyAction" >
+   <property name="icon" >
+    <iconset resource="icons.qrc" >:/icons/editcopy.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Copy</string>
+   </property>
+   <property name="iconText" >
+    <string>&amp;Copy</string>
+   </property>
+   <property name="toolTip" >
+    <string>Copy</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="helpAboutAction" >
+   <property name="icon" >
+    <iconset resource="icons.qrc" >:/icons/qdacco.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;About qdacco</string>
+   </property>
+   <property name="iconText" >
+    <string>&amp;About qdacco</string>
+   </property>
+   <property name="toolTip" >
+    <string>About</string>
+   </property>
+   <property name="shortcut" >
+    <string/>
+   </property>
+  </action>
+  <action name="editConfigure" >
+   <property name="iconText" >
+    <string>editConfigure</string>
+   </property>
+  </action>
+  <action name="editQuitAction" >
+   <property name="icon" >
+    <iconset resource="icons.qrc" >:/icons/exit.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Quit</string>
+   </property>
+   <property name="iconText" >
+    <string>&amp;Quit</string>
+   </property>
+   <property name="toolTip" >
+    <string>Quit</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="editConfigureAction" >
+   <property name="icon" >
+    <iconset resource="icons.qrc" >:/icons/configure.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Configure</string>
+   </property>
+   <property name="iconText" >
+    <string>&amp;Configure</string>
+   </property>
+   <property name="toolTip" >
+    <string>Configure</string>
+   </property>
+   <property name="shortcut" >
+    <string/>
+   </property>
+  </action>
+  <action name="editChange_languageAction" >
+   <property name="text" >
+    <string>Change language</string>
+   </property>
+   <property name="iconText" >
+    <string>Change language</string>
+   </property>
+  </action>
+  <action name="editChange_dictionaryAction" >
+   <property name="text" >
+    <string>Change dictionary</string>
+   </property>
+   <property name="iconText" >
+    <string>Change dictionary</string>
+   </property>
+  </action>
+  <action name="fileChangeDictionaryAction" >
+   <property name="icon" >
+    <iconset resource="icons.qrc" >:/icons/switch2.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Change &amp;dictionary</string>
+   </property>
+   <property name="iconText" >
+    <string>Change &amp;dictionary</string>
+   </property>
+   <property name="toolTip" >
+    <string>Change dictionary</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="editPasteAction" >
+   <property name="icon" >
+    <iconset resource="icons.qrc" >:/icons/editpaste.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Paste</string>
+   </property>
+   <property name="iconText" >
+    <string>&amp;Paste</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="editSelectAction" >
+   <property name="text" >
+    <string>Select word</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+L</string>
+   </property>
+   <property name="shortcutContext" >
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <customwidgets>
+  <customwidget>
+   <class>MyLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>mylineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>MyListWidget</class>
+   <extends>QListWidget</extends>
+   <header>mylistwidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>TextBrowser</class>
+   <extends>QWidget</extends>
+   <header>textbrowser.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>paraula</tabstop>
+  <tabstop>Buscar</tabstop>
+  <tabstop>definicio</tabstop>
+  <tabstop>llistat</tabstop>
+  <tabstop>report</tabstop>
+ </tabstops>
+ <includes>
+  <include location="local" >StructureParser.h</include>
+ </includes>
+ <resources>
+  <include location="icons.qrc" />
+  <include location="translation.qrc" />
+ </resources>
+ <connections>
+  <connection>
+   <sender>editQuitAction</sender>
+   <signal>activated()</signal>
+   <receiver>Main</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
