@@ -29,15 +29,13 @@ Per tal de compilar qDacco, en distribucions basades en Debian
 es necessiten els següents paquets (els quals tenen un nom similar
 en altres distribucions):
 libqt4-core
-libqt4-debug  #es treurà aquesta dependència en futures versions
-libqt4-debug-dev
 libqt4-dev
 libqt4-gui
 qt4-dev-tools
 
 Per tal d'instal·lar-los, es necessita executar (es necessitarà ser root
 per fer-ho):
-apt-get install libqt4-core libqt4-debug libqt4-debug-dev libqt4-dev libqt4-gui qt4-dev-tools
+apt-get install libqt4-core libqt4-dev libqt4-gui qt4-dev-tools
 
 Cal descomprimir el fitxer de qdacco (tar -zxvf qdacco-X.tar.gz) i executar:
 cd qdacco

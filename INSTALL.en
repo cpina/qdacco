@@ -30,14 +30,12 @@ In order to compile qdacco, in Debian-based distributions you will
 need the following packages (which have similar names in other
 distributions):
 libqt4-core
-libqt4-debug  #will be removed in the future
-libqt4-debug-dev
 libqt4-dev
 libqt4-gui
 qt4-dev-tools
 
 In order to install, you need to execute (You need to be root to do this):
-apt-get install libqt4-mt-dev qt4-dev-tools
+apt-get install libqt4-core libqt4-dev libqt4-gui qt4-dev-tools
 
 Then you will have to uncompress qdacco file (tar -zxvf qdacco-X.tar.gz) 
 and execute:

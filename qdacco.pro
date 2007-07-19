@@ -29,7 +29,7 @@ CONFIG -= debug
 TRANSLATIONS = qdacco_ca.ts
 
 #qconf
-include($$OUT_PWD/conf.pri)
+include(conf.pri)
 
 target.path = $$BINDIR
 INSTALLS += target

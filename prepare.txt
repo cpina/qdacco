@@ -1,0 +1,21 @@
+qembed *.qm > qm_files.h
+qmake
+qconf qdacco.qc
+
+----
+al ppal.ui buscar el <cstring>copy</cstring> i posar de iconSet editcopy.png
+al ppal.ui buscar el <cstring>paste</cstring> i posar de iconSet editpaste.png
+al ppal.ui buscar el <cstring>llistat_button</cstring> i posar de iconSet find.png
+<cstring>editConfigureAction</cstring> -> configure.png
+<cstring>fileChange_dictionaryAction_2</cstring> -> switch2.png
+<cstring>editQuitAction</cstring> -> exit.png
+...
+
+Traduccions:
+lupdate qdacco.pro
+linguist qdacco_ca.ts
+lrelease qdacco.pro
+
+qembed *.qm > qm_files.h
+qmake
+qconf qdacco.qc
