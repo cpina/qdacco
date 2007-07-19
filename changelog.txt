@@ -1,3 +1,8 @@
+qdacco 0.6d (July 2007)
+===========
+-Licensed to GPL 3
+-Initial qdacco Window is bigger: fits all information
+
 qdacco 0.6c (April 2007)
 ===========
 -Allows to read using Festival from search field, not only from definition result
