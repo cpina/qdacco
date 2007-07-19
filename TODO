@@ -31,3 +31,49 @@ Misc
 ====
 -Use valgrind to detect memory leaks
 -Clean code
+
+Siegfred (11 Juny)
+- Crec que no estaria de més una opció per deshabilitar la cerca
+mentre s'escriu (encara que sigui útil em re-alenteix el programa, i
+en ordinadors més antics potser podria ser un problema).
+
+- Ara no recordo amb quina paraula ho he pogut comprovar (el nom
+d'alguna llengua, crec), però si hi ha dos entrades iguals amb l'única
+diferència de que una comença en majúscules i l'altre no, encara que
+l'escriguis començant amb majúscules al prémer `Enter' et mostra
+l'escrita en minúscules.
+
+- Potser seria útil que quan envies una paraula et deixi enviar també
+suggerències de traducció?
+
+He pensat en fer un pegat per un parell de coses però al final ha
+decidit que com que el programa esta en C++ segurament no me'n
+sortiria (bé, i que també em fa una mica de pal posar-me a buscar pel
+codi ara xD). Una és que la finestra surt molt petita i el botó
+«Enganxa» no hi cap (surt la fletxa per a mostrar la llista
+desplegable del que no hi cap), l'altre no té pràcticament importància
+així que ni et molesto.
+
+També (i aquest és un altre motiu pel que no he tocat el codi) he vist
+que no puc compilar l'aplicació (tenint tot el que cal insta??lat). A
+continuació tens el que em diu:
+
+--- --- ---
+$ ./configure
+Configuring qdacco ...
+Verifying Qt 4 build environment ... ok
+sh: Syntax error: "(" unexpected
+--- --- ---
+
+Per cert, l'arxiu .deb no creava cap entrada al menú, però ja vaig
+enviar un pegat a Ubuntu i ja està inclòs en la última versió. A
+Debian també ho he comunicat però encara no n'he sentit res (Bug
+#428290).
+
+Un petit comentari sobre la informació que hi ha a la web: Ja que està
+als repositoris d'Ubuntu i Debian, per insta??lar les dependències de
+compilació n'hi ha prou amb fer «sudo apt-get build-dep qdacco». Ah, i
+a les línies d'«apt-get» i «aptitude» els falta el «sudo» al davant.
+
+Salut,
+
