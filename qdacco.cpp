@@ -46,9 +46,11 @@ int main(int argc, char **argv)
                 exit(1);
         }
 
-	printf("qdacco %s\n",qPrintable(Auxiliar::getVersion()));
-        printf("Carles Pina i Estany, %s\n",qPrintable(Auxiliar::getCopyrightDate()));
-        printf("Program: GPL licensed. Data: LGPL\n");
+	printf("qdacco %s Copyright (C) %s Carles Pina i Estany\n",qPrintable(Auxiliar::getVersion()),qPrintable(Auxiliar::getCopyrightDate()));
+	printf("This program comes with ABSOLUTELY NO WARRANTY;\n");
+	printf("This is free software, and you are welcome to redistribute it\n");
+	printf("under certain conditions\n\n");
+        printf("Program: GPL v3. Data: LGPL\n");
 
 	QSettings qs("dacco","qdacco");
 	int idioma = qs.value("/dacco/idioma_per_defecte",1).toInt();
