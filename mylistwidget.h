@@ -33,6 +33,7 @@ class MyListWidget: public QListWidget
 	public:
 		MyListWidget(QWidget *parent=0);
 		void setParent(QObject *q);
+		//int buscar(const QString &s);
 
 
 	protected:

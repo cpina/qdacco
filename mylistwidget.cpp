@@ -67,3 +67,19 @@ void MyListWidget::setParent(QObject *q)
 {
 	m_parent=q;
 }
+
+/*int MyListWidget::buscar(const QString &s) {
+	if (this->count()>5) {
+		//Bad optimization: if there is more than 5 items
+		//we don't check if there is other item with same
+		//way to write
+		return -1;
+	}
+	QList <QListWidgetItem*> li;
+
+	li=this->findItems(s,Qt::MatchExactly);
+	QString resultat;
+	resultat=li[0];
+	printf("Trobar: %s\n",qPrintable(resultat));
+}
+*/

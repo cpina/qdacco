@@ -235,7 +235,6 @@ void Main::buscar()
 	ui.paraula->setFocus(Qt::OtherFocusReason);
 }
 
-
 void Main::paraulaChanged(const QString &paraula)
 {
 	if (m_Autocomplete==FALSE) {
@@ -257,7 +256,10 @@ void Main::paraulaChanged(const QString &paraula)
 	if (ui.llistat->count()==1) {
 		ui.llistat->setCurrentRow(0);
 	}
-
+	
+	if (ui.llistat->count()>1 && ui.llistat->item(1)->text()==paraula) {
+		ui.llistat->setCurrentRow(1);
+	}
 
 	//Enable/disable the report button
 	if (paraula.length()==0) {
@@ -275,17 +277,6 @@ void Main::paraulaChanged(const QString &paraula)
 		}
 	}
 	ui.report->setEnabled(enabled);
-
-	
-	//old stuff
-	/*if (ui.llistat->count()==0 && ui.paraula->text().length()!=0) {
-		ui.report->setText(tr("Report as new entry"));
-		//ui.report->show();
-	}
-	else {
-		//ui.report->hide();
-	}
-	*/
 }
 
 void Main::UpdateList() {
