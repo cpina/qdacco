@@ -74,9 +74,42 @@ void MyLineEdit::setParent(QObject *q)
 
 void MyLineEdit::contextMenuEvent(QContextMenuEvent *e)
 {
+	selectWord();
 	QMenu *menu = createStandardContextMenu();
 	QAction *festival = menu->addAction(tr("Read"));
 	festival->setEnabled(m_festival_enable && this->text().length()>0);
 	connect(festival,SIGNAL(triggered()),m_parent,SLOT(FestivalExecuteEntry()));
 	menu->exec(e->globalPos());
+	
+	//moure-ho
+}
+
+void MyLineEdit::selectWord() {
+	QTextCursor qtc;
+	QString s;
+
+	if (this->hasSelectedText()==FALSE) {
+		//Selecciona paraula on hi ha el cursor
+		int position=this->cursorPosition();
+		int begin,end;
+
+		begin=getPrevSpace(position);
+		end=getNextSpace(position);
+		this->setSelection(begin,end);
+
+	}
+}
+
+int MyLineEdit::getPrevSpace(int pos) {
+	while (pos>0 && this->text()[pos]!=' ') {
+		pos--;
+	}
+	return pos;
+}
+
+int MyLineEdit::getNextSpace(int pos) {
+	while (pos<this->text().length() && this->text()[pos]!=' ') {
+		pos++;
+	}
+	return pos;
 }

@@ -45,6 +45,11 @@ class MyLineEdit : public QLineEdit
 	private:
 		QObject* m_parent;
 		int m_festival_enable;
+		QPoint m_qpoint;
+
+		void selectWord();
+		int getPrevSpace(int pos);
+		int getNextSpace(int pos);
 
 };
 

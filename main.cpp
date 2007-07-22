@@ -107,7 +107,7 @@ void Main::FestivalExecuteEntry() {
 	QString arguments="";
 
 	ui.actiu->hide();
-	QString selectedText=ui.paraula->text();
+	QString selectedText=ui.paraula->selectedText();
 
 	if (m_idioma_actiu == Auxiliar::eng2cat()) { //TODO: Auxiliar is setted up incorrectly?
 		arguments="--language catalan";
