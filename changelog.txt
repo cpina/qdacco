@@ -1,7 +1,11 @@
 qdacco 0.6d (July 2007)
 ===========
 -Licensed to GPL 3
--Initial qdacco Window is bigger: fits all information
+-Initial qdacco Window is bigger: fits all icons (reported by Siegfried-Angel)
+-In advanced options: allowed to disable incremental search (report by
+Siegfried-Angel)
+-Fixed bug: searching in case-insenstive was not choosing the correct word if
+two exact words was in the list (reported by Siegfried-Angel)
 
 qdacco 0.6c (April 2007)
 ===========

@@ -215,6 +215,9 @@ void Main::buscarClicked()
 
 void Main::buscarEnter()
 {
+	ui.report->show();
+	ui.report->setEnabled(TRUE);
+
 	if (ui.llistat->isVisible()) {
 		QListWidgetItem *item;
 		item = ui.llistat->currentItem();
@@ -235,6 +238,12 @@ void Main::buscar()
 
 void Main::paraulaChanged(const QString &paraula)
 {
+	if (m_Autocomplete==FALSE) {
+		//ui.report->setEnabled(FALSE);
+		ui.report->hide();
+		return;
+	}
+
 	bool enabled=false;
 
 	//Update the list
@@ -536,6 +545,7 @@ void Main::carrega_config(int all)
 		m_IgnoreAccents = qs.value("/dacco/ignore_accents","").toBool();
 		m_FestivalPath = qs.value("/dacco/festival","").toString();
 		m_CurrentUILanguage = qs.value("/dacco/idioma_per_defecte",1).toInt();
+		m_Autocomplete = qs.value("/dacco/autocomplete",1).toBool();
 
 		ui.definicio->setFestivalEnable(m_FestivalPath!="");
 		ui.paraula->setFestivalEnable(m_FestivalPath!="");

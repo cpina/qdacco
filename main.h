@@ -61,9 +61,11 @@ class Main : public QMainWindow, Ui::Main
 		QToolButton *m_cat_eng;
 		QToolButton *m_eng_cat;
 
+		//TODO: prepare a config structure
 		bool m_IgnoreCase;
 		bool m_IgnoreAccents;
 		bool m_CurrentUILanguage;
+		bool m_Autocomplete;
 		QString m_FestivalPath;
 
 		void treballaBuscar();

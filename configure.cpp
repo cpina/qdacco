@@ -155,6 +155,7 @@ void Configure::carregar_config() {
         ui.email->setText(qs.value("/dacco/email","").toString());
 	ui.ignorar_majuscules->setChecked(!qs.value("/dacco/ignore_case","1").toBool());
 	ui.ignorar_accents->setChecked(qs.value("/dacco/ignore_accents","1").toBool());
+	ui.autocompletar->setChecked(qs.value("/dacco/autocomplete","1").toBool());
 }
 
 
@@ -180,6 +181,7 @@ void Configure::okf()
     settings.setValue("/dacco/festival",ui.festival->text());
     settings.setValue("/dacco/ignore_case",!ui.ignorar_majuscules->isChecked());
     settings.setValue("/dacco/ignore_accents",ui.ignorar_accents->isChecked());
+    settings.setValue("/dacco/autocomplete",ui.autocompletar->isChecked());
 
     this->close();
 }

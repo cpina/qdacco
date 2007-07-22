@@ -1,6 +1,3 @@
-textbrowser: que el parent sigui una classe abstracte/virtual/... que tingui uns implements
-
-
 BUGS and IMPROVEMENTS for next releases
 
 Important
@@ -12,7 +9,7 @@ diccionaris!
 -ñ -> no troba el diccionari
 
 -tradueix de forma automàtica el que troba al portapapers
--popup amb la traducció quan es seleccióna alguna cosa
+-popup amb la traducció quan es selecciona alguna cosa
 
 Maybe?
 ======
