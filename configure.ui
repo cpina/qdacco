@@ -396,14 +396,6 @@
  </widget>
  <layoutdefault spacing="6" margin="11" />
  <tabstops>
-  <tabstop>traduccio_defecte</tabstop>
-  <tabstop>idioma_defecte</tabstop>
-  <tabstop>ignorar_accents</tabstop>
-  <tabstop>ignorar_majuscules</tabstop>
-  <tabstop>nom</tabstop>
-  <tabstop>email</tabstop>
-  <tabstop>ok</tabstop>
-  <tabstop>cancel</tabstop>
   <tabstop>tabWidget</tabstop>
   <tabstop>directori</tabstop>
   <tabstop>busca_fitxer</tabstop>
@@ -414,6 +406,15 @@
   <tabstop>festival</tabstop>
   <tabstop>busca_festival</tabstop>
   <tabstop>ajuda_festival</tabstop>
+  <tabstop>autocompletar</tabstop>
+  <tabstop>ok</tabstop>
+  <tabstop>cancel</tabstop>
+  <tabstop>email</tabstop>
+  <tabstop>ignorar_majuscules</tabstop>
+  <tabstop>nom</tabstop>
+  <tabstop>traduccio_defecte</tabstop>
+  <tabstop>idioma_defecte</tabstop>
+  <tabstop>ignorar_accents</tabstop>
  </tabstops>
  <resources>
   <include location="icons.qrc" />

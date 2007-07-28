@@ -5,7 +5,6 @@ Nota
 Per baixar-se els diccionaris:
 http://prdownloads.sourceforge.net/dacco/dacco-0.9.zip?download
 
-
 Instruccions generals d'instal·lació
 ====================================
 Nota prèvia: Debian té paquet de dacco i qdacco. Per tant no cal compilar-ho,
