@@ -5,14 +5,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>250</width>
-    <height>195</height>
+    <width>270</width>
+    <height>200</height>
    </rect>
+  </property>
+  <property name="sizePolicy" >
+   <sizepolicy>
+    <hsizetype>5</hsizetype>
+    <vsizetype>5</vsizetype>
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="minimumSize" >
    <size>
-    <width>250</width>
-    <height>195</height>
+    <width>200</width>
+    <height>200</height>
    </size>
   </property>
   <property name="windowTitle" >
@@ -130,6 +138,14 @@
    </layout>
   </widget>
   <widget class="QToolBar" name="toolBar" >
+   <property name="sizePolicy" >
+    <sizepolicy>
+     <hsizetype>5</hsizetype>
+     <vsizetype>5</vsizetype>
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="orientation" >
     <enum>Qt::Horizontal</enum>
    </property>
@@ -142,7 +158,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>190</width>
+     <width>270</width>
      <height>31</height>
     </rect>
    </property>
@@ -309,6 +325,12 @@
  <layoutdefault spacing="6" margin="11" />
  <customwidgets>
   <customwidget>
+   <class>TextBrowser</class>
+   <extends>QWidget</extends>
+   <header>textbrowser.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>MyLineEdit</class>
    <extends>QLineEdit</extends>
    <header>mylineedit.h</header>
@@ -317,12 +339,6 @@
    <class>MyListWidget</class>
    <extends>QListWidget</extends>
    <header>mylistwidget.h</header>
-  </customwidget>
-  <customwidget>
-   <class>TextBrowser</class>
-   <extends>QWidget</extends>
-   <header>textbrowser.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <tabstops>

@@ -29,6 +29,9 @@ Main::Main(QWidget *)  //parent
 	ui.llistat->setParent(this);
 	ui.definicio->setFather(this);
 	ui.report->setText(tr("Report as new entry"));
+
+	resize(QSize(270,300));
+
 	
 	ui.report->setEnabled(false);
 
@@ -240,6 +243,7 @@ void Main::paraulaChanged(const QString &paraula)
 	if (m_Autocomplete==FALSE) {
 		//ui.report->setEnabled(FALSE);
 		ui.report->hide();
+		ui.actiu->hide();
 		return;
 	}
 
@@ -511,11 +515,10 @@ void Main::obrir_about()
 	delete a;
 }
 
-void Main::carrega_config(int all)
+void Main::carrega_config(int )
 {
         QSettings qs("dacco","qdacco");
 	QString browser;
-        int xsize,ysize,xpos,ypos;
         QString version;
 
 	m_directori_usuari = qs.value("/dacco/directori","").toString();
@@ -547,15 +550,6 @@ void Main::carrega_config(int all)
                 Auxiliar::debug("Directory: "+m_directori_usuari);
                 
 		posa_idioma();
-
-                if (all==1) {
-                        xpos = qs.value("/dacco/xpos",0).toInt();
-                        ypos = qs.value("/dacco/ypos",0).toInt();
-                        xsize = qs.value("/dacco/xsize",234).toInt();
-                        ysize = qs.value("/dacco/ysize",355).toInt();
-
-                        resize(QSize(xsize,ysize));
-                }
         }
 }
 
