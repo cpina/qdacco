@@ -1,3 +1,7 @@
+qdacco
+======
+-TAB order in configure dialog has been fixed
+
 qdacco 0.6d (July 2007)
 ===========
 -Licensed to GPL 3
