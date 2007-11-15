@@ -20,7 +20,7 @@
  */
 
 #include "about.h"
-#include "auxiliar.h"
+#include "../core/auxiliar.h"
 
 About::About(QWidget *)  //parent
 {

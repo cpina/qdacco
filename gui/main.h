@@ -33,10 +33,10 @@
 #include "configure.h"
 #include "about.h"
 #include "suggeriment.h"
-#include "connection.h"
+#include "../core/connection.h"
 #include "textbrowser.h"
-#include "auxiliar.h"
-#include "StructureList.h"
+#include "../core/auxiliar.h"
+#include "../core/StructureList.h"
 
 class Main : public QMainWindow, Ui::Main
 {

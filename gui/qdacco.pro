@@ -10,19 +10,29 @@ INCLUDEPATH += .
 # Input
 HEADERS += configure.h \
            main.h \
-           StructureParser.h \
-           StructureList.h \
-           worddata.h \
+           ../core/StructureParser.h \
+           ../core/StructureList.h \
+           ../core/worddata.h \
 	   about.h \
 	   suggeriment.h \
-	   connection.h \
-	   auxiliar.h \
+	   ../core/connection.h \
+	   ../core/auxiliar.h \
 	   textbrowser.h \
-	   auxiliar.h \
 	   mylineedit.h \
 	   mylistwidget.h
 FORMS += configure.ui main.ui about.ui suggeriment.ui
-SOURCES += configure.cpp main.cpp qdacco.cpp StructureParser.cpp StructureList.cpp worddata.cpp about.cpp suggeriment.cpp connection.cpp auxiliar.cpp mylineedit.cpp mylistwidget.cpp
+SOURCES += configure.cpp \
+           main.cpp \
+	   qdacco.cpp \
+	   ../core/StructureParser.cpp \
+	   ../core/StructureList.cpp \
+	   ../core/worddata.cpp \
+	   about.cpp \
+	   suggeriment.cpp \
+	   ../core/connection.cpp \
+	   ../core/auxiliar.cpp \
+	   mylineedit.cpp \
+	   mylistwidget.cpp
 QT += xml network
 RESOURCES = icons.qrc translation.qrc
 CONFIG -= debug

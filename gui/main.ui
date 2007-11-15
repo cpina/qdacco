@@ -349,7 +349,7 @@
   <tabstop>report</tabstop>
  </tabstops>
  <includes>
-  <include location="local" >StructureParser.h</include>
+  <include location="local" >../core/StructureParser.h</include>
  </includes>
  <resources>
   <include location="icons.qrc" />

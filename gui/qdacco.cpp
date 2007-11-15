@@ -24,7 +24,7 @@
 #include <qmessagebox.h>
 #include <QLocale>
 #include "main.h"
-#include "auxiliar.h"
+#include "../core/auxiliar.h"
 
 int main(int argc, char **argv)
 {

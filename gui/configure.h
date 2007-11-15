@@ -31,7 +31,7 @@
 #include <QToolButton>
 #include <QFileDialog>
 #include "ui_configure.h"
-#include "auxiliar.h"
+#include "../core/auxiliar.h"
 
 class Configure : public QDialog
 {
