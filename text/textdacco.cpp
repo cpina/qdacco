@@ -1,5 +1,5 @@
 #include <qapplication.h>
-#include "auxiliar.h"
+#include "../core/auxiliar.h"
 
 int main() {
 	printf("Hola\n");
