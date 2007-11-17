@@ -132,4 +132,20 @@ bool Auxiliar::isUnix() {
 	//bad aproximation :-D
 	return (!Auxiliar::isWindows() && !Auxiliar::isMac());
 }
+
+char Auxiliar::lletra_buscar(QString q) {
+        QChar a;
+
+        if (q.at(0)=='à' || q.at(0)=='á' || q.at(0)=='â' || q.at(0)=='ä') return 'a';
+        if (q.at(0)=='è' || q.at(0)=='é' || q.at(0)=='ê' || q.at(0)=='ë') return 'e';
+        if (q.at(0)=='ì' || q.at(0)=='í' || q.at(0)=='î' || q.at(0)=='ï') return 'i';
+        if (q.at(0)=='ò' || q.at(0)=='ó' || q.at(0)=='ô' || q.at(0)=='ö') return 'o';
+        if (q.at(0)=='ù' || q.at(0)=='ú' || q.at(0)=='û' || q.at(0)=='ü') return 'u';
+
+        if (q.at(0)=='ç') return 'c';
+
+        a=q.at(0);
+
+        return (a.toAscii());
+}
 #endif

@@ -314,7 +314,6 @@ void Main::UpdateList() {
 	letter=lletra_buscar(search);
 	QFile xmlFile(m_directori_usuari+"/"+idioma+"/"+letter+".dic");
 
-
 	if (!xmlFile.exists()) {
 		showError(tr("Cannot open dictionary file. Check configuration directory and permissions"));
 	}

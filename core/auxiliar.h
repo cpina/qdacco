@@ -63,5 +63,7 @@ class Auxiliar
 		static bool isWindows();
 		static bool isMac();
 		static bool isUnix();
+
+		static char lletra_buscar(QString q);
 };
 #endif

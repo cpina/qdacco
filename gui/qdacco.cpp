@@ -63,7 +63,7 @@ int main(int argc, char **argv)
 	}
 		
 	if (idioma==1) {
-	
+		//default language, don't change anything
 	}
 
 	if (idioma==2) {

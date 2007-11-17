@@ -60,6 +60,10 @@ public:
 	int getNum();
 	void incNum();
 	QString getEntry(int i);
+	QString getTextEntry(int i);
+	QString getHTMLEntry(int i);
+
+	static QString HTML2Text(QString t);
 
 private:
 	void printError(QString tag);
@@ -80,5 +84,11 @@ private:
 	QString femplural[MAX_WORDS];
 	QString synonyms[MAX_WORDS];
 };
+/*
+class WordDataConversor {
+	static QString HTML2Text(QString t);
 
+}
+
+*/
 #endif

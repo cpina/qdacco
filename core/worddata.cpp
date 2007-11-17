@@ -217,7 +217,66 @@ void WordData::incNum() {
 	}
 }
 
+QString WordData::HTML2Text(QString t) {
+	t=t.replace("<BR>","\n");
+	t=t.replace("<U>","");
+	t=t.replace("</U>","");
+
+
+	t=t.replace("<I>","");
+	t=t.replace("</I>","");
+	
+	printf("paraula: %s\n",qPrintable(t));
+
+	int urlstart,urlend;
+	int endloop=0;
+
+	// TODO: don't write what we don't want
+
+	// Tricky way to remove <A HREF=" from Flickr and Pictures fields
+	// Right now, this TAGS are setted up during putFlickr and putPicture
+	// (called from StructureParser) so StructureParser should know if we
+	// will want text or HTML. Or we should format when getting the data
+	// (better way). By the moment I do the tricky system to remove what
+	// should not be here
+	//
+	while (endloop==0) {
+		urlstart=t.indexOf("<A HREF=\"");
+		urlend=t.indexOf("\"",urlstart+strlen("<A HREF=\""));
+		if (urlend>urlstart) {
+			t=t.remove(urlstart,urlend-urlstart+2);
+		}
+		else {
+			endloop=1;
+		}
+	}
+	t=t.replace("</A>","");
+
+	return t;
+}
+
 QString WordData::getEntry(int i) {
+	return getHTMLEntry(i);
+}
+
+QString WordData::getTextEntry(int i) {
+	QString p=getHTMLEntry(i);
+
+	//Note: usually to treat with HTML without specialized library
+	//is "crap". But since I added only this tag's, I can remove myself :-)
+	
+	p=p.replace("<BR>","\n");
+	p=p.replace("<U>","");
+	p=p.replace("</U>","");
+
+
+	p=p.replace("<I>","");
+	p=p.replace("</I>","");
+
+	return p;
+}
+
+QString WordData::getHTMLEntry(int i) {
 	QString ret;
 	QString gender;
 
