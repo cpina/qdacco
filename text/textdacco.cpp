@@ -1,39 +1,25 @@
-#include <iostream>
-
-#include <QFile>
-#include <QXmlInputSource>
-
-#include "../core/auxiliar.h"
-#include "../core/StructureParser.h"
-#include "../core/StructureList.h"
-
-#include <getopt.h>
-
-#define DEFAULT_BASEPATH "/usr/share/dacco-common/dictionaries"
-
-QString SearchWord(QString word,QString dictionary,QString basepath);
-QString SearchList(QString word,QString dictionary,QString basepath);
-
-void ShowUsage();
-void ShowCopyright();
-
-void ShowUsage() {
-	//TODO: write it
-	printf("USAGE:\n");
-	printf("--word or --beginswith\n");
-	printf("--cateng or --engcat\n");
-	printf("--path PATH_TO_DICT [optional]\n");
-	printf("--debug [optional]\n");
-	printf("--help\n");
-}
+/*
+ * qdacco: offline Dacco Catalan <-> English dictionary
+ * Copyright (C) 2005, 2006, 2007 Carles Pina i estany <carles@pina.cat>
+ * 
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; version 2 or any
+ * later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
+ * USA.
+ */
 
 
-void ShowCopyright() {
-	//TODO: write it
-	printf("Carles Pina i Estany, 2007\n");
-	printf("License: GPL v3.0\n");
-	printf("\n");
-}
+#include "textdacco.h"
 
 int main(int argc, char *argv[]) {
 	int flags, opt;
@@ -51,6 +37,7 @@ int main(int argc, char *argv[]) {
 		{"path",1,0,0},
 		{"debug",0,0,0},
 		{"help",0,0,0},
+		{"quiet",0,0,0},
 		{0,0,0,0}
 	};
 	int option_index = 0;
@@ -126,12 +113,15 @@ int main(int argc, char *argv[]) {
 	}
 
 	if (beginswith!="") {
-		printf("Word List:\n");
+		if (quiet==0) {
+			printf("Word List:\n");
+		}
 		QString result = SearchList(beginswith,dictionary,basepath);
 		printf("%s\n",qPrintable(result));
 	}
 	return 0;
 }
+//BIG TODO: factorize SearchWord and SearchList
 
 QString SearchWord(QString word,QString dictionary,QString basepath) {
 	//TODO: integrate into core? (it's used on graphic qdacoo too!)
@@ -229,3 +219,24 @@ QString SearchList(QString word,QString dictionary,QString basepath) {
 
 	return qs;
 }
+
+void ShowUsage() {
+	printf("USAGE:\n");
+	printf("--word or --beginswith\n");
+	printf("--cateng or --engcat\n");
+	printf("--path PATH_TO_DICT [optional]\n");
+	printf("--debug [optional]\n");
+	printf("--help\n");
+}
+
+
+void ShowCopyright() {
+	printf("textdacco Copyright (C) 2007 Carles Pina i Estany\n");
+	printf("This program comes with ABSOLUTELY NO WARRANTY\n");
+	printf("This is free software, and you are welcome to redistribute it\n");
+	printf("under certain conditions; type `show c' for details.\n");
+	printf("License: GPL v3.0\n");
+
+	printf("\n");
+}
+

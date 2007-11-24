@@ -8,7 +8,8 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
-HEADERS += ../core/auxiliar.h \
+HEADERS += textdacco.h \
+	   ../core/auxiliar.h \
            ../core/StructureParser.h \
 	   ../core/StructureList.h \
 	   ../core/worddata.h 

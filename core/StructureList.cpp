@@ -57,7 +57,13 @@ bool StructureList::characters ( const QString & ch )
 		m_list->insertItem(999999999,ch);
 		#endif
 		#ifdef TEXTQDACCO
-		*m_list=*m_list+"\n"+ch;
+		if (m_list->length()==0) { //We don't want extra \n at first
+					  //time
+			*m_list=ch;
+		}
+		else {
+			*m_list=*m_list+"\n"+ch;
+		}
 		#endif
 	}
 	
