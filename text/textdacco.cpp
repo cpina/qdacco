@@ -2,9 +2,8 @@
 
 #include <QFile>
 #include <QXmlInputSource>
-#include <qapplication.h>
+
 #include "../core/auxiliar.h"
-#include "../core/StructureList.h"
 #include "../core/StructureParser.h"
 
 #include <getopt.h>
@@ -19,9 +18,10 @@ void ShowCopyright();
 void ShowUsage() {
 	//TODO: write it
 	printf("USAGE:\n");
-	printf("--word ...\n");
-	printf("--cateng ...\n");
-	printf("--...\n");
+	printf("--word or --beginswith\n");
+	printf("--cateng or --engcat\n");
+	printf("--path PATH_TO_DICT [optional]\n");
+	printf("--ddebug [optional]\n");
 	printf("\n");
 }
 
@@ -65,17 +65,19 @@ int main(int argc, char *argv[]) {
 			break;
 		}
 
-		if (strcmp(long_options[option_index].name,"word")==0) {
+		const char *option_name = long_options[option_index].name;
+
+		if (strcmp(option_name,"word")==0) {
 			word=optarg;
-		} else if (strcmp(long_options[option_index].name,"path")==0) {
+		} else if (strcmp(option_name,"path")==0) {
 			basepath=optarg;
-		} else if (strcmp(long_options[option_index].name,"engcat")==0) {
+		} else if (strcmp(option_name,"engcat")==0) {
 			dictionary="eng";
-		} else if (strcmp(long_options[option_index].name,"cateng")==0) {
+		} else if (strcmp(option_name,"cateng")==0) {
 			dictionary="cat";
-		} else if (strcmp(long_options[option_index].name,"debug")==0) {
+		} else if (strcmp(option_name,"debug")==0) {
 			debug=0;
-		} else if (strcmp(long_options[option_index].name,"quiet")==0) {
+		} else if (strcmp(option_name,"quiet")==0) {
 			quiet=1;
 		}
 	}
@@ -114,6 +116,8 @@ int main(int argc, char *argv[]) {
 }
 
 QString SearchWord(QString word,QString dictionary,QString basepath) {
+	//TODO: integrate into core? (it's used on graphic qdacoo too!)
+
 	//dictionary: -eng, for english to catalan translations
 	//            -cat, for catalan to english
 	StructureParser handler;
@@ -166,4 +170,3 @@ QString SearchWord(QString word,QString dictionary,QString basepath) {
 
 	return ret;
 }
-

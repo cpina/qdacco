@@ -1,3 +1,5 @@
 -Posar bé l'ajuda de ShowUsage i ShowCopyright
+
 -Si la paraula no es troba, ensenyar les més properes (! estava fet abans, caldrà refer-ho? o ensenyar les que comencen igual fins a un punt...)
+
 -Posar un codi de retorn especial en cas que no es trobi la paraula, no es trobi el diccionari o la sintaxis sigui invàlida
