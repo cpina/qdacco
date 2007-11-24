@@ -38,6 +38,8 @@ RESOURCES = icons.qrc translation.qrc
 CONFIG -= debug
 TRANSLATIONS = qdacco_ca.ts
 
+DEFINES += GUIQDACCO
+
 #qconf
 include(conf.pri)
 
