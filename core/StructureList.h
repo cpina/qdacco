@@ -25,6 +25,7 @@
 #include <QListWidget>
 #include <QXmlDefaultHandler>
 #include <QQueue> 
+#include <QString>
 #include "worddata.h"
 
 class QString;

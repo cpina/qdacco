@@ -23,8 +23,7 @@
 #ifndef AUXILIAR_H
 #define AUXILIAR_H
 
-#include <qstring.h>
-
+#include <QString>
 
 class Auxiliar
 {

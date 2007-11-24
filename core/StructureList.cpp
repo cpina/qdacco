@@ -21,9 +21,6 @@
 
 #include "StructureList.h"
 
-#include <stdio.h>
-#include <qstring.h>  
-
 //TODO: Disable order when starting to insert, enable back again after it. New elemnts are in order, coming from dictionary!
 
 bool StructureList::startDocument()

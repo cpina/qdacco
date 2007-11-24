@@ -22,11 +22,9 @@
 #ifndef STRUCTUREPARSER_H
 #define STRUCTUREPARSER_H
 
-#include <stdio.h>
-#include <qstring.h>
-
 #include <QXmlDefaultHandler>
 #include <QQueue> 
+#include <QString>
 
 #include "worddata.h"
 #include "auxiliar.h"

@@ -22,7 +22,7 @@ void ShowUsage() {
 	printf("--cateng or --engcat\n");
 	printf("--path PATH_TO_DICT [optional]\n");
 	printf("--ddebug [optional]\n");
-	printf("\n");
+	printf("--help\n");
 }
 
 
@@ -38,19 +38,22 @@ int main(int argc, char *argv[]) {
 	int c;
 	int debug;
 	int exit_later=0;
-	int quiet;
+	int quiet=0;
+	int help=0;
 
 	static struct option long_options[]={
 		{"engcat",0,0,0},
 		{"cateng",0,0,0},
 		{"word",1,0,0},
+		{"beginswith",1,0,0},
 		{"path",1,0,0},
 		{"debug",0,0,0},
+		{"help",0,0,0},
 		{0,0,0,0}
 	};
 	int option_index = 0;
 
-	QString word="",dictionary,basepath="";
+	QString word="",dictionary,basepath="",beginswith="";
 
 	if (argc==1) {
 		ShowCopyright();
@@ -69,6 +72,8 @@ int main(int argc, char *argv[]) {
 
 		if (strcmp(option_name,"word")==0) {
 			word=optarg;
+		} else if (strcmp(option_name,"beginswith")==0) {
+			beginswith=optarg;
 		} else if (strcmp(option_name,"path")==0) {
 			basepath=optarg;
 		} else if (strcmp(option_name,"engcat")==0) {
@@ -79,6 +84,8 @@ int main(int argc, char *argv[]) {
 			debug=0;
 		} else if (strcmp(option_name,"quiet")==0) {
 			quiet=1;
+		} else if (strcmp(option_name,"help")==0) {
+			help=1;
 		}
 	}
 
@@ -87,13 +94,18 @@ int main(int argc, char *argv[]) {
 	if (quiet==0) {
 		ShowCopyright();
 	}
+	
+	if (help==1) {
+		ShowUsage();
+		exit_later=1;
+	}
 
-	if (word=="") {
+	if (word=="" && beginswith=="" && help==0) {
 		printf("--word SOME_WORD is mandatory\n");
 		exit_later=1;
 	}
 
-	if (dictionary=="") {
+	if (dictionary=="" && help==0) {
 		printf("--cateng or --engcat options are needed\n");
 		exit_later=1;
 	}
@@ -131,8 +143,6 @@ QString SearchWord(QString word,QString dictionary,QString basepath) {
 	else if (dictionary=="cat") {
 		path=basepath+"/cateng/";
 	}
-
-
 
 	char lletra=Auxiliar::lletra_buscar(word);
 	path=path+lletra+".dic";

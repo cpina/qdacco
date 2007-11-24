@@ -24,6 +24,7 @@
 
 #include <QString>
 #include <QObject>
+
 #define MAX_WORDS 50
 
 class WordData {

@@ -21,9 +21,6 @@
 
 #include "StructureParser.h"
 
-#include <stdio.h>
-#include <qstring.h>  
-
 bool StructureParser::startDocument()
 {
 	after_word = 0;

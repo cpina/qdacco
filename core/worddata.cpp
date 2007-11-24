@@ -19,7 +19,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <stdio.h>
 #include "worddata.h"
 
 WordData::WordData() {
@@ -226,7 +225,7 @@ QString WordData::HTML2Text(QString t) {
 	t=t.replace("<I>","");
 	t=t.replace("</I>","");
 	
-	printf("paraula: %s\n",qPrintable(t));
+	//printf("paraula: %s\n",qPrintable(t));
 
 	int urlstart,urlend;
 	int endloop=0;
@@ -279,6 +278,7 @@ QString WordData::getTextEntry(int i) {
 QString WordData::getHTMLEntry(int i) {
 	QString ret;
 	QString gender;
+	int picture=false;
 
 	if (!(getGender(i)).isNull()) {
 		gender=" ("+getGender(i)+")";
@@ -320,10 +320,15 @@ QString WordData::getHTMLEntry(int i) {
 	}
 
 	if (!(getPicture(i)).isNull()) {
+		ret+="<BR>";
 		ret+="<BR><U>"+QObject::tr("Picture: ")+"</U> "+getPicture(i);
+		picture=true;
 	}
 
 	if (!(getFlickr(i)).isNull()) {
+		if (picture==false) {
+			ret+="<BR>";
+		}
 		ret+="<BR><U>"+QObject::tr("Flickr: ")+"</U> "+getFlickr(i);
 	}
 
