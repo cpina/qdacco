@@ -10,12 +10,15 @@ INCLUDEPATH += .
 # Input
 HEADERS += ../core/auxiliar.h \
            ../core/StructureParser.h \
-	   ../core/worddata.h
+	   ../core/StructureList.h \
+	   ../core/worddata.h 
 
 SOURCES += textdacco.cpp \ 
            ../core/auxiliar.cpp \
 	   ../core/StructureParser.cpp \
+	   ../core/StructureList.cpp \
 	   ../core/worddata.cpp
 
 QT += xml
 QT -= gui
+DEFINES += TEXTQDACCO

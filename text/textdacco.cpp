@@ -5,12 +5,14 @@
 
 #include "../core/auxiliar.h"
 #include "../core/StructureParser.h"
+#include "../core/StructureList.h"
 
 #include <getopt.h>
 
 #define DEFAULT_BASEPATH "/usr/share/dacco-common/dictionaries"
 
 QString SearchWord(QString word,QString dictionary,QString basepath);
+QString SearchList(QString word,QString dictionary,QString basepath);
 
 void ShowUsage();
 void ShowCopyright();
@@ -21,7 +23,7 @@ void ShowUsage() {
 	printf("--word or --beginswith\n");
 	printf("--cateng or --engcat\n");
 	printf("--path PATH_TO_DICT [optional]\n");
-	printf("--ddebug [optional]\n");
+	printf("--debug [optional]\n");
 	printf("--help\n");
 }
 
@@ -36,7 +38,7 @@ void ShowCopyright() {
 int main(int argc, char *argv[]) {
 	int flags, opt;
 	int c;
-	int debug;
+	int debug=0;
 	int exit_later=0;
 	int quiet=0;
 	int help=0;
@@ -81,7 +83,7 @@ int main(int argc, char *argv[]) {
 		} else if (strcmp(option_name,"cateng")==0) {
 			dictionary="cat";
 		} else if (strcmp(option_name,"debug")==0) {
-			debug=0;
+			debug=1;
 		} else if (strcmp(option_name,"quiet")==0) {
 			quiet=1;
 		} else if (strcmp(option_name,"help")==0) {
@@ -99,17 +101,14 @@ int main(int argc, char *argv[]) {
 		ShowUsage();
 		exit_later=1;
 	}
-
 	if (word=="" && beginswith=="" && help==0) {
-		printf("--word SOME_WORD is mandatory\n");
+		printf("--word|--beginswith WORD is mandatory\n");
 		exit_later=1;
 	}
-
 	if (dictionary=="" && help==0) {
 		printf("--cateng or --engcat options are needed\n");
 		exit_later=1;
 	}
-
 	if (basepath=="") {
 		Auxiliar::debug(QString("Using default basepath: ")+QString(DEFAULT_BASEPATH)+QString("\n"));
 		basepath=DEFAULT_BASEPATH;
@@ -118,12 +117,19 @@ int main(int argc, char *argv[]) {
 		exit(1);
 	}
 
-	QString result = SearchWord(word,dictionary,basepath);
+	if (word!="") {
+		QString result = SearchWord(word,dictionary,basepath);
 
-	result=WordData::HTML2Text(result);
+		result=WordData::HTML2Text(result);
 
-	printf("%s\n",qPrintable(result));
+		printf("%s\n",qPrintable(result));
+	}
 
+	if (beginswith!="") {
+		printf("Word List:\n");
+		QString result = SearchList(beginswith,dictionary,basepath);
+		printf("%s\n",qPrintable(result));
+	}
 	return 0;
 }
 
@@ -179,4 +185,47 @@ QString SearchWord(QString word,QString dictionary,QString basepath) {
 	}
 
 	return ret;
+}
+
+QString SearchList(QString word,QString dictionary,QString basepath) {
+	//TODO: integrate into core? (it's used on graphic qdacoo too!)
+
+	//dictionary: -eng, for english to catalan translations
+	//            -cat, for catalan to english
+	StructureList handler;
+
+	QString path="";
+	QString ret="";
+
+	if (dictionary=="eng") {
+		path=basepath+"/engcat/";
+	}
+	else if (dictionary=="cat") {
+		path=basepath+"/cateng/";
+	}
+
+	char lletra=Auxiliar::lletra_buscar(word);
+	path=path+lletra+".dic";
+
+	QFile xmlFile(path);
+	if (!xmlFile.exists()) {
+		printf("I cannot open dictionary file: %s . You can change the path using --path option\n",qPrintable(path));
+		exit(2);
+	}
+	
+	QXmlInputSource source(&xmlFile);
+	QXmlSimpleReader reader;
+
+	reader.setFeature("http://trolltech.com/xml/features/report-whitespace-only-CharData",FALSE);   //if we don't use it, we get more entries because spaces...
+	reader.setContentHandler(&handler);
+
+	//Buf, change this! why handler needs setParaula and setWord?
+	handler.setParaula(word);
+	handler.setWord(word);
+
+	QString qs="";
+	handler.setList(&qs);
+	reader.parse(source);
+
+	return qs;
 }
