@@ -11,7 +11,7 @@ INCLUDEPATH += .
 HEADERS += configure.h \
            main.h \
            ../core/StructureParser.h \
-           StructureList.h \
+           ../core/StructureList.h \
            ../core/worddata.h \
 	   about.h \
 	   suggeriment.h \
@@ -25,7 +25,7 @@ SOURCES += configure.cpp \
            main.cpp \
 	   qdacco.cpp \
 	   ../core/StructureParser.cpp \
-	   StructureList.cpp \
+	   ../core/StructureList.cpp \
 	   ../core/worddata.cpp \
 	   about.cpp \
 	   suggeriment.cpp \

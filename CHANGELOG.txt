@@ -1,19 +1,24 @@
 qdacco
 ======
+-First version of textdacco
+-Because textdacco: split the program with gui, core and text
 -TAB order in configure dialog has been fixed
+-After search a word with long definition, you can use Down and Up arrows and
+ Next and Previous page to move the definition without loose the focus
 
 qdacco 0.6d (July 2007)
 ===========
 -Licensed to GPL 3
 -Initial qdacco Window is bigger: fits all icons (reported by Siegfried-Angel)
 -In advanced options: allowed to disable incremental search (reported by
-Siegfried-Angel)
+ Siegfried-Angel)
 -Fixed bug: searching in case-insenstive was not choosing the correct word if
-two exact words was in the list (reported by Siegfried-Angel)
+ two exact words was in the list (reported by Siegfried-Angel)
 
 qdacco 0.6c (April 2007)
 ===========
--Allows to read using Festival from search field, not only from definition result
+-Allows to read using Festival from search field, not only from definition
+ result
 
 qdacco 0.6b (April 2007)
 ===========

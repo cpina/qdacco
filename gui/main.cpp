@@ -163,12 +163,12 @@ void Main::FestivalExecute(QString text,QString arguments) {
 	m_festival.closeWriteChannel();
 }
 
-bool Main::eventFilter(QObject *, QEvent *event) //obj
+void Main::moveWordList(QEvent *event)
 {
 	int type = event->type();
 	int move=0;
 	int newposition=0;
-	
+
 	if (type == QEvent::User+Auxiliar::KeyDown())
 	{
 		if (ui.llistat->currentRow()==ui.llistat->count()-1 || ui.llistat->currentRow()==-1) {
@@ -206,6 +206,51 @@ bool Main::eventFilter(QObject *, QEvent *event) //obj
 
 	if (move) {
 		ui.llistat->setCurrentRow(newposition);
+	}
+}
+
+void Main::moveDefinicio(QEvent *event)
+{
+	int type = event->type();
+	int step,pagestep;
+
+	QScrollBar *bar;
+	bar=ui.definicio->verticalScrollBar();
+	
+	step=bar->singleStep();
+	pagestep=bar->pageStep();
+
+	if (type == QEvent::User+Auxiliar::KeyDown()) {
+		bar->setSliderPosition(bar->sliderPosition()+step);
+	}
+	else if (type == QEvent::User+Auxiliar::KeyUp()) {
+		bar->setSliderPosition(bar->sliderPosition()-step);
+	}
+	else if (type == QEvent::User+Auxiliar::KeyNextPage()) {
+		bar->setSliderPosition(bar->sliderPosition()+pagestep);
+	}
+	else if (type == QEvent::User+Auxiliar::KeyPrevPage()) {
+		bar->setSliderPosition(bar->sliderPosition()-pagestep);
+	}
+}
+
+bool Main::eventFilter(QObject *, QEvent *event) //obj
+{
+	int type = event->type();
+
+	// Optimitzation: we don't want to do any other operation
+	// if Event is not to move a key
+	if (type!=QEvent::User+Auxiliar::KeyDown() &&
+		type!=QEvent::User+Auxiliar::KeyUp() &&
+		type!=QEvent::User+Auxiliar::KeyNextPage() &&
+		type!=QEvent::User+Auxiliar::KeyPrevPage()) {
+			return NULL;
+	}
+
+	if (ui.llistat->isVisible()) {
+		moveWordList(event);
+	} else if (ui.definicio->isVisible()) {
+		moveDefinicio(event);
 	}
 
 	return TRUE;

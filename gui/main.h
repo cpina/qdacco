@@ -88,6 +88,9 @@ class Main : public QMainWindow, Ui::Main
 		
 		void FestivalExecute(QString text,QString arguments);
 
+		void moveWordList(QEvent *event);
+		void moveDefinicio(QEvent *event);
+
 	private slots:
 		void buscarEnter();
 		void buscarClicked();
