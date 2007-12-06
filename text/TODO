@@ -1,5 +1,3 @@
--Afegir suport per fitxer de configuració (per guardar-hi el path)
-
 -Suport per ignorar o no majúcules i accents?
 
 -Posar un codi de retorn especial en cas que no es trobi la paraula, no es trobi el diccionari o la sintaxis sigui invàlida

@@ -22,12 +22,13 @@
 #include "textdacco.h"
 
 int main(int argc, char *argv[]) {
-	int flags, opt;
+	//int flags, opt;
 	int c;
 	int debug=0;
 	int exit_later=0;
 	int quiet=0;
 	int help=0;
+
 
 	static struct option long_options[]={
 		{"engcat",0,0,0},
@@ -97,8 +98,8 @@ int main(int argc, char *argv[]) {
 		exit_later=1;
 	}
 	if (basepath=="") {
-		Auxiliar::debug(QString("Using default basepath: ")+QString(DEFAULT_BASEPATH)+QString("\n"));
-		basepath=DEFAULT_BASEPATH;
+		basepath=GetDictionaryPath();
+		Auxiliar::debug(QString("Using dictionary path: ")+basepath+QString("\n"));
 	}
 	if (exit_later) {
 		exit(1);
@@ -145,7 +146,7 @@ QString Search(QString word,QString dictionary,QString basepath,int type) {
 
 	QFile xmlFile(path);
 	if (!xmlFile.exists()) {
-		printf("I cannot open dictionary file: %s . You can change the path using --path option\n",qPrintable(path));
+		printf("Error opening dictionary file: %s .\nYou can change the path using --path option or in config file\n",qPrintable(path));
 		exit(2);
 	}
 	
@@ -216,3 +217,30 @@ void ShowCopyright() {
 	printf("\n");
 }
 
+
+QString GetDictionaryPath() {
+	//TODO: could we use Configure::search_directory from GUI?
+	
+	//If PATH in config file exists: returns it
+	//else: returns default Dictionary path
+	
+	QSettings qs("dacco","qdacco");
+	QString path,ret="";
+
+	path=qs.value("/dacco/directori", "" ).toString();
+
+	QDir dir(path);
+	
+	if (dir.exists() && path.length()>0) {
+		ret=path;
+	}
+	else {
+		QDir dir(Auxiliar::getDictionariesDirectory());
+
+		if (dir.exists()) {
+			ret=Auxiliar::getDictionariesDirectory();
+		}
+	}
+
+	return ret;
+}

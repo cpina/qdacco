@@ -1,5 +1,7 @@
 #include <QFile>
 #include <QXmlInputSource>
+#include <QSettings>
+#include <QDir>
 
 #include "../core/auxiliar.h"
 #include "../core/StructureParser.h"
@@ -7,9 +9,10 @@
 
 #include <getopt.h>
 
-#define DEFAULT_BASEPATH "/usr/share/dacco-common/dictionaries"
-
 QString Search(QString word,QString dictionary,QString basepath,int type);
+QString GetDictionaryPath();
 
 void ShowUsage();
 void ShowCopyright();
+
+
