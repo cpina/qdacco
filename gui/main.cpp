@@ -363,7 +363,7 @@ void Main::UpdateList() {
 		showError(tr("Cannot open dictionary file. Check configuration directory and permissions"));
 	}
 	else {
-		Auxiliar::debug("Fitxer2: "+m_directori_usuari+"/"+idioma+"/"+letter+".dic");
+		Auxiliar::debug("File2: "+m_directori_usuari+"/"+idioma+"/"+letter+".dic");
 
 		QXmlInputSource source( &xmlFile );
 		QXmlSimpleReader reader;
@@ -416,7 +416,7 @@ void Main::treballaBuscar() {
 			showError(tr("Cannot open dictionary file. Check configuration directory and permissions"));
 		}
 		else {
-			Auxiliar::debug("Fitxer: "+m_directori_usuari+"/"+idioma+"/"+lletra+".dic");
+			Auxiliar::debug("File: "+m_directori_usuari+"/"+idioma+"/"+lletra+".dic");
 
 			QXmlInputSource source( &xmlFile );
 			QXmlSimpleReader reader;
