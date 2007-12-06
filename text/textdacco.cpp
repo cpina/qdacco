@@ -105,7 +105,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	if (word!="") {
-		QString result = SearchWord(word,dictionary,basepath);
+		QString result = Search(word,dictionary,basepath,1);
 
 		result=WordData::HTML2Text(result);
 
@@ -116,19 +116,19 @@ int main(int argc, char *argv[]) {
 		if (quiet==0) {
 			printf("Word List:\n");
 		}
-		QString result = SearchList(beginswith,dictionary,basepath);
+		QString result = Search(beginswith,dictionary,basepath,2);
 		printf("%s\n",qPrintable(result));
 	}
 	return 0;
 }
-//BIG TODO: factorize SearchWord and SearchList
 
-QString SearchWord(QString word,QString dictionary,QString basepath) {
-	//TODO: integrate into core? (it's used on graphic qdacoo too!)
-
+//type==1: SearchWord
+//type==2: SearchList
+QString Search(QString word,QString dictionary,QString basepath,int type) {
+	//TODO: integrate into core? (it's used similar methods in GUI!)
+	
 	//dictionary: -eng, for english to catalan translations
 	//            -cat, for catalan to english
-	StructureParser handler;
 
 	QString path="";
 	QString ret="";
@@ -153,71 +153,47 @@ QString SearchWord(QString word,QString dictionary,QString basepath) {
 	QXmlSimpleReader reader;
 
 	reader.setFeature("http://trolltech.com/xml/features/report-whitespace-only-CharData",FALSE);   //if we don't use it, we get more entries because spaces...
-	reader.setContentHandler(&handler);
+	
+	
+	//Buf, change this! why handler needs setParaula and setWord?
+	//List and Word?
+	//handler.setWord(word);
 
-	handler.setParaula(word);
+	if (type==1) {
+		//TODO: factorize with StructureList?
+		StructureParser handler;
+		reader.setContentHandler(&handler);
+		handler.setParaula(word);
 
-	reader.parse(source);
+		reader.parse(source);
 
-	WordData d = handler.getWordData();
+		WordData d = handler.getWordData();
 
-	if (d.getNum()>0) {
-		for (int i=0;i<d.getNum();i++) {
-			ret=ret+d.getTextEntry(i);
-			if (i+1<d.getNum()) {
-				ret=ret+"\n------\n";
+		if (d.getNum()>0) {
+			for (int i=0;i<d.getNum();i++) {
+				ret=ret+d.getTextEntry(i);
+				if (i+1<d.getNum()) {
+					ret=ret+"\n------\n";
+				}
 			}
 		}
-	}
 
-	else if (d.getNum()==0) {
-		ret="Word not found";
-	}
+		else if (d.getNum()==0) {
+			ret="Word not found";
+		}
 
+	} else if (type==2) {
+		StructureList handler;
+		reader.setContentHandler(&handler);
+		handler.setParaula(word);
+		handler.setWord(word);
+
+		QString qs="";
+		handler.setList(&qs);
+		reader.parse(source);
+		ret = qs;
+	}
 	return ret;
-}
-
-QString SearchList(QString word,QString dictionary,QString basepath) {
-	//TODO: integrate into core? (it's used on graphic qdacoo too!)
-
-	//dictionary: -eng, for english to catalan translations
-	//            -cat, for catalan to english
-	StructureList handler;
-
-	QString path="";
-	QString ret="";
-
-	if (dictionary=="eng") {
-		path=basepath+"/engcat/";
-	}
-	else if (dictionary=="cat") {
-		path=basepath+"/cateng/";
-	}
-
-	char lletra=Auxiliar::lletra_buscar(word);
-	path=path+lletra+".dic";
-
-	QFile xmlFile(path);
-	if (!xmlFile.exists()) {
-		printf("I cannot open dictionary file: %s . You can change the path using --path option\n",qPrintable(path));
-		exit(2);
-	}
-	
-	QXmlInputSource source(&xmlFile);
-	QXmlSimpleReader reader;
-
-	reader.setFeature("http://trolltech.com/xml/features/report-whitespace-only-CharData",FALSE);   //if we don't use it, we get more entries because spaces...
-	reader.setContentHandler(&handler);
-
-	//Buf, change this! why handler needs setParaula and setWord?
-	handler.setParaula(word);
-	handler.setWord(word);
-
-	QString qs="";
-	handler.setList(&qs);
-	reader.parse(source);
-
-	return qs;
 }
 
 void ShowUsage() {
