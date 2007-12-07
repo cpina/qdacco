@@ -201,7 +201,7 @@ QString Configure::search_directory(QString current,QString d1,QString d2)
         if (current=="") {
                 QDir dir(d1);
 		if (dir.exists()) {
-                        current="/usr/share/dacco-common/dictionaries/";
+                        current=Auxiliar::getDictionariesDirectory();
                 }
         }
 
