@@ -22,6 +22,11 @@
 #include "StructureList.h"
 
 //TODO: Disable order when starting to insert, enable back again after it. New elemnts are in order, coming from dictionary!
+StructureList::StructureList(Client &pclient)
+{
+	_client = pclient;
+}
+
 
 bool StructureList::startDocument()
 {
@@ -53,37 +58,40 @@ bool StructureList::characters ( const QString & ch )
 		// But it was not easy to use Abstract class
 		// because I should change to not use GUI Qt
 		// (next versions, maybe) :-)
-		#ifdef GUIQDACCO
-		m_list->insertItem(999999999,ch);
-		#endif
-		#ifdef TEXTQDACCO
-		if (m_list->length()==0) { //We don't want extra \n at first
+		//ifdef GUIQDACCO
+		if(_client==GUI)
+			m_listGUI->insertItem(999999999,ch);
+		//#endif
+		//#ifdef TEXTQDACCO
+		if(_client==TEXT)
+		{
+			if (m_listTEXT->length()==0) { //We don't want extra \n at first
 					  //time
-			*m_list=ch;
-		}
-		else {
-			*m_list=*m_list+"\n"+ch;
-		}
-		#endif
+				*m_listTEXT=ch;
+			}
+			else {
+				*m_listTEXT=*m_listTEXT+"\n"+ch;
+			}
+		}//#endif
 	}
 	
 	return TRUE;
 }
 
-#ifdef GUIQDACCO
+//#ifdef GUIQDACCO
 void StructureList::setList(QListWidget *l)
 {
-	m_list=l;
+	m_listGUI=l;
 }
-#endif
+//#endif
 
 
-#ifdef TEXTQDACCO
+//#ifdef TEXTQDACCO
 void StructureList::setList(QString *l)
 {
-	m_list=l;
+	m_listTEXT=l;
 }
-#endif
+//#endif
 
 void StructureList::setWord(QString w)
 {

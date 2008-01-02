@@ -329,7 +329,10 @@ void Main::paraulaChanged(const QString &paraula)
 }
 
 void Main::UpdateList() {
-        StructureList handler;
+        //StructureList handler;
+	enum Client pclient = GUI;
+	StructureList handler(pclient);
+
 	handler.setIgnoreCase(m_IgnoreCase);
 	handler.setIgnoreAccents(m_IgnoreAccents);
 	handler.setList(ui.llistat);

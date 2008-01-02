@@ -22,20 +22,26 @@
 #ifndef StructureList_H
 #define StructureList_H
 
-#ifdef GUIQDACCO
+//#ifdef GUIQDACCO
 #include <QListWidget>
-#endif
+//#endif
 
 #include <QXmlDefaultHandler>
 #include <QQueue> 
 #include <QString>
 #include "worddata.h"
 
+enum Client {GUI, TEXT} ;
+
 class QString;
 
 class StructureList : public QXmlDefaultHandler
 {
 	public:
+	//constructor; need to set from which kind of client
+	//is called
+	StructureList(Client &);
+
 	bool startDocument();
 	bool startElement( const QString&, const QString&, const QString& ,
 			const QXmlAttributes& attributes);
@@ -48,13 +54,14 @@ class StructureList : public QXmlDefaultHandler
 	void setParaula(const QString &) {}
 	WordData getWordData() { WordData h; return h;}
 
-	#ifdef GUIQDACCO
+	
+	//#ifdef GUIQDACCO
 	void setList(QListWidget *l);
-	#endif
+	//#endif
 
-	#ifdef TEXTQDACCO
+	//#ifdef TEXTQDACCO
 	void setList(QString *l);
-	#endif
+	//#endif
 
 	void setWord(QString w);
 
@@ -67,13 +74,14 @@ class StructureList : public QXmlDefaultHandler
 
 	int m_IgnoreCase;
 	int m_IgnoreAccents;
+	Client _client;
 
-	#ifdef GUIQDACCO
-	QListWidget *m_list;
-	#endif
-	#ifdef TEXTQDACCO
-	QString *m_list;
-	#endif
+	//#ifdef GUIQDACCO
+	QListWidget *m_listGUI;
+	//#endif
+	//#ifdef TEXTQDACCO
+	QString *m_listTEXT;
+	//#endif
 	QString m_word;
 	QString m_word_normalized;
 };

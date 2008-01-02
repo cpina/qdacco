@@ -184,7 +184,9 @@ QString Search(QString word,QString dictionary,QString basepath,int type) {
 		}
 
 	} else if (type==2) {
-		StructureList handler;
+		//StructureList handler;
+		enum Client pclient = TEXT;
+		StructureList handler(pclient);
 		reader.setContentHandler(&handler);
 		handler.setParaula(word);
 		handler.setWord(word);
