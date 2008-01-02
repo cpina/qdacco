@@ -36,7 +36,7 @@
 #include "../core/connection.h"
 #include "textbrowser.h"
 #include "../core/auxiliar.h"
-#include "StructureList.h"
+#include "../core/StructureList.h"
 
 class Main : public QMainWindow, Ui::Main
 {
