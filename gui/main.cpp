@@ -436,7 +436,12 @@ void Main::treballaBuscar() {
 				ui.llistat->hide();
 				
 				for (int i=0;i<d.getNum();i++) {
-					ui.definicio->setHtml(ui.definicio->toHtml()+d.getEntry(i)+"<P>");
+					if (i==0) {
+						ui.definicio->setHtml(d.getEntry(i)+"<BR>");
+					}
+					else {
+						ui.definicio->setHtml(ui.definicio->toHtml()+d.getEntry(i)+"<BR>");
+					}
 				}
 			}
 			
@@ -495,6 +500,7 @@ int Main::isValidWord(QString &q) {
 
 
         Auxiliar::debug("isValidWord: _"+q+"_");
+
         first=q.at(0);
         return (first.isLetter() && q.length()>0);
 }
