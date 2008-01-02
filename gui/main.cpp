@@ -504,8 +504,8 @@ int Main::isValidWord(QString &q) {
 
         Auxiliar::debug("isValidWord: _"+q+"_");
 
-        first=q.at(0);
-        return (first.isLetter() && q.length()>0);
+        //first=q.at(0);
+        return (q.length()>0 && q.at(0).isLetter());
 }
 
 char Main::lletra_buscar(QString q) {
