@@ -9,6 +9,7 @@ set (textqdacco_SRC textdacco.cpp)
 set(textqdacco_MOCS textdacco.h)
 
 set(QT_USE_QTXML true)
+set(QT_USE_GUI false)
 
 INCLUDE(   ${QT_USE_FILE}   )
 
