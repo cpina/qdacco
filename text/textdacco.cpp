@@ -186,15 +186,19 @@ QString Search(QString word,QString dictionary,QString basepath,int type) {
 	} else if (type==2) {
 		//StructureList handler;
 		enum Client pclient = TEXT;
-		StructureList handler(pclient);
+		StructureList handler;
+
 		reader.setContentHandler(&handler);
 		handler.setParaula(word);
 		handler.setWord(word);
 
 		QString qs="";
-		handler.setList(&qs);
+		
 		reader.parse(source);
-		ret = qs;
+
+		ret = handler.getListWords();
+
+		//ret = qs;
 	}
 	return ret;
 }

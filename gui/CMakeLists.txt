@@ -6,12 +6,12 @@ set (qdaccogui_SRC configure.cpp main.cpp
 	   qdacco.cpp about.cpp
 	   suggeriment.cpp 
 	   mylineedit.cpp 
-	   mylistwidget.cpp)
+	   mylistwidget.cpp auxiliargui.cpp)
 
 set (qdaccogui_MOCS configure.h main.h 
 		about.h suggeriment.h 
 	   textbrowser.h mylineedit.h 
-	   mylistwidget.h)
+	   mylistwidget.h auxiliargui.h)
 
 set (qdaccogui_UIS configure.ui main.ui about.ui suggeriment.ui)
 

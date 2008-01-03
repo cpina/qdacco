@@ -29,6 +29,7 @@
 #include <QToolButton>
 #include <QMainWindow>
 #include <QClipboard>
+#include "auxiliargui.h"
 #include "ui_main.h"
 #include "configure.h"
 #include "about.h"
@@ -38,11 +39,15 @@
 #include "../core/auxiliar.h"
 #include "StructureList.h"
 
+
 class Main : public QMainWindow, Ui::Main
 {
 	Q_OBJECT
 	public:
 		Main(QWidget *parent = 0);
+		
+		int UpdateList(QString &q);
+		int AddEntryToGUI(QString);
 	
 	private:
 		HTTPConnection *m_http;
@@ -91,6 +96,7 @@ class Main : public QMainWindow, Ui::Main
 		void moveWordList(QEvent *event);
 		void moveDefinicio(QEvent *event);
 
+
 	private slots:
 		void buscarEnter();
 		void buscarClicked();
@@ -121,8 +127,11 @@ class Main : public QMainWindow, Ui::Main
 		void FestivalExecuteDefinition();
 		void FestivalError(QProcess::ProcessError e);
 		void FestivalFinished(int statusEvent,QProcess::ExitStatus e);
+		
 
 	protected:
 		bool eventFilter(QObject *obj, QEvent *event);
 };
+
+
 #endif

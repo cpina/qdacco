@@ -328,14 +328,25 @@ void Main::paraulaChanged(const QString &paraula)
 	ui.report->setEnabled(enabled);
 }
 
+int lib2class(QString q) { //bridge
+	((Main*)AuxiliarGUI::m)->AddEntryToGUI(q);
+}
+
+int Main::AddEntryToGUI(QString q) {
+	ui.llistat->insertItem(999999999,q);
+}
+
 void Main::UpdateList() {
-        //StructureList handler;
-	enum Client pclient = GUI;
-	StructureList handler(pclient);
+	StructureList handler;
 
 	handler.setIgnoreCase(m_IgnoreCase);
 	handler.setIgnoreAccents(m_IgnoreAccents);
-	handler.setList(ui.llistat);
+
+	AuxiliarGUI::m=this;
+	int (*ptrFunction)(QString)=NULL;
+	ptrFunction = lib2class;
+
+	handler.setAddFunction(ptrFunction);
        
        	QString search = ui.paraula->text();
 
@@ -751,3 +762,14 @@ void Main::showMessage(QString text) {
 	ui.actiu->setText("<CENTER>"+text+"</CENTER>");
 	ui.actiu->show();
 }
+
+/*
+void AuxiliarGUI::setMain(void *_m) {
+	AuxiliarGUI::m = _m;
+}
+
+void* AuxiliarGUI::getMain() {
+	AuxiliarGUI::pepe="";
+	return m;
+}
+*/

@@ -31,7 +31,7 @@ QString Auxiliar::version = "0.7";
 QString Auxiliar::host = "www.catalandictionary.org";
 QString Auxiliar::url = "/qdaccoReport.php";
 QString Auxiliar::dictionaries_directory = "/usr/share/dacco-common/dictionaries";
-QString Auxiliar::copyright_date = "2005, 2006, 2007";
+QString Auxiliar::copyright_date = "2005, 2006, 2007, 2008";
 
 QString Auxiliar::getDictionariesDirectory() {
 	return dictionaries_directory;
@@ -144,7 +144,7 @@ char Auxiliar::lletra_buscar(QString q) {
 
         if (q.at(0)=='ç') return 'c';
 
-        a=q.at(0);
+        a=q.at(0).toLower();
 
         return (a.toAscii());
 }
