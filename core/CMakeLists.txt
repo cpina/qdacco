@@ -6,6 +6,9 @@ set(QT_USE_QTNETWORK true)
 
 INCLUDE(${QT_USE_FILE})
 
+set(QT_USE_QTGUI false)
+set(QT_USE_GUI false)
+
 set(qdaccolib_SRCS auxiliar.cpp  connection.cpp  
 			StructureList.cpp  StructureParser.cpp
 			worddata.cpp)
