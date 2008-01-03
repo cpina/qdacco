@@ -15,7 +15,7 @@ HEADERS += configure.h \
            ../core/worddata.h \
 	   about.h \
 	   suggeriment.h \
-	   ../core/connection.h \
+	   connection.h \
 	   ../core/auxiliar.h \
 	   textbrowser.h \
 	   mylineedit.h \
@@ -29,7 +29,7 @@ SOURCES += configure.cpp \
 	   ../core/worddata.cpp \
 	   about.cpp \
 	   suggeriment.cpp \
-	   ../core/connection.cpp \
+	   connection.cpp \
 	   ../core/auxiliar.cpp \
 	   mylineedit.cpp \
 	   mylistwidget.cpp

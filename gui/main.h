@@ -34,7 +34,7 @@
 #include "configure.h"
 #include "about.h"
 #include "suggeriment.h"
-#include "../core/connection.h"
+#include "connection.h"
 #include "textbrowser.h"
 #include "../core/auxiliar.h"
 #include "StructureList.h"

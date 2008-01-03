@@ -2,18 +2,17 @@
 
 #qdaccolib needs QtXml
 set(QT_USE_QTXML true)
-set(QT_USE_QTNETWORK true)
+
+set(QT_DONT_USE_QTNETWORK true)
+set(QT_DONT_USE_QTGUI  true)
 
 INCLUDE(${QT_USE_FILE})
 
-set(QT_USE_QTGUI false)
-set(QT_USE_GUI false)
-
-set(qdaccolib_SRCS auxiliar.cpp  connection.cpp  
+set(qdaccolib_SRCS auxiliar.cpp 
 			StructureList.cpp  StructureParser.cpp
 			worddata.cpp)
 
-set(qdaccolib_MOCS connection.h )
+set(qdaccolib_MOCS)
 
 #not moc'ed 
 #auxiliar.h StructureList.h StructureParser.h worddata.h
