@@ -45,6 +45,14 @@ make install (com a root)
 I ja es podrà executar qdacco mitjançant el seu nom:
 qdacco
 
+També podeu fer:
+mkdir build
+cd build
+cmake ../
+make
+make install
+
+Però necessitareu tenir el cmake instal·lat.
 
 Potser voldreu afegir un accés directe al teu escriptori o gestor de
 finestres.
