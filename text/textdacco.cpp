@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 	int c;
 	int debug=0;
 	int exit_later=0;
-	int quiet=0;
+	int silent=0;
 	int help=0;
 
 
@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
 		{"path",1,0,0},
 		{"debug",0,0,0},
 		{"help",0,0,0},
-		{"quiet",0,0,0},
+		{"silent",0,0,0},
 		{0,0,0,0}
 	};
 	int option_index = 0;
@@ -72,8 +72,8 @@ int main(int argc, char *argv[]) {
 			dictionary="cat";
 		} else if (strcmp(option_name,"debug")==0) {
 			debug=1;
-		} else if (strcmp(option_name,"quiet")==0) {
-			quiet=1;
+		} else if (strcmp(option_name,"silent")==0) {
+			silent=1;
 		} else if (strcmp(option_name,"help")==0) {
 			help=1;
 		}
@@ -81,7 +81,7 @@ int main(int argc, char *argv[]) {
 
 	Auxiliar::setDebug(debug);
 	
-	if (quiet==0) {
+	if (silent==0) {
 		ShowCopyright();
 	}
 	
@@ -114,7 +114,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	if (beginswith!="") {
-		if (quiet==0) {
+		if (silent==0) {
 			printf("Word List:\n");
 		}
 		QString result = Search(beginswith,dictionary,basepath,2);
@@ -207,8 +207,9 @@ void ShowUsage() {
 	printf("USAGE:\n");
 	printf("--word or --beginswith\n");
 	printf("--cateng or --engcat\n");
-	printf("--path PATH_TO_DICT [optional]\n");
-	printf("--debug [optional]\n");
+	printf("--path PATH_TO_DICT\n");
+	printf("--debug optional\n");
+	printf("--silent]\n");
 	printf("--help\n");
 }
 

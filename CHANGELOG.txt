@@ -1,7 +1,7 @@
-qdacco
-======
+qdacco(0.7
+==========
 -First version of textdacco
--Because textdacco: split the program with gui, core and text
+-Because textdacco: split the program with gui, text and libqdacco
 -TAB order in configure dialog has been fixed
 -After search a word with long definition, you can use Down and Up arrows and
  Next and Previous page to move the definition without loose the focus
