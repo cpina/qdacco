@@ -255,10 +255,11 @@ QString Search(QString word,QString dictionary,QString basepath,int type) {
 
 void ShowUsage() {
 	printf("USAGE:\n");
+	printf("textdacco WORD: bidirectional search\n");
 	printf("--cateng or --engcat\n");
 	printf("--path PATH_TO_DICT\n");
 	printf("--debug optional\n");
-	printf("--silent]\n");
+	printf("--silent\n");
 	printf("--help\n");
 }
 
