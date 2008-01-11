@@ -31,10 +31,17 @@ int main(int argc, char *argv[]) {
 
 
 	static struct option long_options[]={
+		//Usual options
 		{"engcat",1,0,0},
 		{"cateng",1,0,0},
-		{"word",1,0,0},
-		{"beginswith",1,0,0},
+
+		//Advanced options for next release :-)
+		/*{"engword",1,0,0},   //search only this word in eng dict
+		{"catword",1,0,0},     //search only this word in cat dict
+		{"engbegins",1,0,0},   //search only begins with in eng dict
+		{"catbegins",1,0,0},*/ //search only this wrd en cat dict
+
+		//Configuration options
 		{"path",1,0,0},
 		{"debug",0,0,0},
 		{"help",0,0,0},
@@ -43,7 +50,7 @@ int main(int argc, char *argv[]) {
 	};
 	int option_index = 0;
 
-	QString word="",dictionary,basepath="",beginswith="",search="";
+	QString word="",dictionary,basepath="",search="";
 
 	if (argc==1) {
 		ShowCopyright();
@@ -59,22 +66,24 @@ int main(int argc, char *argv[]) {
 
 		const char *option_name = long_options[option_index].name;
 
-		if (strcmp(option_name,"word")==0) {
-			word=optarg;
-		} else if (strcmp(option_name,"beginswith")==0) {
-			beginswith=optarg;
-		} else if (strcmp(option_name,"path")==0) {
-			basepath=optarg;
-		} else if (strcmp(option_name,"engcat")==0) {
+		//Usual options
+		if (strcmp(option_name,"engcat")==0) {
 			search=optarg;
 			dictionary="eng";
 		} else if (strcmp(option_name,"cateng")==0) {
 			search=optarg;
 			dictionary="cat";
+
+		//Configuration options
+		} else if (strcmp(option_name,"path")==0) {
+			basepath=optarg;
+
 		} else if (strcmp(option_name,"debug")==0) {
 			debug=1;
+
 		} else if (strcmp(option_name,"silent")==0) {
 			silent=1;
+
 		} else if (strcmp(option_name,"help")==0) {
 			help=1;
 		}
@@ -105,14 +114,6 @@ int main(int argc, char *argv[]) {
 		search=QString(argv[1]);
 		ExtendedBiSearch(search,basepath);
 	}
-
-	else if (search!="" && word=="" && dictionary!="") {
-		ExtendedSearch(search,dictionary,basepath);
-	}
-
-	else if (search!="" && word=="" && dictionary=="") {
-		ExtendedBiSearch(search,basepath);
-	}
 	else if (word!="") {
 		QString result = Search(word,dictionary,basepath,1);
 
@@ -124,12 +125,12 @@ int main(int argc, char *argv[]) {
 			printf("Word not found\n");
 		}
 	}
-	else if (beginswith!="") {
-		if (silent==0) {
-			printf("Word List:\n");
-		}
-		QString result = Search(beginswith,dictionary,basepath,2);
-		printf("%s\n",qPrintable(result));
+	else if (search!="" && word=="" && dictionary!="") {
+		ExtendedSearch(search,dictionary,basepath);
+	}
+
+	else if (search!="" && word=="" && dictionary=="") {
+		ExtendedBiSearch(search,basepath);
 	}
 	return 0;
 }
@@ -254,7 +255,6 @@ QString Search(QString word,QString dictionary,QString basepath,int type) {
 
 void ShowUsage() {
 	printf("USAGE:\n");
-	printf("--word or --beginswith\n");
 	printf("--cateng or --engcat\n");
 	printf("--path PATH_TO_DICT\n");
 	printf("--debug optional\n");
