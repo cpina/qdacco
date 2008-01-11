@@ -31,8 +31,8 @@ int main(int argc, char *argv[]) {
 
 
 	static struct option long_options[]={
-		{"engcat",0,0,0},
-		{"cateng",0,0,0},
+		{"engcat",1,0,0},
+		{"cateng",1,0,0},
 		{"word",1,0,0},
 		{"beginswith",1,0,0},
 		{"path",1,0,0},
@@ -43,14 +43,13 @@ int main(int argc, char *argv[]) {
 	};
 	int option_index = 0;
 
-	QString word="",dictionary,basepath="",beginswith="";
+	QString word="",dictionary,basepath="",beginswith="",search="";
 
 	if (argc==1) {
 		ShowCopyright();
 		ShowUsage();
 		exit(1);
 	}
-	
 
 	for(;;) {
 		c=getopt_long(argc,argv,"",long_options,&option_index);
@@ -67,8 +66,10 @@ int main(int argc, char *argv[]) {
 		} else if (strcmp(option_name,"path")==0) {
 			basepath=optarg;
 		} else if (strcmp(option_name,"engcat")==0) {
+			search=optarg;
 			dictionary="eng";
 		} else if (strcmp(option_name,"cateng")==0) {
+			search=optarg;
 			dictionary="cat";
 		} else if (strcmp(option_name,"debug")==0) {
 			debug=1;
@@ -89,31 +90,41 @@ int main(int argc, char *argv[]) {
 		ShowUsage();
 		exit_later=1;
 	}
-	if (word=="" && beginswith=="" && help==0) {
-		printf("--word|--beginswith WORD is mandatory\n");
-		exit_later=1;
-	}
-	if (dictionary=="" && help==0) {
-		printf("--cateng or --engcat options are needed\n");
-		exit_later=1;
-	}
+	
 	if (basepath=="") {
 		basepath=GetDictionaryPath();
 		Auxiliar::debug(QString("Using dictionary path: ")+basepath+QString("\n"));
 	}
+	
 	if (exit_later) {
 		exit(1);
 	}
 
-	if (word!="") {
+
+	if (argc==2) {
+		search=QString(argv[1]);
+		ExtendedBiSearch(search,basepath);
+	}
+
+	else if (search!="" && word=="" && dictionary!="") {
+		ExtendedSearch(search,dictionary,basepath);
+	}
+
+	else if (search!="" && word=="" && dictionary=="") {
+		ExtendedBiSearch(search,basepath);
+	}
+	else if (word!="") {
 		QString result = Search(word,dictionary,basepath,1);
 
 		result=WordData::HTML2Text(result);
-
-		printf("%s\n",qPrintable(result));
+		if (result!="") {
+			printf("%s\n",qPrintable(result));
+		}
+		else {
+			printf("Word not found\n");
+		}
 	}
-
-	if (beginswith!="") {
+	else if (beginswith!="") {
 		if (silent==0) {
 			printf("Word List:\n");
 		}
@@ -121,6 +132,44 @@ int main(int argc, char *argv[]) {
 		printf("%s\n",qPrintable(result));
 	}
 	return 0;
+}
+
+void ExtendedBiSearch(QString search,QString basepath) {
+	printf("CAT -> ENG\n");
+	printf("==========\n");
+	ExtendedSearch(search,"cat",basepath);
+
+	printf("\n");
+	printf("ENG -> CAT\n");
+	printf("==========\n");
+	ExtendedSearch(search,"eng",basepath);
+}
+
+void ExtendedSearch(QString search, QString dictionary,QString basepath) {
+	QString result = Search(search,dictionary,basepath,1);
+	result=WordData::HTML2Text(result);
+	if (result!="") {
+		printf("%s\n",qPrintable(search));
+		underline(search);
+		printf("%s\n",qPrintable(result));
+	}
+	else {
+		result = Search(search,dictionary,basepath,2);
+		if (result!="") {
+			printf("%s\n",qPrintable(result));
+	}
+		else {
+			printf("No words starts with \"%s\"\n",qPrintable(search));
+		}
+	}
+}
+
+void underline(QString search) {
+	QString under="";
+	for (int i=0;i<search.length();i++) {
+		under=under+"=";
+	}
+	printf("%s\n",qPrintable(under));
 }
 
 //type==1: SearchWord
@@ -180,7 +229,7 @@ QString Search(QString word,QString dictionary,QString basepath,int type) {
 		}
 
 		else if (d.getNum()==0) {
-			ret="Word not found";
+			ret="";
 		}
 
 	} else if (type==2) {
