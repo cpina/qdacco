@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007
+ * Copyright (c) 2005, 2006, 2007, 2008
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -27,7 +27,7 @@
 
 //Variables to adjust
 int Auxiliar::debugLevel=1;
-QString Auxiliar::version = "0.7";
+QString Auxiliar::version = "0.7.0";
 QString Auxiliar::host = "www.catalandictionary.org";
 QString Auxiliar::url = "/qdaccoReport.php";
 QString Auxiliar::dictionaries_directory = "/usr/share/dacco-common/dictionaries";
