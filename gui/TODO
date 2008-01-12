@@ -1,3 +1,4 @@
+-Mostrar que la paraula s'ha enviat correctament només si es rep "OK" del servidor (a la petició HTTP)
 -Jordi Funollet: fer un applet per KDE -> minimitzar al costat del rellotge
 -Siegfried: fer versió de text
 
