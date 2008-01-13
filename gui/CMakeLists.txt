@@ -45,7 +45,7 @@ QT4_ADD_RESOURCES(qdaccogui_RCC_SRCS ${qdaccogui_RCCS})
 # # generate rules for building source files from the resources
 # build sources, moc'd sources, and rcc'd sources
 add_executable(qdacco  ${qdaccogui_MOCS} ${qdaccogui_MOC_SRCS} ${qdaccogui_UIS_H}
-	${qdaccogui_SRC} ${qdaccogui_SRCS} )
+	${qdaccogui_SRC} ${qdaccogui_SRCS} ${qdaccogui_RCC_SRCS})
 
 target_link_libraries( qdacco qdaccolib ${QT_LIBRARIES})
 
