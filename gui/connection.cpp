@@ -76,6 +76,7 @@ int HTTPConnection::sendSuggestion(const QString &paraula,const QString &transla
 int HTTPConnection::send_post(const QString &q) {
 	QByteArray content; 
 	content = q.toUtf8();
+	Auxiliar::debug("POST: "+q);
 
 	QHttpRequestHeader header("POST", Auxiliar::getURL());
 
