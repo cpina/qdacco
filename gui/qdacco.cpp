@@ -24,7 +24,9 @@
 #include <qmessagebox.h>
 #include <QLocale>
 #include "main.h"
-#include "../core/auxiliar.h"
+
+//qdaccolib
+#include <auxiliar.h>
 
 int main(int argc, char **argv)
 {

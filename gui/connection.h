@@ -29,7 +29,8 @@
 #include <QtNetwork>
 #include <QMainWindow>
 
-#include "auxiliar.h"
+//qdaccolib
+#include <auxiliar.h>
 
 /*Original idea to program it from:
  * http://cvs.sourceforge.net/viewcvs.py/kmess/kmess/kmess/network/extra/httpsoapconnection.h?rev=1.1&view=auto

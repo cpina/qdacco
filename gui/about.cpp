@@ -20,7 +20,9 @@
  */
 
 #include "about.h"
-#include "../core/auxiliar.h"
+
+//qdaccolib
+#include <auxiliar.h>
 
 About::About(QWidget *)  //parent
 {

@@ -36,8 +36,10 @@
 #include "suggeriment.h"
 #include "connection.h"
 #include "textbrowser.h"
-#include "../core/auxiliar.h"
-#include "StructureList.h"
+
+//qdaccolib
+#include <auxiliar.h>
+#include <StructureList.h>
 
 
 class Main : public QMainWindow, Ui::Main

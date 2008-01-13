@@ -31,7 +31,8 @@
 #include <QContextMenuEvent>
 #include <QHashIterator>
 
-#include "../core/auxiliar.h"
+//qdaccolib
+#include <auxiliar.h>
 
 class TextBrowser : public QTextBrowser
 {

@@ -24,7 +24,9 @@
 #define MYLISTWIDGET_H
 
 #include <QtGui>
-#include "../core/auxiliar.h"
+
+//qdaccolib
+#include <auxiliar.h>
 
 class MyListWidget: public QListWidget
 {

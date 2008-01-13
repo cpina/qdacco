@@ -24,7 +24,9 @@
 #define MYLINEEDIT_H
 
 #include <QtGui>
-#include "../core/auxiliar.h"
+
+//qdaccolib
+#include <auxiliar.h>
 
 //Adds to QLineEdit capability to scroll list word box
 //Adds to QLineEdit capability to read words
