@@ -1,7 +1,8 @@
-qdacco(0.7
+qdacco 0.7 (January 2008)
 ==========
 -First version of textdacco
--Because textdacco: split the program with gui, text and libqdacco
+-New building system: using cmake. Thanks to Leopold Palomo for it!
+-Program splitted in three modules: gui, text and libqdacco
 -TAB order in configure dialog has been fixed
 -After search a word with long definition, you can use Down and Up arrows and
  Next and Previous page to move the definition without loose the focus
