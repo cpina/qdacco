@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007
+ * Copyright (c) 2005, 2006, 2007, 2008
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -61,15 +61,15 @@ Main::Main(QWidget *)  //parent
 	connect(paste,SIGNAL(triggered()),this,SLOT(paste_word()));
 	
         connect(ui.Buscar,SIGNAL(clicked()),this,SLOT(buscarClicked()));
-        connect(ui.editConfigureAction,SIGNAL(activated()),this,SLOT(obrir_configuracio_slot()));
-        connect(ui.editSelectAction,SIGNAL(activated()),this,SLOT(select_word()));
+        connect(ui.editConfigureAction,SIGNAL(triggered()),this,SLOT(obrir_configuracio_slot()));
+        connect(ui.editSelectAction,SIGNAL(triggered()),this,SLOT(select_word()));
 
 	connect(m_cat_eng,SIGNAL(clicked()),this,SLOT(cat_engf()));
 	connect(m_eng_cat,SIGNAL(clicked()),this,SLOT(eng_catf()));
 	
-	connect(ui.fileChangeDictionaryAction,SIGNAL(activated()),this,SLOT(switchDictionary()));
+	connect(ui.fileChangeDictionaryAction,SIGNAL(triggered()),this,SLOT(switchDictionary()));
 	connect(ui.paraula,SIGNAL(returnPressed()),this,SLOT(buscarEnter()));
-	connect(ui.helpAboutAction,SIGNAL(activated()),this,SLOT(obrir_about()));
+	connect(ui.helpAboutAction,SIGNAL(triggered()),this,SLOT(obrir_about()));
 
 	connect(ui.report,SIGNAL(clicked()),this,SLOT(obrir_suggeriment()));
 	connect(ui.llistat,SIGNAL(itemDoubleClicked(QListWidgetItem *)),this,SLOT(searchListWord(QListWidgetItem*)));

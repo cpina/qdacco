@@ -31,31 +31,27 @@ libqt4-core
 libqt4-dev
 libqt4-gui
 qt4-dev-tools
+cmake
 
 Per tal d'instal·lar-los, es necessita executar (es necessitarà ser root
 per fer-ho):
-apt-get install libqt4-core libqt4-dev libqt4-gui qt4-dev-tools
+apt-get install libqt4-core libqt4-dev libqt4-gui qt4-dev-tools cmake
 
-Cal descomprimir el fitxer de qdacco (tar -zxvf qdacco-X.tar.gz) i executar:
+Cal descomprimir el fitxer de qdacco (tar -zxvf qdacco-X.tar.gz) i llavors:
 cd qdacco
-./configure
-make
-make install (com a root)
-
-I ja es podrà executar qdacco mitjançant el seu nom:
-qdacco
-
-També podeu fer:
 mkdir build
 cd build
 cmake ../
 make
 make install
 
-Però necessitareu tenir el cmake instal·lat.
+Això deixarà dos binaris:
+build/gui/qdacco : mode gràfic
+build/text/textqdacco: mode text
 
 Potser voldreu afegir un accés directe al teu escriptori o gestor de
 finestres.
+
 El fitxer executable de qDacco es trobarà a /usr/local/bin/qdacco
 
 Festival
@@ -64,8 +60,7 @@ Festival és un sintetitzador de veu. Sol estar disponible al paquet
 festival. Si el teniu instal·lat qdacco el pot fer servir (veure la
 configuració) i pronunciar les paraules.
 
-
 **Llegir 'Instruccions generals d'instal·lació'
 
-Carles Pina i Estany, 2007
+Carles Pina i Estany, 2007, 2008
 carles@pina.cat
