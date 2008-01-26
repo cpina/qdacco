@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007
+ * Copyright (c) 2005, 2006, 2007, 2008
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -166,7 +166,7 @@ void Configure::okf()
     settings.setValue("/dacco/directori", ui.directori->text());
     settings.setValue("/dacco/diccionari_per_defecte",ui.traduccio_defecte->currentIndex()+1);
     settings.setValue("/dacco/idioma_per_defecte",ui.idioma_defecte->currentIndex());
-    settings.setValue("/dacco/version","0.6");
+    settings.setValue("/dacco/version","0.7"); //TODO: change to program constant
 
     if (m_language!=ui.idioma_defecte->currentIndex()) {
                     QMessageBox::information(this, "qdacco",

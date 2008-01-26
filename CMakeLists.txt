@@ -14,9 +14,9 @@ LIST( GET QDACCO_VERSIONS 2 QDACCO_VERSION_PATCH)
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})
 find_package(Qt4 REQUIRED) 
 
-########### qdacco core ##########
+########### qdacco lib ##########
 message(STATUS "Working on qdacco lib")
-add_subdirectory(core)
+add_subdirectory(lib)
 
 ########### qdacco gui ##########
 message(STATUS "Working on qdacco gui")

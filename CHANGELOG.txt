@@ -1,6 +1,6 @@
 qdacco 0.7 (January 2008)
 ==========
--First version of textdacco
+-First version of textdacco (needs lot of improvement)
 -New building system: using cmake. Thanks to Leopold Palomo for it!
 -Program splitted in three modules: gui, text and libqdacco
 -TAB order in configure dialog has been fixed

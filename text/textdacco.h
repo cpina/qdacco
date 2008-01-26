@@ -23,9 +23,9 @@
 #include <QSettings>
 #include <QDir>
 
-#include "../core/auxiliar.h"
-#include "../core/StructureParser.h"
-#include "../core/StructureList.h"
+#include "../lib/auxiliar.h"
+#include "../lib/StructureParser.h"
+#include "../lib/StructureList.h"
 
 #include <getopt.h>
 

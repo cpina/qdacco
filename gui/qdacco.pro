@@ -10,13 +10,13 @@ INCLUDEPATH += .
 # Input
 HEADERS += configure.h \
            main.h \
-           ../core/StructureParser.h \
-           ../core/StructureList.h \
-           ../core/worddata.h \
+           ../lib/StructureParser.h \
+           ../lib/StructureList.h \
+           ../lib/worddata.h \
 	   about.h \
 	   suggeriment.h \
 	   connection.h \
-	   ../core/auxiliar.h \
+	   ../lib/auxiliar.h \
 	   textbrowser.h \
 	   mylineedit.h \
 	   mylistwidget.h
@@ -24,13 +24,13 @@ FORMS += configure.ui main.ui about.ui suggeriment.ui
 SOURCES += configure.cpp \
            main.cpp \
 	   qdacco.cpp \
-	   ../core/StructureParser.cpp \
-	   ../core/StructureList.cpp \
-	   ../core/worddata.cpp \
+	   ../lib/StructureParser.cpp \
+	   ../lib/StructureList.cpp \
+	   ../lib/worddata.cpp \
 	   about.cpp \
 	   suggeriment.cpp \
 	   connection.cpp \
-	   ../core/auxiliar.cpp \
+	   ../lib/auxiliar.cpp \
 	   mylineedit.cpp \
 	   mylistwidget.cpp
 QT += xml network

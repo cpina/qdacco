@@ -18,8 +18,8 @@ include_directories(
     ${QT_INCLUDE_DIR}
 	${CMAKE_CURRENT_BINARY_DIR}
 	${CMAKE_CURRENT_SOURCE_DIR}
-	${CMAKE_BINARY_DIR}/core/
-	${CMAKE_SOURCE_DIR}/core/
+	${CMAKE_BINARY_DIR}/lib/
+	${CMAKE_SOURCE_DIR}/lib/
 	${CMAKE_BINARY_DIR}/text/
 	${CMAKE_SOURCE_DIR}/text/)
 

@@ -176,7 +176,7 @@ void underline(QString search) {
 //type==1: SearchWord
 //type==2: SearchList
 QString Search(QString word,QString dictionary,QString basepath,int type) {
-	//TODO: integrate into core? (it's used similar methods in GUI!)
+	//TODO: integrate into lib? (it's used similar methods in GUI!)
 	
 	//dictionary: -eng, for english to catalan translations
 	//            -cat, for catalan to english

@@ -9,7 +9,7 @@ set (qdaccogui_SRC configure.cpp main.cpp
 	   mylistwidget.cpp auxiliargui.cpp connection.cpp)
 
 set (qdaccogui_MOCS configure.h main.h 
-		about.h suggeriment.h 
+	   about.h suggeriment.h 
 	   textbrowser.h mylineedit.h 
 	   mylistwidget.h auxiliargui.h connection.h)
 
@@ -24,8 +24,8 @@ include_directories(
     ${QT_INCLUDE_DIR}
 	${CMAKE_CURRENT_BINARY_DIR}
 	${CMAKE_CURRENT_SOURCE_DIR}
-	${CMAKE_BINARY_DIR}/core/
-	${CMAKE_SOURCE_DIR}/core/
+	${CMAKE_BINARY_DIR}/lib/
+	${CMAKE_SOURCE_DIR}/lib/
 	${CMAKE_BINARY_DIR}/gui/
 	${CMAKE_SOURCE_DIR}/gui/)
 
