@@ -358,7 +358,7 @@
  <connections>
   <connection>
    <sender>editQuitAction</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>Main</receiver>
    <slot>close()</slot>
    <hints>

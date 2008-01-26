@@ -33,6 +33,7 @@ libqt4-core
 libqt4-dev
 libqt4-gui
 qt4-dev-tools
+qt4-dev-tools
 
 In order to install, you need to execute (You need to be root to do this):
 apt-get install libqt4-core libqt4-dev libqt4-gui qt4-dev-tools
@@ -40,15 +41,24 @@ apt-get install libqt4-core libqt4-dev libqt4-gui qt4-dev-tools
 Then you will have to uncompress qdacco file (tar -zxvf qdacco-X.tar.gz) 
 and execute:
 cd qdacco
-./configure
+mkdir build
+cd build
+cmake ../
 make
-make install (using root user)
 
-You can now run qdacco:
-qdacco
+(From now on, you have the binaries inside build/gui/qdacco and
+build/text/textqdacco, read to execute)
+
+make install #optinally, if you want to install binaries and lib
+             #inside /usr/local/bin and /usr/local/lib
+	     #Execute as root
+
+Attention: if you want to execute qdacco installed in /usr/local/bin,
+you need that /usr/local/lib directory is listed in /etc/ld.so.conf
+(usually it is) and that you execute ldconfig
 
 You might like to add a shortcut to your desktop or Windows Manager.
-qDacco executable file is in /usr/local/bin/qdacco
+qdacco executable file is in /usr/local/bin/qdacco
 
 Festival
 ========

@@ -24,7 +24,7 @@ http://prdownloads.sourceforge.net/dacco/dacco-0.9.zip?download
 
 Instruccions sistemes Unix
 ==========================
-Per tal de compilar qDacco, en distribucions basades en Debian
+Per tal de compilar qdacco, en distribucions basades en Debian
 es necessiten els següents paquets (els quals tenen un nom similar
 en altres distribucions):
 libqt4-core
@@ -43,16 +43,19 @@ mkdir build
 cd build
 cmake ../
 make
-make install
 
-Això deixarà dos binaris:
-build/gui/qdacco : mode gràfic
-build/text/textqdacco: mode text
+(Ara, a dins build/gui/qdacco i build/text/textqdacco ja hi ha els programes
+que podeu executar)
+
+make install #Si voleu instal·lar-ho a /usr/local/bin i /usr/local/lib
+	     #executeu-ho com a root
+
+Atenció: si voleu executar qdacco des de /usr/local/bin, necessiteu que
+/usr/local/lib estigui listat a /etc/ld.so.conf (normalment ja ho és) i que
+executeu ldconfig
 
 Potser voldreu afegir un accés directe al teu escriptori o gestor de
 finestres.
-
-El fitxer executable de qDacco es trobarà a /usr/local/bin/qdacco
 
 Festival
 ========
