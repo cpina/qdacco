@@ -332,7 +332,6 @@ QString WordData::getHTMLEntry(int i) {
 		ret+="<BR><U>"+QObject::tr("Flickr: ")+"</U> "+getFlickr(i);
 	}
 
-
 	return ret;
 }
 

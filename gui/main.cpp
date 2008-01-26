@@ -448,15 +448,18 @@ void Main::treballaBuscar() {
 		        if (d.getNum()!=0) {
 				ui.definicio->show();
 				ui.llistat->hide();
+
+				QString definicio;
 				
 				for (int i=0;i<d.getNum();i++) {
 					if (i==0) {
-						ui.definicio->setHtml(d.getEntry(i)+"<BR>");
+						definicio=d.getEntry(i);
 					}
 					else {
-						ui.definicio->setHtml(ui.definicio->toHtml()+d.getEntry(i)+"<BR>");
+						definicio+="<BR><BR>"+d.getEntry(i);
 					}
 				}
+				ui.definicio->setHtml(definicio);
 			}
 			
 			else if (d.getNum()==0) {
