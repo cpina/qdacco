@@ -12,6 +12,10 @@ set(qdaccolib_SRCS auxiliar.cpp
 			StructureList.cpp  StructureParser.cpp
 			worddata.cpp)
 
+set(qdacco_HDRS qdacco/auxiliar.h qdacco/StructureList.h
+qdacco/StructureParser.h qdacco/worddata.h)
+
+
 set(qdaccolib_MOCS)
 
 #not moc'ed 
@@ -51,3 +55,5 @@ set_target_properties( qdaccolib PROPERTIES
 target_link_libraries( qdaccolib ${QT_LIBRARIES})
 
 install_targets(/lib qdaccolib)
+install (FILES ${qdacco_HDRS} DESTINATION include/qdacco)
+

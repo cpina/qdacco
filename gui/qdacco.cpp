@@ -33,6 +33,7 @@ int main(int argc, char **argv)
 	QApplication app(argc, argv);
 	//MyDialog *window=new MyDialog;
 
+	app.setFont(QFont("Helvetica"));
 	if (app.argc()>1 && strcmp(app.argv()[1],"-d")==0) {
                 printf("Debug enabled\n");
                 Auxiliar::setDebug(1);
