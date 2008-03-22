@@ -32,7 +32,7 @@
 #include <QHashIterator>
 
 //qdaccolib
-#include <auxiliar.h>
+#include <qdacco/auxiliar.h>
 
 class TextBrowser : public QTextBrowser
 {

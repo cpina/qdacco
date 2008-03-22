@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "StructureList.h"
+#include <qdacco/StructureList.h>
 
 //TODO: Disable order when starting to insert, enable back again after it. New elemnts are in order, coming from dictionary!
 StructureList::StructureList()

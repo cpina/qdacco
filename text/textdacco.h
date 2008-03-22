@@ -23,11 +23,12 @@
 #include <QSettings>
 #include <QDir>
 
-#include "../lib/auxiliar.h"
-#include "../lib/StructureParser.h"
-#include "../lib/StructureList.h"
+#include <qdacco/auxiliar.h>
+#include <qdacco/StructureParser.h>
+#include <qdacco/StructureList.h>
 
 #include <getopt.h>
+#include <cstdlib>
 
 QString Search(QString word,QString dictionary,QString basepath,int type);
 QString GetDictionaryPath();

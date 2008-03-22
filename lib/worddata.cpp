@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "worddata.h"
+#include <qdacco/worddata.h>
 
 WordData::WordData() {
 	num=0;

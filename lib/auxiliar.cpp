@@ -23,7 +23,7 @@
 #ifndef AUXILIAR_CPP
 #define AUXILIAR_CPP
 
-#include "auxiliar.h"
+#include <qdacco/auxiliar.h>
 
 //Variables to adjust
 int Auxiliar::debugLevel=1;

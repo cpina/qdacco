@@ -31,6 +31,9 @@
 #include <QToolButton>
 #include "ui_about.h"
 
+//libqdacco
+#include <qdacco/auxiliar.h>
+
 class About : public QDialog
 {
 	Q_OBJECT

@@ -26,7 +26,7 @@
 #include "main.h"
 
 //qdaccolib
-#include <auxiliar.h>
+#include <qdacco/auxiliar.h>
 
 int main(int argc, char **argv)
 {

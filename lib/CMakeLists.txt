@@ -32,7 +32,7 @@ include_directories(
 # generate rules for building source files from the resources
 #QT4_WRAP_UI(qdaccolib_UIS_H ${qdaccolib_UIS})
 QT4_WRAP_CPP(qdaccolib_MOC_SRCS ${qdaccolib_MOCS})
-QT4_ADD_RESOURCES(qdaccolib_RCC_SRCS ${qdaccolib_RCCS})
+#QT4_ADD_RESOURCES(qdaccolib_RCC_SRCS ${qdaccolib_RCCS})
 
 # generate rules for building source files that moc generates
 
@@ -45,7 +45,8 @@ add_library(qdaccolib SHARED ${qdaccolib_MOC_SRCS} ${qdaccolib_UIS_H}
 
 set_target_properties( qdaccolib PROPERTIES 
   SOVERSION "${QDACCO_VERSION_MAJOR}.${QDACCO_VERSION_MINOR}"
-  VERSION "${QDACCO_VERSION}")
+  VERSION "${QDACCO_VERSION}"
+  OUTPUT_NAME qdacco )
 
 target_link_libraries( qdaccolib ${QT_LIBRARIES})
 

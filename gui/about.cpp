@@ -21,9 +21,6 @@
 
 #include "about.h"
 
-//qdaccolib
-#include <auxiliar.h>
-
 About::About(QWidget *)  //parent
 {
 	ui.setupUi(this);

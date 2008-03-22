@@ -38,8 +38,8 @@
 #include "textbrowser.h"
 
 //qdaccolib
-#include <auxiliar.h>
-#include <StructureList.h>
+#include <qdacco/auxiliar.h>
+#include <qdacco/StructureList.h>
 
 
 class Main : public QMainWindow, Ui::Main
