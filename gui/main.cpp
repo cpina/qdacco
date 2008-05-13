@@ -23,12 +23,6 @@
 
 Main* Main::ptr_main;
 
-void Main::restaura() {
-	setWindowState(windowState() & ~Qt::WindowMinimized | Qt::WindowActive);
-	this->show();
-	this->setFocus(Qt::ShortcutFocusReason);
-}
-
 Main* Main::instance() {
         if (!ptr_main) {
                 ptr_main=new Main(0);
@@ -780,6 +774,12 @@ void Main::showError(QString text) {
 void Main::showMessage(QString text) {
 	ui.actiu->setText("<CENTER>"+text+"</CENTER>");
 	ui.actiu->show();
+}
+
+void Main::restaura() {
+	setWindowState(windowState() | Qt::WindowActive);
+	this->show();
+	this->setFocus(Qt::ShortcutFocusReason);
 }
 
 /*

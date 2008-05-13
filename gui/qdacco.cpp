@@ -31,6 +31,11 @@
 //qdaccolib
 #include <qdacco/auxiliar.h>
 
+int GetQdaccoPid();
+void removeQdaccoLock();
+void restore(int sig);
+void WriteLock();
+
 void restore(int sig) {
 	if (sig==SIGUSR1) {
 		Main* window = Main::instance();
@@ -110,6 +115,18 @@ int main(int argc, char **argv)
 	// End of debug info
 
 	qs.sync();
+
+	int pid_qdacco;
+
+	pid_qdacco=GetQdaccoPid();
+
+	if(pid_qdacco) {
+		int kill_result = kill(pid_qdacco,SIGUSR1);
+		if (kill_result==0) {
+			printf("qdacco already started, restoring\n");
+			exit(1);
+		}
+	}
 	
 	//Main *window = new Main;
 	Main *window = Main::instance();
@@ -117,5 +134,47 @@ int main(int argc, char **argv)
 
 	window->show();
 
-	return app.exec();
+	WriteLock();
+	int ret = app.exec();
+	removeQdaccoLock();
+	return ret;
 } 
+
+int GetQdaccoPid() {
+	QString lockpath;
+	lockpath=QDir::homePath()+"/.qdacco.lock";
+
+	QFile lock(lockpath);
+	QString ret;	
+
+	if (!lock.open(QIODevice::ReadOnly | QIODevice::Text)) {
+		WriteLock();
+	}
+	else {
+		ret = lock.readLine();
+	}
+
+	return ret.toInt();
+}
+
+void WriteLock() {
+	QString lockpath;
+	lockpath=QDir::homePath()+"/.qdacco.lock";
+
+	QFile lock(lockpath);
+	lock.open(QIODevice::WriteOnly | QIODevice::Text);
+	QTextStream fileout(&lock);
+	int pid=getpid();
+	fileout << pid << endl;
+	lock.close();
+}
+
+void removeQdaccoLock() {
+	QString lockpath;
+	lockpath=QDir::homePath()+"/.qdacco.lock";
+
+	QFile lock(lockpath);
+
+	lock.remove();
+	lock.close();
+}
