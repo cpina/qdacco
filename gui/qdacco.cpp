@@ -23,17 +23,26 @@
 #include <qdialog.h>
 #include <qmessagebox.h>
 #include <QLocale>
+
+#include <csignal>
+
 #include "main.h"
 
 //qdaccolib
 #include <qdacco/auxiliar.h>
 
+void restore(int sig) {
+	if (sig==SIGUSR1) {
+		Main* window = Main::instance();
+		window->restaura();
+	}
+}
+
 int main(int argc, char **argv)
 {
 	QApplication app(argc, argv);
-	//MyDialog *window=new MyDialog;
 
-	app.setFont(QFont("Helvetica"));
+	//app.setFont(QFont("Helvetica"));
 	if (app.argc()>1 && strcmp(app.argv()[1],"-d")==0) {
                 printf("Debug enabled\n");
                 Auxiliar::setDebug(1);
@@ -102,7 +111,9 @@ int main(int argc, char **argv)
 
 	qs.sync();
 	
-	Main *window = new Main;
+	//Main *window = new Main;
+	Main *window = Main::instance();
+	signal(SIGUSR1,restore);
 
 	window->show();
 

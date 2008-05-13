@@ -41,17 +41,22 @@
 #include <qdacco/auxiliar.h>
 #include <qdacco/StructureList.h>
 
-
 class Main : public QMainWindow, Ui::Main
 {
 	Q_OBJECT
 	public:
-		Main(QWidget *parent = 0);
-		
 		int UpdateList(QString &q);
 		int AddEntryToGUI(QString);
+
+		void restaura();
+
+		static Main* instance();
 	
 	private:
+		Main(QWidget *parent = 0);
+
+		static Main* ptr_main;
+
 		HTTPConnection *m_http;
 		QProcess m_browser;
 		QProcess m_festival;

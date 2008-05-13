@@ -21,6 +21,22 @@
 
 #include "main.h"
 
+Main* Main::ptr_main;
+
+void Main::restaura() {
+	setWindowState(windowState() & ~Qt::WindowMinimized | Qt::WindowActive);
+	this->show();
+	this->setFocus(Qt::ShortcutFocusReason);
+}
+
+Main* Main::instance() {
+        if (!ptr_main) {
+                ptr_main=new Main(0);
+        }
+
+        return ptr_main;
+}
+
 Main::Main(QWidget *)  //parent
 {
 
