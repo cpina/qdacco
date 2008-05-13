@@ -19,9 +19,9 @@
 */
 
 
-#include <qapplication.h>
-#include <qdialog.h>
-#include <qmessagebox.h>
+#include <QApplication>
+#include <QDialog>
+#include <QMessageBox>
 #include <QLocale>
 
 #include <csignal>
