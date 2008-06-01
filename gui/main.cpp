@@ -777,9 +777,11 @@ void Main::showMessage(QString text) {
 }
 
 void Main::restaura() {
-	setWindowState(windowState() | Qt::WindowActive);
+	printf("Restaurant...\n");
+	setWindowState(windowState() & ~Qt::WindowMinimized | Qt::WindowActive);
 	this->show();
 	this->setFocus(Qt::ShortcutFocusReason);
+	this->show();
 }
 
 /*

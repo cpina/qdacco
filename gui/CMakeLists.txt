@@ -6,17 +6,18 @@ set (qdaccogui_SRC configure.cpp main.cpp
 	   qdacco.cpp about.cpp
 	   suggeriment.cpp 
 	   mylineedit.cpp 
-	   mylistwidget.cpp auxiliargui.cpp connection.cpp)
+	   mylistwidget.cpp auxiliargui.cpp connection.cpp oneinstance.cpp)
 
 set (qdaccogui_MOCS configure.h main.h 
 	   about.h suggeriment.h 
 	   textbrowser.h mylineedit.h 
-	   mylistwidget.h auxiliargui.h connection.h)
+	   mylistwidget.h auxiliargui.h connection.h oneinstance.h)
 
 set (qdaccogui_UIS configure.ui main.ui about.ui suggeriment.ui)
 
 set(QT_USE_QTXML true)
 set(QT_USE_QTNETWORK true) 
+set(QT_USE_QTDBUS true) 
 
 INCLUDE(   ${QT_USE_FILE}   )
 
