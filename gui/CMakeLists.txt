@@ -3,15 +3,14 @@
 ###########################################
 
 set (qdaccogui_SRC configure.cpp main.cpp
-	   qdacco.cpp about.cpp
-	   suggeriment.cpp 
-	   mylineedit.cpp 
-	   mylistwidget.cpp auxiliargui.cpp connection.cpp oneinstance.cpp)
+	   qdacco.cpp about.cpp suggeriment.cpp mylineedit.cpp 
+	   mylistwidget.cpp auxiliargui.cpp connection.cpp oneinstance.cpp
+	   trayicon.cpp)
 
 set (qdaccogui_MOCS configure.h main.h 
-	   about.h suggeriment.h 
-	   textbrowser.h mylineedit.h 
-	   mylistwidget.h auxiliargui.h connection.h oneinstance.h)
+	   about.h suggeriment.h textbrowser.h mylineedit.h 
+	   mylistwidget.h auxiliargui.h connection.h oneinstance.h
+	   trayicon.h)
 
 set (qdaccogui_UIS configure.ui main.ui about.ui suggeriment.ui)
 

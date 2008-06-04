@@ -33,7 +33,6 @@ Main* Main::instance() {
 
 Main::Main(QWidget *)  //parent
 {
-
         ui.setupUi(this);
 	ui.paraula->setParent(this);
 	ui.llistat->setParent(this);
@@ -41,6 +40,8 @@ Main::Main(QWidget *)  //parent
 	ui.report->setText(tr("Report as new entry"));
 
 	resize(QSize(270,300));
+
+	trayicon.SetMain(this);
 
 	
 	ui.report->setEnabled(false);

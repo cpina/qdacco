@@ -36,10 +36,13 @@
 #include "suggeriment.h"
 #include "connection.h"
 #include "textbrowser.h"
+#include "trayicon.h"
 
 //qdaccolib
 #include <qdacco/auxiliar.h>
 #include <qdacco/StructureList.h>
+
+// TODO: prepare a different objects for, at least, networking and festival
 
 class Main : public QMainWindow, Ui::Main
 {
@@ -56,6 +59,8 @@ class Main : public QMainWindow, Ui::Main
 	
 	private:
 		Main(QWidget *parent = 0);
+		
+		TrayIcon trayicon;
 
 		static Main* ptr_main;
 

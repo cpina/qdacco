@@ -19,31 +19,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MYLISTWIDGET_H
-#define MYLISTWIDGET_H
+#ifndef TRAYICON_H
+#define TRAYICON_H
 
-#include <QtGui>
+#include <QMenu>
+#include <QSystemTrayIcon>
+#include <QPushButton>
 
-//qdaccolib
-#include <qdacco/auxiliar.h>
-
-class MyListWidget: public QListWidget
+class TrayIcon : public QWidget
 {
 	Q_OBJECT
 
 	public:
-		MyListWidget(QWidget *parent=0);
-		void setParent(QObject *q);
-		//int buscar(const QString &s);
+	TrayIcon();
+	
+	void SetMain(QWidget *qw);
 
-
-	protected:
-		void keyPressEvent(QKeyEvent *pEvent);
 
 	private:
-		QObject* m_parent;
+	void setMenu();
 
+	QSystemTrayIcon *trayIcon;
+	QMenu *trayIconMenu;
+
+	QWidget *main;
+
+	private slots:
+	void leftclick(QSystemTrayIcon::ActivationReason reason);
+	void changestatus();
+	void quit();
 };
 
-#endif
 
+#endif

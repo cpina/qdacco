@@ -166,7 +166,7 @@ void Configure::okf()
     settings.setValue("/dacco/directori", ui.directori->text());
     settings.setValue("/dacco/diccionari_per_defecte",ui.traduccio_defecte->currentIndex()+1);
     settings.setValue("/dacco/idioma_per_defecte",ui.idioma_defecte->currentIndex());
-    settings.setValue("/dacco/version","0.7"); //TODO: change to program constant
+    settings.setValue("/dacco/version","0.8"); //TODO: change to program constant
 
     if (m_language!=ui.idioma_defecte->currentIndex()) {
                     QMessageBox::information(this, "qdacco",
