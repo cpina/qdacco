@@ -108,13 +108,9 @@ int main(int argc, char **argv)
 	oneInstance myOneInstance;
 	bool otherinstance = myOneInstance.isAnotherInstance();
 
-	if (otherinstance==FALSE) {
-		myOneInstance.registerInstance();
-	}
-	else {
-		myOneInstance.sendRestore();
-		printf("Qdacco already running, restoring otherinstance and exiting\n");
-		exit(3);
+	if (otherinstance==TRUE) {
+		myOneInstance.sendQuit();
+		printf("Qdacco already running, closing otherinstance\n");
 	}
 
 	int pid_qdacco;
@@ -123,6 +119,7 @@ int main(int argc, char **argv)
 	Main *window = Main::instance();
 
 	window->show();
+	myOneInstance.registerInstance();
 
 	int ret = app.exec();
 	return ret;

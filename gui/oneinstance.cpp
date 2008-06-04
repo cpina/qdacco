@@ -8,6 +8,7 @@ bool oneInstance::isAnotherInstance() {
 	QDBusConnection bus = QDBusConnection::sessionBus();
 	QStringList serviceNames = bus.interface()->registeredServiceNames();
 
+	qDebug() << serviceNames;
 
 	// Ok, I could do return (serviceNames.indexOf("qdacco.org")!=-1)
 	if (serviceNames.indexOf("qdacco.org")==-1) {
@@ -28,11 +29,26 @@ void oneInstance::sendRestore() {
 	QDBusMessage reply = bus.call(msg);
 }
 
+
+void oneInstance::sendQuit() {
+	// Send to the other instance a restore message
+	QDBusConnection bus = QDBusConnection::sessionBus();
+	QDBusMessage msg = QDBusMessage::createMethodCall("qdacco.org","/serveis","","quit");
+	QDBusMessage reply = bus.call(msg);
+}
+
 void oneInstance::restore() {
 	printf("REBUT RESTORE\n");
 	Main* window = Main::instance();
 	window->restaura();
 }
+
+void oneInstance::quit() {
+	printf("REBUT SURT\n");
+	Main* window = Main::instance();
+	window->quit();
+}
+
 
 void oneInstance::registerInstance() {
 	QDBusConnection bus = QDBusConnection::sessionBus();

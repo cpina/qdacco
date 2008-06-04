@@ -35,9 +35,11 @@ class oneInstance : public QObject
 	public:
 	bool isAnotherInstance();
 	void sendRestore();
+	void sendQuit();
 	void registerInstance();
 
 	public slots:
 	void restore();
+	void quit();
 };
 #endif

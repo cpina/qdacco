@@ -784,6 +784,11 @@ void Main::restaura() {
 	this->show();
 }
 
+void Main::quit() {
+	printf("Quitting...\n");
+	exit(0);
+}
+
 /*
 void AuxiliarGUI::setMain(void *_m) {
 	AuxiliarGUI::m = _m;

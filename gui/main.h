@@ -49,8 +49,10 @@ class Main : public QMainWindow, Ui::Main
 		int AddEntryToGUI(QString);
 
 		void restaura();
+		void quit();
 
 		static Main* instance();
+	
 	
 	private:
 		Main(QWidget *parent = 0);
