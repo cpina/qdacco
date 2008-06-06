@@ -111,17 +111,20 @@ int main(int argc, char **argv)
 	if (otherinstance==TRUE) {
 		myOneInstance.sendQuit();
 		printf("qdacco already running, closing otherinstance\n");
+		exit(1);
 	}
 
 	int pid_qdacco;
 
 	//Main *window = new Main;
+	TrayIcon *trayicon = TrayIcon::instance();
 	Main *window = Main::instance();
 
 	window->show();
 	myOneInstance.registerInstance();
 
 	int ret = app.exec();
+	printf("---------- ACABAT\n");
 	return ret;
 } 
 

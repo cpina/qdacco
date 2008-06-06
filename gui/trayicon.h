@@ -31,23 +31,26 @@ class TrayIcon : public QWidget
 	Q_OBJECT
 
 	public:
-	TrayIcon();
+		static TrayIcon* instance();
+		void primerPla();
 	
-	void SetMain(QWidget *qw);
+		void SetMain(QWidget *qw);
 
 
 	private:
-	void setMenu();
+		TrayIcon();
+		void setMenu();
 
-	QSystemTrayIcon *trayIcon;
-	QMenu *trayIconMenu;
+		QSystemTrayIcon *trayIcon;
+		QMenu *trayIconMenu;
 
-	QWidget *main;
+		QWidget *main;
+		static TrayIcon* ptr_trayicon;
 
 	private slots:
-	void leftclick(QSystemTrayIcon::ActivationReason reason);
-	void changestatus();
-	void quit();
+		void leftclick(QSystemTrayIcon::ActivationReason reason);
+		void changestatus();
+		void quit();
 };
 
 

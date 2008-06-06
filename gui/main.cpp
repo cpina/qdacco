@@ -31,6 +31,17 @@ Main* Main::instance() {
         return ptr_main;
 }
 
+void Main::primerPla() {
+	TrayIcon *trayicon;
+	trayicon = TrayIcon::instance();
+
+	trayicon->primerPla();
+}
+
+Main::~Main() {
+	ptr_main = 0;
+}
+
 Main::Main(QWidget *)  //parent
 {
         ui.setupUi(this);
@@ -41,7 +52,9 @@ Main::Main(QWidget *)  //parent
 
 	resize(QSize(270,300));
 
-	trayicon.SetMain(this);
+	TrayIcon *trayicon;
+	trayicon = TrayIcon::instance();
+	trayicon->SetMain(this);
 
 	
 	ui.report->setEnabled(false);
@@ -789,6 +802,7 @@ void Main::quit() {
 	printf("Quitting...\n");
 	exit(0);
 }
+
 
 /*
 void AuxiliarGUI::setMain(void *_m) {

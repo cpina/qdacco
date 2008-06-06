@@ -65,7 +65,11 @@ void oneInstance::restore() {
 
 void oneInstance::quit() {
 	Main* window = Main::instance();
-	window->quit();
+	delete window;
+	window = Main::instance();
+	window->show();
+
+	//window->quit();
 	//window->show();
 }
 

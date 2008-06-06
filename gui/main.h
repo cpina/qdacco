@@ -53,14 +53,18 @@ class Main : public QMainWindow, Ui::Main
 
 		void restaura();
 		void quit();
+		
+		void primerPla();
 
 		static Main* instance();
+		
+		~Main();
 	
 	
 	private:
 		Main(QWidget *parent = 0);
 		
-		TrayIcon trayicon;
+		//TrayIcon trayicon;
 
 		static Main* ptr_main;
 

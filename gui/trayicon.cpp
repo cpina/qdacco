@@ -23,6 +23,16 @@
 
 #include "trayicon.h"
 
+TrayIcon* TrayIcon::ptr_trayicon;
+
+TrayIcon* TrayIcon::instance() {
+        if (!ptr_trayicon) {
+                ptr_trayicon=new TrayIcon;
+        }
+
+        return ptr_trayicon;
+}
+
 TrayIcon::TrayIcon()
 {
         trayIcon = new QSystemTrayIcon(this);
@@ -94,5 +104,9 @@ void TrayIcon::quit()
 {
 	main->close();
 
+}
+
+void TrayIcon::primerPla() {
+	leftclick(QSystemTrayIcon::Trigger);
 }
 
