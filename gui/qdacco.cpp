@@ -110,7 +110,7 @@ int main(int argc, char **argv)
 
 	if (otherinstance==TRUE) {
 		myOneInstance.sendQuit();
-		printf("Qdacco already running, closing otherinstance\n");
+		printf("qdacco already running, closing otherinstance\n");
 	}
 
 	int pid_qdacco;

@@ -59,15 +59,14 @@ void oneInstance::sendQuit() {
 }
 
 void oneInstance::restore() {
-	printf("REBUT RESTORE\n");
 	Main* window = Main::instance();
 	window->restaura();
 }
 
 void oneInstance::quit() {
-	printf("REBUT SURT\n");
 	Main* window = Main::instance();
 	window->quit();
+	//window->show();
 }
 
 
