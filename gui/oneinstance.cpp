@@ -22,17 +22,18 @@
 
 #include "oneinstance.h"
 
-bool oneInstance::isAnotherInstance() {
-	bool ret=FALSE;
+oneInstance::oneInstance() {
+	ptr_main = new Main;
+	ptr_main->show();
+}
 
+bool oneInstance::isAnotherInstance() {
 	// Return true if there is another instance
+	bool ret=FALSE;
 	
 	QDBusConnection bus = QDBusConnection::sessionBus();
 	QStringList serviceNames = bus.interface()->registeredServiceNames();
 
-	//qDebug() << serviceNames;
-
-	// Ok, I could do return (serviceNames.indexOf("qdacco.org")!=-1)
 	if (serviceNames.indexOf("qdacco.org")==-1) {
 		ret=FALSE;
 	}
@@ -51,31 +52,43 @@ void oneInstance::sendRestore() {
 }
 
 
-void oneInstance::sendQuit() {
-	// Send to the other instance a restore message
-	QDBusConnection bus = QDBusConnection::sessionBus();
-	QDBusMessage msg = QDBusMessage::createMethodCall("qdacco.org","/serveis","","quit");
-	QDBusMessage reply = bus.call(msg);
-}
-
 void oneInstance::restore() {
-	Main* window = Main::instance();
-	window->restaura();
+	// Received by DBUS
+	// Needed to destroy and create the Window again and not only
+	// give the focus because some Window Managers prevents
+	// focus stealing
+
+	
+	int idioma = ptr_main->getIdiomaActiu();
+	QString paraula = ptr_main->getParaula();
+
+	delete ptr_main;
+	ptr_main = new Main;
+
+	ptr_main->setIdiomaActiu(idioma);
+	ptr_main->setParaula(paraula);
+	ptr_main->buscar();
+	ptr_main->show();
 }
-
-void oneInstance::quit() {
-	Main* window = Main::instance();
-	delete window;
-	window = Main::instance();
-	window->show();
-
-	//window->quit();
-	//window->show();
-}
-
 
 void oneInstance::registerInstance() {
 	QDBusConnection bus = QDBusConnection::sessionBus();
 	bus.interface()->registerService("qdacco.org");
 	bus.registerObject("/serveis",this,QDBusConnection::ExportAllSlots);
+}
+
+bool oneInstance::isVisible() {
+	return ptr_main->isVisible();
+}
+
+void oneInstance::close() {
+	ptr_main->close();
+}
+
+void oneInstance::hide() {
+	ptr_main->hide();
+}
+
+void oneInstance::show() {
+	ptr_main->show();
 }

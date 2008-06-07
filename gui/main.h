@@ -48,6 +48,8 @@ class Main : public QMainWindow, Ui::Main
 {
 	Q_OBJECT
 	public:
+		Main(QWidget *parent = 0);
+
 		int UpdateList(QString &q);
 		int AddEntryToGUI(QString);
 
@@ -56,17 +58,19 @@ class Main : public QMainWindow, Ui::Main
 		
 		void primerPla();
 
-		static Main* instance();
+		/////
+		QString getParaula();
+		void setParaula(QString paraula);
+		int getIdiomaActiu();
+		void setIdiomaActiu(int actiu);
 		
-		~Main();
-	
+		void buscar();
 	
 	private:
-		Main(QWidget *parent = 0);
 		
 		//TrayIcon trayicon;
 
-		static Main* ptr_main;
+		//static Main* ptr_main;
 
 		HTTPConnection *m_http;
 		QProcess m_browser;
@@ -101,7 +105,6 @@ class Main : public QMainWindow, Ui::Main
 		void obrir_configuracio();
 		void obrir_configuracio_worker(bool first);
 		
-		void buscar();
 
 		
 		void posa_idioma();

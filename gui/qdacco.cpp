@@ -109,22 +109,18 @@ int main(int argc, char **argv)
 	bool otherinstance = myOneInstance.isAnotherInstance();
 
 	if (otherinstance==TRUE) {
-		myOneInstance.sendQuit();
-		printf("qdacco already running, closing otherinstance\n");
+		myOneInstance.sendRestore();
+		printf("qdacco already running, restoring otherinstance\n");
 		exit(1);
 	}
 
-	int pid_qdacco;
+	TrayIcon *trayicon = new TrayIcon;
 
-	//Main *window = new Main;
-	TrayIcon *trayicon = TrayIcon::instance();
-	Main *window = Main::instance();
-
-	window->show();
 	myOneInstance.registerInstance();
+	
+	trayicon->SetOneInstance(&myOneInstance);
 
 	int ret = app.exec();
-	printf("---------- ACABAT\n");
 	return ret;
 } 
 

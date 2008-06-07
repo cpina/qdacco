@@ -21,25 +21,13 @@
 
 #include "main.h"
 
-Main* Main::ptr_main;
-
-Main* Main::instance() {
-        if (!ptr_main) {
-                ptr_main=new Main(0);
-        }
-
-        return ptr_main;
-}
-
 void Main::primerPla() {
-	TrayIcon *trayicon;
+	printf("MAIN: POSAR-LO EN PRIMER PLA\n");
+	/*TrayIcon *trayicon;
 	trayicon = TrayIcon::instance();
 
 	trayicon->primerPla();
-}
-
-Main::~Main() {
-	ptr_main = 0;
+	*/
 }
 
 Main::Main(QWidget *)  //parent
@@ -52,9 +40,10 @@ Main::Main(QWidget *)  //parent
 
 	resize(QSize(270,300));
 
-	TrayIcon *trayicon;
+	/*TrayIcon *trayicon;
 	trayicon = TrayIcon::instance();
 	trayicon->SetMain(this);
+	*/
 
 	
 	ui.report->setEnabled(false);
@@ -300,6 +289,16 @@ void Main::buscarEnter()
 	buscar();
 }
 
+QString Main::getParaula()
+{
+	return ui.paraula->text();
+}
+
+void Main::setParaula(QString paraula)
+{
+	ui.paraula->setText(paraula);
+}
+
 void Main::buscar()
 {
 	treballaBuscar();
@@ -422,6 +421,13 @@ void Main::UpdateList() {
 	}
 }
 
+int Main::getIdiomaActiu() {
+	return m_idioma_actiu;
+}
+
+void Main::setIdiomaActiu(int actiu) {
+	m_idioma_actiu = actiu;
+}
 
 void Main::treballaBuscar() {
         StructureParser handler;

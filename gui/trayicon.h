@@ -26,32 +26,33 @@
 #include <QSystemTrayIcon>
 #include <QPushButton>
 
+#include "oneinstance.h"
+
+class oneInstance;
+
 class TrayIcon : public QWidget
 {
 	Q_OBJECT
 
 	public:
-		static TrayIcon* instance();
+		TrayIcon();
 		void primerPla();
 	
-		void SetMain(QWidget *qw);
+		void SetOneInstance(oneInstance *o);
 
 
 	private:
-		TrayIcon();
 		void setMenu();
 
 		QSystemTrayIcon *trayIcon;
 		QMenu *trayIconMenu;
 
-		QWidget *main;
-		static TrayIcon* ptr_trayicon;
+		oneInstance *myoneinstance;
 
 	private slots:
 		void leftclick(QSystemTrayIcon::ActivationReason reason);
 		void changestatus();
 		void quit();
 };
-
 
 #endif

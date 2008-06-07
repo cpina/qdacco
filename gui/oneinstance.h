@@ -28,18 +28,31 @@
 
 #include "main.h"
 
+class Main;
+
 class oneInstance : public QObject
 {
 	Q_OBJECT
 
 	public:
-	bool isAnotherInstance();
-	void sendRestore();
-	void sendQuit();
-	void registerInstance();
+		oneInstance();
 
+		bool isAnotherInstance();
+		void sendRestore();
+		void sendQuit();
+		void registerInstance();
+
+		bool isVisible();
+
+		void close();
+		void hide();
+		void show();
+
+
+	private:
+		Main *ptr_main;
+	
 	public slots:
-	void restore();
-	void quit();
+		void restore();
 };
 #endif

@@ -18,6 +18,8 @@ set(QT_USE_QTXML true)
 set(QT_USE_QTNETWORK true) 
 set(QT_USE_QTDBUS true) 
 
+set(CMAKE_CXX_FLAGS "-g3 -ggdb -O0" CACHE STRING "Debug options." FORCE)
+
 INCLUDE(   ${QT_USE_FILE}   )
 
 include_directories(

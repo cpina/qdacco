@@ -23,15 +23,7 @@
 
 #include "trayicon.h"
 
-TrayIcon* TrayIcon::ptr_trayicon;
-
-TrayIcon* TrayIcon::instance() {
-        if (!ptr_trayicon) {
-                ptr_trayicon=new TrayIcon;
-        }
-
-        return ptr_trayicon;
-}
+//TrayIcon* TrayIcon::ptr_trayicon;
 
 TrayIcon::TrayIcon()
 {
@@ -44,32 +36,27 @@ TrayIcon::TrayIcon()
 	// connect the signals-slots
 	connect(trayIcon,SIGNAL(activated(QSystemTrayIcon::ActivationReason)),this,SLOT(leftclick(QSystemTrayIcon::ActivationReason)));
 
-	//trayIconMenu=0;
-
-	installEventFilter(this);
+	//installEventFilter(this);
 }
 
-void TrayIcon::SetMain(QWidget *qw)
+void TrayIcon::SetOneInstance(oneInstance *o)
 {
-	main = qw;
+	myoneinstance = o;
 	setMenu();
 }
 
 void TrayIcon::setMenu()
 {
-	/*if (trayIconMenu!=0) {
-		delete trayIconMenu;
-	}
-	*/
-
         trayIconMenu = new QMenu(this);
 	QAction *action;
-	if (main->isVisible()) {
-		action = trayIconMenu->addAction(tr("Show"));
-	}
-	else {
+
+	if (myoneinstance->isVisible()) {
 		action = trayIconMenu->addAction(tr("Hide"));
 	}
+	else {
+		action = trayIconMenu->addAction(tr("Show"));
+	}
+
 	connect(action,SIGNAL(triggered()),this,SLOT(changestatus()));
 
         trayIconMenu->addSeparator();
@@ -89,24 +76,22 @@ void TrayIcon::changestatus()
 void TrayIcon::leftclick(QSystemTrayIcon::ActivationReason reason)
 {
 	if (reason==QSystemTrayIcon::Trigger) {
-		if (main->isVisible()) {
+		if (myoneinstance->isVisible()) {
+			myoneinstance->hide();
 			setMenu();
-			main->hide();
 		}
 		else {
+			myoneinstance->show();
 			setMenu();
-			main->show();
 		}
 	}
 }
 
 void TrayIcon::quit()
 {
-	main->close();
-
+	myoneinstance->close();
 }
 
 void TrayIcon::primerPla() {
 	leftclick(QSystemTrayIcon::Trigger);
 }
-
