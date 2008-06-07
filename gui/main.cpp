@@ -427,6 +427,7 @@ int Main::getIdiomaActiu() {
 
 void Main::setIdiomaActiu(int actiu) {
 	m_idioma_actiu = actiu;
+	posa_idioma();
 }
 
 void Main::treballaBuscar() {
@@ -622,7 +623,7 @@ void Main::carrega_config(int )
 
 	version = qs.value("/dacco/version","0").toString();
 
-        if (version!="0.7") { //TODO: change to program constant
+        if (version!="0.8") { //TODO: change to program constant
                 //We will open the same settings file with read and then write mode
                 //be careful!
                 QMessageBox::information( this, "qdacco",tr("There is no configuration or old configuration. A configuration dialog will now open"));

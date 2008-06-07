@@ -37,6 +37,8 @@ Configure::Configure(QWidget *)  //parent
 	connect(ui.ajuda_browser,SIGNAL(clicked()),this,SLOT(ajuda_browser()));
 
 	connect(ui.ajuda_festival,SIGNAL(clicked()),this,SLOT(ajuda_festival()));
+	
+	connect(ui.ajuda_multipleinstances,SIGNAL(clicked()),this,SLOT(ajuda_multipleinstances()));
 
 	if (Auxiliar::isWindows() || Auxiliar::isMac()) {
 		ui.busca_browser->hide();
@@ -62,6 +64,10 @@ void Configure::ajuda_browser() {
 
 void Configure::ajuda_festival() {
 	QMessageBox::information(this,tr("Information"),tr("You can produce a synthesised pronunciation of your query results with qdacco. To use this feature you must have Festival installed on your system.<P>Festival webpage: <A HREF=\"http://www.cstr.ed.ac.uk/projects/festival/\">http://www.cstr.ed.ac.uk/projects/festival/</A>"));
+}
+
+void Configure::ajuda_multipleinstances() {
+	QMessageBox::information(this,tr("Information"),tr("Checking: every time that you launch a new qdacco, you will have a new qdacco. Unchecking: qdacco will setup a trayicon and always reuse the same qdacco instance"));
 }
 
 
@@ -182,6 +188,8 @@ void Configure::okf()
     settings.setValue("/dacco/ignore_case",!ui.ignorar_majuscules->isChecked());
     settings.setValue("/dacco/ignore_accents",ui.ignorar_accents->isChecked());
     settings.setValue("/dacco/autocomplete",ui.autocompletar->isChecked());
+    
+    settings.setValue("/dacco/multipleinstances",ui.multipleinstances->isChecked());
 
     this->close();
 }

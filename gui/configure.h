@@ -60,6 +60,7 @@ class Configure : public QDialog
 		void ajuda_busca();
 		void ajuda_browser();
 		void ajuda_festival();
+		void ajuda_multipleinstances();
 
 
 	public slots:
