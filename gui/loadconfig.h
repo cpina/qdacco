@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007
+ * Copyright (c) 2005, 2006, 2007, 2008
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -20,52 +20,20 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef CONFIGURE_H
-#define CONFIGURE_H
+#ifndef LOADCONFIG_H 
+#define LOADCONFIG_H
 
-#include <QApplication>
-#include <QDialog>
-#include <QMessageBox>
 #include <QSettings>
-#include <QDir>
-#include <QToolButton>
-#include <QFileDialog>
-#include "ui_configure.h"
 
-//qdaccolib
-#include <qdacco/auxiliar.h>
-
-class Configure : public QDialog
+class LoadConfig : QObject
 {
-	Q_OBJECT
+        Q_OBJECT
 	public:
-		Configure(QWidget *parent = 0);
-	
+		LoadConfig();
+		bool getSingleInstance();
+
 	private:
-		Ui::Configure ui;
-		QString search_directory(QString current,QString d1,QString d2);
-		
-		int m_language;
-
-		bool checkExecutable(QString qstring);
-
-	private slots:
-		void okf();
-		void cancelf();
-
-		void busca_fitxerf();
-		void busca_browserf();
-		void busca_festivalf();
-
-		void ajuda_busca();
-		void ajuda_browser();
-		void ajuda_festival();
-		void ajuda_singleinstance();
-
-
-	public slots:
-		void carregar_config();
-		void setFirst(bool first);
+		QSettings *m_qs;
 
 };
 #endif

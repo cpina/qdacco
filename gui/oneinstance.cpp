@@ -66,8 +66,11 @@ void oneInstance::restore() {
 	ptr_main = new Main;
 
 	ptr_main->setIdiomaActiu(idioma);
-	ptr_main->setParaula(paraula);
-	ptr_main->buscar();
+
+	if (paraula.length()>0) {
+		ptr_main->setParaula(paraula);
+		ptr_main->buscar();
+	}
 	ptr_main->show();
 }
 

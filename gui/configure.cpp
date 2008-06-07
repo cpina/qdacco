@@ -38,7 +38,7 @@ Configure::Configure(QWidget *)  //parent
 
 	connect(ui.ajuda_festival,SIGNAL(clicked()),this,SLOT(ajuda_festival()));
 	
-	connect(ui.ajuda_multipleinstances,SIGNAL(clicked()),this,SLOT(ajuda_multipleinstances()));
+	connect(ui.ajuda_singleinstance,SIGNAL(clicked()),this,SLOT(ajuda_singleinstance()));
 
 	if (Auxiliar::isWindows() || Auxiliar::isMac()) {
 		ui.busca_browser->hide();
@@ -66,7 +66,7 @@ void Configure::ajuda_festival() {
 	QMessageBox::information(this,tr("Information"),tr("You can produce a synthesised pronunciation of your query results with qdacco. To use this feature you must have Festival installed on your system.<P>Festival webpage: <A HREF=\"http://www.cstr.ed.ac.uk/projects/festival/\">http://www.cstr.ed.ac.uk/projects/festival/</A>"));
 }
 
-void Configure::ajuda_multipleinstances() {
+void Configure::ajuda_singleinstance() {
 	QMessageBox::information(this,tr("Information"),tr("Checking: every time that you launch a new qdacco, you will have a new qdacco. Unchecking: qdacco will setup a trayicon and always reuse the same qdacco instance"));
 }
 
@@ -162,6 +162,7 @@ void Configure::carregar_config() {
 	ui.ignorar_majuscules->setChecked(!qs.value("/dacco/ignore_case","1").toBool());
 	ui.ignorar_accents->setChecked(qs.value("/dacco/ignore_accents","1").toBool());
 	ui.autocompletar->setChecked(qs.value("/dacco/autocomplete","1").toBool());
+	ui.singleinstance->setChecked(qs.value("/dacco/singleinstance","1").toBool());
 }
 
 
@@ -189,7 +190,7 @@ void Configure::okf()
     settings.setValue("/dacco/ignore_accents",ui.ignorar_accents->isChecked());
     settings.setValue("/dacco/autocomplete",ui.autocompletar->isChecked());
     
-    settings.setValue("/dacco/multipleinstances",ui.multipleinstances->isChecked());
+    settings.setValue("/dacco/singleinstance",ui.singleinstance->isChecked());
 
     this->close();
 }
@@ -237,4 +238,3 @@ bool Configure::checkExecutable(QString executable) {
 void Configure::setFirst(bool first) {
 	ui.cancel->setEnabled(first==false);
 }
-

@@ -26,8 +26,11 @@
 
 #include <csignal>
 
+#include "loadconfig.h"
+
 #include "main.h"
 #include "oneinstance.h"
+#include "configure.h"
 
 //qdaccolib
 #include <qdacco/auxiliar.h>
@@ -105,20 +108,25 @@ int main(int argc, char **argv)
 
 	qs.sync();
 
+	LoadConfig loadconfig;
 	oneInstance myOneInstance;
-	bool otherinstance = myOneInstance.isAnotherInstance();
 
-	if (otherinstance==TRUE) {
-		myOneInstance.sendRestore();
-		printf("qdacco already running, restoring otherinstance\n");
-		exit(1);
+	int single = loadconfig.getSingleInstance();
+	
+	if (single==1) {
+		bool otherinstance = myOneInstance.isAnotherInstance();
+
+		if (otherinstance==TRUE) {
+			myOneInstance.sendRestore();
+			printf("qdacco already running, restoring otherinstance\n");
+			exit(1);
+		}
+
+		TrayIcon *trayicon = new TrayIcon;
+		trayicon->SetOneInstance(&myOneInstance);
 	}
 
-	TrayIcon *trayicon = new TrayIcon;
-
 	myOneInstance.registerInstance();
-	
-	trayicon->SetOneInstance(&myOneInstance);
 
 	int ret = app.exec();
 	return ret;

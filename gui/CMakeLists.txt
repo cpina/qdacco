@@ -5,20 +5,18 @@
 set (qdaccogui_SRC configure.cpp main.cpp
 	   qdacco.cpp about.cpp suggeriment.cpp mylineedit.cpp 
 	   mylistwidget.cpp auxiliargui.cpp connection.cpp oneinstance.cpp
-	   trayicon.cpp)
+	   trayicon.cpp loadconfig.cpp)
 
 set (qdaccogui_MOCS configure.h main.h 
 	   about.h suggeriment.h textbrowser.h mylineedit.h 
 	   mylistwidget.h auxiliargui.h connection.h oneinstance.h
-	   trayicon.h)
+	   trayicon.h loadconfig.h)
 
 set (qdaccogui_UIS configure.ui main.ui about.ui suggeriment.ui)
 
 set(QT_USE_QTXML true)
 set(QT_USE_QTNETWORK true) 
 set(QT_USE_QTDBUS true) 
-
-set(CMAKE_CXX_FLAGS "-g3 -ggdb -O0" CACHE STRING "Debug options." FORCE)
 
 INCLUDE(   ${QT_USE_FILE}   )
 
