@@ -1,4 +1,4 @@
-qdacco 0.8
+qdacco 0.8 (July 2008)
 ==========
 -First version of qdacco using TrayIcon
 -If using TrayIcon, only open one instance at time (Dbus communication)
