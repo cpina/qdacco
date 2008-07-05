@@ -5,12 +5,15 @@ Note
 To download the dictionaries:
 http://prdownloads.sourceforge.net/dacco/dacco-0.9.zip?download
 
+(You can check in http://www.catalandictionary.org if there is newer
+ones)
+
 
 General installation instructions
 =================================
-Previous note: Debian already has dacco and qdacco packets. So, you
-don't need to compile, only installing qdacco package is enough.
-Other distributions maybe are compatibles.
+Previous note: Debian i Ubuntu already has dacco and qdacco packets.
+So, you don't need to compile, only installing qdacco package is enough.
+Other distributions may have the package already done too.
 
 When run for the first time, qdacco will prompt the user for
 configuration information (default language, data directory, etc.)
@@ -20,9 +23,8 @@ which case you just have to press "OK" to continue. Otherwise, you
 will have to select the directory in which your dacco files are
 located (i.e. the 'dictionaries' directory).
 
-If you need to download data files, you find them here:
-http://prdownloads.sourceforge.net/dacco/dacco-0.9.zip?download
-
+If you need to download data files, you can find using:
+http://www.catalandictionary.org
 
 GNU/Linux specific instructions
 ===============================
@@ -33,10 +35,10 @@ libqt4-core
 libqt4-dev
 libqt4-gui
 qt4-dev-tools
-qt4-dev-tools
+cmake
 
 In order to install, you need to execute (You need to be root to do this):
-apt-get install libqt4-core libqt4-dev libqt4-gui qt4-dev-tools
+apt-get install libqt4-core libqt4-dev libqt4-gui qt4-dev-tools cmake
 
 Then you will have to uncompress qdacco file (tar -zxvf qdacco-X.tar.gz) 
 and execute:

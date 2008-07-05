@@ -5,11 +5,14 @@ Nota
 Per baixar-se els diccionaris:
 http://prdownloads.sourceforge.net/dacco/dacco-0.9.zip?download
 
+(Podeu comprovar mitjançant http://www.catalandictionary.org si
+n'hi ha de més recents)
+
 Instruccions generals d'instal·lació
 ====================================
-Nota prèvia: Debian té paquet de dacco i qdacco. Per tant no cal compilar-ho,
-instal·lant el paquet és suficient. Altres distribucions poden ser
-compatibles.
+Nota prèvia: Debian i Ubuntu té paquet de dacco i qdacco. Per tant no 
+cal compilar-ho, instal·lant el paquet és suficient. Altres distribucions
+podrien tenir el paquet també.
 
 Quan executeu qdacco per primer cop, demanarà a l'usuari informació
 de configuració (idioma per defecte, directori de dades, etc.)
@@ -19,8 +22,8 @@ serà suficient presionar "Bé" per tal de continuar. Altrament, s'haurà
 de seleccionar el directori on hi ha els fitxers Dacco (és a dir, 
 el directori 'dictionaries').
 
-Si es necessiten els fitxers de dades, es poden trobar aquí:
-http://prdownloads.sourceforge.net/dacco/dacco-0.9.zip?download
+Si es necessiten els fitxers de dades, es poden trobar mitjançant:
+http://www.catalandictionary.org
 
 Instruccions sistemes Unix
 ==========================
