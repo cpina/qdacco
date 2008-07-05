@@ -36,6 +36,9 @@ TrayIcon::TrayIcon()
 	// connect the signals-slots
 	connect(trayIcon,SIGNAL(activated(QSystemTrayIcon::ActivationReason)),this,SLOT(leftclick(QSystemTrayIcon::ActivationReason)));
 
+	trayIcon->setToolTip("qdacco");
+	trayIcon->show();
+
 	//installEventFilter(this);
 }
 
