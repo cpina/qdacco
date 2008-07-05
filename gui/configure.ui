@@ -354,7 +354,7 @@
       <item row="2" column="0" >
        <widget class="QLabel" name="lfestival" >
         <property name="text" >
-         <string>Festival executable</string>
+         <string>Festival executable:</string>
         </property>
         <property name="alignment" >
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
