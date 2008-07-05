@@ -32,6 +32,12 @@ QT4_WRAP_CPP(textqdacco_MOC_SRCS ${textqdacco_MOCS})
 
 #QT4_ADD_RESOURCES(plugin_RCC_SRCS ${plugin_RCCS})
 
+# Suggeriment CMake 2.6
+if(COMMAND cmake_policy)
+   cmake_policy(SET CMP0003 NEW)
+endif(COMMAND cmake_policy)
+
+
 
 #ADD_DEFINITIONS(${QT_DEFINITIONS})
 #ADD_DEFINITIONS(-DQT_SHARED)

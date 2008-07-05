@@ -38,6 +38,11 @@ QT4_WRAP_CPP(qdaccogui_MOC_SRCS ${qdaccogui_MOCS})
 
 QT4_ADD_RESOURCES(qdaccogui_RCC_SRCS ${qdaccogui_RCCS})
 
+# Suggeriment CMake 2.6
+if(COMMAND cmake_policy)
+    cmake_policy(SET CMP0003 NEW)
+endif(COMMAND cmake_policy)
+
 
 #ADD_DEFINITIONS(${QT_DEFINITIONS})
 #ADD_DEFINITIONS(-DQT_SHARED)
