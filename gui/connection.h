@@ -29,6 +29,8 @@
 #include <QtNetwork>
 #include <QMainWindow>
 
+#include "auxiliargui.h"
+
 //qdaccolib
 #include <qdacco/auxiliar.h>
 

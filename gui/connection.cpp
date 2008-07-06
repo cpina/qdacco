@@ -48,7 +48,7 @@ int HTTPConnection::sendNewWord(const QString &paraula, const QString &user,
 		idioma="english";
 	}
 
-	content=new QString("name="+user+"&version="+Auxiliar::getNetVersion()+"&word="+paraula+"&email="+email+"&language="+idioma+"&type=new");
+	content=new QString("name="+user+"&version="+AuxiliarGUI::getVersion()+"&word="+paraula+"&email="+email+"&language="+idioma+"&type=new");
 	
 	send_post(*content);
 
@@ -66,7 +66,7 @@ int HTTPConnection::sendSuggestion(const QString &paraula,const QString &transla
                 idioma="english";
         }
 
-	content=new QString("name="+user+"&version="+Auxiliar::getNetVersion()+"&word="+paraula+"&email="+email+"&language="+idioma+"&translation="+translation+"&examples="+examples+"&notes="+notes+"&type=suggestion");
+	content=new QString("name="+user+"&version="+AuxiliarGUI::getVersion()+"&word="+paraula+"&email="+email+"&language="+idioma+"&translation="+translation+"&examples="+examples+"&notes="+notes+"&type=suggestion");
 	
 	send_post(*content);
 	

@@ -27,7 +27,7 @@
 
 //Variables to adjust
 int Auxiliar::debugLevel=1;
-QString Auxiliar::version = "0.8.0";
+QString Auxiliar::version = "0.7.0";
 QString Auxiliar::host = "www.catalandictionary.org";
 QString Auxiliar::url = "/qdaccoReport.php";
 QString Auxiliar::dictionaries_directory = "/usr/share/dacco-common/dictionaries";

@@ -24,7 +24,7 @@
 About::About(QWidget *)  //parent
 {
 	ui.setupUi(this);
-	ui.versio->setText(tr("qdacco version: ")+Auxiliar::getVersion());
-	ui.name->setText("Carles Pina i Estany, "+Auxiliar::getCopyrightDate());
+	ui.versio->setText(tr("qdacco version: ")+AuxiliarGUI::getVersion());
+	ui.name->setText("Carles Pina i Estany, "+AuxiliarGUI::getCopyrightDate());
 }
 
