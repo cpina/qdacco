@@ -58,8 +58,11 @@ add_library(qdaccolib SHARED ${qdaccolib_MOC_SRCS} ${qdaccolib_UIS_H}
 
 set_target_properties( qdaccolib PROPERTIES 
   SOVERSION "${QDACCO_LIB_VERSION_MAJOR}.${QDACCO_LIB_VERSION_MINOR}"
-  VERSION "${QDACCO_LIB_VERSION}"
-  OUTPUT_NAME qdacco )
+  VERSION "${QDACCO_LIB_VERSION}")
+
+#Remember to correct this to have a libqdacco
+#  OUTPUT_NAME qdacco )
+
 
 target_link_libraries( qdaccolib ${QT_LIBRARIES})
 
