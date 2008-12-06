@@ -34,6 +34,7 @@ int main(int argc, char *argv[]) {
 		//Usual options
 		{"engcat",1,0,0},
 		{"cateng",1,0,0},
+		{"word",1,0,0},
 
 		//Advanced options for next release :-)
 		/*{"engword",1,0,0},   //search only this word in eng dict
@@ -86,6 +87,10 @@ int main(int argc, char *argv[]) {
 
 		} else if (strcmp(option_name,"help")==0) {
 			help=1;
+
+		} else if (strcmp(option_name,"word")==0) {
+			search=optarg;
+			dictionary="bi";
 		}
 	}
 
@@ -110,8 +115,7 @@ int main(int argc, char *argv[]) {
 	}
 
 
-	if (argc==2) {
-		search=QString(argv[1]);
+	if (dictionary=="bi") {
 		ExtendedBiSearch(search,basepath);
 	}
 	else if (word!="") {
@@ -255,10 +259,10 @@ QString Search(QString word,QString dictionary,QString basepath,int type) {
 
 void ShowUsage() {
 	printf("USAGE:\n");
-	printf("textdacco WORD: bidirectional search\n");
-	printf("--cateng or --engcat\n");
+	printf("--word WORD: bidirectional search\n");
+	printf("--cateng WORD or --engcat WORD\n");
 	printf("--path PATH_TO_DICT\n");
-	printf("--debug optional\n");
+	printf("--debug\n");
 	printf("--silent\n");
 	printf("--help\n");
 }
