@@ -1,6 +1,6 @@
 /*
  * qdacco: offline Dacco Catalan <-> English dictionary
- * Copyright (C) 2005, 2006, 2007 Carles Pina i estany <carles@pina.cat>
+ * Copyright (C) 2005, 2006, 2007 Carles Pina i Estany <carles@pina.cat>
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
