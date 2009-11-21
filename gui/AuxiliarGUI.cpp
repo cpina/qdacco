@@ -2,8 +2,6 @@
 #define AUXILIARGUI_CPP
 
 #include "AuxiliarGUI.h"
-#include <cstdlib>
-#include <cstdio>
 
 void *AuxiliarGUI::m=0;
 

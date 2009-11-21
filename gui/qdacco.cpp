@@ -21,17 +21,14 @@
 
 #include <QApplication>
 #include <QDialog>
-#include <QMessageBox>
 #include <QLocale>
+#include <QMessageBox>
 
-#include <csignal>
-
+#include "AuxiliarGUI.h"
+#include "configure.h"
 #include "loadconfig.h"
-
 #include "main.h"
 #include "oneinstance.h"
-#include "configure.h"
-#include "AuxiliarGUI.h"
 
 //qdaccolib
 #include <qdacco/auxiliar.h>
@@ -40,9 +37,8 @@ int main(int argc, char **argv)
 {
 	QApplication app(argc, argv);
 
-	//app.setFont(QFont("Helvetica"));
 	if (app.argc()>1 && strcmp(app.argv()[1],"-d")==0) {
-                printf("Debug enabled\n");
+                qDebug() << "Debug enabled";
                 Auxiliar::setDebug(1);
         }
 	else {
@@ -50,9 +46,9 @@ int main(int argc, char **argv)
 	}
 
         if (app.argc()>1 && strcmp(app.argv()[1],"-d")!=0) {
-                printf("qdacco use:\n");
-                printf("qdacco -d: to enable debug mode\n");
-                printf("Just qdacco to just use qdacco\n");
+                qDebug() << "qdacco use:";
+                qDebug() << "qdacco -d: to enable debug mode";
+                qDebug() << "Just qdacco to just use qdacco";
                 exit(1);
         }
 
@@ -119,7 +115,7 @@ int main(int argc, char **argv)
 
 		if (otherinstance==TRUE) {
 			myOneInstance.sendRestore();
-			printf("qdacco already running, restoring otherinstance\n");
+			qDebug() << "qdacco already running, restoring otherinstance";
 			exit(1);
 		}
 
