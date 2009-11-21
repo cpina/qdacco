@@ -1,3 +1,7 @@
+qdacco 0.8.1 (developing)
+============
+-Adds Mac documentation. Contributed by Joan
+
 qdacco 0.8 (July 2008)
 ==========
 -First version of qdacco using TrayIcon
