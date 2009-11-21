@@ -23,6 +23,8 @@
 #ifndef AUXILIAR_CPP
 #define AUXILIAR_CPP
 
+#include <QDebug>
+
 #include <qdacco/auxiliar.h>
 
 //Variables to adjust

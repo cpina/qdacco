@@ -52,7 +52,7 @@ int main(int argc, char **argv)
                 exit(1);
         }
 
-	printf("qdacco %s Copyright (C) %s Carles Pina i Estany\n",qPrintable(AuxiliarGUI::getVersion()),qPrintable(Auxiliar::getCopyrightDate()));
+	printf("qdacco %s Copyright (C) %s Carles Pina i Estany\n",qPrintable(AuxiliarGUI::getVersion()),qPrintable(AuxiliarGUI::getCopyrightDate()));
 	printf("This program comes with ABSOLUTELY NO WARRANTY;\n");
 	printf("This is free software, and you are welcome to redistribute it\n");
 	printf("under certain conditions\n\n");
