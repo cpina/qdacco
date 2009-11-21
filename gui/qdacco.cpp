@@ -1,6 +1,6 @@
 /*
  * qdacco: offline Dacco Catalan <-> English dictionary
- * Copyright (C) 2005, 2006, 2007 Carles Pina i Estany <carles@pina.cat>
+ * Copyright (C) 2005, 2006, 2007, 2008, 2009 Carles Pina i Estany <carles@pina.cat>
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -31,6 +31,7 @@
 #include "main.h"
 #include "oneinstance.h"
 #include "configure.h"
+#include "AuxiliarGUI.h"
 
 //qdaccolib
 #include <qdacco/auxiliar.h>
@@ -55,7 +56,7 @@ int main(int argc, char **argv)
                 exit(1);
         }
 
-	printf("qdacco %s Copyright (C) %s Carles Pina i Estany\n",qPrintable(Auxiliar::getVersion()),qPrintable(Auxiliar::getCopyrightDate()));
+	printf("qdacco %s Copyright (C) %s Carles Pina i Estany\n",qPrintable(AuxiliarGUI::getVersion()),qPrintable(Auxiliar::getCopyrightDate()));
 	printf("This program comes with ABSOLUTELY NO WARRANTY;\n");
 	printf("This is free software, and you are welcome to redistribute it\n");
 	printf("under certain conditions\n\n");

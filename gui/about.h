@@ -31,7 +31,7 @@
 #include <QToolButton>
 #include "ui_about.h"
 
-#include "auxiliargui.h"
+#include "AuxiliarGUI.h"
 
 //libqdacco
 //#include <qdacco/auxiliar.h>

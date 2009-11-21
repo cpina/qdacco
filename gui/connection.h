@@ -29,7 +29,7 @@
 #include <QtNetwork>
 #include <QMainWindow>
 
-#include "auxiliargui.h"
+#include "AuxiliarGUI.h"
 
 //qdaccolib
 #include <qdacco/auxiliar.h>

@@ -9,7 +9,7 @@ class AuxiliarGUI {
 		static QString copyright_date;
 
         public:
-        	static void *m;
+		static void *m;
 
 		static QString getVersion();
 		static QString getCopyrightDate();

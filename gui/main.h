@@ -29,7 +29,7 @@
 #include <QToolButton>
 #include <QMainWindow>
 #include <QClipboard>
-#include "auxiliargui.h"
+#include "AuxiliarGUI.h"
 #include "ui_main.h"
 #include "configure.h"
 #include "about.h"
