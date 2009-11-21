@@ -19,10 +19,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
-#ifndef AUXILIAR_CPP
-#define AUXILIAR_CPP
-
 #include <QDebug>
 
 #include <qdacco/auxiliar.h>
@@ -150,4 +146,3 @@ char Auxiliar::lletra_buscar(QString q) {
 
         return (a.toAscii());
 }
-#endif
