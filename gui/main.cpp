@@ -783,7 +783,7 @@ void Main::showMessage(QString text) {
 }
 
 void Main::restaura() {
-	printf("Restaurant...\n");
+	qDebug() << "Restaurant...";
 	setWindowState(windowState() & ~Qt::WindowMinimized | Qt::WindowActive);
 	this->show();
 	this->setFocus(Qt::ShortcutFocusReason);
@@ -791,18 +791,6 @@ void Main::restaura() {
 }
 
 void Main::quit() {
-	printf("Quitting...\n");
+	qDebug() << "Quitting...";
 	exit(0);
 }
-
-
-/*
-void AuxiliarGUI::setMain(void *_m) {
-	AuxiliarGUI::m = _m;
-}
-
-void* AuxiliarGUI::getMain() {
-	AuxiliarGUI::pepe="";
-	return m;
-}
-*/

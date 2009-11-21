@@ -19,6 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QDebug>
+
 #include <qdacco/worddata.h>
 
 WordData::WordData() {
@@ -336,5 +338,5 @@ QString WordData::getHTMLEntry(int i) {
 }
 
 void WordData::printError(QString tag) {
-	printf("ERROR: not saving %s because there is more than 50!\n",qPrintable(tag));
+	qDebug() << "ERROR: not saving" << tag << "because there is more than 50";
 }
