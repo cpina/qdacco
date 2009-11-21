@@ -11,7 +11,7 @@ ones)
 
 General installation instructions
 =================================
-Previous note: Debian i Ubuntu already has dacco and qdacco packets.
+Previous note: Debian and Ubuntu already have dacco and qdacco packages.
 So, you don't need to compile, only installing qdacco package is enough.
 Other distributions may have the package already done too.
 
@@ -40,6 +40,25 @@ cmake
 In order to install, you need to execute (You need to be root to do this):
 apt-get install libqt4-core libqt4-dev libqt4-gui qt4-dev-tools cmake
 
+MacOSX specific instructions
+===============================
+To build qdacco on mac, you will need basically two things:
+You have to obtain a copy of xcode tools, you have to register:
+http://developer.apple.com/technology/xcode.html
+
+The second thing you will need is to get macports from:
+http://www.macports.org/install.php
+Once installed macports, type the following command and take a break: 
+sudo port install qt4-mac
+This will compile qt4 for you, it will take some time, but eventually
+it will finish.
+NOTE: You might have to tell cmake where are the qmake-mac binaries
+that have been generated via macports.
+cmake -i .
+
+
+Compilation
+===============================
 Then you will have to uncompress qdacco file (tar -zxvf qdacco-X.tar.gz) 
 and execute:
 cd qdacco
@@ -73,5 +92,5 @@ words (check advanced configuration).
 PD: first revision of this text has been revised by Linda Oxnard 
 and Jonathan Kaye.
 
-Carles Pina i Estany, 2007, 2008
+Carles Pina i Estany, 2007, 2008, 2009
 carles@pina.cat
