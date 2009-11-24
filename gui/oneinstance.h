@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2008
+ * Copyright (c) 2005, 2006, 2007, 2008, 2009
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -51,6 +51,7 @@ class oneInstance : public QObject
 
 	private:
 		Main *ptr_main;
+		bool m_dbusAvailable;
 	
 	public slots:
 		void restore();

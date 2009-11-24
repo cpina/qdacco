@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2008
+ * Copyright (c) 2005, 2006, 2007, 2008, 2009
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -22,7 +22,9 @@
 
 #include "oneinstance.h"
 
-oneInstance::oneInstance() {
+oneInstance::oneInstance() :
+	m_dbusAvailable(false)
+{
 	ptr_main = new Main;
 	ptr_main->show();
 }
@@ -32,6 +34,14 @@ bool oneInstance::isAnotherInstance() {
 	bool ret=FALSE;
 	
 	QDBusConnection bus = QDBusConnection::sessionBus();
+	
+	if (bus.lastError().type() != QDBusError::NoError)
+	{
+		m_dbusAvailable = false;
+		return false;
+	}
+	m_dbusAvailable = true;
+
 	QStringList serviceNames = bus.interface()->registeredServiceNames();
 
 	if (serviceNames.indexOf("qdacco.org")==-1) {
@@ -45,6 +55,10 @@ bool oneInstance::isAnotherInstance() {
 }
 
 void oneInstance::sendRestore() {
+	if (m_dbusAvailable == false)
+	{
+		return;
+	}
 	// Send to the other instance a restore message
 	QDBusConnection bus = QDBusConnection::sessionBus();
 	QDBusMessage msg = QDBusMessage::createMethodCall("qdacco.org","/serveis","","restore");
@@ -53,6 +67,10 @@ void oneInstance::sendRestore() {
 
 
 void oneInstance::restore() {
+	if (m_dbusAvailable == false)
+	{
+		return;
+	}
 	// Received by DBUS
 	// Needed to destroy and create the Window again and not only
 	// give the focus because some Window Managers prevents
@@ -75,23 +93,43 @@ void oneInstance::restore() {
 }
 
 void oneInstance::registerInstance() {
+	if (m_dbusAvailable == false)
+	{
+		return;
+	}
 	QDBusConnection bus = QDBusConnection::sessionBus();
 	bus.interface()->registerService("qdacco.org");
 	bus.registerObject("/serveis",this,QDBusConnection::ExportAllSlots);
 }
 
 bool oneInstance::isVisible() {
+	if (m_dbusAvailable == false)
+	{
+		return true;
+	}
 	return ptr_main->isVisible();
 }
 
 void oneInstance::close() {
+	if (m_dbusAvailable == false)
+	{
+		return;
+	}
 	ptr_main->close();
 }
 
 void oneInstance::hide() {
+	if (m_dbusAvailable == false)
+	{
+		return;
+	}
 	ptr_main->hide();
 }
 
 void oneInstance::show() {
+	if (m_dbusAvailable == false)
+	{
+		return;
+	}
 	ptr_main->show();
 }
