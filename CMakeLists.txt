@@ -12,6 +12,9 @@ LIST( GET QDACCO_VERSIONS 2 QDACCO_VERSION_PATCH)
 
 # ######### General setup ##########
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})
+#IF (APPLE)
+#	SET(QT_QMAKE_EXECUTABLE "/opt/local/bin/qmake-mac")
+#ENDIF (APPLE)
 find_package(Qt4 REQUIRED) 
 
 ########### qdacco lib ##########
@@ -26,4 +29,6 @@ add_subdirectory(gui)
 message(STATUS "Working on qdacco text")
 add_subdirectory(text)
 
+########### cpack capabilites ##########
+INCLUDE(CPack)
 

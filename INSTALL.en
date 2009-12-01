@@ -49,13 +49,13 @@ http://developer.apple.com/technology/xcode.html
 The second thing you will need is to get macports from:
 http://www.macports.org/install.php
 Once installed macports, type the following command and take a break: 
-sudo port install qt4-mac
+sudo port install qt4-mac cmake
 This will compile qt4 for you, it will take some time, but eventually
 it will finish.
-NOTE: You might have to tell cmake where are the qmake-mac binaries
-that have been generated via macports.
-cmake -i .
+NOTE: If cmake can not find qmake-mac (qmake), you can set it with,
+this will force it to use macports' qt
 
+cmake -DQT_QMAKE_EXECUTABLE=/opt/local/bin/qmake-mac ../
 
 Compilation
 ===============================
