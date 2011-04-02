@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2009
+ * Copyright (c) 2005, 2006, 2007, 2009, 2011
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -29,18 +29,9 @@
 #include <QToolButton>
 #include <QMainWindow>
 #include <QClipboard>
-#include "AuxiliarGUI.h"
 #include "ui_main.h"
-#include "configure.h"
-#include "about.h"
-#include "suggeriment.h"
-#include "connection.h"
-#include "textbrowser.h"
-#include "trayicon.h"
 
-//qdaccolib
-#include <qdacco/auxiliar.h>
-#include <qdacco/StructureList.h>
+class HTTPConnection;
 
 // TODO: prepare a different objects for, at least, networking and festival
 

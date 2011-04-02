@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2008, 2009
+ * Copyright (c) 2005, 2006, 2007, 2008, 2009, 2011
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -20,6 +20,19 @@
  */
 
 #include "main.h"
+
+#include "AuxiliarGUI.h"
+#include "about.h"
+#include "configure.h"
+#include "connection.h"
+#include "suggeriment.h"
+#include "textbrowser.h"
+#include "trayicon.h"
+
+//qdaccolib
+#include <qdacco/auxiliar.h>
+#include <qdacco/StructureList.h>
+
 
 Main::Main(QWidget *)  //parent
 {
