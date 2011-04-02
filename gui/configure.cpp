@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2008
+ * Copyright (c) 2005, 2006, 2007, 2008, 2011
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -20,14 +20,15 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#include <QPushButton>
 
 #include "configure.h"
 
 Configure::Configure(QWidget *)  //parent
 {
 	ui.setupUi(this);
-	connect(ui.ok,SIGNAL(clicked()),this,SLOT(okf()));
-	connect(ui.cancel,SIGNAL(clicked()),this,SLOT(cancelf()));
+	connect(ui.okCancel,SIGNAL(accepted()),this,SLOT(okf()));
+	connect(ui.okCancel,SIGNAL(rejected()),this,SLOT(cancelf()));
 	
 	connect(ui.busca_fitxer,SIGNAL(clicked()),this,SLOT(busca_fitxerf()));
 	connect(ui.busca_browser,SIGNAL(clicked()),this,SLOT(busca_browserf()));
@@ -236,5 +237,5 @@ bool Configure::checkExecutable(QString executable) {
 }
 
 void Configure::setFirst(bool first) {
-	ui.cancel->setEnabled(first==false);
+	ui.okCancel->button(QDialogButtonBox::Cancel)->setEnabled(first==false);
 }
