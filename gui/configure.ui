@@ -34,7 +34,7 @@
    <iconset resource="icons.qrc" >
     <normaloff>:/icons/qdacco.png</normaloff>:/icons/qdacco.png</iconset>
   </property>
-  <widget class="QWidget" name="layoutWidget" >
+  <widget class="QWidget" name="layoutWidget1" >
    <property name="geometry" >
     <rect>
      <x>290</x>
@@ -110,7 +110,7 @@
     <attribute name="title" >
      <string>Basic</string>
     </attribute>
-    <widget class="QWidget" name="layoutWidget" >
+    <widget class="QWidget" name="layoutWidget2" >
      <property name="geometry" >
       <rect>
        <x>10</x>
@@ -263,7 +263,7 @@
     <attribute name="title" >
      <string>Advanced</string>
     </attribute>
-    <widget class="QWidget" name="layoutWidget" >
+    <widget class="QWidget" name="layoutWidget3" >
      <property name="geometry" >
       <rect>
        <x>12</x>
@@ -272,7 +272,7 @@
        <height>147</height>
       </rect>
      </property>
-     <layout class="QGridLayout" name="gridLayout" >
+     <layout class="QGridLayout" name="gridLayout1" >
       <item row="0" column="0" >
        <widget class="QLabel" name="ldirectori" >
         <property name="text" >
