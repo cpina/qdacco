@@ -9,6 +9,7 @@ Minor UI changes, documentation, internal changes.
 -Specifies the GPL version in the About dialog
 -Deletes some debug messages
 -Don't use qDebug when it's not a debug message
+-Opens the dialog to search the dictionary in the current setting
 
 qdacco 0.8 (July 2008)
 ==========
