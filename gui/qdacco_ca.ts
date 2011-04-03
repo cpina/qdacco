@@ -488,7 +488,7 @@ Dades llicenciades amb LGPL.</translation>
 <context>
     <name>Suggeriment</name>
     <message>
-        <location filename="suggeriment.ui" line="39"/>
+        <location filename="suggeriment.ui" line="38"/>
         <source>Send comment(s)</source>
         <translation>Envia comentari(s)</translation>
     </message>
@@ -499,36 +499,36 @@ Dades llicenciades amb LGPL.</translation>
     </message>
     <message>
         <location filename="suggeriment.ui" line="93"/>
-        <source>&lt;p align=&quot;right&quot;&gt;Word&lt;/p&gt;</source>
-        <translation></translation>
+        <source>Word</source>
+        <translation>Paraula</translation>
     </message>
     <message>
-        <location filename="suggeriment.ui" line="106"/>
+        <location filename="suggeriment.ui" line="109"/>
         <source>Add/correct translation</source>
         <translation>Afegeix/corregeix traducció</translation>
     </message>
     <message>
-        <location filename="suggeriment.ui" line="133"/>
+        <location filename="suggeriment.ui" line="134"/>
         <source>&amp;Cancel</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="suggeriment.ui" line="139"/>
+        <location filename="suggeriment.ui" line="141"/>
         <source>Alt+C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="suggeriment.ui" line="152"/>
+        <location filename="suggeriment.ui" line="154"/>
         <source>Add/correct usage examples</source>
         <translation>Afegeix/corregeix exemples d&apos;ús</translation>
     </message>
     <message>
-        <location filename="suggeriment.ui" line="177"/>
+        <location filename="suggeriment.ui" line="179"/>
         <source>&amp;Ok</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="suggeriment.ui" line="183"/>
+        <location filename="suggeriment.ui" line="186"/>
         <source>Alt+O</source>
         <translation></translation>
     </message>
