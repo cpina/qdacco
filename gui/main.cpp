@@ -796,7 +796,6 @@ void Main::showMessage(QString text) {
 }
 
 void Main::restaura() {
-	qDebug() << "Restaurant...";
 	setWindowState(windowState() & ~Qt::WindowMinimized | Qt::WindowActive);
 	this->show();
 	this->setFocus(Qt::ShortcutFocusReason);
@@ -804,6 +803,5 @@ void Main::restaura() {
 }
 
 void Main::quit() {
-	qDebug() << "Quitting...";
 	exit(0);
 }
