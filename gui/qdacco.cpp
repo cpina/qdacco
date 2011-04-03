@@ -18,6 +18,7 @@
  * USA.
 */
 
+#include <iostream>
 
 #include <QApplication>
 #include <QDialog>
@@ -53,11 +54,11 @@ int main(int argc, char **argv)
                 exit(1);
         }
 
-	qDebug() << "qdacco" << AuxiliarGUI::getVersion() << "Copyright (C)" << AuxiliarGUI::getCopyrightDate() << "Carles Pina i Estany";
-	qDebug() << "This program comes with ABSOLUTELY NO WARRANTY";
-	qDebug() << "This is free software, and you are welcome to redistribute it";
-	qDebug() << "under certain conditions" << endl;
-        qDebug() << "Program: GPL v3. Data: LGPL";
+	std::cout << qPrintable(QString("qdacco %1 Copyright (C) %2").arg(AuxiliarGUI::getVersion()).arg(AuxiliarGUI::getCopyrightDate())) << std::endl;
+	std::cout << "This program comes with ABSOLUTELY NO WARRANTY" << std::endl;
+	std::cout << "This is free software, and you are welcome to redistribute it" << std::endl;
+	std::cout << "under certain conditions" << std::endl;
+        std::cout << "Program: GPL v3. Data: LGPL" << std::endl;
 
 	QSettings qs("dacco","qdacco");
 	int idioma = qs.value("/dacco/idioma_per_defecte",1).toInt();
