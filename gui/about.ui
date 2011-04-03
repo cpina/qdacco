@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>About</class>
- <widget class="QDialog" name="About" >
-  <property name="geometry" >
+ <widget class="QDialog" name="About">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,36 +10,36 @@
     <height>340</height>
    </rect>
   </property>
-  <property name="sizePolicy" >
-   <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
     <horstretch>144</horstretch>
     <verstretch>232</verstretch>
    </sizepolicy>
   </property>
-  <property name="minimumSize" >
+  <property name="minimumSize">
    <size>
     <width>410</width>
     <height>340</height>
    </size>
   </property>
-  <property name="maximumSize" >
+  <property name="maximumSize">
    <size>
     <width>410</width>
     <height>340</height>
    </size>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>About qdacco</string>
   </property>
-  <property name="windowIcon" >
-   <iconset resource="icons.qrc" >
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
     <normaloff>:/icons/qdacco.png</normaloff>:/icons/qdacco.png</iconset>
   </property>
-  <property name="modal" >
+  <property name="modal">
    <bool>false</bool>
   </property>
-  <widget class="QWidget" name="layoutWidget" >
-   <property name="geometry" >
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
     <rect>
      <x>21</x>
      <y>21</y>
@@ -46,19 +47,19 @@
      <height>301</height>
     </rect>
    </property>
-   <layout class="QGridLayout" >
-    <property name="margin" >
+   <layout class="QGridLayout">
+    <property name="margin">
      <number>0</number>
     </property>
-    <property name="spacing" >
+    <property name="spacing">
      <number>6</number>
     </property>
-    <item row="1" column="0" >
+    <item row="1" column="0">
      <spacer>
-      <property name="orientation" >
+      <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <property name="sizeHint" stdset="0" >
+      <property name="sizeHint" stdset="0">
        <size>
         <width>281</width>
         <height>20</height>
@@ -66,36 +67,28 @@
       </property>
      </spacer>
     </item>
-    <item row="1" column="1" >
-     <widget class="QPushButton" name="Ok" >
-      <property name="text" >
+    <item row="1" column="1">
+     <widget class="QPushButton" name="Ok">
+      <property name="text">
        <string>Close</string>
       </property>
-      <property name="icon" >
-       <iconset resource="icons.qrc" >
+      <property name="icon">
+       <iconset resource="icons.qrc">
         <normaloff>:/icons/close.png</normaloff>:/icons/close.png</iconset>
       </property>
      </widget>
     </item>
-    <item row="0" column="0" colspan="2" >
-     <widget class="QTabWidget" name="tabWidget2" >
-      <property name="currentIndex" >
-       <number>0</number>
+    <item row="0" column="0" colspan="2">
+     <widget class="QTabWidget" name="tabWidget2">
+      <property name="currentIndex">
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="tab1" >
-       <property name="geometry" >
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>365</width>
-         <height>237</height>
-        </rect>
-       </property>
-       <attribute name="title" >
+      <widget class="QWidget" name="tab1">
+       <attribute name="title">
         <string>About</string>
        </attribute>
-       <widget class="QLabel" name="icona" >
-        <property name="geometry" >
+       <widget class="QLabel" name="icona">
+        <property name="geometry">
          <rect>
           <x>20</x>
           <y>10</y>
@@ -103,15 +96,15 @@
           <height>51</height>
          </rect>
         </property>
-        <property name="text" >
+        <property name="text">
          <string/>
         </property>
-        <property name="pixmap" >
-         <pixmap resource="icons.qrc" >:/icons/qdacco.png</pixmap>
+        <property name="pixmap">
+         <pixmap resource="icons.qrc">:/icons/qdacco.png</pixmap>
         </property>
        </widget>
-       <widget class="QLabel" name="versio" >
-        <property name="geometry" >
+       <widget class="QLabel" name="versio">
+        <property name="geometry">
          <rect>
           <x>60</x>
           <y>30</y>
@@ -119,18 +112,18 @@
           <height>20</height>
          </rect>
         </property>
-        <property name="text" >
+        <property name="text">
          <string/>
         </property>
-        <property name="textFormat" >
+        <property name="textFormat">
          <enum>Qt::AutoText</enum>
         </property>
-        <property name="alignment" >
+        <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="textLabel1" >
-        <property name="geometry" >
+       <widget class="QLabel" name="textLabel1">
+        <property name="geometry">
          <rect>
           <x>30</x>
           <y>80</y>
@@ -138,22 +131,22 @@
           <height>141</height>
          </rect>
         </property>
-        <property name="text" >
-         <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
-&lt;p align="center" style=" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Application for searching the Dacco dictionary offline.&lt;/p>
-&lt;p align="center" style=" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">You can find Dacco at &lt;a href="http://www.catalandictionary.org">&lt;span style=" text-decoration: underline; color:#0000ff;">http://www.catalandictionary.org&lt;/span>&lt;/a>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Application for searching the Dacco dictionary offline.&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;You can find Dacco at &lt;a href=&quot;http://www.catalandictionary.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.catalandictionary.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
-        <property name="scaledContents" >
+        <property name="scaledContents">
          <bool>false</bool>
         </property>
-        <property name="wordWrap" >
+        <property name="wordWrap">
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QLabel" name="address" >
-        <property name="geometry" >
+       <widget class="QLabel" name="address">
+        <property name="geometry">
          <rect>
           <x>10</x>
           <y>60</y>
@@ -161,44 +154,39 @@ p, li { white-space: pre-wrap; }
           <height>20</height>
          </rect>
         </property>
-        <property name="text" >
-         <string>&lt;A HREF="http://www.catalandictionary.org/eng/?q=node/40">http://www.catalandictionary.org/eng/?q=node/40&lt;/A></string>
+        <property name="text">
+         <string>&lt;A HREF=&quot;http://www.catalandictionary.org/eng/?q=node/40&quot;&gt;http://www.catalandictionary.org/eng/?q=node/40&lt;/A&gt;</string>
         </property>
-        <property name="alignment" >
+        <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="tab2" >
-       <property name="geometry" >
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>365</width>
-         <height>237</height>
-        </rect>
-       </property>
-       <attribute name="title" >
+      <widget class="QWidget" name="tab2">
+       <attribute name="title">
         <string>Author</string>
        </attribute>
-       <widget class="QLabel" name="name" >
-        <property name="geometry" >
+       <widget class="QLabel" name="name">
+        <property name="geometry">
          <rect>
           <x>20</x>
-          <y>30</y>
+          <y>20</y>
           <width>321</width>
-          <height>19</height>
+          <height>51</height>
          </rect>
         </property>
-        <property name="text" >
+        <property name="text">
          <string>Carles Pina i Estany, 2005, 2006, 2007, 2008</string>
         </property>
-        <property name="alignment" >
+        <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
        </widget>
-       <widget class="QLabel" name="textLabel2" >
-        <property name="geometry" >
+       <widget class="QLabel" name="textLabel2">
+        <property name="geometry">
          <rect>
           <x>20</x>
           <y>50</y>
@@ -206,36 +194,28 @@ p, li { white-space: pre-wrap; }
           <height>161</height>
          </rect>
         </property>
-        <property name="text" >
-         <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+        <property name="text">
+         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p align="center" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Many thanks to:&lt;/p>
-&lt;p align="center" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Jordi Pina: Graphical support,&lt;/p>
-&lt;p align="center" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Leopold Palomo-Avellaneda: cmake transition,&lt;/p>
-&lt;p align="center" style=" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">and many other people for their support.&lt;/p>
-&lt;p align="center" style=" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Suggestions, patches, ideas, etc. to &lt;a href="mailto:carles@pina.cat">&lt;span style=" text-decoration: underline; color:#0000ff;">carles@pina.cat&lt;/span>&lt;/a>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Many thanks to:&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Jordi Pina: Graphical support,&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Leopold Palomo-Avellaneda: cmake transition,&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;and many other people for their support.&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Suggestions, patches, ideas, etc. to &lt;a href=&quot;mailto:carles@pina.cat&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;carles@pina.cat&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
-        <property name="wordWrap" >
+        <property name="wordWrap">
          <bool>true</bool>
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="TabPage" >
-       <property name="geometry" >
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>365</width>
-         <height>237</height>
-        </rect>
-       </property>
-       <attribute name="title" >
+      <widget class="QWidget" name="TabPage">
+       <attribute name="title">
         <string>License</string>
        </attribute>
-       <widget class="QLabel" name="textLabel3" >
-        <property name="geometry" >
+       <widget class="QLabel" name="textLabel3">
+        <property name="geometry">
          <rect>
           <x>28</x>
           <y>22</y>
@@ -243,15 +223,15 @@ p, li { white-space: pre-wrap; }
           <height>170</height>
          </rect>
         </property>
-        <property name="text" >
+        <property name="text">
          <string>Program is GPL licensed.
 
 Data is LGPL licensed.</string>
         </property>
-        <property name="alignment" >
+        <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
-        <property name="wordWrap" >
+        <property name="wordWrap">
          <bool>true</bool>
         </property>
        </widget>
@@ -261,9 +241,9 @@ Data is LGPL licensed.</string>
    </layout>
   </widget>
  </widget>
- <layoutdefault spacing="6" margin="11" />
+ <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="icons.qrc" />
+  <include location="icons.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -272,11 +252,11 @@ Data is LGPL licensed.</string>
    <receiver>About</receiver>
    <slot>close()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>20</x>
      <y>20</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>20</x>
      <y>20</y>
     </hint>
