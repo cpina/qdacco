@@ -3,10 +3,12 @@
 
 #include "AuxiliarGUI.h"
 
+#include "CMakeOptions.h"
+
 void *AuxiliarGUI::m=0;
 
-QString AuxiliarGUI::version = "0.8.1";
-QString AuxiliarGUI::copyright_date = "2005, 2006, 2007, 2008, 2009";
+QString AuxiliarGUI::version = QDACCO_VERSION;
+QString AuxiliarGUI::copyright_date = "2005, 2006, 2007, 2008, 2009, 2011";
 
 QString AuxiliarGUI::getVersion() {
         return version;
