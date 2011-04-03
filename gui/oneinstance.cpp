@@ -38,7 +38,6 @@ bool oneInstance::isAnotherInstance() {
 		qDebug() << "QDbus not available";
 		return false;
 	}
-	qDebug() << "QDbus available";
 	
 	QDBusConnection bus = QDBusConnection::sessionBus();
 	
