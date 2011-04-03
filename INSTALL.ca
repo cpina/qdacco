@@ -1,13 +1,5 @@
 qdacco
 
-Nota
-====
-Per baixar-se els diccionaris:
-http://prdownloads.sourceforge.net/dacco/dacco-0.9.zip?download
-
-(Podeu comprovar mitjançant http://www.catalandictionary.org si
-n'hi ha de més recents)
-
 Instruccions generals d'instal·lació
 ====================================
 Nota prèvia: Debian i Ubuntu té paquet de dacco i qdacco. Per tant no 
@@ -40,7 +32,7 @@ Per tal d'instal·lar-los, es necessita executar (es necessitarà ser root
 per fer-ho):
 apt-get install libqt4-core libqt4-dev libqt4-gui qt4-dev-tools cmake
 
-Cal descomprimir el fitxer de qdacco (tar -zxvf qdacco-X.tar.gz) i llavors:
+Cal descomprimir el fitxer de qdacco (tar -zxvf qdacco-X.tar.bz2) i llavors:
 cd qdacco
 mkdir build
 cd build
@@ -60,6 +52,16 @@ executeu ldconfig
 Potser voldreu afegir un accés directe al teu escriptori o gestor de
 finestres.
 
+Nota
+====
+Per baixar-se els diccionaris:
+http://prdownloads.sourceforge.net/dacco/dacco-0.9.zip?download
+
+Podeu comprovar mitjançant http://www.catalandictionary.org si
+n'hi ha de més recents.
+
+A Debian, Ubuntu, etc. hi ha paquets propis.
+
 Festival
 ========
 Festival és un sintetitzador de veu. Sol estar disponible al paquet
@@ -68,5 +70,5 @@ configuració) i pronunciar les paraules.
 
 **Llegir 'Instruccions generals d'instal·lació'
 
-Carles Pina i Estany, 2007, 2008
+Carles Pina i Estany, 2007, 2008, 2011
 carles@pina.cat

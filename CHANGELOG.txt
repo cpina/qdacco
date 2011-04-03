@@ -1,6 +1,14 @@
-qdacco 0.8.1 (developing)
+qdacco 0.8.1 (April 2011)
 ============
+Minor UI changes, documentation, internal changes.
+
 -Adds Mac documentation. Contributed by Joan
+-Improves the layouts of Configuration and About dialogs
+-Improves the building system, so make source_package prepares the package to be released
+-Fixes some compilation problems with newer version of Qt
+-Specifies the GPL version in the About dialog
+-Deletes some debug messages
+-Don't use qDebug when it's not a debug message
 
 qdacco 0.8 (July 2008)
 ==========
@@ -41,7 +49,6 @@ qdacco 0.6a (April 2007)
 -Changed some texts
 -Always showing "Report as new entry" button
 -Fixed a bug: was sending as new word and not sending suggestions
-
 
 qdacco 0.6 (April 2007)
 ==========
