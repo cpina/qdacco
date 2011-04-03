@@ -54,7 +54,7 @@ int main(int argc, char **argv)
                 exit(1);
         }
 
-	std::cout << qPrintable(QString("qdacco %1 Copyright (C) %2").arg(AuxiliarGUI::getVersion()).arg(AuxiliarGUI::getCopyrightDate())) << std::endl;
+	std::cout << qPrintable(QString("qdacco %1 Copyright (C) %2 Carles Pina i Estany").arg(AuxiliarGUI::getVersion()).arg(AuxiliarGUI::getCopyrightDate())) << std::endl;
 	std::cout << "This program comes with ABSOLUTELY NO WARRANTY" << std::endl;
 	std::cout << "This is free software, and you are welcome to redistribute it" << std::endl;
 	std::cout << "under certain conditions" << std::endl;
