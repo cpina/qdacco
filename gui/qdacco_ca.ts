@@ -222,7 +222,7 @@ Dades llicenciades amb LGPL.</translation>
     <message>
         <location filename="configure.cpp" line="58"/>
         <source>You should select the &quot;dictionaries&quot; directory and click &quot;Open&quot;</source>
-        <translation>Haurieu de seleccionar el directori &quot;diccionaris&quot; i fer clic a &quot;Obrir&quot;</translation>
+        <translation>Haurieu de seleccionar el directori &quot;dictionaries&quot; i fer clic a &quot;Obrir&quot;</translation>
     </message>
     <message>
         <location filename="configure.cpp" line="63"/>
