@@ -212,7 +212,7 @@ QString Search(QString word,QString dictionary,QString basepath,int type) {
 	reader.setFeature("http://trolltech.com/xml/features/report-whitespace-only-CharData",FALSE);   //if we don't use it, we get more entries because spaces...
 	
 	
-	//Buf, change this! why handler needs setParaula and setWord?
+	//TODO: change this! why handler needs setParaula and setWord?
 	//List and Word?
 	//handler.setWord(word);
 
