@@ -5,7 +5,7 @@ General installation instructions
 Previous note: *Debian and Ubuntu already have dacco and qdacco packages.*
 
 Just execute:
-apt-get install qdacco
+``apt-get install qdacco``
 
 So, you don't need to compile, only installing qdacco package is enough.
 Other distributions may have the package already done too.

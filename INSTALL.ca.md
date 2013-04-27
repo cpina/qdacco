@@ -2,9 +2,12 @@ qdacco
 
 Instruccions generals d'instal·lació
 ====================================
-Nota prèvia: Debian i Ubuntu té paquet de dacco i qdacco. Per tant no 
+Nota prèvia: *Debian i Ubuntu té paquet de dacco i qdacco.+ Per tant no 
 cal compilar-ho, instal·lant el paquet és suficient. Altres distribucions
 podrien tenir el paquet també.
+
+Feu:
+``apt-get install qdacco``
 
 Quan executeu qdacco per primer cop, demanarà a l'usuari informació
 de configuració (idioma per defecte, directori de dades, etc.)
