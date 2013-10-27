@@ -23,11 +23,9 @@
 #define StructureList_H
 
 #include <QXmlDefaultHandler>
-#include <QQueue> 
+#include <QQueue>
 #include <QString>
 #include "worddata.h"
-
-enum Client {GUI, TEXT} ;
 
 class QString;
 

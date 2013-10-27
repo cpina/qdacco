@@ -29,10 +29,7 @@
 #include "textbrowser.h"
 #include "trayicon.h"
 
-//qdaccolib
-#include <qdacco/auxiliar.h>
-#include <qdacco/StructureList.h>
-
+#include "nongui/StructureList.h"
 
 Main::Main(QWidget *)  //parent
 {
