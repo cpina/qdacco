@@ -73,5 +73,5 @@ configuració) i pronunciar les paraules.
 
 **Llegir 'Instruccions generals d'instal·lació'
 
-Carles Pina i Estany, 2007, 2008, 2011
+Carles Pina i Estany, 2005, 2006, 2007, 2008, 2011, 2013
 carles@pina.cat

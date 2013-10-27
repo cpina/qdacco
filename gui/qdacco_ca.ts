@@ -57,7 +57,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="about.ui" line="180"/>
-        <source>Carles Pina i Estany, 2005, 2006, 2007, 2008, 2009, 2011</source>
+        <source>Carles Pina i Estany, 2005, 2006, 2007, 2008, 2009, 2011, 2013</source>
         <translation></translation>
     </message>
     <message>
