@@ -39,11 +39,8 @@ Main::Main(QWidget *)  //parent
 	ui.paraula->setParent(this);
 	ui.llistat->setParent(this);
 	ui.definicio->setFather(this);
-	ui.report->setText(tr("Report as new entry"));
 
 	resize(QSize(270,300));
-
-	ui.report->setEnabled(false);
 
 	installEventFilter(this);
 
@@ -81,7 +78,6 @@ Main::Main(QWidget *)  //parent
 	connect(ui.paraula,SIGNAL(returnPressed()),this,SLOT(buscarEnter()));
 	connect(ui.helpAboutAction,SIGNAL(triggered()),this,SLOT(obrir_about()));
 
-	connect(ui.report,SIGNAL(clicked()),this,SLOT(obrir_suggeriment()));
 	connect(ui.llistat,SIGNAL(itemDoubleClicked(QListWidgetItem *)),this,SLOT(searchListWord(QListWidgetItem*)));
 	connect(ui.paraula,SIGNAL(textChanged(const QString &)),this,SLOT(paraulaChanged(const QString &)));
 
@@ -273,9 +269,6 @@ void Main::buscarClicked()
 
 void Main::buscarEnter()
 {
-	ui.report->show();
-	ui.report->setEnabled(true);
-
 	if (ui.llistat->isVisible()) {
 		QListWidgetItem *item;
 		item = ui.llistat->currentItem();
@@ -306,8 +299,6 @@ void Main::buscar()
 void Main::paraulaChanged(const QString &paraula)
 {
 	if (m_Autocomplete==false) {
-		//ui.report->setEnabled(FALSE);
-		ui.report->hide();
 		ui.actiu->hide();
 		return;
 	}
@@ -315,7 +306,6 @@ void Main::paraulaChanged(const QString &paraula)
 	bool enabled=false;
 
 	//Update the list
-	//ui.report->hide();
 	ui.actiu->hide();
 	ui.definicio->hide();
 	ui.llistat->clear();
@@ -329,23 +319,6 @@ void Main::paraulaChanged(const QString &paraula)
 	if (ui.llistat->count()>1 && ui.llistat->item(1)->text()==paraula) {
 		ui.llistat->setCurrentRow(1);
 	}
-
-	//Enable/disable the report button
-	if (paraula.length()==0) {
-		enabled=false;
-	}
-	else { //paraula.length>0
-		QListWidgetItem *item;
-		item = ui.llistat->item(0);
-		
-		enabled=true;
-		ui.report->setText(tr("Report as new entry"));
-
-		if (item!=NULL && item->text().compare(ui.paraula->text())==0) {
-			enabled=false;
-		}
-	}
-	ui.report->setEnabled(enabled);
 }
 
 int lib2class(QString q) { //bridge
@@ -502,14 +475,7 @@ void Main::treballaBuscar() {
 				selectItem();
 				if (d.getNum()==0) {
 					showError(tr("Exact match not found"));
-					ui.report->setText(tr("Report as new entry"));
-					//ui.report->show();
 				}
-			}
-			if (d.getNum()>0) {
-				ui.report->setText(tr("Send comment(s)"));
-				ui.report->setEnabled(true);
-				//ui.report->show();
 			}
 			m_numberFound=d.getNum();
 		}
@@ -529,7 +495,6 @@ void Main::posarApunt (int all) {
 
         ui.actiu->hide();
         ui.actiu->setText("");
-        //ui.report->hide();
         ui.paraula->selectAll();
         ui.paraula->setFocus();
 }
@@ -711,73 +676,6 @@ void Main::select_word()
 {
         ui.paraula->selectAll();
         ui.paraula->setFocus();
-}
-
-void Main::obrir_suggeriment()
-{
-	#if 0
-	QSettings qs("dacco","qdacco");
-
-	QString name,email;
-	QString userWord,userTranslations,userExamples,userNotes;
-	int okay;
-
-	name = qs.value("/dacco/name","").toString();
-	email = qs.value("/dacco/email","").toString();
-
-	m_http = new HTTPConnection(this);
-
-	if (m_numberFound==0) {
-		m_http->sendNewWord(m_searched,name,email,m_idioma_actiu);
-		showMessage(tr("Sending..."));
-		//ui.report->hide();
-	}
-	else {
-        	Suggeriment *s = new Suggeriment;
-		s->setWord(ui.paraula->text());
-		s->exec();
-
-		s->getOkay(okay);
-
-		if (okay==1) {
-                        s->getUserWord(userWord);
-                        s->getUserTranslations(userTranslations);
-                        s->getUserExamples(userExamples);
-                        s->getUserNotes(userNotes);
-
-                        if (userTranslations.length()==0 &&
-                                userExamples.length()==0 &&
-                                userNotes.length()==0) {
-				showError(tr("You must type something"));
-                        }
-                        else {
-                                m_http->sendSuggestion(userWord,userTranslations,userExamples,userNotes,name,email,m_idioma_actiu);
-
-				showMessage(tr("Sending..."));
-                                //ui.report->hide();
-				ui.paraula->setFocus(Qt::OtherFocusReason);
-                        }
-                }
-                else {
-			showMessage(tr("Action cancelled"));
-			ui.paraula->setFocus(Qt::OtherFocusReason);
-                }
-	}
-	#endif
-}
-
-void Main::ReportChangeState(int,bool)
-{
-	#if 0
-        if ((*m_http->getStateError()).compare("")==0) {
-		showMessage(tr("Correctly sent!"));
-        }
-        else {
-		showError(tr("Problem sending: ")+*m_http->getStateError());
-        }
-
-        delete m_http;
-	#endif
 }
 
 void Main::searchListWord(QListWidgetItem *a)
