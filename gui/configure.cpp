@@ -159,8 +159,6 @@ void Configure::carregar_config() {
 		ui.browser->setText("open ");
 	}
 
-        ui.nom->setText(qs.value("/dacco/name","").toString());
-        ui.email->setText(qs.value("/dacco/email","").toString());
 	ui.ignorar_majuscules->setChecked(!qs.value("/dacco/ignore_case","1").toBool());
 	ui.ignorar_accents->setChecked(qs.value("/dacco/ignore_accents","1").toBool());
 	ui.autocompletar->setChecked(qs.value("/dacco/autocomplete","1").toBool());
@@ -181,10 +179,6 @@ void Configure::okf()
                     QMessageBox::information(this, "qdacco",
     "To change the default language, you will have to restart qdacco");
     }
-
-    settings.setValue("/dacco/name",ui.nom->text());
-    settings.setValue("/dacco/email",ui.email->text());
-
 
     settings.setValue("/dacco/browser",ui.browser->text());
     settings.setValue("/dacco/festival",ui.festival->text());
