@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007
+ * Copyright (c) 2005, 2006, 2007, 2015
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <qdacco/StructureList.h>
+#include <nongui/StructureList.h>
 
 //TODO: Disable order when starting to insert, enable back again after it. New elemnts are in order, coming from dictionary!
 StructureList::StructureList()

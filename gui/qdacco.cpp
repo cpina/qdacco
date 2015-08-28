@@ -1,6 +1,6 @@
 /*
  * qdacco: offline Dacco Catalan <-> English dictionary
- * Copyright (C) 2005, 2006, 2007, 2008, 2009, 2011, 2013 Carles Pina i Estany <carles@pina.cat>
+ * Copyright (C) 2005, 2006, 2007, 2008, 2009, 2011, 2013, 2015 Carles Pina i Estany <carles@pina.cat>
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -33,7 +33,7 @@
 #include "trayicon.h"
 
 //qdaccolib
-#include <qdacco/auxiliar.h>
+#include <nongui/auxiliar.h>
 
 int main(int argc, char **argv)
 {

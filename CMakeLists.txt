@@ -2,7 +2,7 @@
 PROJECT(qdacco)
 CMAKE_MINIMUM_REQUIRED(VERSION 2.4.5)
 
-SET( QDACCO_VERSION 0.8.3 )
+SET( QDACCO_VERSION 0.8.4 )
 
 STRING( REGEX MATCHALL "[0-9]+" QDACCO_VERSIONS ${QDACCO_VERSION} )
 LIST( GET QDACCO_VERSIONS 0 QDACCO_VERSION_MAJOR)
@@ -34,7 +34,10 @@ INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})
 #IF (APPLE)
 #	SET(QT_QMAKE_EXECUTABLE "/opt/local/bin/qmake-mac")
 #ENDIF (APPLE)
-find_package(Qt4 REQUIRED) 
+find_package(Qt5Core REQUIRED) 
+find_package(Qt5Gui REQUIRED) 
+find_package(Qt5Network REQUIRED) 
+find_package(Qt5Xml REQUIRED) 
 
 ########### qdacco gui ##########
 message(STATUS "Working on qdacco gui")

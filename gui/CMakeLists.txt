@@ -30,7 +30,7 @@ set(QT_USE_QTXML true)
 set(QT_USE_QTNETWORK true) 
 set(QT_USE_QTDBUS true) 
 
-INCLUDE(   ${QT_USE_FILE}   )
+# INCLUDE(   ${QT_USE_FILE}   )
 
 include_directories(
     ${QT_INCLUDE_DIR}
@@ -41,10 +41,10 @@ include_directories(
 #
 set(qdaccogui_RCCS icons.qrc translation.qrc)
 # generate rules for building source files that moc generates
-QT4_WRAP_UI(qdaccogui_UIS_H ${qdaccogui_UIS})
-QT4_WRAP_CPP(qdaccogui_MOC_SRCS ${qdaccogui_MOCS})
+#QT5_WRAP_UI(${qdaccogui_UIS})
+#QT5_WRAP_CPP(${qdaccogui_MOCS})
 
-QT4_ADD_RESOURCES(qdaccogui_RCC_SRCS ${qdaccogui_RCCS})
+QT5_ADD_RESOURCES(qdaccogui_RCC_SRCS ${qdaccogui_RCCS})
 
 # Suggeriment CMake 2.6
 if(COMMAND cmake_policy)

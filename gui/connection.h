@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007
+ * Copyright (c) 2005, 2006, 2007, 2015
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -32,7 +32,7 @@
 #include "AuxiliarGUI.h"
 
 //qdaccolib
-#include <qdacco/auxiliar.h>
+#include <nongui/auxiliar.h>
 
 /*Original idea to program it from:
  * http://cvs.sourceforge.net/viewcvs.py/kmess/kmess/kmess/network/extra/httpsoapconnection.h?rev=1.1&view=auto
