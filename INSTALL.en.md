@@ -7,6 +7,9 @@ Previous note: *Debian and Ubuntu already have dacco and qdacco packages.*
 Just execute:
 ``apt-get install qdacco``
 
+Or:
+``sudo apt-get install qdacco``
+
 So, you don't need to compile, only installing qdacco package is enough.
 Other distributions may have the package already done too.
 
@@ -26,17 +29,15 @@ GNU/Linux specific instructions
 In order to compile qdacco, in Debian-based distributions you will
 need the following packages (which have similar names in other
 distributions):
-libqt4-core
-libqt4-dev
-libqt4-gui
-qt4-dev-tools
+qt5-default
 cmake
 
 In order to install, you need to execute (You need to be root to do this):
-apt-get install libqt4-core libqt4-dev libqt4-gui qt4-dev-tools cmake
+apt-get install qt5-default cmake
 
 MacOSX specific instructions
 ===============================
+(not tested since the Qt5 migration)
 To build qdacco on mac, you will need basically two things:
 You have to obtain a copy of xcode tools, you have to register:
 http://developer.apple.com/technology/xcode.html
@@ -97,5 +98,5 @@ words (check advanced configuration).
 PD: first revision of this text has been revised by Linda Oxnard 
 and Jonathan Kaye.
 
-Carles Pina i Estany, 2005, 2006, 2007, 2008, 2009, 2011, 2013
+Carles Pina i Estany, 2005, 2006, 2007, 2008, 2009, 2011, 2013, 2015
 carles@pina.cat

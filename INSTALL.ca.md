@@ -9,6 +9,9 @@ podrien tenir el paquet també.
 Feu:
 ``apt-get install qdacco``
 
+O:
+``sudo apt-get install qdacco``
+
 Quan executeu qdacco per primer cop, demanarà a l'usuari informació
 de configuració (idioma per defecte, directori de dades, etc.)
 
@@ -25,15 +28,13 @@ Instruccions sistemes Unix
 Per tal de compilar qdacco, en distribucions basades en Debian
 es necessiten els següents paquets (els quals tenen un nom similar
 en altres distribucions):
-libqt4-core
-libqt4-dev
-libqt4-gui
-qt4-dev-tools
+
+qt5-default
 cmake
 
 Per tal d'instal·lar-los, es necessita executar (es necessitarà ser root
 per fer-ho):
-apt-get install libqt4-core libqt4-dev libqt4-gui qt4-dev-tools cmake
+apt-get install qt5-default cmake
 
 Cal descomprimir el fitxer de qdacco (tar -zxvf qdacco-X.tar.bz2) i llavors:
 cd qdacco
@@ -73,5 +74,5 @@ configuració) i pronunciar les paraules.
 
 **Llegir 'Instruccions generals d'instal·lació'
 
-Carles Pina i Estany, 2005, 2006, 2007, 2008, 2011, 2013
+Carles Pina i Estany, 2005, 2006, 2007, 2008, 2011, 2013, 2015
 carles@pina.cat

@@ -91,7 +91,7 @@ bool StructureParser::characters ( const QString & ch )
 		trobat=true;
 	}
 	if (entrada && !same) {
-		trobat=true;
+		trobat=false;
 	}
 	if (trobat && catexamp) {
 		wd.putCatexamp(ch);

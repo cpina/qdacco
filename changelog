@@ -1,4 +1,8 @@
-qdacco 0.8.2 (in development)
+qdacco 0.8.4 (August 2015)
+============
+-Uses Qt5
+
+qdacco 0.8.2
 ============
 -Adds the manual files (qdacco.1, textqdacco.1), the SGML file to generate
  qdacco.1, qdacco.xmp icon and qdacco.desktop. These files were previously

@@ -26,8 +26,6 @@
 //Variables to adjust
 int Auxiliar::debugLevel=1;
 QString Auxiliar::version = "0.7.0";
-QString Auxiliar::host = "www.catalandictionary.org";
-QString Auxiliar::url = "/qdaccoReport.php";
 QString Auxiliar::dictionaries_directory = "/usr/share/dacco-common/dictionaries";
 QString Auxiliar::copyright_date = "2005, 2006, 2007, 2008, 2009, 2011";
 
@@ -49,14 +47,6 @@ QString Auxiliar::getNetVersion() {
 		ret=version+"U";
 	}
 	return ret;
-}
-
-QString Auxiliar::getHost() {
-	return host;
-}
-
-QString Auxiliar::getURL() {
-	return url;
 }
 
 QString Auxiliar::getCopyrightDate() {
