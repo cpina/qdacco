@@ -44,7 +44,7 @@ include_directories(
 	
 # generate rules for building source files from the resources
 #QT4_WRAP_UI(qdaccolib_UIS_H ${qdaccolib_UIS})
-QT4_WRAP_CPP(qdaccolib_MOC_SRCS ${qdaccolib_MOCS})
+QT5_WRAP_CPP(qdaccolib_MOC_SRCS ${qdaccolib_MOCS})
 #QT4_ADD_RESOURCES(qdaccolib_RCC_SRCS ${qdaccolib_RCCS})
 
 # generate rules for building source files that moc generates
@@ -63,6 +63,9 @@ set_target_properties( qdaccolib PROPERTIES
 #Remember to correct this to have a libqdacco
 #  OUTPUT_NAME qdacco )
 
+
+set(QT_LIBRARIES ${Qt5Xml_LIBRARIES})
+message(VERBOSE ************** QT_LIBRARIES ${QT_LIBRARIES})
 
 target_link_libraries( qdaccolib ${QT_LIBRARIES})
 

@@ -24,20 +24,20 @@
 bool StructureParser::startDocument()
 {
 	after_word = 0;
-	return TRUE;
+	return true;
 }
 
 bool StructureParser::startElement( const QString&, const QString&,
 					const QString& qName,
 					const QXmlAttributes& attributes)
 {
-	catexamp=FALSE; engexamp=FALSE;
-	entrada=FALSE; translation=FALSE;
-	example=FALSE; 
-	engnote=FALSE; catnote=FALSE;
-	picture=FALSE;
-	plural=FALSE; femplural=FALSE;
-	synonyms=FALSE;
+	catexamp=false; engexamp=false;
+	entrada=false; translation=false;
+	example=false; 
+	engnote=false; catnote=false;
+	picture=false;
+	plural=false; femplural=false;
+	synonyms=false;
 
 	catexamp=(qName=="catexamp");
 	engexamp=(qName=="engexamp");
@@ -55,7 +55,7 @@ bool StructureParser::startElement( const QString&, const QString&,
 	entrada = (qName=="Entry");
 
 	if (qName == "translation") {
-		translation = TRUE;
+		translation = true;
 	}
 
 	if (qName == "adjectives") {qtipus_="adj";}
@@ -66,7 +66,7 @@ bool StructureParser::startElement( const QString&, const QString&,
 	if (qName == "pronouns") {qtipus_="pron";}
 	if (qName == "verbs") {qtipus_="v";}
 
-	return TRUE;
+	return true;
 }
 
 bool StructureParser::endElement( const QString&, const QString&, const QString& qName)
@@ -76,9 +76,9 @@ bool StructureParser::endElement( const QString&, const QString&, const QString&
 		Auxiliar::debug("Increments incNum");
 	}	
 	if (trobat && qName=="Entry") {	//ja sortim de la paraula
-		trobat=FALSE;
+		trobat=false;
 	}
-	return TRUE;
+	return true;
 }
 
 bool StructureParser::characters ( const QString & ch )
@@ -88,10 +88,10 @@ bool StructureParser::characters ( const QString & ch )
 	same=compare(ch,paraula);
 	
 	if (entrada && same) {
-		trobat=TRUE;
+		trobat=true;
 	}
 	if (entrada && !same) {
-		trobat=FALSE;
+		trobat=true;
 	}
 	if (trobat && catexamp) {
 		wd.putCatexamp(ch);
@@ -139,7 +139,7 @@ bool StructureParser::characters ( const QString & ch )
 	if (trobat && synonyms) {
 		wd.putSynonyms(ch);
 	}
-	return TRUE;
+	return true;
 }
 
 void StructureParser::setParaula(const QString &s) 

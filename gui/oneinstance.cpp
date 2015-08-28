@@ -31,7 +31,7 @@ oneInstance::oneInstance() :
 
 bool oneInstance::isAnotherInstance() {
 	// Return true if there is another instance
-	bool ret=FALSE;
+	bool ret=false;
 
 	if (!QDBusConnection::systemBus().isConnected())
 	{
@@ -51,10 +51,10 @@ bool oneInstance::isAnotherInstance() {
 	QStringList serviceNames = bus.interface()->registeredServiceNames();
 
 	if (serviceNames.indexOf("qdacco.org")==-1) {
-		ret=FALSE;
+		ret=false;
 	}
 	else {
-		ret=TRUE;
+		ret=true;
 	}
 	return ret;
 	

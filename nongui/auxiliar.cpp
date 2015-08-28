@@ -144,5 +144,5 @@ char Auxiliar::lletra_buscar(QString q) {
 
         a=q.at(0).toLower();
 
-        return (a.toAscii());
+        return (a.toLatin1());
 }

@@ -20,7 +20,9 @@
  */
 
 #include <QtGui>
-#include <QCoreApplication>
+#include <QtCore/QCoreApplication>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QMenu>
 #include "mylineedit.h"
 
 MyLineEdit::MyLineEdit(QWidget *parent) : QLineEdit(parent)
@@ -88,7 +90,7 @@ void MyLineEdit::selectWord() {
 	QTextCursor qtc;
 	QString s;
 
-	if (this->hasSelectedText()==FALSE) {
+	if (this->hasSelectedText() == false) {
 		//Selecciona paraula on hi ha el cursor
 		int position=this->cursorPosition();
 		int begin,end;

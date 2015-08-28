@@ -69,7 +69,7 @@ add_executable(qdacco  ${qdaccogui_H} ${qdaccogui_MOCS} ${qdaccogui_MOC_SRCS} ${
 
 qt5_use_modules(qdacco Widgets)
 
-target_link_libraries( qdacco ${QT_LIBRARIES})
+target_link_libraries( qdacco ${Qt5Xml_LIBRARIES} ${Qt5DBus_LIBRARIES})
 
 install_targets(/bin qdacco)	
 

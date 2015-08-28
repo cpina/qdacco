@@ -42,8 +42,8 @@ find_package(Qt5Network REQUIRED)
 find_package(Qt5Xml REQUIRED) 
 find_package(Qt5Widgets REQUIRED)
 
-include_directories(${Qt5Widgets_INCLUDES})
-add_definitions(${Qt5Widgets_DEFINITIONS})
+include_directories(${Qt5Widgets_INCLUDES} ${Qt5Xml_INCLUDES})
+add_definitions(${Qt5Widgets_DEFINITIONS} ${Qt5Xml_DEFINITIONS})
 
 ########### qdacco gui ##########
 message(STATUS "Working on qdacco gui")

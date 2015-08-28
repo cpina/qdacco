@@ -29,6 +29,7 @@
 http://cvs.sourceforge.net/viewcvs.py/kmess/kmess/kmess/network/extra/httpsoapconnection.cpp?rev=1.1&view=auto
  */
 
+#if 0
 HTTPConnection::HTTPConnection(QMainWindow *m) {
 	m_http = new QHttp(Auxiliar::getHost(), 80);
 	
@@ -100,4 +101,6 @@ QString* HTTPConnection::getStateError() {
 	}
 	return ret;
 }
+#endif
+
 #endif

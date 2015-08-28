@@ -715,6 +715,7 @@ void Main::select_word()
 
 void Main::obrir_suggeriment()
 {
+	#if 0
 	QSettings qs("dacco","qdacco");
 
 	QString name,email;
@@ -762,10 +763,12 @@ void Main::obrir_suggeriment()
 			ui.paraula->setFocus(Qt::OtherFocusReason);
                 }
 	}
+	#endif
 }
 
 void Main::ReportChangeState(int,bool)
 {
+	#if 0
         if ((*m_http->getStateError()).compare("")==0) {
 		showMessage(tr("Correctly sent!"));
         }
@@ -774,6 +777,7 @@ void Main::ReportChangeState(int,bool)
         }
 
         delete m_http;
+	#endif
 }
 
 void Main::searchListWord(QListWidgetItem *a)

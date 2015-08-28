@@ -35,7 +35,7 @@ bool StructureList::startDocument()
 	//wordqueue.setAutoDelete(TRUE);   (Ull! Tret per Qt4!)
 	//after_word = 0;
 	m_word_normalized=normalize(m_word);
-	return TRUE;
+	return true;
 }
 
 bool StructureList::startElement( const QString&, const QString&,
@@ -43,13 +43,13 @@ bool StructureList::startElement( const QString&, const QString&,
 					const QXmlAttributes& ) //attributes
 {
 	entrada = (qName=="Entry");
-	return TRUE;
+	return true;
 }
 
 bool StructureList::endElement( const QString&, const QString&, const QString& ) //qName
 {
 	
-	return TRUE;
+	return true;
 }
 
 bool StructureList::characters ( const QString & ch )
@@ -71,7 +71,7 @@ bool StructureList::characters ( const QString & ch )
 		}
 	}
 	
-	return TRUE;
+	return true;
 }
 
 void StructureList::setWord(QString w)
