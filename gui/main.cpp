@@ -31,6 +31,8 @@
 
 #include "nongui/StructureList.h"
 
+#include <QtCore/QChar>
+
 Main::Main(QWidget *)  //parent
 {
         ui.setupUi(this);
@@ -261,7 +263,7 @@ bool Main::eventFilter(QObject *, QEvent *event) //obj
 		moveDefinicio(event);
 	}
 
-	return TRUE;
+	return true;
 }
 
 void Main::buscarClicked()
@@ -272,7 +274,7 @@ void Main::buscarClicked()
 void Main::buscarEnter()
 {
 	ui.report->show();
-	ui.report->setEnabled(TRUE);
+	ui.report->setEnabled(true);
 
 	if (ui.llistat->isVisible()) {
 		QListWidgetItem *item;
@@ -303,7 +305,7 @@ void Main::buscar()
 
 void Main::paraulaChanged(const QString &paraula)
 {
-	if (m_Autocomplete==FALSE) {
+	if (m_Autocomplete==false) {
 		//ui.report->setEnabled(FALSE);
 		ui.report->hide();
 		ui.actiu->hide();
@@ -399,7 +401,7 @@ void Main::UpdateList() {
 
 		QXmlInputSource source( &xmlFile );
 		QXmlSimpleReader reader;
-		reader.setFeature("http://trolltech.com/xml/features/report-whitespace-only-CharData",FALSE);   //if we don't use it, we get more entries because spaces...
+		reader.setFeature("http://trolltech.com/xml/features/report-whitespace-only-CharData",false);   //if we don't use it, we get more entries because spaces...
 		reader.setContentHandler(&handler);
 
 		handler.setParaula(search);
@@ -460,7 +462,7 @@ void Main::treballaBuscar() {
 
 			QXmlInputSource source( &xmlFile );
 			QXmlSimpleReader reader;
-			reader.setFeature("http://trolltech.com/xml/features/report-whitespace-only-CharData",FALSE);   //if we don't use it, we get more entries because spaces...
+			reader.setFeature("http://trolltech.com/xml/features/report-whitespace-only-CharData",false);   //if we don't use it, we get more entries because spaces...
 			reader.setContentHandler( &handler );
 
 			handler.setParaula(buscar_orig);
@@ -561,7 +563,7 @@ char Main::lletra_buscar(QString q) {
 
         a=q.at(0);
 
-        return (a.toAscii());
+        return (a.toLatin1());
 }
 
 void Main::selectItem()
@@ -664,12 +666,12 @@ void Main::posa_idioma() {
         posarApunt(0);
 
         if (m_idioma_actiu== Auxiliar::eng2cat() ) {
-                m_cat_eng->setChecked(TRUE);
-                m_eng_cat->setChecked(FALSE);
+                m_cat_eng->setChecked(true);
+                m_eng_cat->setChecked(false);
         }
         else {
-		m_eng_cat->setChecked(TRUE);
-                m_cat_eng->setChecked(FALSE);
+		m_eng_cat->setChecked(true);
+                m_cat_eng->setChecked(false);
         }
 }
 

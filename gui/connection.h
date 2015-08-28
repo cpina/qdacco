@@ -23,11 +23,11 @@
 #ifndef HTTPCONNECTION_H
 #define HTTPCONNECTION_H
 
-#include <QApplication>
-#include <QDialog>
-#include <QMessageBox>
-#include <QtNetwork>
-#include <QMainWindow>
+#include <QtNetwork/QtNetwork>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMessageBox>
 
 #include "AuxiliarGUI.h"
 
@@ -37,6 +37,8 @@
 /*Original idea to program it from:
  * http://cvs.sourceforge.net/viewcvs.py/kmess/kmess/kmess/network/extra/httpsoapconnection.h?rev=1.1&view=auto
  */
+
+class QHttp;
 
 class HTTPConnection : public QObject {
 	Q_OBJECT

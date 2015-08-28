@@ -23,8 +23,8 @@
 #ifndef ONEINSTANCE_H
 #define ONEINSTANCE_H
 
-#include <QObject>
-#include <QtDBus>
+#include <QtCore/QObject>
+#include <QtDBus/QtDBus>
 
 #include "main.h"
 

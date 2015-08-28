@@ -27,6 +27,7 @@ set (qdaccogui_H AuxiliarGUI.h
 set (qdaccogui_UIS configure.ui main.ui about.ui suggeriment.ui)
 
 set(CMAKE_AUTOMOC ON)
+#set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 find_package(Qt5Core REQUIRED)
@@ -36,14 +37,6 @@ find_package(Qt5Xml REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5DBus REQUIRED)
 
-#set(QT_USE_QTXML true)
-#set(QT_USE_QTNETWORK true) 
-#set(QT_USE_QTDBUS true) 
-
-# INCLUDE(   ${QT_USE_FILE}   )
-#include_directories(${Qt5Widgets_INCLUDES})
-#add_definitions(${Qt5Widgets_DEFINITIONS})
-
 include_directories(
 	${CMAKE_CURRENT_BINARY_DIR}
 	${CMAKE_CURRENT_SOURCE_DIR})
@@ -52,7 +45,8 @@ include_directories(
 #
 set(qdaccogui_RCCS icons.qrc translation.qrc)
 # generate rules for building source files that moc generates
-#QT5_WRAP_UI(${qdaccogui_UIS})
+
+QT5_WRAP_UI(qdaccogui_UIS_H ${qdaccogui_UIS})
 #QT5_WRAP_CPP(${qdaccogui_MOCS})
 
 QT5_ADD_RESOURCES(qdaccogui_RCC_SRCS ${qdaccogui_RCCS})

@@ -31,6 +31,8 @@
 //Adds to QLineEdit capability to scroll list word box
 //Adds to QLineEdit capability to read words
 
+#include <QtWidgets/QLineEdit>
+
 class MyLineEdit : public QLineEdit
 {
 	Q_OBJECT

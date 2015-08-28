@@ -56,7 +56,7 @@ class TextBrowser : public QTextBrowser
 			QTextCursor qtc;
 			QString s;
 
-			if (this->textCursor().hasSelection()==FALSE) {
+			if (!this->textCursor().hasSelection()) {
 				qtc = this->cursorForPosition(m_qpoint);
 				qtc.select(QTextCursor::WordUnderCursor);
 				this->setTextCursor(qtc);

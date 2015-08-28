@@ -23,6 +23,8 @@
 #define MAIN_H
 
 
+#include <QtWidgets/QScrollBar>
+
 #include <QApplication>
 #include <QDialog>
 #include <QMessageBox>

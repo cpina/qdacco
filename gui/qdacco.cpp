@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 {
 	QApplication app(argc, argv);
 
-	if (app.argc()>1 && strcmp(app.argv()[1],"-d")==0) {
+	if (argc>1 && strcmp(argv[1],"-d")==0) {
                 qDebug() << "Debug enabled";
                 Auxiliar::setDebug(1);
         }
@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 		Auxiliar::setDebug(0);
 	}
 
-        if (app.argc()>1 && strcmp(app.argv()[1],"-d")!=0) {
+        if (argc>1 && strcmp(argv[1],"-d")!=0) {
                 qDebug() << "qdacco use:";
                 qDebug() << "qdacco -d: to enable debug mode";
                 qDebug() << "Just qdacco to just use qdacco";
@@ -115,7 +115,7 @@ int main(int argc, char **argv)
 	if (single==1) {
 		bool otherinstance = myOneInstance.isAnotherInstance();
 
-		if (otherinstance==TRUE) {
+		if (otherinstance) {
 			myOneInstance.sendRestore();
 			qDebug() << "qdacco already running, restoring otherinstance";
 			exit(1);

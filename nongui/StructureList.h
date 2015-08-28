@@ -22,9 +22,9 @@
 #ifndef StructureList_H
 #define StructureList_H
 
-#include <QXmlDefaultHandler>
-#include <QQueue>
-#include <QString>
+#include <QtCore/QQueue>
+#include <QtCore/QString>
+#include <QtXml/QXmlDefaultHandler>
 #include "worddata.h"
 
 class QString;

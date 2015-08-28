@@ -23,6 +23,7 @@
 #define MYLISTWIDGET_H
 
 #include <QtGui>
+#include <QtWidgets/QListWidget>
 
 //qdaccolib
 #include <nongui/auxiliar.h>
