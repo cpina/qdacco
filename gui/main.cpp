@@ -25,7 +25,6 @@
 #include "about.h"
 #include "configure.h"
 #include "connection.h"
-#include "suggeriment.h"
 #include "textbrowser.h"
 #include "trayicon.h"
 
@@ -44,8 +43,6 @@ Main::Main(QWidget *)  //parent
 
 	installEventFilter(this);
 
-
-	//m_showList=0;
 	m_numberFound=0;
 
 	m_cat_eng = new QToolButton;
@@ -105,11 +102,11 @@ void Main::FestivalFinished(int exitStatus,QProcess::ExitStatus) {
 
 void Main::FestivalError(QProcess::ProcessError)
 {
-	showError(tr("Error executing Festival. Please consult the FAQ for help with this issue"));
+	showError(tr("Error executing Festival. Please check the FAQ for help with this issue"));
 }
 
 void Main::BrowserError(QProcess::ProcessError) {
-	showError(tr("Error executing browser. Please consult the FAQ for help with this issue"));
+	showError(tr("Error executing browser. Please check the FAQ for help with this issue"));
 }
 
 void Main::FestivalExecuteEntry() {

@@ -3,7 +3,7 @@
 ###########################################
 
 set (qdaccogui_SRC configure.cpp main.cpp
-	   qdacco.cpp about.cpp suggeriment.cpp mylineedit.cpp 
+	   qdacco.cpp about.cpp mylineedit.cpp 
 	   mylistwidget.cpp AuxiliarGUI.cpp connection.cpp oneinstance.cpp
 	   trayicon.cpp loadconfig.cpp
        ../nongui/auxiliar.cpp
@@ -13,7 +13,7 @@ set (qdaccogui_SRC configure.cpp main.cpp
     )
 
 set (qdaccogui_MOCS configure.h main.h 
-	   about.h suggeriment.h textbrowser.h mylineedit.h 
+	   about.h textbrowser.h mylineedit.h 
 	   mylistwidget.h connection.h oneinstance.h
 	   trayicon.h loadconfig.h)
 
@@ -24,7 +24,7 @@ set (qdaccogui_H AuxiliarGUI.h
      ../nongui/worddata.h
    )
 
-set (qdaccogui_UIS configure.ui main.ui about.ui suggeriment.ui)
+set (qdaccogui_UIS configure.ui main.ui about.ui)
 
 set(CMAKE_AUTOMOC ON)
 #set(CMAKE_AUTOUIC ON)
