@@ -4,7 +4,7 @@
 
 set (qdaccogui_SRC configure.cpp main.cpp
 	   qdacco.cpp about.cpp mylineedit.cpp 
-	   mylistwidget.cpp AuxiliarGUI.cpp connection.cpp oneinstance.cpp
+	   mylistwidget.cpp AuxiliarGUI.cpp oneinstance.cpp
 	   trayicon.cpp loadconfig.cpp
        ../nongui/auxiliar.cpp
        ../nongui/StructureList.cpp
@@ -14,7 +14,7 @@ set (qdaccogui_SRC configure.cpp main.cpp
 
 set (qdaccogui_MOCS configure.h main.h 
 	   about.h textbrowser.h mylineedit.h 
-	   mylistwidget.h connection.h oneinstance.h
+	   mylistwidget.h oneinstance.h
 	   trayicon.h loadconfig.h)
 
 set (qdaccogui_H AuxiliarGUI.h

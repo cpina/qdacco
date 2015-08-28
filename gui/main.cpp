@@ -24,7 +24,6 @@
 #include "AuxiliarGUI.h"
 #include "about.h"
 #include "configure.h"
-#include "connection.h"
 #include "textbrowser.h"
 #include "trayicon.h"
 
