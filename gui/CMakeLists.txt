@@ -26,14 +26,25 @@ set (qdaccogui_H AuxiliarGUI.h
 
 set (qdaccogui_UIS configure.ui main.ui about.ui suggeriment.ui)
 
-set(QT_USE_QTXML true)
-set(QT_USE_QTNETWORK true) 
-set(QT_USE_QTDBUS true) 
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+find_package(Qt5Core REQUIRED)
+find_package(Qt5Gui REQUIRED)
+find_package(Qt5Network REQUIRED)
+find_package(Qt5Xml REQUIRED)
+find_package(Qt5Widgets REQUIRED)
+find_package(Qt5DBus REQUIRED)
+
+#set(QT_USE_QTXML true)
+#set(QT_USE_QTNETWORK true) 
+#set(QT_USE_QTDBUS true) 
 
 # INCLUDE(   ${QT_USE_FILE}   )
+#include_directories(${Qt5Widgets_INCLUDES})
+#add_definitions(${Qt5Widgets_DEFINITIONS})
 
 include_directories(
-    ${QT_INCLUDE_DIR}
 	${CMAKE_CURRENT_BINARY_DIR}
 	${CMAKE_CURRENT_SOURCE_DIR})
 
@@ -61,6 +72,8 @@ configure_file(
 # build sources, moc'd sources, and rcc'd sources
 add_executable(qdacco  ${qdaccogui_H} ${qdaccogui_MOCS} ${qdaccogui_MOC_SRCS} ${qdaccogui_UIS_H}
 	${qdaccogui_SRC} ${qdaccogui_SRCS} ${qdaccogui_RCC_SRCS})
+
+qt5_use_modules(qdacco Widgets)
 
 target_link_libraries( qdacco ${QT_LIBRARIES})
 

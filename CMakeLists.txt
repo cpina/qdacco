@@ -1,6 +1,8 @@
  ########## Project setup ##########
 PROJECT(qdacco)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.4.5)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.11)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 SET( QDACCO_VERSION 0.8.4 )
 
@@ -34,10 +36,14 @@ INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})
 #IF (APPLE)
 #	SET(QT_QMAKE_EXECUTABLE "/opt/local/bin/qmake-mac")
 #ENDIF (APPLE)
-find_package(Qt5Core REQUIRED) 
+find_package(Qt5Core REQUIRED)
 find_package(Qt5Gui REQUIRED) 
 find_package(Qt5Network REQUIRED) 
 find_package(Qt5Xml REQUIRED) 
+find_package(Qt5Widgets REQUIRED)
+
+include_directories(${Qt5Widgets_INCLUDES})
+add_definitions(${Qt5Widgets_DEFINITIONS})
 
 ########### qdacco gui ##########
 message(STATUS "Working on qdacco gui")
