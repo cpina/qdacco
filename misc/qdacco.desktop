@@ -9,4 +9,5 @@ Comment[ca]=Cerca paraules en un diccionari català - anglès
 Icon=/usr/share/qdacco/qdacco.png
 Exec=qdacco
 Terminal=false
-Categories=Utility;Dictionary;
+Categories=Utility;Dictionary
+Keywords=Utility;Dictionary
