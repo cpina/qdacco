@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007
+ * Copyright (c) 2005, 2006, 2007, 2017
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -24,7 +24,7 @@
 About::About(QWidget *)  //parent
 {
 	ui.setupUi(this);
-	ui.versio->setText(tr("qdacco version: ")+AuxiliarGUI::getVersion());
+	ui.versio->setText(tr("qdacco version:") + " " +AuxiliarGUI::getVersion());
 	ui.name->setText("Carles Pina i Estany, "+AuxiliarGUI::getCopyrightDate());
 }
 

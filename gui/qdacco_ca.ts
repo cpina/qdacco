@@ -99,7 +99,7 @@ Dades llicenciades amb LGPL.</translation>
     </message>
     <message>
         <location filename="about.cpp" line="27"/>
-        <source>qdacco version: </source>
+        <source>qdacco version:</source>
         <translation>versió qdacco:</translation>
     </message>
 </context>
