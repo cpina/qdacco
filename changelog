@@ -1,6 +1,13 @@
+qdacco 0.8.5 (June 2017)
+============
+-Improves qdacco.desktop (as per Debian guidelines)
+-Minor fix of translating a string, updates copyright years
+
 qdacco 0.8.4 (August 2015)
 ============
 -Uses Qt5
+-(It also deleted "Sending a suggestion" because at the moment this
+ feature wasn't being used)
 
 qdacco 0.8.2
 ============
