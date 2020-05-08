@@ -1,3 +1,5 @@
+![ci](https://github.com/cpina/qdacco/workflows/ci/badge.svg)
+
 # qdacco
 Catalan - English Dictionary, (c) 2005, 2006, 2007, 2008, 2009, 2011, 2013, 2015, 2017
 		Carles Pina i Estany <carles@pina.cat>
