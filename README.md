@@ -1,4 +1,5 @@
 ![ci](https://github.com/cpina/qdacco/workflows/ci/badge.svg)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 # qdacco
 Catalan - English Dictionary, (c) 2005, 2006, 2007, 2008, 2009, 2011, 2013, 2015, 2017
