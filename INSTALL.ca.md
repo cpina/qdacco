@@ -1,4 +1,4 @@
-# qdacco
+# qdacco: instal·lació
 
 ## Instruccions generals d'instal·lació
 Debian i Ubuntu tenen el paquet de `dacco-common` i `qdacco`. Per instal·lar a Debian i Ubuntu feu:

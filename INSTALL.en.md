@@ -1,4 +1,4 @@
-# qdacco: instal·lació
+# qdacco: installation
 
 ## General installation instructions
 Debian i Ubuntu have the `dacco-common` and `qdacco` packages. To install it on Debian and Ubuntu you can do:
