@@ -2,31 +2,26 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 # qdacco
-Catalan - English Dictionary, (c) 2005, 2006, 2007, 2008, 2009, 2011, 2013, 2015, 2017
-		Carles Pina i Estany <carles@pina.cat>
+## What is DACCO?
+DACCO stands for "Diccionari Anglès-Català de Codi Obert" or "English-Catalan Open Source Dictionari". This project was very active around 2000 to 2010 and then it lost the activity.
 
-qdacco is a program which uses data from Dacco project. You can find Dacco
-project on:
+The last known DACCO version (0.9) has more than 20.000 entries from English to Catalan and from Catalan to English. This makes it useful for everyone.
 
-	http://www.catalandictionary.org
+## What is qdacco?
+In 2005 and in order to use DACCO quickly from a desktop computer qdacco was written: a Qt frontend of DACCO files. It's a small desktop application.
 
-Dacco project is a dictionary written from scratch by Catalan-speakers
-and English-speakers, 100% free (LGPL licensed).
+## Installation instructions
+qdacco is packaged in Debian and can be installed in Debian, Ubuntu and others simply doing:
+`apt install qdacco`
 
-qdacco uses Dacco data off-line, so it's fast and should be easy to install.
+To execute it just execute:
+`qdacco`
 
-Copyright (C) 2005, 2006, 2007, 2008, 2009, 2011, 2013, 2015 Carles Pina i Estany
+## Screenshots
+![qdacco](docs/images/cat-to-eng.png)
 
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation; either version 3 of the License, or
-  any later version.
+![qdacco](docs/images/eng-to-cat.png)
 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
+![qdacco](docs/images/preferences-basic.png)
 
-  You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+![qdacco](docs/images/preferences-advanced.png)
