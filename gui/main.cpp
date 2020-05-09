@@ -359,7 +359,7 @@ void Main::UpdateList() {
 		return;
         }
 
-	letter=lletra_buscar(search);
+    letter=removeAccents(search);
 	QFile xmlFile(m_directori_usuari+"/"+idioma+"/"+letter+".dic");
 
 	if (!xmlFile.exists()) {
@@ -419,7 +419,7 @@ void Main::treballaBuscar() {
         }
         else {  //TODO: clean this crazy if-else!
 
-		lletra=lletra_buscar(buscar);
+        lletra=removeAccents(buscar);
 		QFile xmlFile(m_directori_usuari+"/"+idioma+"/"+lletra+".dic");
 
 
@@ -511,7 +511,7 @@ int Main::isValidWord(QString &q) {
         return (q.length()>0 && q.at(0).isLetter());
 }
 
-char Main::lletra_buscar(QString q) {
+char Main::removeAccents(const QString& q) {
         QChar c = q.at(0);
 
         if (c==L'à' || c==L'á' || c==L'â' || c==L'ä') return 'a';

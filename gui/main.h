@@ -90,7 +90,7 @@ class Main : public QMainWindow, Ui::Main
 		void posarApunt();
 		int isValidWord(QString &q);
 		void posarApunt(int all);
-		char lletra_buscar(QString q);
+        char removeAccents(const QString &q);
 		void selectItem();
 		void carrega_config(int all);
 		void obrir_configuracio();
