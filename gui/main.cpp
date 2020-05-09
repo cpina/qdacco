@@ -317,11 +317,11 @@ void Main::paraulaChanged(const QString &paraula)
 	}
 }
 
-int lib2class(QString q) { //bridge
+void lib2class(QString q) { //bridge
 	((Main*)AuxiliarGUI::m)->AddEntryToGUI(q);
 }
 
-int Main::AddEntryToGUI(QString q) {
+void Main::AddEntryToGUI(QString q) {
 	ui.llistat->insertItem(999999999,q);
 }
 
@@ -332,7 +332,7 @@ void Main::UpdateList() {
 	handler.setIgnoreAccents(m_IgnoreAccents);
 
 	AuxiliarGUI::m=this;
-	int (*ptrFunction)(QString)=NULL;
+    void (*ptrFunction)(QString)=NULL;
 	ptrFunction = lib2class;
 
 	handler.setAddFunction(ptrFunction);

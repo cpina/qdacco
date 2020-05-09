@@ -105,24 +105,24 @@ QString &StructureList::normalize(QString &word) {
 		word=word.toLower();	
 	}
 	if (m_IgnoreAccents) {
-		word.replace('à','a');
-		word.replace('è','e');
-		word.replace('ì','i');
-		word.replace('ò','o');
-		word.replace('ù','u');
+        word.replace(L'Ã ','a');
+        word.replace(L'Ã¨','e');
+        word.replace(L'Ã¬','i');
+        word.replace(L'Ã²','o');
+        word.replace(L'Ã¹','u');
 		
-		word.replace('á','a');
-		word.replace('é','e');
-		word.replace('í','i');
-		word.replace('ó','o');
-		word.replace('ú','u');
+        word.replace(L'Ã¡','a');
+        word.replace(L'Ã©','e');
+        word.replace(L'Ã­','i');
+        word.replace(L'Ã³','o');
+        word.replace(L'Ãº','u');
 	}
 	
 	//printf("Paraula noramlitzada: %s\n",qPrintable(word));
 	return word;
 }
 
-int StructureList::setAddFunction(int function(QString a)) {
+int StructureList::setAddFunction(void function(QString a)) {
 	addEntry = function;
 
 	return 0;

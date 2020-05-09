@@ -53,7 +53,7 @@ class StructureList : public QXmlDefaultHandler
 
 	QString &normalize(QString &word);
 
-	int setAddFunction(int function(QString a));
+    int setAddFunction(void function(QString a));
 	
 	QString getListWords();
 
@@ -69,7 +69,7 @@ class StructureList : public QXmlDefaultHandler
 
 	QString m_list;
 
-	int (*addEntry)(QString q);
+    void (*addEntry)(QString q);
 };
 
 #endif

@@ -44,7 +44,7 @@ class Main : public QMainWindow, Ui::Main
 		Main(QWidget *parent = 0);
 
 		int UpdateList(QString &q);
-		int AddEntryToGUI(QString);
+        void AddEntryToGUI(QString);
 
 		void restaura();
 		void quit();
