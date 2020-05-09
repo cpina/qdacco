@@ -246,7 +246,7 @@ bool Main::eventFilter(QObject *, QEvent *event) //obj
 		type!=QEvent::User+Auxiliar::KeyUp() &&
 		type!=QEvent::User+Auxiliar::KeyNextPage() &&
 		type!=QEvent::User+Auxiliar::KeyPrevPage()) {
-			return NULL;
+            return false;
 	}
 
 	if (ui.llistat->isVisible()) {
@@ -268,7 +268,7 @@ void Main::buscarEnter()
 	if (ui.llistat->isVisible()) {
 		QListWidgetItem *item;
 		item = ui.llistat->currentItem();
-		if (item!=NULL) {
+        if (item!=nullptr) {
 			ui.paraula->setText(item->text());
 		}
 	}
@@ -332,7 +332,7 @@ void Main::UpdateList() {
 	handler.setIgnoreAccents(m_IgnoreAccents);
 
 	AuxiliarGUI::m=this;
-    void (*ptrFunction)(QString)=NULL;
+    void (*ptrFunction)(QString)=nullptr;
 	ptrFunction = lib2class;
 
 	handler.setAddFunction(ptrFunction);
@@ -496,7 +496,6 @@ void Main::posarApunt (int all) {
 }
 
 int Main::isValidWord(QString &q) {
-        QChar first;
         //We transform the word to not-capital
         //We check that first letter is a letter
         //We delete space before word
@@ -533,7 +532,7 @@ void Main::selectItem()
 	
 	item = ui.llistat->item(0);
 
-	if (item!=NULL) {
+    if (item!=nullptr) {
 		if (item->text().compare(m_searched)==0) {
 			ui.llistat->setCurrentRow(0);
 		}
@@ -698,5 +697,6 @@ void Main::restaura() {
 }
 
 void Main::quit() {
+    // This is not the usual way to exit a Qt application!
 	exit(0);
 }

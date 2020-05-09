@@ -64,7 +64,7 @@ class TextBrowser : public QTextBrowser
 		}
 
 	public:
-		TextBrowser(QWidget *&) {};
+        TextBrowser(QWidget *&) {}
 
 		void setFather(QMainWindow *m) {
 			m_parent=m;

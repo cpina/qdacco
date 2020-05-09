@@ -39,7 +39,7 @@ class Configure : public QDialog
 {
 	Q_OBJECT
 	public:
-		Configure(QWidget *parent = 0);
+        Configure(QWidget *parent = nullptr);
 	
 	private:
 		Ui::Configure ui;
