@@ -1,78 +1,48 @@
-qdacco
+# qdacco
 
-Instruccions generals d'instal·lació
-====================================
-Nota prèvia: *Debian i Ubuntu té paquet de dacco i qdacco.+ Per tant no 
-cal compilar-ho, instal·lant el paquet és suficient. Altres distribucions
-podrien tenir el paquet també.
-
-Feu:
-``apt-get install qdacco``
+## Instruccions generals d'instal·lació
+Debian i Ubuntu tenen el paquet de `dacco-common` i `qdacco`. Per instal·lar a Debian i Ubuntu feu:
+`apt-get install qdacco`
 
 O:
-``sudo apt-get install qdacco``
+`sudo apt-get install qdacco`
 
-Quan executeu qdacco per primer cop, demanarà a l'usuari informació
-de configuració (idioma per defecte, directori de dades, etc.)
+Quan executeu qdacco per primer cop, demanarà a l'usuari informació de configuració (idioma per defecte, directori de dades, etc.)
 
-Algunes distribucions de qdacco venen ja amb les dades, en aquest cas
-serà suficient presionar "Bé" per tal de continuar. Altrament, s'haurà
-de seleccionar el directori on hi ha els fitxers Dacco (és a dir, 
-el directori 'dictionaries').
+qdacco de Debian i Ubuntu ja instal·la el paquet amb els diccionaris. El primer cop que executeu qdacco us ensenyarà la configuració i podeu presionar "D'acord". Altrament cal seleccionar el directori amb el diccionari (directory anomenat `dictionaries`)
 
 Si es necessiten els fitxers de dades, es poden trobar mitjançant:
 http://www.catalandictionary.org
 
-Instruccions sistemes Unix
-==========================
-Per tal de compilar qdacco, en distribucions basades en Debian
-es necessiten els següents paquets (els quals tenen un nom similar
-en altres distribucions):
+## Instruccions de compilació per GNU/Linux
+Per tal de compilar qdacco, en distribucions basades en Debian podeu executar:
 
-qt5-default
-cmake
-
-Per tal d'instal·lar-los, es necessita executar (es necessitarà ser root
-per fer-ho):
-apt-get install qt5-default cmake
-
-Cal descomprimir el fitxer de qdacco (tar -zxvf qdacco-X.tar.bz2) i llavors:
+```apt install qt5-default cmake
+git clone git@github.com:cpina/qdacco.git
 cd qdacco
 mkdir build
 cd build
 cmake ../
 make
+sudo make install # s'instal·larà a /usr/local/bin
+```
 
-(Ara, a dins build/gui/qdacco i build/text/textqdacco ja hi ha els programes
-que podeu executar)
+En altres distribucions haureu d'instal·lar Qt5 i cmake utilitzant el seu sistema de paquets.
 
-make install #Si voleu instal·lar-ho a /usr/local/bin i /usr/local/lib
-	     #executeu-ho com a root
-
-Atenció: si voleu executar qdacco des de /usr/local/bin, necessiteu que
-/usr/local/lib estigui listat a /etc/ld.so.conf (normalment ja ho és) i que
-executeu ldconfig
-
-Potser voldreu afegir un accés directe al teu escriptori o gestor de
-finestres.
-
-Nota
-====
-Per baixar-se els diccionaris:
+## Descarregar els diccionaris DACCO
+Per baixar-se els diccionaris (DACCO):
 http://prdownloads.sourceforge.net/dacco/dacco-0.9.zip?download
 
 Podeu comprovar mitjançant http://www.catalandictionary.org si
 n'hi ha de més recents.
 
-A Debian, Ubuntu, etc. hi ha paquets propis.
+A Debian, Ubuntu, etc. no cal ja que qdacco instal·la la dependència dacco-common.
 
-Festival
-========
+## Festival
 Festival és un sintetitzador de veu. Sol estar disponible al paquet
 festival. Si el teniu instal·lat qdacco el pot fer servir (veure la
 configuració) i pronunciar les paraules.
 
-**Llegir 'Instruccions generals d'instal·lació'
-
-Carles Pina i Estany, 2005, 2006, 2007, 2008, 2011, 2013, 2015
+---
+Carles Pina i Estany, 2005, 2006, 2007, 2008, 2011, 2013, 2015, 2017, 2020
 carles@pina.cat
