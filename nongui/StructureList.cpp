@@ -24,7 +24,7 @@
 //TODO: Disable order when starting to insert, enable back again after it. New elemnts are in order, coming from dictionary!
 StructureList::StructureList()
 {
-	addEntry = NULL;
+    m_addEntry = nullptr;
 	m_list="";
 }
 
@@ -55,7 +55,7 @@ bool StructureList::endElement( const QString&, const QString&, const QString& )
 bool StructureList::characters ( const QString & ch )
 {
 	if (entrada && myStartsWith(ch,m_word_normalized)) {	
-		if(addEntry == 0)
+        if(m_addEntry == nullptr)
 		{
 			if (m_list.length()==0) { //We don't want extra \n at first
 					  //time
@@ -67,7 +67,7 @@ bool StructureList::characters ( const QString & ch )
 			}
 		}//#endif
 		else {
-			addEntry(ch);
+            m_addEntry(ch);
 		}
 	}
 	
@@ -123,7 +123,7 @@ QString &StructureList::normalize(QString &word) {
 }
 
 int StructureList::setAddFunction(void function(QString a)) {
-	addEntry = function;
+    m_addEntry = function;
 
 	return 0;
 }

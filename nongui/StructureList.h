@@ -69,7 +69,7 @@ class StructureList : public QXmlDefaultHandler
 
 	QString m_list;
 
-    void (*addEntry)(QString q);
+    void (*m_addEntry)(QString q);
 };
 
 #endif
