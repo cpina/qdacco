@@ -12,10 +12,15 @@ In 2005 and in order to use DACCO quickly from a desktop computer qdacco was wri
 
 ## Installation instructions
 qdacco is packaged in Debian and can be installed in Debian, Ubuntu and others simply doing:
-`apt install qdacco`
 
-To execute it just execute:
+`sudo apt install qdacco`
+
+To execute it, from a terminal or launcher:
+
 `qdacco`
+
+You might want to install festival to read words:
+`sudo apt install festival`
 
 ## Screenshots
 ![qdacco](docs/images/cat-to-eng.png)
