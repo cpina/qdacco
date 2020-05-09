@@ -5,7 +5,7 @@
 (en català més avall)
 
 ## What is DACCO?
-DACCO stands for "Diccionari Anglès-Català de Codi Obert" or "English-Catalan Open Source Dictionari". This project was very active around 2000 to 2010 and then it lost the activity.
+DACCO stands for "Diccionari Anglès-Català de Codi Obert" or "English-Catalan Open Source Dictionari". This project was very active around 2000 to 2010 and then it lost activity. See it on [https://www.catalandictionary.org](https://www.catalandictionary.org).
 
 The last known DACCO version (0.9) has more than 20.000 entries from English to Catalan and from Catalan to English. This makes it useful for everyone.
 
