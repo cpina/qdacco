@@ -33,10 +33,11 @@ El 2005 i per utilitzar DACCO més ràpidament des d'un ordinador sense connexi�
 ## Instruccions d'instal·lació
 qdacco està empaquetat a Debian i pot ser instal·lat fàcilment a Debian, Ubuntu i altres fent:
 
-`apt install qdacco`
+`$ apt install qdacco`
 
 I per executar-ho:
-`qdacco`
+
+`$ qdacco`
 
 Per a més informació de l'instal·lació: veure [INSTALL.ca.md](INSTALL.ca.md)
 
