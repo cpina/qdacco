@@ -99,7 +99,7 @@ int Auxiliar::english() {
 }
 
 bool Auxiliar::isWindows() {
-	//is it not possible to know in run time?? ¿?
+	//is it not possible to know in run time?? Â¿?
 	#if defined(Q_OS_WIN32)
 	return true;
 	#else
@@ -108,7 +108,7 @@ bool Auxiliar::isWindows() {
 }
 
 bool Auxiliar::isMac() {
-	//is it not possible to know in run time?? ¿?
+	//is it not possible to know in run time?? Â¿?
 	#if defined(Q_OS_MAC)
 	return true;
 	#else
@@ -122,17 +122,17 @@ bool Auxiliar::isUnix() {
 }
 
 char Auxiliar::lletra_buscar(QString q) {
-        QChar a;
+        QChar c = q.at(0);
 
-        if (q.at(0)=='à' || q.at(0)=='á' || q.at(0)=='â' || q.at(0)=='ä') return 'a';
-        if (q.at(0)=='è' || q.at(0)=='é' || q.at(0)=='ê' || q.at(0)=='ë') return 'e';
-        if (q.at(0)=='ì' || q.at(0)=='í' || q.at(0)=='î' || q.at(0)=='ï') return 'i';
-        if (q.at(0)=='ò' || q.at(0)=='ó' || q.at(0)=='ô' || q.at(0)=='ö') return 'o';
-        if (q.at(0)=='ù' || q.at(0)=='ú' || q.at(0)=='û' || q.at(0)=='ü') return 'u';
+        if (c==L'Ã ' || c==L'Ã¡' || c==L'Ã¢' || c==L'Ã¤') return 'a';
+        if (c==L'Ã¨' || c==L'Ã©' || c==L'Ãª' || c==L'Ã«') return 'e';
+        if (c==L'Ã¬' || c==L'Ã­' || c==L'Ã®' || c==L'Ã¯') return 'i';
+        if (c==L'Ã²' || c==L'Ã³' || c==L'Ã´' || c==L'Ã¶') return 'o';
+        if (c==L'Ã¹' || c==L'Ãº' || c==L'Ã»' || c==L'Ã¼') return 'u';
 
-        if (q.at(0)=='ç') return 'c';
+        if (c==L'Ã§') return 'c';
 
-        a=q.at(0).toLower();
+        c = c.toLower();
 
-        return (a.toLatin1());
+        return (c.toLatin1());
 }
