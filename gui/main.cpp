@@ -512,19 +512,17 @@ int Main::isValidWord(QString &q) {
 }
 
 char Main::lletra_buscar(QString q) {
-        QChar a;
+        QChar c = q.at(0);
 
-        if (q.at(0)==L'à' || q.at(0)==L'á' || q.at(0)==L'â' || q.at(0)==L'ä') return 'a';
-        if (q.at(0)==L'è' || q.at(0)==L'é' || q.at(0)==L'ê' || q.at(0)==L'ë') return 'e';
-        if (q.at(0)==L'ì'  || q.at(0)==L'í' || q.at(0)==L'î' || q.at(0)==L'ï') return 'i';
-        if (q.at(0)==L'ò' || q.at(0)==L'ó' || q.at(0)==L'ô' || q.at(0)==L'ö') return 'o';
-        if (q.at(0)==L'ù' || q.at(0)==L'ú' || q.at(0)==L'û' || q.at(0)==L'ü') return 'u';
+        if (c==L'à' || c==L'á' || c==L'â' || c==L'ä') return 'a';
+        if (c==L'è' || c==L'é' || c==L'ê' || c==L'ë') return 'e';
+        if (c==L'ì'  || c==L'í' || c==L'î' || c==L'ï') return 'i';
+        if (c==L'ò' || c==L'ó' || c==L'ô' || c==L'ö') return 'o';
+        if (c==L'ù' || c==L'ú' || c==L'û' || c==L'ü') return 'u';
 
         if (q.at(0)==L'ç') return 'c';
 
-        a=q.at(0);
-
-        return (a.toLatin1());
+        return (c.toLatin1());
 }
 
 void Main::selectItem()
