@@ -339,7 +339,6 @@
   <tabstop>Buscar</tabstop>
   <tabstop>definicio</tabstop>
   <tabstop>llistat</tabstop>
-  <tabstop>report</tabstop>
  </tabstops>
  <includes>
   <include location="global" >nongui/StructureParser.h</include>
