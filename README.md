@@ -14,10 +14,12 @@ In 2005 and in order to use DACCO quickly off-line (desktop software) qdacco was
 
 ## Installation instructions
 qdacco is packaged in Debian and can be installed in Debian, Ubuntu and others simply doing:
-`apt install qdacco`
 
-To execute it just execute:
-`qdacco`
+`$ sudo apt install qdacco`
+
+To execute it, from a terminal or launcher:
+
+`$ qdacco`
 
 For more installation instructions: see [INSTALL.en.md](INSTALL.en.md)
 
@@ -40,6 +42,7 @@ Per a més informació de l'instal·lació: veure [INSTALL.ca.md](INSTALL.ca.md)
 
 
 ## Screenshots / captures de pantalla
+
 ![qdacco](docs/images/cat-to-eng.png)
 
 ![qdacco](docs/images/eng-to-cat.png)
