@@ -514,13 +514,13 @@ int Main::isValidWord(QString &q) {
 char Main::lletra_buscar(QString q) {
         QChar a;
 
-        if (q.at(0)=='à' || q.at(0)=='á' || q.at(0)=='â' || q.at(0)=='ä') return 'a';
-        if (q.at(0)=='è' || q.at(0)=='é' || q.at(0)=='ê' || q.at(0)=='ë') return 'e';
-        if (q.at(0)=='ì'  || q.at(0)=='í' || q.at(0)=='î' || q.at(0)=='ï') return 'i';
-        if (q.at(0)=='ò' || q.at(0)=='ó' || q.at(0)=='ô' || q.at(0)=='ö') return 'o';
-        if (q.at(0)=='ù' || q.at(0)=='ú' || q.at(0)=='û' || q.at(0)=='ü') return 'u';
+        if (q.at(0)==L'Ã ' || q.at(0)==L'Ã¡' || q.at(0)==L'Ã¢' || q.at(0)==L'Ã¤') return 'a';
+        if (q.at(0)==L'Ã¨' || q.at(0)==L'Ã©' || q.at(0)==L'Ãª' || q.at(0)==L'Ã«') return 'e';
+        if (q.at(0)==L'Ã¬'  || q.at(0)==L'Ã­' || q.at(0)==L'Ã®' || q.at(0)==L'Ã¯') return 'i';
+        if (q.at(0)==L'Ã²' || q.at(0)==L'Ã³' || q.at(0)==L'Ã´' || q.at(0)==L'Ã¶') return 'o';
+        if (q.at(0)==L'Ã¹' || q.at(0)==L'Ãº' || q.at(0)==L'Ã»' || q.at(0)==L'Ã¼') return 'u';
 
-        if (q.at(0)=='ç') return 'c';
+        if (q.at(0)==L'Ã§') return 'c';
 
         a=q.at(0);
 
@@ -531,7 +531,7 @@ void Main::selectItem()
 {
 	QListWidgetItem *item;
 
-	//Si és, és a la fila 0
+	//Si Ã©s, Ã©s a la fila 0
 	
 	item = ui.llistat->item(0);
 
