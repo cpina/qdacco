@@ -68,7 +68,7 @@ void Configure::ajuda_festival() {
 }
 
 void Configure::ajuda_singleinstance() {
-	QMessageBox::information(this,tr("Information"),tr("Enabling: you will have a trayicon next to the clock and only want qdacco will be running all the time. If you launch a new one it will bring to the foreground the old one. Disabling: you will not have a trayicon, and everytime that you launch a new qdacco you will have a new qdacco instance."));
+	QMessageBox::information(this,tr("Information"),tr("Enabling: you will have a trayicon next to the clock and only want qdacco will be running all the time. If you launch a new one it will bring to the foreground the old one. Disabling: you will not have a trayicon, and every time that you launch a new qdacco you will have a new qdacco instance."));
 }
 
 
