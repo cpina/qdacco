@@ -244,7 +244,7 @@ Dades llicenciades amb LGPL.</translation>
     </message>
     <message>
         <location filename="configure.cpp" line="71"/>
-        <source>Enabling: you will have a trayicon next to the clock and only want qdacco will be running all the time. If you launch a new one it will bring to the foreground the old one. Disabling: you will not have a trayicon, and everytime that you launch a new qdacco you will have a new qdacco instance.</source>
+        <source>Enabling: you will have a trayicon next to the clock and only want qdacco will be running all the time. If you launch a new one it will bring to the foreground the old one. Disabling: you will not have a trayicon, and every time that you launch a new qdacco you will have a new qdacco instance.</source>
         <translation>Activat: tindreu una icona al costat del rellotge i només un qdacco s&apos;executarà a la vegada. Si executeu un nou qdacco, l&apos;anterior serà portat a primer pla. Desactivat: no tindreu cap icona al costat del rellotge, i cada vegada que executeu un nou qdacco en tindreu una instància nova.</translation>
     </message>
 </context>
