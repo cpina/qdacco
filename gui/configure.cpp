@@ -55,20 +55,20 @@ Configure::Configure(QWidget *)  //parent
 }
 
 void Configure::ajuda_busca() {
-	QMessageBox::information(this,tr("Information"),tr("You should select the \"dictionaries\" directory and click \"Open\""));
+    QMessageBox::information(this,tr("Information"),tr("Path of the \"dictionaries\" directory in DACCO. It contains \"cateng\" and \"engcat\" directories"));
 }
 
 
 void Configure::ajuda_browser() {
-	QMessageBox::information(this,tr("Information"),tr("Some entries has links (e.g. to photos). Select which browser do you want to use"));
+    QMessageBox::information(this,tr("Information"),tr("Path or executable name of the browser to be used for opening links in entries"));
 }
 
 void Configure::ajuda_festival() {
-	QMessageBox::information(this,tr("Information"),tr("You can produce a synthesised pronunciation of your query results with qdacco. To use this feature you must have Festival installed on your system.<P>Festival webpage: <A HREF=\"http://www.cstr.ed.ac.uk/projects/festival/\">http://www.cstr.ed.ac.uk/projects/festival/</A>"));
+    QMessageBox::information(this,tr("Information"),tr("Path or executable name to \"festival\" speech synthesis system. Install it via your package manager or from the Festival webpage: <A HREF=\"http://www.cstr.ed.ac.uk/projects/festival/\">http://www.cstr.ed.ac.uk/projects/festival/</A>"));
 }
 
 void Configure::ajuda_singleinstance() {
-	QMessageBox::information(this,tr("Information"),tr("Enabling: you will have a trayicon next to the clock and only want qdacco will be running all the time. If you launch a new one it will bring to the foreground the old one. Disabling: you will not have a trayicon, and every time that you launch a new qdacco you will have a new qdacco instance."));
+    QMessageBox::information(this,tr("Information"),tr("If enabled launching a new qdacco will restore the existing one and be displayed as a trayicon"));
 }
 
 
