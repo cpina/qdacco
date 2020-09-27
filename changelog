@@ -1,3 +1,15 @@
+qdacco 1.0.2 (not released yet)
+============
+-Improve user interface texts
+-Fix Lintian error (thanks Adrià García-Alzórriz)
+
+qdacco 1.0.1 (May 2020)
+============
+-Fix compilation warnings (utf-8 characters, replaces 0 or NULL by nullptr)
+-Internal small refactorings
+-Updates readme, adds screenshots, etc.
+-Setup continuous integration
+
 qdacco 0.8.5 (June 2017)
 ============
 -Improves qdacco.desktop (as per Debian guidelines)
