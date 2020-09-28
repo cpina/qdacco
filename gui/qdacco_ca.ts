@@ -421,12 +421,12 @@ Dades llicenciades amb LGPL.</translation>
         <location filename="main.ui" line="259"/>
         <location filename="main.ui" line="262"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Abandona</translation>
+        <translation>&amp;Surt</translation>
     </message>
     <message>
         <location filename="main.ui" line="265"/>
         <source>Quit</source>
-        <translation>Abandona</translation>
+        <translation>Surt</translation>
     </message>
     <message>
         <location filename="main.ui" line="268"/>
