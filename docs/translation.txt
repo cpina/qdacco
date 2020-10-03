@@ -1,6 +1,0 @@
-This should be automated via cmake.
-
-Right now in gui/ do:
-lupdate *.cpp *.ui *.h  -ts qdacco_ca.ts
-linguist qdacco_ca.ts
-lrelease qdacco_ca.ts -qm qdacco_ca.qm
