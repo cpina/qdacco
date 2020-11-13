@@ -15,6 +15,7 @@ And commit the files that have changed.
  * Update `QDACCO_VERSION` in `CMakeLists.txt`
  * If needed update the copyright_date in `gui/AuxiliarGUI.cpp` (see [issue #6](//github.com/cpina/qdacco/issues/6) to move this into `CMakeLists.txt`)
  * Update `changelog` file with the new notes
+ * `git commit` of latest changes; `git push`
  * Open https://github.com/cpina/qdacco/releases , click on "Draft a new release" and write the information:
    * Tag version: same as QDACCO_VERSION **prepended by v** (e.g. v1.0.2)
    * Write a release title
