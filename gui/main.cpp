@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2008, 2009, 2011, 2013, 2015
+ * Copyright (c) 2005, 2006, 2007, 2008, 2009, 2011, 2013, 2015, 2020
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -33,7 +33,7 @@
 
 Main::Main(QWidget *)  //parent
 {
-        ui.setupUi(this);
+	ui.setupUi(this);
 	ui.paraula->setParent(this);
 	ui.llistat->setParent(this);
 	ui.definicio->setFather(this);
@@ -45,12 +45,12 @@ Main::Main(QWidget *)  //parent
 	m_numberFound=0;
 
 	m_cat_eng = new QToolButton;
-	m_cat_eng->setText(tr("cat->eng"));
+	m_cat_eng->setText(tr("cat → eng"));
 	m_cat_eng->setCheckable(1);
 	ui.toolBar->addWidget(m_cat_eng);
 
 	m_eng_cat = new QToolButton;
-	m_eng_cat->setText(tr("eng->cat"));
+	m_eng_cat->setText(tr("eng → cat"));
 	m_eng_cat->setCheckable(1);
 	ui.toolBar->addWidget(m_eng_cat);
 
