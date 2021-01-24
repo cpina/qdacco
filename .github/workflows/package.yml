@@ -13,7 +13,7 @@ jobs:
       uses: jurplel/install-qt-action@v2
       with:
         version: '5.15.2'
-    - name: Setup nmake?
+    - name: Setup nmake
       uses: ilammy/msvc-dev-cmd@v1
     - name: Build
       shell: cmd
@@ -24,4 +24,5 @@ jobs:
         mkdir build
         cd build
         cmake ..
+        nmake
         
