@@ -23,6 +23,11 @@
 #ifndef ONEINSTANCE_H
 #define ONEINSTANCE_H
 
+// TODO: just investigating build on msvc
+#ifdef interface
+#undef interface
+#endif
+
 #include <QtCore/QObject>
 #include <QtDBus/QtDBus>
 
