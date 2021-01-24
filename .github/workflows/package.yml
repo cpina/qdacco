@@ -1,0 +1,23 @@
+name: ci
+  
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-2016
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: '5.15.2'
+    - name: build-msvc
+        shell: cmd
+        env:
+          vc_arch: ${{ matrix.msvc_arch }}
+        run: |
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" %vc_arch%
+          qmake
+          nmake
