@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007
+ * Copyright (c) 2005, 2006, 2007, 2021
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -30,19 +30,20 @@
 class WordData {
 public:
 	WordData();
-	void putDefinition(QString q);
-	void putGender(QString q);
-	void putTipus(QString q);
-	void putCatexamp(QString q);
-	void putEngexamp(QString q);
-	void putExample(QString q);
-	void putEngnote(QString q);
-	void putCatnote(QString q);
-	void putPicture(QString q);
-	void putFlickr(QString q);
-	void putPlural(QString q);
-	void putFemplural(QString q);
-	void putSynonyms(QString q);
+
+    void setDefinition(QString q);
+    void setGender(QString q);
+    void setTipus(QString q);
+    void setCatExample(QString q);
+    void setEnglishExample(QString q);
+    void setExample(QString q);
+    void setEnglishNote(QString q);
+    void setCatalanNote(QString q);
+    void setPicture(QString q);
+    void setFlickr(QString q);
+    void setPlural(QString q);
+    void setFemeninePlural(QString q);
+    void setSynonyms(QString q);
 
 	QString getDefinition(int i);
 	QString getGender(int i);

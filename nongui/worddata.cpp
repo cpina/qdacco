@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2015
+ * Copyright (c) 2005, 2006, 2007, 2015, 2021
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -27,7 +27,7 @@ WordData::WordData() {
 	num=0;
 }
 
-void WordData::putDefinition(QString q) {
+void WordData::setDefinition(QString q) {
 	if (num<MAX_WORDS) {
 		definition[num]=q;
 	}
@@ -36,7 +36,7 @@ void WordData::putDefinition(QString q) {
 	}
 }
 
-void WordData::putGender(QString q) {
+void WordData::setGender(QString q) {
 	if (num<MAX_WORDS) {
 		gender[num]=q;
 	}
@@ -46,7 +46,7 @@ void WordData::putGender(QString q) {
 
 }
 
-void WordData::putCatexamp(QString q) {
+void WordData::setCatExample(QString q) {
 	if (num<MAX_WORDS) {
 		catexamp[num]=q;
 	}
@@ -55,7 +55,7 @@ void WordData::putCatexamp(QString q) {
 	}
 }
 
-void WordData::putEngexamp(QString q) {
+void WordData::setEnglishExample(QString q) {
 	if (num<MAX_WORDS) {
 		engexamp[num]=q;
 	}
@@ -64,7 +64,7 @@ void WordData::putEngexamp(QString q) {
 	}
 }
 
-void WordData::putTipus(QString q) {
+void WordData::setTipus(QString q) {
 	if (num<MAX_WORDS) {
 		tipus[num]=q;
 	}
@@ -74,7 +74,7 @@ void WordData::putTipus(QString q) {
 
 }
 
-void WordData::putExample(QString q) {
+void WordData::setExample(QString q) {
 	if (num<MAX_WORDS) {
 		example[num]+=q+"<BR>";
 	}
@@ -83,7 +83,7 @@ void WordData::putExample(QString q) {
 	}
 }
 
-void WordData::putEngnote(QString q) {
+void WordData::setEnglishNote(QString q) {
 	if (num<MAX_WORDS) {
 		engnote[num]+=q;
 	}
@@ -93,7 +93,7 @@ void WordData::putEngnote(QString q) {
 }
 
 
-void WordData::putCatnote(QString q) {
+void WordData::setCatalanNote(QString q) {
 	if (num<MAX_WORDS) {
 		catnote[num]+=q;
 	}
@@ -102,7 +102,7 @@ void WordData::putCatnote(QString q) {
 	}
 }
 
-void WordData::putPicture(QString q) {
+void WordData::setPicture(QString q) {
 	if (num<MAX_WORDS) {
 		picture[num]+="<A HREF=\""+q+"\">"+q+"</A>";
 	}
@@ -112,7 +112,7 @@ void WordData::putPicture(QString q) {
 }
 
 
-void WordData::putFlickr(QString q) {
+void WordData::setFlickr(QString q) {
 	if (num<MAX_WORDS) {
 		flickr[num]+="<A HREF=\""+q+"\">"+q+"</A>";
 	}
@@ -121,7 +121,7 @@ void WordData::putFlickr(QString q) {
 	}
 }
 
-void WordData::putPlural(QString q) {
+void WordData::setPlural(QString q) {
 	if (num<MAX_WORDS) {
 		plural[num]+=q;
 	}
@@ -131,7 +131,7 @@ void WordData::putPlural(QString q) {
 }
 
 
-void WordData::putFemplural(QString q) {
+void WordData::setFemeninePlural(QString q) {
 	if (num<MAX_WORDS) {
 		femplural[num]+=q;
 	}
@@ -140,7 +140,7 @@ void WordData::putFemplural(QString q) {
 	}
 }
 
-void WordData::putSynonyms(QString q) {
+void WordData::setSynonyms(QString q) {
 	if (num<MAX_WORDS) {
 		synonyms[num]+=q;
 	}

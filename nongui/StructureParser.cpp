@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2015
+ * Copyright (c) 2005, 2006, 2007, 2015, 2021
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -94,50 +94,50 @@ bool StructureParser::characters ( const QString & ch )
 		trobat=false;
 	}
 	if (trobat && catexamp) {
-		wd.putCatexamp(ch);
+        wd.setCatExample(ch);
 	}
 
 	if (trobat && engexamp) {
-		wd.putEngexamp(ch);
+        wd.setEnglishExample(ch);
 	}
 
 	if (trobat && example) {
-		wd.putExample(ch);
+        wd.setExample(ch);
 	}
 
 	
 	if (trobat && translation) {
-		wd.putDefinition(ch);
+        wd.setDefinition(ch);
 
-		wd.putGender(qgender_);
-		wd.putTipus(qtipus_);
+        wd.setGender(qgender_);
+        wd.setTipus(qtipus_);
 
 		if (!qpicture_.isEmpty()) {
-			wd.putPicture(qpicture_);
+            wd.setPicture(qpicture_);
 		}
 		if (!qflickr_.isEmpty()) {
-			wd.putFlickr(qflickr_);
+            wd.setFlickr(qflickr_);
 		}
 	}
 
 	if (trobat && engnote) {
-		wd.putEngnote(ch);
+        wd.setEnglishNote(ch);
 	}
 
 	if (trobat && catnote) {
-		wd.putCatnote(ch);
+        wd.setCatalanNote(ch);
 	}
 
 	if (trobat && plural) {
-		wd.putPlural(ch);
+        wd.setPlural(ch);
 	}
 
 	if (trobat && femplural) {
-		wd.putFemplural(ch);
+        wd.setFemeninePlural(ch);
 	}
 
 	if (trobat && synonyms) {
-		wd.putSynonyms(ch);
+        wd.setSynonyms(ch);
 	}
 	return true;
 }
