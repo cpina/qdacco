@@ -51,16 +51,16 @@ class StructureParser : public QXmlDefaultHandler
 	private:
 	bool compare(QString ch, QString word);
 
-	bool entrada,translation,catexamp,engexamp,tipus,example;
-	bool engnote,catnote,picture,plural,femplural;
-	bool synonyms;
+    bool m_entrada,m_translation,m_catexamp,m_engexamp,m_tipus,m_example;
+    bool m_engnote,m_catnote,m_picture,m_plural,m_femplural;
+    bool m_synonyms;
 
-	bool trobat;
-	QString paraula,definicio,qcatexamp,qengexamp;
-	QString qtipus,qgender,qgender_,qtipus_,qpicture_,qflickr_;
-	WordData wd;
+    bool m_trobat;
+    QString m_paraula,m_definicio,m_qcatexamp,m_qengexamp;
+    QString m_qtipus,m_qgender,m_qgender_,m_qtipus_,m_qpicture_,m_qflickr_;
+    WordData m_wordData;
 
-	int after_word;
+    int m_after_word;
 };
 
 #endif

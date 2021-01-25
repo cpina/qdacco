@@ -23,7 +23,7 @@
 
 bool StructureParser::startDocument()
 {
-	after_word = 0;
+    m_after_word = 0;
 	return true;
 }
 
@@ -31,52 +31,52 @@ bool StructureParser::startElement( const QString&, const QString&,
 					const QString& qName,
 					const QXmlAttributes& attributes)
 {
-	catexamp=false; engexamp=false;
-	entrada=false; translation=false;
-	example=false; 
-	engnote=false; catnote=false;
-	picture=false;
-	plural=false; femplural=false;
-	synonyms=false;
+    m_catexamp=false; m_engexamp=false;
+    m_entrada=false; m_translation=false;
+    m_example=false;
+    m_engnote=false; m_catnote=false;
+    m_picture=false;
+    m_plural=false; m_femplural=false;
+    m_synonyms=false;
 
-	catexamp=(qName=="catexamp");
-	engexamp=(qName=="engexamp");
-	example=(qName=="example");
-	engnote=(qName=="engnote");
-	catnote=(qName=="catnote");
-	plural=(qName=="plural");
-	femplural=(qName=="femplural");
-	synonyms=(qName=="synonyms");
+    m_catexamp=(qName=="catexamp");
+    m_engexamp=(qName=="engexamp");
+    m_example=(qName=="example");
+    m_engnote=(qName=="engnote");
+    m_catnote=(qName=="catnote");
+    m_plural=(qName=="plural");
+    m_femplural=(qName=="femplural");
+    m_synonyms=(qName=="synonyms");
 
-	qgender_=attributes.value("gender");	
-	qpicture_=attributes.value("picture");
-	qflickr_=attributes.value("flickr");
+    m_qgender_=attributes.value("gender");
+    m_qpicture_=attributes.value("picture");
+    m_qflickr_=attributes.value("flickr");
 
-	entrada = (qName=="Entry");
+    m_entrada = (qName=="Entry");
 
 	if (qName == "translation") {
-		translation = true;
+        m_translation = true;
 	}
 
-	if (qName == "adjectives") {qtipus_="adj";}
-	if (qName == "adverbs") {qtipus_="adv";}
-	if (qName == "exclamations") {qtipus_="excl";}
-	if (qName == "nouns") {qtipus_="n";}
-	if (qName == "prepositions") {qtipus_="prep";}
-	if (qName == "pronouns") {qtipus_="pron";}
-	if (qName == "verbs") {qtipus_="v";}
+    if (qName == "adjectives") {m_qtipus_="adj";}
+    if (qName == "adverbs") {m_qtipus_="adv";}
+    if (qName == "exclamations") {m_qtipus_="excl";}
+    if (qName == "nouns") {m_qtipus_="n";}
+    if (qName == "prepositions") {m_qtipus_="prep";}
+    if (qName == "pronouns") {m_qtipus_="pron";}
+    if (qName == "verbs") {m_qtipus_="v";}
 
 	return true;
 }
 
 bool StructureParser::endElement( const QString&, const QString&, const QString& qName)
 {
-	if (trobat && qName=="translation") {
-		wd.incNum();
+    if (m_trobat && qName=="translation") {
+        m_wordData.incNum();
 		Auxiliar::debug("Increments incNum");
 	}	
-	if (trobat && qName=="Entry") {	//ja sortim de la paraula
-		trobat=false;
+    if (m_trobat && qName=="Entry") {	//ja sortim de la paraula
+        m_trobat=false;
 	}
 	return true;
 }
@@ -85,71 +85,71 @@ bool StructureParser::characters ( const QString & ch )
 {
 	bool same;
 	
-	same=compare(ch,paraula);
+    same=compare(ch,m_paraula);
 	
-	if (entrada && same) {
-		trobat=true;
+    if (m_entrada && same) {
+        m_trobat=true;
 	}
-	if (entrada && !same) {
-		trobat=false;
+    if (m_entrada && !same) {
+        m_trobat=false;
 	}
-	if (trobat && catexamp) {
-        wd.setCatExample(ch);
-	}
-
-	if (trobat && engexamp) {
-        wd.setEnglishExample(ch);
+    if (m_trobat && m_catexamp) {
+        m_wordData.setCatExample(ch);
 	}
 
-	if (trobat && example) {
-        wd.setExample(ch);
+    if (m_trobat && m_engexamp) {
+        m_wordData.setEnglishExample(ch);
+	}
+
+    if (m_trobat && m_example) {
+        m_wordData.setExample(ch);
 	}
 
 	
-	if (trobat && translation) {
-        wd.setDefinition(ch);
+    if (m_trobat && m_translation) {
+        m_wordData.setDefinition(ch);
 
-        wd.setGender(qgender_);
-        wd.setTipus(qtipus_);
+        m_wordData.setGender(m_qgender_);
+        m_wordData.setTipus(m_qtipus_);
 
-		if (!qpicture_.isEmpty()) {
-            wd.setPicture(qpicture_);
+        if (!m_qpicture_.isEmpty()) {
+            m_wordData.setPicture(m_qpicture_);
 		}
-		if (!qflickr_.isEmpty()) {
-            wd.setFlickr(qflickr_);
+        if (!m_qflickr_.isEmpty()) {
+            m_wordData.setFlickr(m_qflickr_);
 		}
 	}
 
-	if (trobat && engnote) {
-        wd.setEnglishNote(ch);
+    if (m_trobat && m_engnote) {
+        m_wordData.setEnglishNote(ch);
 	}
 
-	if (trobat && catnote) {
-        wd.setCatalanNote(ch);
+    if (m_trobat && m_catnote) {
+        m_wordData.setCatalanNote(ch);
 	}
 
-	if (trobat && plural) {
-        wd.setPlural(ch);
+    if (m_trobat && m_plural) {
+        m_wordData.setPlural(ch);
 	}
 
-	if (trobat && femplural) {
-        wd.setFemeninePlural(ch);
+    if (m_trobat && m_femplural) {
+        m_wordData.setFemeninePlural(ch);
 	}
 
-	if (trobat && synonyms) {
-        wd.setSynonyms(ch);
+    if (m_trobat && m_synonyms) {
+        m_wordData.setSynonyms(ch);
 	}
 	return true;
 }
 
 void StructureParser::setParaula(const QString &s) 
 {
-	paraula=s;
+    m_paraula=s;
 }
 
 WordData StructureParser::getWordData()
 {
-	return wd;
+    return m_wordData;
 }
 
 bool StructureParser::compare(QString ch, QString word)
