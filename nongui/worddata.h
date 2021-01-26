@@ -31,19 +31,19 @@ class WordData {
 public:
 	WordData();
 
-    void setDefinition(QString q);
-    void setGender(QString q);
-    void setTipus(QString q);
-    void setCatExample(QString q);
-    void setEnglishExample(QString q);
-    void setExample(QString q);
-    void setEnglishNote(QString q);
-    void setCatalanNote(QString q);
-    void setPicture(QString q);
-    void setFlickr(QString q);
-    void setPlural(QString q);
-    void setFemeninePlural(QString q);
-    void setSynonyms(QString q);
+    void setDefinition(const QString &q);
+    void setGender(const QString& q);
+    void setTipus(const QString &q);
+    void setCatExample(const QString &q);
+    void setEnglishExample(const QString& q);
+    void setExample(const QString& q);
+    void setEnglishNote(const QString& q);
+    void setCatalanNote(const QString& q);
+    void setPicture(const QString& q);
+    void setFlickr(const QString& q);
+    void setPlural(const QString& q);
+    void setFemeninePlural(const QString& q);
+    void setSynonyms(const QString& q);
 
 	QString getDefinition(int i);
 	QString getGender(int i);
@@ -68,7 +68,7 @@ public:
 	static QString HTML2Text(QString t);
 
 private:
-	void printError(QString tag);
+    void printError(const QString &tag);
 
 	int num;
 

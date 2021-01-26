@@ -52,7 +52,7 @@ class StructureParser : public QXmlDefaultHandler
 	bool compare(QString ch, QString word);
 
     bool m_entrada,m_translation,m_catexamp,m_engexamp,m_tipus,m_example;
-    bool m_engnote,m_catnote,m_picture,m_plural,m_femplural;
+    bool m_engnote,m_catnote,m_picture,m_plural,m_femplural,m_expressions;
     bool m_synonyms;
 
     bool m_trobat;

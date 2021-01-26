@@ -27,7 +27,7 @@ WordData::WordData() {
 	num=0;
 }
 
-void WordData::setDefinition(QString q) {
+void WordData::setDefinition(const QString& q) {
 	if (num<MAX_WORDS) {
 		definition[num]=q;
 	}
@@ -36,7 +36,7 @@ void WordData::setDefinition(QString q) {
 	}
 }
 
-void WordData::setGender(QString q) {
+void WordData::setGender(const QString& q) {
 	if (num<MAX_WORDS) {
 		gender[num]=q;
 	}
@@ -46,7 +46,7 @@ void WordData::setGender(QString q) {
 
 }
 
-void WordData::setCatExample(QString q) {
+void WordData::setCatExample(const QString& q) {
 	if (num<MAX_WORDS) {
 		catexamp[num]=q;
 	}
@@ -55,7 +55,7 @@ void WordData::setCatExample(QString q) {
 	}
 }
 
-void WordData::setEnglishExample(QString q) {
+void WordData::setEnglishExample(const QString& q) {
 	if (num<MAX_WORDS) {
 		engexamp[num]=q;
 	}
@@ -64,7 +64,7 @@ void WordData::setEnglishExample(QString q) {
 	}
 }
 
-void WordData::setTipus(QString q) {
+void WordData::setTipus(const QString& q) {
 	if (num<MAX_WORDS) {
 		tipus[num]=q;
 	}
@@ -74,7 +74,7 @@ void WordData::setTipus(QString q) {
 
 }
 
-void WordData::setExample(QString q) {
+void WordData::setExample(const QString& q) {
 	if (num<MAX_WORDS) {
 		example[num]+=q+"<BR>";
 	}
@@ -83,7 +83,7 @@ void WordData::setExample(QString q) {
 	}
 }
 
-void WordData::setEnglishNote(QString q) {
+void WordData::setEnglishNote(const QString& q) {
 	if (num<MAX_WORDS) {
 		engnote[num]+=q;
 	}
@@ -93,7 +93,7 @@ void WordData::setEnglishNote(QString q) {
 }
 
 
-void WordData::setCatalanNote(QString q) {
+void WordData::setCatalanNote(const QString& q) {
 	if (num<MAX_WORDS) {
 		catnote[num]+=q;
 	}
@@ -102,7 +102,7 @@ void WordData::setCatalanNote(QString q) {
 	}
 }
 
-void WordData::setPicture(QString q) {
+void WordData::setPicture(const QString& q) {
 	if (num<MAX_WORDS) {
 		picture[num]+="<A HREF=\""+q+"\">"+q+"</A>";
 	}
@@ -112,7 +112,7 @@ void WordData::setPicture(QString q) {
 }
 
 
-void WordData::setFlickr(QString q) {
+void WordData::setFlickr(const QString& q) {
 	if (num<MAX_WORDS) {
 		flickr[num]+="<A HREF=\""+q+"\">"+q+"</A>";
 	}
@@ -121,7 +121,7 @@ void WordData::setFlickr(QString q) {
 	}
 }
 
-void WordData::setPlural(QString q) {
+void WordData::setPlural(const QString& q) {
 	if (num<MAX_WORDS) {
 		plural[num]+=q;
 	}
@@ -131,7 +131,7 @@ void WordData::setPlural(QString q) {
 }
 
 
-void WordData::setFemeninePlural(QString q) {
+void WordData::setFemeninePlural(const QString& q) {
 	if (num<MAX_WORDS) {
 		femplural[num]+=q;
 	}
@@ -140,7 +140,7 @@ void WordData::setFemeninePlural(QString q) {
 	}
 }
 
-void WordData::setSynonyms(QString q) {
+void WordData::setSynonyms(const QString& q) {
 	if (num<MAX_WORDS) {
 		synonyms[num]+=q;
 	}
@@ -337,6 +337,6 @@ QString WordData::getHTMLEntry(int i) {
 	return ret;
 }
 
-void WordData::printError(QString tag) {
+void WordData::printError(const QString& tag) {
 	qDebug() << "ERROR: not saving" << tag << "because there is more than 50";
 }
