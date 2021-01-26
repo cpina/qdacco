@@ -27,10 +27,13 @@ bool StructureParser::startDocument()
 	return true;
 }
 
-bool StructureParser::startElement( const QString&, const QString&,
-					const QString& qName,
-					const QXmlAttributes& attributes)
+bool StructureParser::startElement(const QString& nameSpaceUri, const QString& localName,
+                    const QString& qName,
+                    const QXmlAttributes& attributes)
 {
+    Q_UNUSED(nameSpaceUri);
+    Q_UNUSED(localName);
+
     m_catexamp=false; m_engexamp=false;
     m_entrada=false; m_translation=false;
     m_example=false;
@@ -54,7 +57,7 @@ bool StructureParser::startElement( const QString&, const QString&,
 
     m_entrada = (qName=="Entry");
 
-	if (qName == "translation") {
+    if (qName == "translation") {
         m_translation = true;
 	}
 
@@ -69,8 +72,11 @@ bool StructureParser::startElement( const QString&, const QString&,
 	return true;
 }
 
-bool StructureParser::endElement( const QString&, const QString&, const QString& qName)
+bool StructureParser::endElement(const QString& nameSpaceUri, const QString& localName, const QString& qName)
 {
+    Q_UNUSED(nameSpaceUri);
+    Q_UNUSED(localName);
+
     if (m_trobat && qName=="translation") {
         m_wordData.incNum();
 		Auxiliar::debug("Increments incNum");
@@ -81,7 +87,7 @@ bool StructureParser::endElement( const QString&, const QString&, const QString&
 	return true;
 }
 
-bool StructureParser::characters ( const QString & ch )
+bool StructureParser::characters (const QString & ch)
 {
 	bool same;
 	
