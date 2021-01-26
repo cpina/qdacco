@@ -25,8 +25,6 @@
 #include <QString>
 #include <QObject>
 
-#define MAX_WORDS 50
-
 class WordData {
 public:
 	WordData();
@@ -64,27 +62,26 @@ public:
 	QString getEntry(int i);
 	QString getTextEntry(int i);
 	QString getHTMLEntry(int i);
+    QString getHTMLEntry();
 
-	static QString HTML2Text(QString t);
+    static QString HTML2Text(const QString& t);
 
 private:
     void printError(const QString &tag);
 
-	int num;
-
-	QString definition[MAX_WORDS];
-	QString gender[MAX_WORDS];
-	QString tipus[MAX_WORDS];
-	QString catexamp[MAX_WORDS];
-	QString engexamp[MAX_WORDS];
-	QString example[MAX_WORDS];
-	QString engnote[MAX_WORDS];
-	QString catnote[MAX_WORDS];
-	QString picture[MAX_WORDS];
-	QString flickr[MAX_WORDS];
-	QString plural[MAX_WORDS];
-	QString femplural[MAX_WORDS];
-	QString synonyms[MAX_WORDS];
+    QStringList definition;
+    QStringList gender;
+    QStringList tipus;
+    QStringList catexamp;
+    QStringList engexamp;
+    QStringList example;
+    QStringList engnote;
+    QStringList catnote;
+    QStringList picture;
+    QStringList flickr;
+    QStringList plural;
+    QStringList femplural;
+    QStringList synonyms;
 };
 /*
 class WordDataConversor {

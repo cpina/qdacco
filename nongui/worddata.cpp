@@ -218,7 +218,7 @@ void WordData::incNum() {
 	}
 }
 
-QString WordData::HTML2Text(QString t) {
+QString WordData::HTML2Text(const QString& t) {
 	t=t.replace("<BR>","\n");
 	t=t.replace("<U>","");
 	t=t.replace("</U>","");
