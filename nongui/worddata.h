@@ -28,7 +28,11 @@
 #include <QString>
 #include <QObject>
 
-static QStringList wordTypesList = {"verbs", "nouns", "adjectives", "adverbs", "pronouns"};
+static QStringList wordTypesList = {"verbs", "nouns", "adjectives", "adverbs", "pronouns",
+                                    "exclamations", "abbreviations", "prepositions",
+                                    "phrasalverbs", "verbTense", "mistakes",
+                                    "conjunctions", "determiners", "acronyms", "catacro", "engacro",
+                                   };
 
 struct Translation {
     QString translation;
