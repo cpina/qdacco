@@ -38,6 +38,7 @@ struct Translation {
 
     QStringList examples;
     QStringList notes;
+    QString plural;
 
     QString catagory;
     QString gender;
@@ -55,6 +56,10 @@ struct Translation {
         }
 
         html += translation + "<br>";
+
+        if (!plural.isEmpty()) {
+            html += QString("<u>Plural:</u> %1<br>").arg(plural);
+        }
 
         for (const QString& example: examples) {
             html += "<u>Exemple:</u> " + example + "<br>";

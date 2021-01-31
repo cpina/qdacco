@@ -29,6 +29,7 @@ bool StructureParser::startDocument()
     m_after_word = 0;
     m_inTranslation = false;
     m_inExpressions = false;
+    m_inPlural = false;
 
 	return true;
 }
@@ -54,6 +55,10 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
     if (qName == "expressions") {
         m_inExpressions = true;
         m_expressions = Expressions();
+    }
+
+    if (qName == "plural") {
+        m_inPlural = true;
     }
 
     if (exampleElements.contains(qName)) {
@@ -87,9 +92,13 @@ bool StructureParser::characters(const QString& chrs)
         m_inExpressions = false;
         m_inTranslation = false;
         m_inExample = false;
+        m_inPlural = false;
 	}
 
-    if (m_found && m_inTranslation && m_inExample) {
+    if (m_found && m_inTranslation && m_inPlural) {
+        m_translation.plural = ch;
+    }
+    else if (m_found && m_inTranslation && m_inExample) {
         m_translation.examples.append(ch);
     }
     else if (m_found && m_inTranslation) {
@@ -111,7 +120,10 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
     Q_UNUSED(nameSpaceUri);
     Q_UNUSED(localName);
 
-    if (m_found && m_inExpressions && qName == "translation") {
+    if (m_found && m_inPlural && qName == "plural") {
+        m_inPlural = false;
+    }
+    else if (m_found && m_inExpressions && qName == "translation") {
         m_expressions.translations.append(m_translation);
         m_translation = Translation();
         m_inTranslation = false;
