@@ -24,6 +24,7 @@
 
 #include <QVariant>
 
+#include <QDebug>
 #include <QString>
 #include <QObject>
 
@@ -122,7 +123,16 @@ struct Exclamations
 struct Expressions
 {
     QString expression;
-    QList<Translation> translations;
+    Translations translations;
+
+    QString getHtml() const {
+        QString html;
+
+        html += expression + "<br>";
+        html += translations.getHtml();
+
+        return html;
+    }
 };
 
 struct Adverbs
@@ -167,7 +177,7 @@ struct Entry
     Conjunctions conjunctions;
     Pronouns pronouns;
     Exclamations exclamations;
-    Expressions expressions;
+    QList<Expressions> expressions;
     Adverbs adverbs;
     Abbreviations abbreviations;
     PhrasalVerbs phrasalVerbs;
@@ -178,7 +188,15 @@ struct Entry
     QStringList mistakes;
 
     QString getHtml() const {
-        return adverbs.getHtml();
+        QString html;
+
+        html += adverbs.getHtml();
+
+        for (const Expressions& _expressions: expressions) {
+            html += _expressions.getHtml();
+        }
+
+        return html;
     }
 };
 
@@ -188,6 +206,8 @@ public:
 	WordData();
 
     void addTranslation(const Translation &translation, const QString& type);
+    void addExpressions(const Expressions& expressions);
+
     void setGender(const QString& q);
     void setTipus(const QString &q);
     void setCatExample(const QString &q);

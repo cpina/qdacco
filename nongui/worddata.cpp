@@ -41,6 +41,12 @@ void WordData::addTranslation(const Translation& translation, const QString &typ
     }
 }
 
+void WordData::addExpressions(const Expressions& expressions) {
+    m_found = true;
+
+    m_entry.expressions.append(expressions);
+}
+
 void WordData::setGender(const QString& q) {
 
 }

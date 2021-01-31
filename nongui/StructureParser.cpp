@@ -28,6 +28,8 @@ bool StructureParser::startDocument()
 {
     m_after_word = 0;
     m_inTranslation = false;
+    m_inExpressions = false;
+
 	return true;
 }
 
@@ -45,6 +47,11 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
     if (qName == "translation") {
         m_inTranslation = true;
         m_translation = Translation();
+    }
+
+    if (qName == "expressions") {
+        m_inExpressions = true;
+        m_expressions = Expressions();
     }
 
     m_entry = (qName == "Entry");
@@ -108,7 +115,14 @@ bool StructureParser::characters(const QString& ch)
         m_found=true;
 	}
 
-    if (m_inTranslation) {
+
+    if (m_found && m_inExpressions && m_inTranslation) {
+        m_expressions.translations.append(m_translation);
+    }
+    if (m_found && m_inExpressions) {
+        m_expressions.expression = ch;
+    }
+    else if (m_found && m_inTranslation) {
         m_translation.translation = ch;
     }
 
@@ -173,10 +187,21 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
     Q_UNUSED(nameSpaceUri);
     Q_UNUSED(localName);
 
-    if (m_found && qName == "translation") {
+    if (m_found && m_inExpressions && qName == "translation") {
+        m_expressions.translations.append(m_translation);
+        m_translation = Translation();
+        m_inTranslation = false;
+    }
+    else if (m_found && qName == "translation") {
         m_wordData.addTranslation(m_translation, m_type);
         m_translation = Translation();
         m_inTranslation = false;
+    }
+
+    if (m_found && qName == "expressions") {
+        m_wordData.addExpressions(m_expressions);
+        m_expressions = Expressions();
+        m_inExpressions = false;
     }
 
     if (m_found && typeOfWords.contains(qName)) {

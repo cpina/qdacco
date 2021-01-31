@@ -52,10 +52,11 @@ class StructureParser : public QXmlDefaultHandler
 	bool compare(QString ch, QString word);
 
     bool m_entry,m_catexamp,m_engexamp,m_tipus,m_example;
-    bool m_engnote,m_catnote,m_picture,m_plural,m_femplural,m_expressions;
+    bool m_engnote,m_catnote,m_picture,m_plural,m_femplural;
     bool m_synonyms;
 
     bool m_inTranslation;
+    bool m_inExpressions;
 
     bool m_found;
     QString m_paraula,m_definicio,m_qcatexamp,m_qengexamp;
@@ -65,6 +66,7 @@ class StructureParser : public QXmlDefaultHandler
 
     WordData m_wordData;
     Translation m_translation;
+    Expressions m_expressions;
     QString m_type;
 };
 
