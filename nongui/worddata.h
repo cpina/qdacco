@@ -34,6 +34,30 @@ static QStringList wordTypesList = {"verbs", "nouns", "adjectives", "adverbs", "
                                     "conjunctions", "determiners", "acronyms", "catacro", "engacro",
                                    };
 
+
+
+static QString xmlToUserInterface(const QString& xmlWord) {
+    static QHash<QString, QString> xmlInternalToUserInterface = { {"verbs", "v"},
+                                                                  {"nouns", "n"},
+                                                                  {"ajectives", "adj"},
+                                                                  {"adverbs", "adv"},
+                                                                  {"pronouns", "pron"},
+                                                                  {"exclamations", "excl"},
+                                                                  {"abbreviations", "abbrev"},
+                                                                  {"prepositions", "prep"},
+                                                                  {"phrasalverbs", "phrasal verb"},
+                                                                  {"verbTense", "verb tense"},
+                                                                  {"mistakes", "mistake"},
+                                                                  {"conjunctions", "conj"},
+                                                                  {"determiners", "det"},
+                                                                  {"acronyms", "acronym"},
+                                                                  {"catacro", "catalan acronym"},
+                                                                  {"engacro", "english acronym"},
+                                                                };
+
+    return xmlInternalToUserInterface.value(xmlWord, xmlWord);
+}
+
 struct Translation {
     QString translation;
     QString fems;
@@ -51,11 +75,25 @@ struct Translation {
     QString picture;
     QString flickr;
 
-    QString getHtml() const {
+    QString getHtml(const QString& typeOfWord) const {
         QString html;
 
+        if (!typeOfWord.isNull())
+        {
+            html += QString("<i>%1</i>").arg(xmlToUserInterface(typeOfWord));
+        }
+
         if (!gender.isNull()) {
-            html += QString(" <i>(%1)</i><br>").arg(gender);
+            if (!html.isNull()) {
+                html += " ";
+            }
+
+            html += QString("<i>(%1)</i>").arg(gender);
+        }
+
+        if (!html.isNull())
+        {
+            html += "<br>";
         }
 
         html += translation + "<br>";
@@ -86,17 +124,13 @@ struct Translations : public QList<Translation> {
 
         QString typeOfWordHtml;
 
-        if (!typeOfWord.isNull()) {
-            typeOfWordHtml = QString("<i>%1</i>").arg(typeOfWord);
-        }
-
         bool first = true;
         for(const Translation& translation : *this) {
             if (!first) {
                 html += "<br>";
             }
             html += typeOfWordHtml;
-            html += translation.getHtml();
+            html += translation.getHtml(typeOfWord);
             first = false;
         }
 
@@ -114,8 +148,8 @@ struct WordType
         if (translations.isEmpty()) {
             return QString();
         }
-        QString html = QString("<i>%1</i><br>").arg(wordType);
-        html += translations.getHtml();
+//        QString html = QString("<i>%1</i><br>").arg(xmlToUserInterface(wordType));
+        QString html = translations.getHtml(wordType);
         return html;
     }
 };
