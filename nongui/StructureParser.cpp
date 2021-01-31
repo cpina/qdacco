@@ -93,6 +93,23 @@ bool StructureParser::characters(const QString& chrs)
 
     bool same = compare(ch,m_paraula);
 	
+    if (m_entry) {
+        if (same) {
+            m_found = true;
+            m_inExpressions = false;
+            m_inTranslation = false;
+            m_inExample = false;
+            m_inPlural = false;
+            m_inNote = false;
+            m_inFems = false;
+
+            m_type = QString();
+        }
+        else {
+            m_found=false;
+        }
+    }
+
     if (m_entry && same) {
         m_found = true;
         m_inExpressions = false;
@@ -105,27 +122,25 @@ bool StructureParser::characters(const QString& chrs)
         m_type = QString();
 	}
 
-    if (m_found && m_inTranslation && m_inPlural) {
-        m_translation.plural = ch;
-    }
-    else if (m_found && m_inTranslation && m_inExample) {
-        m_translation.examples.append(ch);
-    }
-    else if (m_found && m_inTranslation && m_inNote) {
-        m_translation.notes.append(ch);
-    }
-    else if (m_found && m_inFems) {
-        m_translation.fems = ch;
-    }
-    else if (m_found && m_inTranslation) {
-        m_translation.translation = ch;
-    }
-    else if (m_found && m_inExpressions) {
-        m_expressions.expression = ch;
-    }
-
-    if (m_entry && !same) {
-        m_found=false;
+    if (m_found) {
+        if (m_inTranslation && m_inPlural) {
+            m_translation.plural = ch;
+        }
+        else if (m_inTranslation && m_inExample) {
+            m_translation.examples.append(ch);
+        }
+        else if (m_inTranslation && m_inNote) {
+            m_translation.notes.append(ch);
+        }
+        else if (m_inFems) {
+            m_translation.fems = ch;
+        }
+        else if (m_inTranslation) {
+            m_translation.translation = ch;
+        }
+        else if (m_inExpressions) {
+            m_expressions.expression = ch;
+        }
     }
 
 	return true;
@@ -136,42 +151,46 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
     Q_UNUSED(nameSpaceUri);
     Q_UNUSED(localName);
 
-    if (m_found && m_inPlural && qName == "plural") {
+    if (!m_found) {
+        return true;
+    }
+
+    if (m_inPlural && qName == "plural") {
         m_inPlural = false;
     }
-    else if (m_found && m_inFems && qName == "fems") {
+    else if (m_inFems && qName == "fems") {
         m_inFems = false;
     }
-    else if (m_found && m_inExpressions && qName == "translation") {
+    else if (m_inExpressions && qName == "translation") {
         m_expressions.translations.append(m_translation);
         m_translation = Translation();
         m_inTranslation = false;
     }
-    else if (m_found && qName == "translation") {
+    else if (qName == "translation") {
         m_wordData.addTranslation(m_translation, m_type);
         m_translation = Translation();
         m_inTranslation = false;
     }
 
-    if (m_found && exampleElements.contains(qName)) {
+    if (exampleElements.contains(qName)) {
         m_inExample = false;
     }
 
-    if (m_found && noteElements.contains(qName)) {
+    if (noteElements.contains(qName)) {
         m_inNote = false;
     }
 
-    if (m_found && qName == "expressions") {
+    if (qName == "expressions") {
         m_wordData.addExpressions(m_expressions);
         m_expressions = Expressions();
         m_inExpressions = false;
     }
 
-    if (m_found && wordTypesList.contains(qName)) {
+    if (wordTypesList.contains(qName)) {
         m_type = QString();
     }
 
-    if (m_found && qName=="Entry") {	//ja sortim de la paraula
+    if (qName=="Entry") {	//ja sortim de la paraula
         m_found=false;
     }
 
