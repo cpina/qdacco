@@ -44,48 +44,6 @@ void WordData::addExpressions(const Expressions& expressions) {
     m_entry.expressions.append(expressions);
 }
 
-void WordData::setGender(const QString& q) {
-
-}
-
-void WordData::setCatExample(const QString& q) {
-}
-
-void WordData::setEnglishExample(const QString& q) {
-}
-
-void WordData::setTipus(const QString& q) {
-
-}
-
-void WordData::setExample(const QString& q) {
-}
-
-void WordData::setEnglishNote(const QString& q) {
-
-}
-
-
-void WordData::setCatalanNote(const QString& q) {
-}
-
-void WordData::setPicture(const QString& q) {
-}
-
-
-void WordData::setFlickr(const QString& q) {
-}
-
-void WordData::setPlural(const QString& q) {
-}
-
-
-void WordData::setFemeninePlural(const QString& q) {
-}
-
-void WordData::setSynonyms(const QString& q) {
-}
-
 bool WordData::found() {
     return m_found;
 }

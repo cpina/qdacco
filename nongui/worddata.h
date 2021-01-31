@@ -41,8 +41,6 @@ struct Translation {
 
     QString catagory;
     QString gender;
-    QStringList catexamps;
-    QStringList engexamps;
     QStringList engnotes;
     QStringList catnotes;
     QStringList synonyms;
@@ -106,68 +104,6 @@ struct WordType
     }
 };
 
-struct Verbs
-{
-    QString conj;
-    QList<Translation> translations;
-    QString ipa;
-};
-
-//struct Nouns
-//{
-//    Translations translations;
-//    QString ipa;
-
-//    QString getHtml() const {
-//        if (translations.isEmpty()) {
-//            return QString();
-//        }
-//        return translations.getHtml("n");
-//    }
-//};
-
-struct Adjectives
-{
-    QList<Translation> translations;
-    QString ipa;
-};
-
-struct Determiners
-{
-    QList<Translation> translations;
-    QString ipa;
-};
-
-struct Acronyms
-{
-    QList<Translation> translations;
-    QString ipa;
-};
-
-struct Prepositions
-{
-    QList<Translation> translations;
-    QString ipa;
-};
-
-struct Conjunctions
-{
-    QList<Translation> translations;
-    QString ipa;
-};
-
-struct Pronouns
-{
-    QList<Translation> translations;
-    QString ipa;
-};
-
-struct Exclamations
-{
-    QList<Translation> translations;
-    QString ipa;
-};
-
 struct Expressions
 {
     QString expression;
@@ -184,57 +120,13 @@ struct Expressions
     }
 };
 
-struct Adverbs
-{
-    Translations translations;
-    QString ipa;
-
-    QString getHtml() const {
-        if (translations.isEmpty()) {
-            return QString();
-        }
-        QString html = "<i>adv</i><br>";
-        return html + translations.getHtml();
-    }
-};
-
-struct Abbreviations
-{
-    QList<Translation> translations;
-    QString ipa;
-};
-
-struct PhrasalVerbs
-{
-    QList<Translation> translations;
-    QString ipa;
-};
-
-struct VerbeTense
-{
-    QList<Translation> translations;
-    QString ipa;
-};
-
-
 struct Entry
 {
     QString entry;
 
     QHash<QString, WordType> wordTypes;
 
-    Verbs verbs;
-    Adjectives adjectives;
-    Acronyms acronyms;
-    Prepositions prepositions;
-    Conjunctions conjunctions;
-    Pronouns pronouns;
-    Exclamations exclamations;
     QList<Expressions> expressions;
-//    Adverbs adverbs;
-    Abbreviations abbreviations;
-    PhrasalVerbs phrasalVerbs;
-    VerbeTense verbeTense;
 
     QString catacro;
     QString engacro;
