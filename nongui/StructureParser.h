@@ -60,6 +60,7 @@ class StructureParser : public QXmlDefaultHandler
     bool m_inExample;
     bool m_inPlural;
     bool m_inNote;
+    bool m_inFems;
 
     bool m_found;
 

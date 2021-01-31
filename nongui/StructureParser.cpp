@@ -28,11 +28,6 @@ static QStringList noteElements = {"catnote", "engnote"};
 bool StructureParser::startDocument()
 {
     m_after_word = 0;
-    m_inTranslation = false;
-    m_inExpressions = false;
-    m_inPlural = false;
-    m_inNote = false;
-    m_inExample = false;
 
 	return true;
 }
@@ -62,6 +57,10 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
 
     if (qName == "plural") {
         m_inPlural = true;
+    }
+
+    if (qName == "fems") {
+        m_inFems = true;
     }
 
     if (exampleElements.contains(qName)) {
@@ -95,12 +94,15 @@ bool StructureParser::characters(const QString& chrs)
     bool same = compare(ch,m_paraula);
 	
     if (m_entry && same) {
-        m_found=true;
+        m_found = true;
         m_inExpressions = false;
         m_inTranslation = false;
         m_inExample = false;
         m_inPlural = false;
         m_inNote = false;
+        m_inFems = false;
+
+        m_type = QString();
 	}
 
     if (m_found && m_inTranslation && m_inPlural) {
@@ -111,6 +113,9 @@ bool StructureParser::characters(const QString& chrs)
     }
     else if (m_found && m_inTranslation && m_inNote) {
         m_translation.notes.append(ch);
+    }
+    else if (m_found && m_inFems) {
+        m_translation.fems = ch;
     }
     else if (m_found && m_inTranslation) {
         m_translation.translation = ch;
@@ -133,6 +138,9 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
 
     if (m_found && m_inPlural && qName == "plural") {
         m_inPlural = false;
+    }
+    else if (m_found && m_inFems && qName == "fems") {
+        m_inFems = false;
     }
     else if (m_found && m_inExpressions && qName == "translation") {
         m_expressions.translations.append(m_translation);

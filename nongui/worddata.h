@@ -36,6 +36,7 @@ static QStringList wordTypesList = {"verbs", "nouns", "adjectives", "adverbs", "
 
 struct Translation {
     QString translation;
+    QString fems;
 
     QVariant collocation;   // bool
     QVariant transitive;    // bool
@@ -61,6 +62,10 @@ struct Translation {
 
         if (!plural.isEmpty()) {
             html += QString("<u>Plural:</u> %1<br>").arg(plural);
+        }
+
+        if (!fems.isEmpty()) {
+            html += QString("<u>Femenine:</u> %1<br>").arg(fems);
         }
 
         for (const QString& example: examples) {
