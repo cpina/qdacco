@@ -23,6 +23,7 @@
 #include <QDebug>
 
 static QStringList typeOfWords = {"nouns", "adjectives", "adverbs"};
+static QStringList exampleElements = {"example", "catexamp", "engexamp"};
 
 bool StructureParser::startDocument()
 {
@@ -47,11 +48,17 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
     if (qName == "translation") {
         m_inTranslation = true;
         m_translation = Translation();
+
+        m_translation.gender = attributes.value("gender");
     }
 
     if (qName == "expressions") {
         m_inExpressions = true;
         m_expressions = Expressions();
+    }
+
+    if (exampleElements.contains(qName)) {
+        m_inExample = true;
     }
 
     m_entry = (qName == "Entry");
@@ -61,41 +68,6 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
     }
 
     return true;
-//    m_entry = (qName == "Entry");
-//    m_catexamp = (qName=="catexamp");
-//    m_engexamp =(qName=="engexamp");
-//    m_example = (qName=="example");
-//    m_engnote = (qName=="engnote");
-//    m_catnote = (qName=="catnote");
-//    m_plural = (qName=="plural");
-//    m_femplural = (qName=="femplural");
-//    m_synonyms = (qName=="synonyms");
-
-//    m_catexamp=false; m_engexamp=false;
-//    m_entry=false; m_translation=false;
-//    m_example=false;
-//    m_engnote=false; m_catnote=false;
-//    m_picture=false;
-//    m_plural=false; m_femplural=false;
-//    m_synonyms=false;
-
-//    m_catexamp=(qName=="catexamp");
-//    m_engexamp=(qName=="engexamp");
-//    m_example=(qName=="example");
-//    m_engnote=(qName=="engnote");
-//    m_catnote=(qName=="catnote");
-//    m_plural=(qName=="plural");
-//    m_femplural=(qName=="femplural");
-//    m_synonyms=(qName=="synonyms");
-
-//    m_qgender_=attributes.value("gender");
-//    m_qpicture_=attributes.value("picture");
-//    m_qflickr_=attributes.value("flickr");
-
-//    if (qName == "translation") {
-//        m_translation = true;
-//	}
-
 //    if (qName == "adjectives") {m_qtipus_="adj";}
 //    if (qName == "adverbs") {m_qtipus_="adv";}
 //    if (qName == "exclamations") {m_qtipus_="excl";}
@@ -103,8 +75,6 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
 //    if (qName == "prepositions") {m_qtipus_="prep";}
 //    if (qName == "pronouns") {m_qtipus_="pron";}
 //    if (qName == "verbs") {m_qtipus_="v";}
-
-//	return true;
 }
 
 bool StructureParser::characters(const QString& chrs)
@@ -117,6 +87,7 @@ bool StructureParser::characters(const QString& chrs)
         m_found=true;
         m_inExpressions = false;
         m_inTranslation = false;
+        m_inExample = false;
 	}
 
     if (m_found && m_inTranslation) {
@@ -126,56 +97,14 @@ bool StructureParser::characters(const QString& chrs)
         m_expressions.expression = ch;
     }
 
+    if (m_found && m_inTranslation && m_inExample) {
+        m_translation.examples.append(ch);
+    }
+
     if (m_entry && !same) {
         m_found=false;
     }
 
-//    if (m_found && m_catexamp) {
-//        m_wordData.setCatExample(ch);
-//	}
-
-//    if (m_found && m_engexamp) {
-//        m_wordData.setEnglishExample(ch);
-//	}
-
-//    if (m_found && m_example) {
-//        m_wordData.setExample(ch);
-//	}
-
-	
-//    if (m_found && m_translation) {
-//        m_wordData.setTranslation(ch);
-
-//        m_wordData.setGender(m_qgender_);
-//        m_wordData.setTipus(m_qtipus_);
-
-//        if (!m_qpicture_.isEmpty()) {
-//            m_wordData.setPicture(m_qpicture_);
-//		}
-//        if (!m_qflickr_.isEmpty()) {
-//            m_wordData.setFlickr(m_qflickr_);
-//		}
-//	}
-
-//    if (m_found && m_engnote) {
-//        m_wordData.setEnglishNote(ch);
-//	}
-
-//    if (m_found && m_catnote) {
-//        m_wordData.setCatalanNote(ch);
-//	}
-
-//    if (m_found && m_plural) {
-//        m_wordData.setPlural(ch);
-//	}
-
-//    if (m_found && m_femplural) {
-//        m_wordData.setFemeninePlural(ch);
-//	}
-
-//    if (m_found && m_synonyms) {
-//        m_wordData.setSynonyms(ch);
-//	}
 	return true;
 }
 
@@ -203,6 +132,10 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
 
     if (m_found && typeOfWords.contains(qName)) {
         m_type = QString();
+    }
+
+    if (m_found && exampleElements.contains(qName)) {
+        m_inExample = false;
     }
 
     if (m_found && qName=="Entry") {	//ja sortim de la paraula

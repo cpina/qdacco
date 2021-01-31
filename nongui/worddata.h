@@ -34,6 +34,9 @@ struct Translation {
     QVariant collocation;   // bool
     QVariant transitive;    // bool
 
+    QStringList examples;
+    QStringList notes;
+
     QString catagory;
     QString gender;
     QStringList catexamps;
@@ -45,16 +48,36 @@ struct Translation {
     QString flickr;
 
     QString getHtml() const {
-        return translation;
+        QString html;
+
+        if (!gender.isNull()) {
+            html += QString(" <i>(%1)</i><br>").arg(gender);
+        }
+
+        html += translation;
+
+        return html;
     }
 };
 
 struct Translations : public QList<Translation> {
-    QString getHtml() const {
+    QString getHtml(const QString& typeOfWord = QString()) const {
         QString html;
 
+        QString typeOfWordHtml;
+
+        if (!typeOfWord.isNull()) {
+            typeOfWordHtml = QString("<i>%1</i>").arg(typeOfWord);
+        }
+
+        bool first = true;
         for(const Translation& translation : *this) {
+            if (!first) {
+                html += "<br>";
+            }
+            html += typeOfWordHtml;
             html += translation.getHtml() + "<br>";
+            first = false;
         }
 
         return html;
@@ -70,11 +93,14 @@ struct Verbs
 
 struct Nouns
 {
-    QList<Translation> translations;
+    Translations translations;
     QString ipa;
 
-    QString returnHtml() {
-
+    QString getHtml() const {
+        if (translations.isEmpty()) {
+            return QString();
+        }
+        return translations.getHtml("n");
     }
 };
 
@@ -142,6 +168,9 @@ struct Adverbs
     QString ipa;
 
     QString getHtml() const {
+        if (translations.isEmpty()) {
+            return QString();
+        }
         QString html = "<i>adv</i><br>";
         return html + translations.getHtml();
     }
@@ -192,6 +221,8 @@ struct Entry
         QString html;
 
         html += adverbs.getHtml();
+
+        html += nouns.getHtml();
 
         if (!expressions.isEmpty()) {
             html += "<br>";
