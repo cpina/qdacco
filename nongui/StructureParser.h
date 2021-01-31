@@ -59,8 +59,10 @@ class StructureParser : public QXmlDefaultHandler
     bool m_inExpressions;
     bool m_inExample;
     bool m_inPlural;
+    bool m_inNote;
 
     bool m_found;
+
     QString m_paraula,m_definicio,m_qcatexamp,m_qengexamp;
     QString m_qtipus,m_qgender,m_qgender_,m_qtipus_,m_qpicture_,m_qflickr_;
 

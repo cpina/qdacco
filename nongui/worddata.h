@@ -42,8 +42,6 @@ struct Translation {
 
     QString catagory;
     QString gender;
-    QStringList engnotes;
-    QStringList catnotes;
     QStringList synonyms;
     QString picture;
     QString flickr;
@@ -62,7 +60,11 @@ struct Translation {
         }
 
         for (const QString& example: examples) {
-            html += "<u>Exemple:</u> " + example + "<br>";
+            html += "<u>Example:</u> " + example + "<br>";
+        }
+
+        for (const QString& note: notes)  {
+            html += "<u>Note:</u> " + note + "<br>";
         }
 
         return html;

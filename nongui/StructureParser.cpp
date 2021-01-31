@@ -23,6 +23,7 @@
 #include <QDebug>
 
 static QStringList exampleElements = {"example", "catexamp", "engexamp"};
+static QStringList noteElements = {"catnote", "engnote"};
 
 bool StructureParser::startDocument()
 {
@@ -30,6 +31,8 @@ bool StructureParser::startDocument()
     m_inTranslation = false;
     m_inExpressions = false;
     m_inPlural = false;
+    m_inNote = false;
+    m_inExample = false;
 
 	return true;
 }
@@ -65,6 +68,10 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
         m_inExample = true;
     }
 
+    if (noteElements.contains(qName)) {
+        m_inNote = true;
+    }
+
     m_entry = (qName == "Entry");
 
     if (qName == "Entry") {
@@ -93,6 +100,7 @@ bool StructureParser::characters(const QString& chrs)
         m_inTranslation = false;
         m_inExample = false;
         m_inPlural = false;
+        m_inNote = false;
 	}
 
     if (m_found && m_inTranslation && m_inPlural) {
@@ -100,6 +108,9 @@ bool StructureParser::characters(const QString& chrs)
     }
     else if (m_found && m_inTranslation && m_inExample) {
         m_translation.examples.append(ch);
+    }
+    else if (m_found && m_inTranslation && m_inNote) {
+        m_translation.notes.append(ch);
     }
     else if (m_found && m_inTranslation) {
         m_translation.translation = ch;
@@ -136,6 +147,10 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
 
     if (m_found && exampleElements.contains(qName)) {
         m_inExample = false;
+    }
+
+    if (m_found && noteElements.contains(qName)) {
+        m_inNote = false;
     }
 
     if (m_found && qName == "expressions") {
