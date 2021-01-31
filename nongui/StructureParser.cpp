@@ -90,15 +90,14 @@ bool StructureParser::characters(const QString& chrs)
         m_inExample = false;
 	}
 
-    if (m_found && m_inTranslation) {
+    if (m_found && m_inTranslation && m_inExample) {
+        m_translation.examples.append(ch);
+    }
+    else if (m_found && m_inTranslation) {
         m_translation.translation = ch;
     }
     else if (m_found && m_inExpressions) {
         m_expressions.expression = ch;
-    }
-
-    if (m_found && m_inTranslation && m_inExample) {
-        m_translation.examples.append(ch);
     }
 
     if (m_entry && !same) {
@@ -124,6 +123,10 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
         m_inTranslation = false;
     }
 
+    if (m_found && exampleElements.contains(qName)) {
+        m_inExample = false;
+    }
+
     if (m_found && qName == "expressions") {
         m_wordData.addExpressions(m_expressions);
         m_expressions = Expressions();
@@ -132,10 +135,6 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
 
     if (m_found && typeOfWords.contains(qName)) {
         m_type = QString();
-    }
-
-    if (m_found && exampleElements.contains(qName)) {
-        m_inExample = false;
     }
 
     if (m_found && qName=="Entry") {	//ja sortim de la paraula

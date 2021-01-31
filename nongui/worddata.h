@@ -54,7 +54,11 @@ struct Translation {
             html += QString(" <i>(%1)</i><br>").arg(gender);
         }
 
-        html += translation;
+        html += translation + "<br>";
+
+        for (const QString& example: examples) {
+            html += "<u>Exemple:</u> " + example + "<br>";
+        }
 
         return html;
     }
@@ -72,11 +76,8 @@ struct Translations : public QList<Translation> {
 
         bool first = true;
         for(const Translation& translation : *this) {
-            if (!first) {
-                html += "<br>";
-            }
             html += typeOfWordHtml;
-            html += translation.getHtml() + "<br>";
+            html += translation.getHtml();
             first = false;
         }
 
