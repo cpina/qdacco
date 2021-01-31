@@ -107,23 +107,23 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
 //	return true;
 }
 
-bool StructureParser::characters(const QString& ch)
+bool StructureParser::characters(const QString& chrs)
 {
+    QString ch = chrs.trimmed();
+
     bool same = compare(ch,m_paraula);
 	
     if (m_entry && same) {
         m_found=true;
+        m_inExpressions = false;
+        m_inTranslation = false;
 	}
 
-
-    if (m_found && m_inExpressions && m_inTranslation) {
-        m_expressions.translations.append(m_translation);
-    }
-    if (m_found && m_inExpressions) {
-        m_expressions.expression = ch;
-    }
-    else if (m_found && m_inTranslation) {
+    if (m_found && m_inTranslation) {
         m_translation.translation = ch;
+    }
+    else if (m_found && m_inExpressions) {
+        m_expressions.expression = ch;
     }
 
     if (m_entry && !same) {

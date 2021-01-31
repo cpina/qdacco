@@ -38,7 +38,7 @@ class StructureParser : public QXmlDefaultHandler
     bool startElement(const QString& nameSpaceUri, const QString& localName, const QString& qName,
 			const QXmlAttributes& attributes);
     bool endElement(const QString& nameSpaceUri, const QString& localName, const QString& qName);
-    bool characters (const QString& characters);
+    bool characters (const QString& chrs);
 	void setParaula(const QString &s);
 	void setPdebug(int i);
 	WordData getWordData();

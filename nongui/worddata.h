@@ -130,6 +130,7 @@ struct Expressions
 
         html += expression + "<br>";
         html += translations.getHtml();
+        html += "<br>";
 
         return html;
     }
