@@ -22,14 +22,172 @@
 #ifndef DADESPARAULA_H
 #define DADESPARAULA_H
 
+#include <QVariant>
+
 #include <QString>
 #include <QObject>
+
+struct Translation {
+    QString translation;
+
+    QVariant collocation;   // bool
+    QVariant transitive;    // bool
+
+    QString catagory;
+    QString gender;
+    QStringList catexamps;
+    QStringList engexamps;
+    QStringList engnotes;
+    QStringList catnotes;
+    QStringList synonyms;
+    QString picture;
+    QString flickr;
+
+    QString getHtml() const {
+        return translation;
+    }
+};
+
+struct Translations : public QList<Translation> {
+    QString getHtml() const {
+        QString html;
+
+        for(const Translation& translation : *this) {
+            html += translation.getHtml() + "<br>";
+        }
+
+        return html;
+    }
+};
+
+struct Verbs
+{
+    QString conj;
+    QList<Translation> translations;
+    QString ipa;
+};
+
+struct Nouns
+{
+    QList<Translation> translations;
+    QString ipa;
+
+    QString returnHtml() {
+
+    }
+};
+
+struct Adjectives
+{
+    QList<Translation> translations;
+    QString ipa;
+};
+
+struct Determiners
+{
+    QList<Translation> translations;
+    QString ipa;
+};
+
+struct Acronyms
+{
+    QList<Translation> translations;
+    QString ipa;
+};
+
+struct Prepositions
+{
+    QList<Translation> translations;
+    QString ipa;
+};
+
+struct Conjunctions
+{
+    QList<Translation> translations;
+    QString ipa;
+};
+
+struct Pronouns
+{
+    QList<Translation> translations;
+    QString ipa;
+};
+
+struct Exclamations
+{
+    QList<Translation> translations;
+    QString ipa;
+};
+
+struct Expressions
+{
+    QString expression;
+    QList<Translation> translations;
+};
+
+struct Adverbs
+{
+    Translations translations;
+    QString ipa;
+
+    QString getHtml() const {
+        QString html = "<i>adv</i><br>";
+        return html + translations.getHtml();
+    }
+};
+
+struct Abbreviations
+{
+    QList<Translation> translations;
+    QString ipa;
+};
+
+struct PhrasalVerbs
+{
+    QList<Translation> translations;
+    QString ipa;
+};
+
+struct VerbeTense
+{
+    QList<Translation> translations;
+    QString ipa;
+};
+
+
+struct Entry
+{
+    QString entry;
+
+    Nouns nouns;
+    Verbs verbs;
+    Adjectives adjectives;
+    Acronyms acronyms;
+    Prepositions prepositions;
+    Conjunctions conjunctions;
+    Pronouns pronouns;
+    Exclamations exclamations;
+    Expressions expressions;
+    Adverbs adverbs;
+    Abbreviations abbreviations;
+    PhrasalVerbs phrasalVerbs;
+    VerbeTense verbeTense;
+
+    QString catacro;
+    QString engacro;
+    QStringList mistakes;
+
+    QString getHtml() const {
+        return adverbs.getHtml();
+    }
+};
+
 
 class WordData {
 public:
 	WordData();
 
-    void setDefinition(const QString &q);
+    void addTranslation(const Translation &translation, const QString& type);
     void setGender(const QString& q);
     void setTipus(const QString &q);
     void setCatExample(const QString &q);
@@ -42,6 +200,10 @@ public:
     void setPlural(const QString& q);
     void setFemeninePlural(const QString& q);
     void setSynonyms(const QString& q);
+
+    void setType(const QString& type, const QString& ipa);
+
+    bool found();
 
 	QString getDefinition(int i);
 	QString getGender(int i);
@@ -57,37 +219,16 @@ public:
 	QString getFemplural(int i);
 	QString getSynonyms(int i);
 
-	int getNum();
-	void incNum();
-	QString getEntry(int i);
-	QString getTextEntry(int i);
-	QString getHTMLEntry(int i);
+    QString getTextEntry();
     QString getHTMLEntry();
 
     static QString HTML2Text(const QString& t);
 
 private:
-    void printError(const QString &tag);
+    bool m_found;
+    Entry m_entry;
 
-    QStringList definition;
-    QStringList gender;
-    QStringList tipus;
-    QStringList catexamp;
-    QStringList engexamp;
-    QStringList example;
-    QStringList engnote;
-    QStringList catnote;
-    QStringList picture;
-    QStringList flickr;
-    QStringList plural;
-    QStringList femplural;
-    QStringList synonyms;
+    QString m_currentType;
+    QString m_currentIpa;
 };
-/*
-class WordDataConversor {
-	static QString HTML2Text(QString t);
-
-}
-
-*/
 #endif

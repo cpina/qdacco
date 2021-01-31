@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2009, 2011, 2015
+ * Copyright (c) 2005, 2006, 2007, 2009, 2011, 2015, 2021
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -70,7 +70,6 @@ class Main : public QMainWindow, Ui::Main
 		Ui::Main ui;
 
 		int m_idioma_actiu;
-		int m_numberFound;
 		int m_festival_reading;
 
 		QString m_directori_usuari;

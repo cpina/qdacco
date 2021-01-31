@@ -42,8 +42,6 @@ Main::Main(QWidget *)  //parent
 
 	installEventFilter(this);
 
-	m_numberFound=0;
-
 	m_cat_eng = new QToolButton;
 	m_cat_eng->setText(tr("cat → eng"));
 	m_cat_eng->setCheckable(1);
@@ -306,7 +304,6 @@ void Main::paraulaChanged(const QString &paraula)
 	ui.definicio->hide();
 	ui.llistat->clear();
 	UpdateList();
-	m_numberFound=0;
 
 	if (ui.llistat->count()==1) {
 		ui.llistat->setCurrentRow(0);
@@ -380,8 +377,6 @@ void Main::UpdateList() {
 		WordData d = handler.getWordData();
 
 		ui.definicio->setPlainText("");
-
-		ui.definicio->setPlainText("");
 		m_searched=search;
 		selectItem();
 	}
@@ -442,24 +437,14 @@ void Main::treballaBuscar() {
 
 			ui.definicio->setPlainText("");
 
-		        if (d.getNum()!=0) {
+            if (d.found()) {
 				ui.definicio->show();
 				ui.llistat->hide();
 
-				QString definicio;
-				
-				for (int i=0;i<d.getNum();i++) {
-					if (i==0) {
-						definicio=d.getEntry(i);
-					}
-					else {
-						definicio+="<BR><BR>"+d.getEntry(i);
-					}
-				}
+                QString definicio = d.getHTMLEntry();
 				ui.definicio->setHtml(definicio);
 			}
-			
-			else if (d.getNum()==0) {
+            else {
 				//No word found or buscar == 1: we show the list
 				
 				ui.definicio->setPlainText("");
@@ -469,17 +454,15 @@ void Main::treballaBuscar() {
 				
 				m_searched=buscar_orig;
 				selectItem();
-				if (d.getNum()==0) {
+                if (!d.found()) {
 					showError(tr("Exact match not found"));
 				}
 			}
-			m_numberFound=d.getNum();
 		}
         }
 }
 
 void Main::posarApunt (int all) {
-	m_numberFound=0;
         ui.llistat->clear();
         ui.llistat->hide();
 	ui.definicio->show();

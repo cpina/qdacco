@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007
+ * Copyright (c) 2005, 2006, 2007, 2021
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -38,7 +38,7 @@ class StructureParser : public QXmlDefaultHandler
     bool startElement(const QString& nameSpaceUri, const QString& localName, const QString& qName,
 			const QXmlAttributes& attributes);
     bool endElement(const QString& nameSpaceUri, const QString& localName, const QString& qName);
-    bool characters (const QString & ch);
+    bool characters (const QString& characters);
 	void setParaula(const QString &s);
 	void setPdebug(int i);
 	WordData getWordData();
@@ -51,16 +51,21 @@ class StructureParser : public QXmlDefaultHandler
 	private:
 	bool compare(QString ch, QString word);
 
-    bool m_entrada,m_translation,m_catexamp,m_engexamp,m_tipus,m_example;
+    bool m_entry,m_catexamp,m_engexamp,m_tipus,m_example;
     bool m_engnote,m_catnote,m_picture,m_plural,m_femplural,m_expressions;
     bool m_synonyms;
 
-    bool m_trobat;
+    bool m_inTranslation;
+
+    bool m_found;
     QString m_paraula,m_definicio,m_qcatexamp,m_qengexamp;
     QString m_qtipus,m_qgender,m_qgender_,m_qtipus_,m_qpicture_,m_qflickr_;
-    WordData m_wordData;
 
     int m_after_word;
+
+    WordData m_wordData;
+    Translation m_translation;
+    QString m_type;
 };
 
 #endif
