@@ -34,11 +34,8 @@ void WordData::setType(const QString& type, const QString& ipa) {
 
 void WordData::addTranslation(const Translation& translation, const QString &type) {
     m_found = true;
-    if (type == "nouns") {
-        m_entry.nouns.translations.append(translation);
-    } else if (type == "adverbs") {
-        m_entry.adverbs.translations.append(translation);
-    }
+
+    m_entry.wordTypes[type].translations.append(translation);
 }
 
 void WordData::addExpressions(const Expressions& expressions) {
@@ -89,71 +86,9 @@ void WordData::setFemeninePlural(const QString& q) {
 void WordData::setSynonyms(const QString& q) {
 }
 
-
-//QString WordData::getDefinition(int i) {
-//    return (m_definition[i]);
-//}
-
-//QString WordData::getGender(int i) {
-//    return(m_gender[i]);
-//}
-
-//QString WordData::getCatexamp(int i) {
-//    return (m_catexamp[i]);
-//}
-
-//QString WordData::getEngexamp(int i) {
-//    return (m_engexamp[i]);
-//}
-
-//QString WordData::getTipus(int i) {
-//    return (m_tipus[i]);
-//}
-
-//QString WordData::getExample(int i) {
-//    return (m_example[i]);
-//}
-
-//QString WordData::getEngnote(int i) {
-//        return (m_engnote[i]);
-//}
-
-//QString WordData::getCatnote(int i) {
-//        return (m_catnote[i]);
-//}
-
-//QString WordData::getPicture(int i) {
-//        return (m_picture[i]);
-//}
-
-//QString WordData::getFlickr(int i) {
-//        return (m_flickr[i]);
-//}
-
-//QString WordData::getPlural(int i) {
-//        return (m_plural[i]);
-//}
-
-//QString WordData::getFemplural(int i) {
-//        return (m_femplural[i]);
-//}
-
-
-//QString WordData::getSynonyms(int i) {
-//        return (m_synonyms[i]);
-//}
-
-////-----------eng get
-
 bool WordData::found() {
     return m_found;
 }
-
-//void WordData::incNum() {
-//	if (num<MAX_WORDS) {
-//		num++;
-//	}
-//}
 
 QString WordData::HTML2Text(const QString& html) {
     QString text = html;
@@ -195,12 +130,6 @@ QString WordData::HTML2Text(const QString& html) {
 
 QString WordData::getHTMLEntry() {
     return m_entry.getHtml();
-
-//    ret="<I>"+getTipus(i)+m_gender+"</I><BR>";
-
-//    ret += getDefinition();
-
-//    return ret;
 }
 
 //QString WordData::getHTMLEntry(int i) {

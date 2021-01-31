@@ -28,6 +28,8 @@
 #include <QString>
 #include <QObject>
 
+static QStringList wordTypesList = {"verbs", "nouns", "adjectives", "adverbs", "pronouns"};
+
 struct Translation {
     QString translation;
 
@@ -76,11 +78,30 @@ struct Translations : public QList<Translation> {
 
         bool first = true;
         for(const Translation& translation : *this) {
+            if (!first) {
+                html += "<br>";
+            }
             html += typeOfWordHtml;
             html += translation.getHtml();
             first = false;
         }
 
+        return html;
+    }
+};
+
+struct WordType
+{
+    QString wordType;
+    Translations translations;
+    QString ipa;
+
+    QString getHtml(const QString& wordType) const {
+        if (translations.isEmpty()) {
+            return QString();
+        }
+        QString html = QString("<i>%1</i><br>").arg(wordType);
+        html += translations.getHtml();
         return html;
     }
 };
@@ -92,18 +113,18 @@ struct Verbs
     QString ipa;
 };
 
-struct Nouns
-{
-    Translations translations;
-    QString ipa;
+//struct Nouns
+//{
+//    Translations translations;
+//    QString ipa;
 
-    QString getHtml() const {
-        if (translations.isEmpty()) {
-            return QString();
-        }
-        return translations.getHtml("n");
-    }
-};
+//    QString getHtml() const {
+//        if (translations.isEmpty()) {
+//            return QString();
+//        }
+//        return translations.getHtml("n");
+//    }
+//};
 
 struct Adjectives
 {
@@ -200,7 +221,8 @@ struct Entry
 {
     QString entry;
 
-    Nouns nouns;
+    QHash<QString, WordType> wordTypes;
+
     Verbs verbs;
     Adjectives adjectives;
     Acronyms acronyms;
@@ -209,7 +231,7 @@ struct Entry
     Pronouns pronouns;
     Exclamations exclamations;
     QList<Expressions> expressions;
-    Adverbs adverbs;
+//    Adverbs adverbs;
     Abbreviations abbreviations;
     PhrasalVerbs phrasalVerbs;
     VerbeTense verbeTense;
@@ -221,12 +243,11 @@ struct Entry
     QString getHtml() const {
         QString html;
 
-        html += adverbs.getHtml();
-
-        html += nouns.getHtml();
-
-        if (!expressions.isEmpty()) {
-            html += "<br>";
+        for (const QString& wordType : wordTypesList) {
+            if (wordTypes.contains(wordType)) {
+                html += wordTypes[wordType].getHtml(wordType);
+                html += "<br>";
+            }
         }
 
         for (const Expressions& _expressions: expressions) {

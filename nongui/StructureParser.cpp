@@ -22,7 +22,6 @@
 #include "StructureParser.h"
 #include <QDebug>
 
-static QStringList typeOfWords = {"nouns", "adjectives", "adverbs"};
 static QStringList exampleElements = {"example", "catexamp", "engexamp"};
 
 bool StructureParser::startDocument()
@@ -41,7 +40,7 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
     Q_UNUSED(nameSpaceUri);
     Q_UNUSED(localName);
 
-    if (typeOfWords.contains(qName)) {
+    if (wordTypesList.contains(qName)) {
         m_type = qName;
     }
 
@@ -133,7 +132,7 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
         m_inExpressions = false;
     }
 
-    if (m_found && typeOfWords.contains(qName)) {
+    if (m_found && wordTypesList.contains(qName)) {
         m_type = QString();
     }
 
