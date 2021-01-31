@@ -128,10 +128,7 @@ bool StructureParser::characters(const QString& chrs)
 
     if (m_entry && !same) {
         m_found=false;
-	}
-
-    qDebug() << ch;
-
+    }
 
 //    if (m_found && m_catexamp) {
 //        m_wordData.setCatExample(ch);

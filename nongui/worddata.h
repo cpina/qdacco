@@ -128,9 +128,9 @@ struct Expressions
     QString getHtml() const {
         QString html;
 
-        html += expression + "<br>";
-        html += translations.getHtml();
-        html += "<br>";
+        html += "<i>expression</i><br>";
+        html += "<b>" + expression + "</b>" + "<br>";
+        html += translations.getHtml() + "<br>";
 
         return html;
     }
@@ -192,6 +192,10 @@ struct Entry
         QString html;
 
         html += adverbs.getHtml();
+
+        if (!expressions.isEmpty()) {
+            html += "<br>";
+        }
 
         for (const Expressions& _expressions: expressions) {
             html += _expressions.getHtml();
