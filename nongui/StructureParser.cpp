@@ -11,7 +11,7 @@
  * any later version.
  *
  * qdacco is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
@@ -27,12 +27,12 @@ static QStringList noteElements = {"catnote", "engnote"};
 
 bool StructureParser::startDocument()
 {
-	return true;
+    return true;
 }
 
 bool StructureParser::startElement(const QString& nameSpaceUri, const QString& localName,
-                    const QString& qName,
-                    const QXmlAttributes& attributes)
+                                   const QString& qName,
+                                   const QXmlAttributes& attributes)
 {
     Q_UNUSED(nameSpaceUri);
     Q_UNUSED(localName);
@@ -112,7 +112,7 @@ bool StructureParser::characters(const QString& chrs)
         m_expressions.expression = ch;
     }
 
-	return true;
+    return true;
 }
 
 bool StructureParser::endElement(const QString& nameSpaceUri, const QString& localName, const QString& qName)

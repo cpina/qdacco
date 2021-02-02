@@ -11,7 +11,7 @@
  * any later version.
  *
  * qdacco is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
@@ -27,42 +27,42 @@
 
 class Auxiliar
 {
-	private:
-		static QString version;
-		static int debugLevel;
-		static QString host;
-		static QString url;
-		static QString dictionaries_directory;
-		static QString copyright_date;
-	
-	public:
-		static QString getVersion();
-		static QString getNetVersion();
-		static QString getHost();
-		static QString getURL();
-		static QString getDictionariesDirectory();
-		static QString getCopyrightDate();
+private:
+    static QString version;
+    static int debugLevel;
+    static QString host;
+    static QString url;
+    static QString dictionaries_directory;
+    static QString copyright_date;
 
-		static int catalan();
-		static int english();
+public:
+    static QString getVersion();
+    static QString getNetVersion();
+    static QString getHost();
+    static QString getURL();
+    static QString getDictionariesDirectory();
+    static QString getCopyrightDate();
 
-		
-		static void setDebug(int i);
-		static int getDebug();
-		static void debug(QString s);
+    static int catalan();
+    static int english();
 
-		static int eng2cat();
-		static int cat2eng();
 
-		static int KeyDown();
-		static int KeyUp();
-		static int KeyNextPage();
-		static int KeyPrevPage();
+    static void setDebug(int i);
+    static int getDebug();
+    static void debug(QString s);
 
-		static bool isWindows();
-		static bool isMac();
-		static bool isUnix();
+    static int eng2cat();
+    static int cat2eng();
 
-		static char lletra_buscar(QString q);
+    static int KeyDown();
+    static int KeyUp();
+    static int KeyNextPage();
+    static int KeyPrevPage();
+
+    static bool isWindows();
+    static bool isMac();
+    static bool isUnix();
+
+    static char lletra_buscar(QString q);
 };
 #endif

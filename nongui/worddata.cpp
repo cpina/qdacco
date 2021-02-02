@@ -11,7 +11,7 @@
  * any later version.
  *
  * qdacco is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
@@ -57,30 +57,30 @@ QString WordData::HTML2Text(const QString& html) {
 
     text=text.replace("<I>","");
     text=text.replace("</I>","");
-	
-	//printf("paraula: %s\n",qPrintable(t));
-	int urlstart,urlend;
-	int endloop=0;
 
-	// TODO: don't write what we don't want
+    //printf("paraula: %s\n",qPrintable(t));
+    int urlstart,urlend;
+    int endloop=0;
 
-	// Tricky way to remove <A HREF=" from Flickr and Pictures fields
-	// Right now, this TAGS are setted up during putFlickr and putPicture
-	// (called from StructureParser) so StructureParser should know if we
-	// will want text or HTML. Or we should format when getting the data
-	// (better way). By the moment I do the tricky system to remove what
-	// should not be here
-	//
-	while (endloop==0) {
+    // TODO: don't write what we don't want
+
+    // Tricky way to remove <A HREF=" from Flickr and Pictures fields
+    // Right now, this TAGS are setted up during putFlickr and putPicture
+    // (called from StructureParser) so StructureParser should know if we
+    // will want text or HTML. Or we should format when getting the data
+    // (better way). By the moment I do the tricky system to remove what
+    // should not be here
+    //
+    while (endloop==0) {
         urlstart=text.indexOf("<A HREF=\"");
         urlend=text.indexOf("\"",urlstart+strlen("<A HREF=\""));
-		if (urlend>urlstart) {
+        if (urlend>urlstart) {
             text=text.remove(urlstart,urlend-urlstart+2);
-		}
-		else {
-			endloop=1;
-		}
-	}
+        }
+        else {
+            endloop=1;
+        }
+    }
     text=text.replace("</A>","");
 
     return text;
@@ -125,7 +125,7 @@ QString WordData::getHTMLEntry() {
 //	if (!(getExample(i)).isNull()) {
 //		ret+="<BR><U>"+QObject::tr("Example(s): ")+"</U>"+getExample(i);
 //	}
-	
+
 //	if (!(getEngnote(i)).isNull()) {
 //		ret+="<BR><U>"+QObject::tr("English notes: ")+"</U>"+getEngnote(i);
 //	}

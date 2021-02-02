@@ -11,7 +11,7 @@
  * any later version.
  *
  * qdacco is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
@@ -148,7 +148,7 @@ struct WordType
         if (translations.isEmpty()) {
             return QString();
         }
-//        QString html = QString("<i>%1</i><br>").arg(xmlToUserInterface(wordType));
+        //        QString html = QString("<i>%1</i><br>").arg(xmlToUserInterface(wordType));
         QString html = translations.getHtml(wordType);
         return html;
     }
@@ -203,7 +203,7 @@ struct Entry
 
 class WordData {
 public:
-	WordData();
+    WordData();
 
     void addTranslation(const Translation &translation, const QString& type);
     void addExpressions(const Expressions& expressions);
@@ -225,19 +225,19 @@ public:
 
     bool found();
 
-	QString getDefinition(int i);
-	QString getGender(int i);
-	QString getTipus(int i);
-	QString getCatexamp(int i);
-	QString getEngexamp(int i);
-	QString getExample(int i);
-	QString getEngnote(int i);
-	QString getCatnote(int i);
-	QString getPicture(int i);
-	QString getFlickr(int i);
-	QString getPlural(int i);
-	QString getFemplural(int i);
-	QString getSynonyms(int i);
+    QString getDefinition(int i);
+    QString getGender(int i);
+    QString getTipus(int i);
+    QString getCatexamp(int i);
+    QString getEngexamp(int i);
+    QString getExample(int i);
+    QString getEngnote(int i);
+    QString getCatnote(int i);
+    QString getPicture(int i);
+    QString getFlickr(int i);
+    QString getPlural(int i);
+    QString getFemplural(int i);
+    QString getSynonyms(int i);
 
     QString getTextEntry();
     QString getHTMLEntry();

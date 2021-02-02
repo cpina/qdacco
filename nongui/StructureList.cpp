@@ -11,7 +11,7 @@
  * any later version.
  *
  * qdacco is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
@@ -25,109 +25,109 @@
 StructureList::StructureList()
 {
     m_addEntry = nullptr;
-	m_list="";
+    m_list="";
 }
 
 
 bool StructureList::startDocument()
 {
-	//WordDataQueue queuelist(10);
-	//wordqueue.setAutoDelete(TRUE);   (Ull! Tret per Qt4!)
-	//after_word = 0;
-	m_word_normalized=normalize(m_word);
-	return true;
+    //WordDataQueue queuelist(10);
+    //wordqueue.setAutoDelete(TRUE);   (Ull! Tret per Qt4!)
+    //after_word = 0;
+    m_word_normalized=normalize(m_word);
+    return true;
 }
 
 bool StructureList::startElement( const QString&, const QString&,
-					const QString& qName,
-					const QXmlAttributes& ) //attributes
+                                  const QString& qName,
+                                  const QXmlAttributes& ) //attributes
 {
-	entrada = (qName=="Entry");
-	return true;
+    entrada = (qName=="Entry");
+    return true;
 }
 
 bool StructureList::endElement( const QString&, const QString&, const QString& ) //qName
 {
-	
-	return true;
+
+    return true;
 }
 
 bool StructureList::characters ( const QString & ch )
 {
-	if (entrada && myStartsWith(ch,m_word_normalized)) {	
+    if (entrada && myStartsWith(ch,m_word_normalized)) {
         if(m_addEntry == nullptr)
-		{
-			if (m_list.length()==0) { //We don't want extra \n at first
-					  //time
+        {
+            if (m_list.length()==0) { //We don't want extra \n at first
+                //time
 
-				m_list=ch;
-			}
-			else {
-				m_list=m_list+"\n"+ch;
-			}
-		}//#endif
-		else {
+                m_list=ch;
+            }
+            else {
+                m_list=m_list+"\n"+ch;
+            }
+        }//#endif
+        else {
             m_addEntry(ch);
-		}
-	}
-	
-	return true;
+        }
+    }
+
+    return true;
 }
 
 void StructureList::setWord(QString w)
 {
-	m_word=w;
-	//m_long=w->length();
+    m_word=w;
+    //m_long=w->length();
 }
 
 void StructureList::setIgnoreCase(bool ignore)
 {
-        m_IgnoreCase=ignore;
+    m_IgnoreCase=ignore;
 }
 
 
 void StructureList::setIgnoreAccents(bool ignore)
 {
-        m_IgnoreAccents=ignore;
+    m_IgnoreAccents=ignore;
 }
 
 //TODO: same method in StructureParser.cpp
 bool StructureList::myStartsWith(const QString &ch, QString &word)
 {
-	QString dict(ch);
-	dict=normalize(dict);
+    QString dict(ch);
+    dict=normalize(dict);
 
-        return dict.startsWith(word);
+    return dict.startsWith(word);
 }
 
 QString &StructureList::normalize(QString &word) {
-	if (m_IgnoreCase) {
-		word=word.toLower();	
-	}
-	if (m_IgnoreAccents) {
+    if (m_IgnoreCase) {
+        word=word.toLower();
+    }
+    if (m_IgnoreAccents) {
         word.replace(L'à','a');
         word.replace(L'è','e');
         word.replace(L'ì','i');
         word.replace(L'ò','o');
         word.replace(L'ù','u');
-		
+
         word.replace(L'á','a');
         word.replace(L'é','e');
         word.replace(L'í','i');
         word.replace(L'ó','o');
         word.replace(L'ú','u');
-	}
-	
-	//printf("Paraula noramlitzada: %s\n",qPrintable(word));
-	return word;
+    }
+
+    //printf("Paraula noramlitzada: %s\n",qPrintable(word));
+    return word;
 }
 
 int StructureList::setAddFunction(void function(QString a)) {
     m_addEntry = function;
 
-	return 0;
+    return 0;
 }
 
 QString StructureList::getListWords() {
-	return m_list;
+    return m_list;
 }

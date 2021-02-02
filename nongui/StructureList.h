@@ -11,7 +11,7 @@
  * any later version.
  *
  * qdacco is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
@@ -31,43 +31,43 @@ class QString;
 
 class StructureList : public QXmlDefaultHandler
 {
-	public:
-	StructureList();
+public:
+    StructureList();
 
-	bool startDocument();
-	bool startElement( const QString&, const QString&, const QString& ,
-			const QXmlAttributes& attributes);
-	bool endElement( const QString&, const QString&, const QString& );
-	bool characters ( const QString & ch );
+    bool startDocument();
+    bool startElement( const QString&, const QString&, const QString& ,
+                       const QXmlAttributes& attributes);
+    bool endElement( const QString&, const QString&, const QString& );
+    bool characters ( const QString & ch );
 
-	void setIgnoreCase(bool capital);
-	void setIgnoreAccents(bool capital);
+    void setIgnoreCase(bool capital);
+    void setIgnoreAccents(bool capital);
 
-	void setParaula(const QString &) {}
-	WordData getWordData() { WordData h; return h;}
+    void setParaula(const QString &) {}
+    WordData getWordData() { WordData h; return h;}
 
 
-	void setWord(QString w);
+    void setWord(QString w);
 
-	bool myStartsWith(const QString &ch, QString &word);
+    bool myStartsWith(const QString &ch, QString &word);
 
-	QString &normalize(QString &word);
+    QString &normalize(QString &word);
 
     int setAddFunction(void function(QString a));
-	
-	QString getListWords();
+
+    QString getListWords();
 
 
-	private:
-	bool entrada;
+private:
+    bool entrada;
 
-	int m_IgnoreCase;
-	int m_IgnoreAccents;
-	
-	QString m_word;
-	QString m_word_normalized;
+    int m_IgnoreCase;
+    int m_IgnoreAccents;
 
-	QString m_list;
+    QString m_word;
+    QString m_word_normalized;
+
+    QString m_list;
 
     void (*m_addEntry)(QString q);
 };

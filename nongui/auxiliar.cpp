@@ -11,7 +11,7 @@
  * any later version.
  *
  * qdacco is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
@@ -30,109 +30,109 @@ QString Auxiliar::dictionaries_directory = "/usr/share/dacco-common/dictionaries
 QString Auxiliar::copyright_date = "2005, 2006, 2007, 2008, 2009, 2011";
 
 QString Auxiliar::getDictionariesDirectory() {
-	return dictionaries_directory;
+    return dictionaries_directory;
 }
 
 QString Auxiliar::getVersion() {
-	return version;
+    return version;
 }
 
 
 QString Auxiliar::getNetVersion() {
-	QString ret;
-	if (isWindows()) {
-		ret=version+"W";
-	}
-	else {
-		ret=version+"U";
-	}
-	return ret;
+    QString ret;
+    if (isWindows()) {
+        ret=version+"W";
+    }
+    else {
+        ret=version+"U";
+    }
+    return ret;
 }
 
 QString Auxiliar::getCopyrightDate() {
-	return copyright_date;
+    return copyright_date;
 }
 
 void Auxiliar::setDebug(int i) {
-	debugLevel=i;
+    debugLevel=i;
 }
 
 int Auxiliar::getDebug() {
-	return debugLevel;
+    return debugLevel;
 }
 
 void Auxiliar::debug(QString s) {
-	if (debugLevel) {
-		qDebug() << "Debug: " << s;
-	}
+    if (debugLevel) {
+        qDebug() << "Debug: " << s;
+    }
 }
 
 int Auxiliar::KeyDown() {
-	return 0;
+    return 0;
 }
 
 int Auxiliar::KeyUp() {
-	return 1;
+    return 1;
 }
 
 int Auxiliar::KeyNextPage() {
-	return 2;
+    return 2;
 }
 
 int Auxiliar::KeyPrevPage() {
-	return 3;
+    return 3;
 }
 
 int Auxiliar::eng2cat() {
-	return 1;
+    return 1;
 }
 int Auxiliar::cat2eng() {
-	return 2;
+    return 2;
 }
 
 int Auxiliar::catalan() {
-	return 1;
+    return 1;
 }
 
 int Auxiliar::english() {
-	return 2;
+    return 2;
 }
 
 bool Auxiliar::isWindows() {
-	//is it not possible to know in run time?? ¿?
-	#if defined(Q_OS_WIN32)
-	return true;
-	#else
-	return false;
-	#endif
+    //is it not possible to know in run time?? ¿?
+#if defined(Q_OS_WIN32)
+    return true;
+#else
+    return false;
+#endif
 }
 
 bool Auxiliar::isMac() {
-	//is it not possible to know in run time?? ¿?
-	#if defined(Q_OS_MAC)
-	return true;
-	#else
-	return false;
-	#endif
+    //is it not possible to know in run time?? ¿?
+#if defined(Q_OS_MAC)
+    return true;
+#else
+    return false;
+#endif
 }
 
 bool Auxiliar::isUnix() {
-	//bad aproximation :-D
-	return (!Auxiliar::isWindows() && !Auxiliar::isMac());
+    //bad aproximation :-D
+    return (!Auxiliar::isWindows() && !Auxiliar::isMac());
 }
 
 char Auxiliar::lletra_buscar(QString q) {
-        QChar c = q.at(0);
+    QChar c = q.at(0);
 
-        if (c==L'à' || c==L'á' || c==L'â' || c==L'ä') return 'a';
-        if (c==L'è' || c==L'é' || c==L'ê' || c==L'ë') return 'e';
-        if (c==L'ì' || c==L'í' || c==L'î' || c==L'ï') return 'i';
-        if (c==L'ò' || c==L'ó' || c==L'ô' || c==L'ö') return 'o';
-        if (c==L'ù' || c==L'ú' || c==L'û' || c==L'ü') return 'u';
+    if (c==L'à' || c==L'á' || c==L'â' || c==L'ä') return 'a';
+    if (c==L'è' || c==L'é' || c==L'ê' || c==L'ë') return 'e';
+    if (c==L'ì' || c==L'í' || c==L'î' || c==L'ï') return 'i';
+    if (c==L'ò' || c==L'ó' || c==L'ô' || c==L'ö') return 'o';
+    if (c==L'ù' || c==L'ú' || c==L'û' || c==L'ü') return 'u';
 
-        if (c==L'ç') return 'c';
+    if (c==L'ç') return 'c';
 
-        c = c.toLower();
+    c = c.toLower();
 
-        return (c.toLatin1());
+    return (c.toLatin1());
 }
