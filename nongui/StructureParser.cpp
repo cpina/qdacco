@@ -27,8 +27,6 @@ static QStringList noteElements = {"catnote", "engnote"};
 
 bool StructureParser::startDocument()
 {
-    m_after_word = 0;
-
 	return true;
 }
 
@@ -74,10 +72,8 @@ bool StructureParser::characters(const QString& chrs)
 {
     QString ch = chrs.trimmed();
 
-    bool same = compare(ch,m_paraula);
-	
     if (m_isEntry) {
-        if (same) {
+        if (ch == m_entryWanted) {
             m_found = true;
             m_inExpressions = false;
             m_inTranslation = false;
@@ -170,17 +166,12 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
     return true;
 }
 
-void StructureParser::setParaula(const QString &s) 
+void StructureParser::setParaula(const QString& paraula)
 {
-    m_paraula=s;
+    m_entryWanted = paraula;
 }
 
 WordData StructureParser::getWordData()
 {
     return m_wordData;
-}
-
-bool StructureParser::compare(QString ch, QString word)
-{
-	return ch.compare(word)==0;
 }

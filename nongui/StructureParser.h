@@ -39,7 +39,7 @@ class StructureParser : public QXmlDefaultHandler
 			const QXmlAttributes& attributes);
     bool endElement(const QString& nameSpaceUri, const QString& localName, const QString& qName);
     bool characters (const QString& chrs);
-	void setParaula(const QString &s);
+    void setParaula(const QString& paraula);
 	void setPdebug(int i);
 	WordData getWordData();
 	int ensenyarLlistat();
@@ -49,8 +49,6 @@ class StructureParser : public QXmlDefaultHandler
 	void setCapital(bool capital);
 
 	private:
-	bool compare(QString ch, QString word);
-
     bool m_isEntry,m_catexamp,m_engexamp,m_tipus,m_example;
     bool m_engnote,m_catnote,m_picture,m_plural,m_femplural;
     bool m_synonyms;
@@ -64,10 +62,8 @@ class StructureParser : public QXmlDefaultHandler
 
     bool m_found;
 
-    QString m_paraula,m_definicio,m_qcatexamp,m_qengexamp;
+    QString m_entryWanted,m_definicio,m_qcatexamp,m_qengexamp;
     QString m_qtipus,m_qgender,m_qgender_,m_qtipus_,m_qpicture_,m_qflickr_;
-
-    int m_after_word;
 
     WordData m_wordData;
     Translation m_translation;
