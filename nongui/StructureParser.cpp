@@ -39,6 +39,12 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
     Q_UNUSED(nameSpaceUri);
     Q_UNUSED(localName);
 
+    m_isEntry = (qName == "Entry");
+
+    if (m_isEntry) {
+        return true;
+    }
+
     if (wordTypesList.contains(qName)) {
         m_type = qName;
     }
@@ -48,43 +54,20 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
         m_translation = Translation();
 
         m_translation.gender = attributes.value("gender");
-    }
-
-    if (qName == "expressions") {
+    } else if (qName == "expressions") {
         m_inExpressions = true;
         m_expressions = Expressions();
-    }
-
-    if (qName == "plural") {
+    } else if (qName == "plural") {
         m_inPlural = true;
-    }
-
-    if (qName == "fems") {
+    } else if (qName == "fems") {
         m_inFems = true;
-    }
-
-    if (exampleElements.contains(qName)) {
+    } else if (exampleElements.contains(qName)) {
         m_inExample = true;
-    }
-
-    if (noteElements.contains(qName)) {
+    } else if (noteElements.contains(qName)) {
         m_inNote = true;
     }
 
-    m_entry = (qName == "Entry");
-
-    if (qName == "Entry") {
-        m_entry = true;
-    }
-
     return true;
-//    if (qName == "adjectives") {m_qtipus_="adj";}
-//    if (qName == "adverbs") {m_qtipus_="adv";}
-//    if (qName == "exclamations") {m_qtipus_="excl";}
-//    if (qName == "nouns") {m_qtipus_="n";}
-//    if (qName == "prepositions") {m_qtipus_="prep";}
-//    if (qName == "pronouns") {m_qtipus_="pron";}
-//    if (qName == "verbs") {m_qtipus_="v";}
 }
 
 bool StructureParser::characters(const QString& chrs)
@@ -93,7 +76,7 @@ bool StructureParser::characters(const QString& chrs)
 
     bool same = compare(ch,m_paraula);
 	
-    if (m_entry) {
+    if (m_isEntry) {
         if (same) {
             m_found = true;
             m_inExpressions = false;
@@ -106,41 +89,31 @@ bool StructureParser::characters(const QString& chrs)
             m_type = QString();
         }
         else {
-            m_found=false;
+            m_found = false;
         }
     }
 
-    if (m_entry && same) {
-        m_found = true;
-        m_inExpressions = false;
-        m_inTranslation = false;
-        m_inExample = false;
-        m_inPlural = false;
-        m_inNote = false;
-        m_inFems = false;
+    if (!m_found) {
+        return true;
+    }
 
-        m_type = QString();
-	}
-
-    if (m_found) {
-        if (m_inTranslation && m_inPlural) {
-            m_translation.plural = ch;
-        }
-        else if (m_inTranslation && m_inExample) {
-            m_translation.examples.append(ch);
-        }
-        else if (m_inTranslation && m_inNote) {
-            m_translation.notes.append(ch);
-        }
-        else if (m_inFems) {
-            m_translation.fems = ch;
-        }
-        else if (m_inTranslation) {
-            m_translation.translation = ch;
-        }
-        else if (m_inExpressions) {
-            m_expressions.expression = ch;
-        }
+    if (m_inTranslation && m_inPlural) {
+        m_translation.plural = ch;
+    }
+    else if (m_inTranslation && m_inExample) {
+        m_translation.examples.append(ch);
+    }
+    else if (m_inTranslation && m_inNote) {
+        m_translation.notes.append(ch);
+    }
+    else if (m_inFems) {
+        m_translation.fems = ch;
+    }
+    else if (m_inTranslation) {
+        m_translation.translation = ch;
+    }
+    else if (m_inExpressions) {
+        m_expressions.expression = ch;
     }
 
 	return true;

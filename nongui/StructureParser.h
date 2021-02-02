@@ -51,7 +51,7 @@ class StructureParser : public QXmlDefaultHandler
 	private:
 	bool compare(QString ch, QString word);
 
-    bool m_entry,m_catexamp,m_engexamp,m_tipus,m_example;
+    bool m_isEntry,m_catexamp,m_engexamp,m_tipus,m_example;
     bool m_engnote,m_catnote,m_picture,m_plural,m_femplural;
     bool m_synonyms;
 
