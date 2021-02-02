@@ -11,7 +11,7 @@
  * any later version.
  *
  * qdacco is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
@@ -33,25 +33,23 @@ class QString;
 
 class StructureParser : public QXmlDefaultHandler
 {
-	public:
-	bool startDocument();
+public:
+    bool startDocument();
     bool startElement(const QString& nameSpaceUri, const QString& localName, const QString& qName,
-			const QXmlAttributes& attributes);
+                      const QXmlAttributes& attributes);
     bool endElement(const QString& nameSpaceUri, const QString& localName, const QString& qName);
     bool characters (const QString& chrs);
     void setParaula(const QString& paraula);
-	void setPdebug(int i);
-	WordData getWordData();
-	int ensenyarLlistat();
-	QQueue<QString> getWordQueue();
-	bool esBuida();
-	QString seguent();
-	void setCapital(bool capital);
+    void setPdebug(int i);
+    WordData getWordData();
+    int ensenyarLlistat();
+    QQueue<QString> getWordQueue();
+    bool esBuida();
+    QString seguent();
+    void setCapital(bool capital);
 
-	private:
-    bool m_isEntry,m_catexamp,m_engexamp,m_tipus,m_example;
-    bool m_engnote,m_catnote,m_picture,m_plural,m_femplural;
-    bool m_synonyms;
+private:
+    bool m_isEntry;
 
     bool m_inTranslation;
     bool m_inExpressions;
@@ -62,12 +60,13 @@ class StructureParser : public QXmlDefaultHandler
 
     bool m_found;
 
-    QString m_entryWanted,m_definicio,m_qcatexamp,m_qengexamp;
-    QString m_qtipus,m_qgender,m_qgender_,m_qtipus_,m_qpicture_,m_qflickr_;
+    QString m_entryWanted;
 
     WordData m_wordData;
+
     Translation m_translation;
     Expressions m_expressions;
+
     QString m_type;
 };
 
