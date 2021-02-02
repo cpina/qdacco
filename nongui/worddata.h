@@ -148,7 +148,7 @@ struct WordType
         if (translations.isEmpty()) {
             return QString();
         }
-        //        QString html = QString("<i>%1</i><br>").arg(xmlToUserInterface(wordType));
+//        QString html = QString("<i>%1</i><br>").arg(xmlToUserInterface(wordType));
         QString html = translations.getHtml(wordType);
         return html;
     }
@@ -205,44 +205,14 @@ class WordData {
 public:
     WordData();
 
-    void addTranslation(const Translation &translation, const QString& type);
+    void addTranslation(const Translation& translation, const QString& type);
     void addExpressions(const Expressions& expressions);
-
-    void setGender(const QString& q);
-    void setTipus(const QString &q);
-    void setCatExample(const QString &q);
-    void setEnglishExample(const QString& q);
-    void setExample(const QString& q);
-    void setEnglishNote(const QString& q);
-    void setCatalanNote(const QString& q);
-    void setPicture(const QString& q);
-    void setFlickr(const QString& q);
-    void setPlural(const QString& q);
-    void setFemeninePlural(const QString& q);
-    void setSynonyms(const QString& q);
 
     void setType(const QString& type, const QString& ipa);
 
     bool found();
 
-    QString getDefinition(int i);
-    QString getGender(int i);
-    QString getTipus(int i);
-    QString getCatexamp(int i);
-    QString getEngexamp(int i);
-    QString getExample(int i);
-    QString getEngnote(int i);
-    QString getCatnote(int i);
-    QString getPicture(int i);
-    QString getFlickr(int i);
-    QString getPlural(int i);
-    QString getFemplural(int i);
-    QString getSynonyms(int i);
-
-    QString getTextEntry();
     QString getHTMLEntry();
-
-    static QString HTML2Text(const QString& t);
 
 private:
     bool m_found;

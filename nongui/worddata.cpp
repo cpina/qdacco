@@ -48,44 +48,6 @@ bool WordData::found() {
     return m_found;
 }
 
-QString WordData::HTML2Text(const QString& html) {
-    QString text = html;
-    text=text.replace("<BR>","\n");
-    text=text.replace("<U>","");
-    text=text.replace("</U>","");
-
-
-    text=text.replace("<I>","");
-    text=text.replace("</I>","");
-
-    //printf("paraula: %s\n",qPrintable(t));
-    int urlstart,urlend;
-    int endloop=0;
-
-    // TODO: don't write what we don't want
-
-    // Tricky way to remove <A HREF=" from Flickr and Pictures fields
-    // Right now, this TAGS are setted up during putFlickr and putPicture
-    // (called from StructureParser) so StructureParser should know if we
-    // will want text or HTML. Or we should format when getting the data
-    // (better way). By the moment I do the tricky system to remove what
-    // should not be here
-    //
-    while (endloop==0) {
-        urlstart=text.indexOf("<A HREF=\"");
-        urlend=text.indexOf("\"",urlstart+strlen("<A HREF=\""));
-        if (urlend>urlstart) {
-            text=text.remove(urlstart,urlend-urlstart+2);
-        }
-        else {
-            endloop=1;
-        }
-    }
-    text=text.replace("</A>","");
-
-    return text;
-}
-
 QString WordData::getHTMLEntry() {
     return m_entry.getHtml();
 }
