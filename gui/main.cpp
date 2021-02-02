@@ -429,7 +429,7 @@ void Main::treballaBuscar() {
 			reader.setFeature("http://trolltech.com/xml/features/report-whitespace-only-CharData",false);   //if we don't use it, we get more entries because spaces...
 			reader.setContentHandler( &handler );
 
-			handler.setParaula(buscar_orig);
+			handler.setEntryWanted(buscar_orig);
 
 			reader.parse(source);
 

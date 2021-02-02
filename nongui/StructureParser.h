@@ -38,15 +38,10 @@ public:
     bool startElement(const QString& nameSpaceUri, const QString& localName, const QString& qName,
                       const QXmlAttributes& attributes);
     bool endElement(const QString& nameSpaceUri, const QString& localName, const QString& qName);
-    bool characters (const QString& chrs);
-    void setParaula(const QString& paraula);
-    void setPdebug(int i);
+    bool characters(const QString& chrs);
+    void setEntryWanted(const QString& paraula);
+
     WordData getWordData();
-    int ensenyarLlistat();
-    QQueue<QString> getWordQueue();
-    bool esBuida();
-    QString seguent();
-    void setCapital(bool capital);
 
 private:
     bool m_isEntry;

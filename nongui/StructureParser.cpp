@@ -166,7 +166,7 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
     return true;
 }
 
-void StructureParser::setParaula(const QString& paraula)
+void StructureParser::setEntryWanted(const QString& paraula)
 {
     m_entryWanted = paraula;
 }
