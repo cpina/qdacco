@@ -39,7 +39,7 @@ static QStringList wordTypesList = {"verbs", "nouns", "adjectives", "adverbs", "
 static QString xmlToUserInterface(const QString& xmlWord) {
     static QHash<QString, QString> xmlInternalToUserInterface = { {"verbs", "v"},
                                                                   {"nouns", "n"},
-                                                                  {"ajectives", "adj"},
+                                                                  {"adjectives", "adj"},
                                                                   {"adverbs", "adv"},
                                                                   {"pronouns", "pron"},
                                                                   {"exclamations", "excl"},
@@ -113,11 +113,11 @@ struct Translation {
         }
 
         for (const QString& example: examples) {
-            html += "<u>Example:</u> " + example + "<br>";
+            html += QString("<u>Example:</u> %1<br>").arg(example);
         }
 
         for (const QString& note: notes)  {
-            html += "<u>Note:</u> " + note + "<br>";
+            html += QString("<u>Note:</u> %1<br>").arg(note);
         }
 
         if (!flickr.isEmpty()) {
