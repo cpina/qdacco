@@ -37,136 +37,41 @@
 class TextBrowser : public QTextBrowser
 {
     Q_OBJECT
+
+public:
+    TextBrowser(QWidget* parent = nullptr);
+
+    void setProcess(QProcess* process);
+
+    void setBrowser(const QString& browser);
+
+    void setParent(QMainWindow* mainWindow);
+
+    void setFestivalEnable(int f);
+
+    virtual void setSource(const QUrl& url);
+
+    virtual void contextMenuEvent(QContextMenuEvent *e);
+
+    QPoint getPosition() const;
+
+    int getLanguage() const;
+
+    QString getText() const;
+
+Q_SIGNALS:
+    void browserFailed();
+    void browserOpened();
+
 private:
+    int getCharPosition() const;
+    void selectWord();
+
     QProcess *m_browser_process;
     QString m_browser_location;
     int m_festival_enable;
 
     QMainWindow *m_parent;
     QPoint m_qpoint;
-
-    int getCharPosition() const {
-        QTextCursor qtc;
-        qtc = this->textCursor();
-        return qtc.position();
-    }
-
-    void selectWord() {
-        //Warn: only valid after m_qupoint has been setted up
-        QTextCursor qtc;
-        QString s;
-
-        if (!this->textCursor().hasSelection()) {
-            qtc = this->cursorForPosition(m_qpoint);
-            qtc.select(QTextCursor::WordUnderCursor);
-            this->setTextCursor(qtc);
-        }
-    }
-
-public:
-    TextBrowser(QWidget *&) {}
-
-    void setFather(QMainWindow *m) {
-        m_parent=m;
-    }
-    void setProcess(QProcess *process) {
-        m_browser_process=process;
-    }
-    void setBrowser(const QString& browser) {
-        m_browser_location=browser;
-    }
-
-    void setParent(QMainWindow *mainWindow) {
-        m_parent=mainWindow;
-    }
-    void setFestivalEnable(int f) {
-        m_festival_enable=f;
-    }
-
-    virtual void setSource(const QUrl& url) {
-        m_browser_process->setProgram(m_browser_location);
-        m_browser_process->setArguments(QStringList() << url.toString());
-        m_browser_process->startDetached();
-        Auxiliar::debug("Executing: "+m_browser_location);
-    }
-
-    virtual void contextMenuEvent(QContextMenuEvent *e) {
-        int language;
-        m_qpoint=e->pos();
-
-        selectWord();
-
-        QMenu *menu = createStandardContextMenu();
-        if (Auxiliar::isWindows()==false) {
-            QAction *festival = menu->addAction(tr("Read"));
-
-            language = getLanguage();
-            festival->setEnabled(m_festival_enable && language!=0);
-
-            connect(festival,SIGNAL(triggered()),m_parent,SLOT(FestivalExecuteDefinition()));
-
-        }
-        menu->exec(e->globalPos());
-    }
-
-    QPoint getPosition() const {
-        return m_qpoint;
-    }
-
-    int getLanguage() const {
-        int cursor_position=getCharPosition();
-        //return Auxiliar::catalan(), Auxiliar::english(),
-        //3: UI language
-        //4: destination language
-        //5: NOT destination language
-
-        QString text = this->toPlainText();
-
-        int cat = Auxiliar::catalan();
-        int eng = Auxiliar::english();
-
-        QHash<QString,int>hash;
-
-        hash.insert(tr("Catalan example(s): "),cat);
-        hash.insert(tr("English example(s): "),eng);
-        hash.insert(tr("English notes: "),eng);
-        hash.insert(tr("Catalan notes: "),cat);
-        hash.insert(tr("Example(s): "),5);
-        hash.insert(tr("Synonym(s): "),5);
-        hash.insert(tr("Plural: "),4);
-        hash.insert(tr("Female Plural: "),4);
-
-        hash.insert(tr("Picture: "),0);
-        hash.insert(tr("Flickr: "),0);
-
-        QHashIterator<QString,int> i(hash);
-
-        int position=0;
-        int textLanguage=4;
-        int temp;
-        while (i.hasNext()) {
-            i.next();
-            temp=text.lastIndexOf(i.key(),cursor_position,Qt::CaseSensitive);
-            if (temp!=-1 && temp > position) {
-                position=temp;
-                textLanguage=i.value();
-
-                if (temp+i.key().length() > cursor_position) {
-                    textLanguage=3;
-                }
-            }
-        }
-        Auxiliar::debug("Language to read: "+textLanguage);
-        return textLanguage;
-    }
-
-    QString getText() const {
-        QTextCursor tc = this->textCursor();
-        return tc.selectedText();
-    }
-
-Q_SIGNALS:
-    void browserFailed();
-    void browserOpened();
 };
 #endif

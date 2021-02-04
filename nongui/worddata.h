@@ -60,7 +60,8 @@ static QString xmlToUserInterface(const QString& xmlWord) {
 
 struct Translation {
     QString translation;
-    QString fems;
+    QString female;
+    QString femalePlural;
 
     QVariant collocation;   // bool
     QVariant transitive;    // bool
@@ -103,8 +104,12 @@ struct Translation {
             html += QString("<u>Plural:</u> %1<br>").arg(plural);
         }
 
-        if (!fems.isEmpty()) {
-            html += QString("<u>Femenine:</u> %1<br>").arg(fems);
+        if (!female.isEmpty()) {
+            html += QString("<u>Female:</u> %1<br>").arg(female);
+        }
+
+        if (!femalePlural.isEmpty()) {
+            html += QString("<u>Female plural:</u> %1</br>").arg(femalePlural);
         }
 
         for (const QString& example: examples) {

@@ -36,7 +36,7 @@ Main::Main(QWidget *)  //parent
 	ui.setupUi(this);
 	ui.paraula->setParent(this);
 	ui.llistat->setParent(this);
-	ui.definicio->setFather(this);
+    ui.definicio->setParent(this);
 
 	resize(QSize(270,300));
 

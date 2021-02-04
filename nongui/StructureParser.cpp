@@ -61,6 +61,8 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
         m_inPlural = true;
     } else if (qName == "fems") {
         m_inFems = true;
+    } else if (qName == "femplural") {
+        m_inFemPlural = true;
     } else if (exampleElements.contains(qName)) {
         m_inExample = true;
     } else if (noteElements.contains(qName)) {
@@ -83,6 +85,7 @@ bool StructureParser::characters(const QString& chrs)
             m_inPlural = false;
             m_inNote = false;
             m_inFems = false;
+            m_inFemPlural = false;
 
             m_type = QString();
         }
@@ -105,7 +108,10 @@ bool StructureParser::characters(const QString& chrs)
         m_translation.notes.append(ch);
     }
     else if (m_inFems) {
-        m_translation.fems = ch;
+        m_translation.female = ch;
+    }
+    else if (m_inFemPlural) {
+        m_translation.femalePlural = ch;
     }
     else if (m_inTranslation) {
         m_translation.translation = ch;
@@ -131,6 +137,9 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
     }
     else if (m_inFems && qName == "fems") {
         m_inFems = false;
+    }
+    else if (m_inFemPlural && qName == "femplural") {
+        m_inFemPlural = false;
     }
     else if (m_inExpressions && qName == "translation") {
         m_expressions.translations.append(m_translation);
