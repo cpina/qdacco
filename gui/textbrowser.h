@@ -84,9 +84,10 @@ class TextBrowser : public QTextBrowser
 		}
 	
 		virtual void setSource(const QUrl& url) {
-			QString cmd = m_browser_location + " " + url.toString();
-			m_browser_process->start(cmd);
-			Auxiliar::debug("Executing: "+cmd);
+            m_browser_process->setProgram(m_browser_location);
+            m_browser_process->setArguments(QStringList() << url.toString());
+            m_browser_process->startDetached();
+            Auxiliar::debug("Executing: "+m_browser_location);
 		}
 
 		virtual void contextMenuEvent(QContextMenuEvent *e) {

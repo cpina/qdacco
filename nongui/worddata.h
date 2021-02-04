@@ -71,6 +71,7 @@ struct Translation {
 
     QString catagory;
     QString gender;
+
     QStringList synonyms;
     QString picture;
     QString flickr;
@@ -112,6 +113,14 @@ struct Translation {
 
         for (const QString& note: notes)  {
             html += "<u>Note:</u> " + note + "<br>";
+        }
+
+        if (!flickr.isEmpty()) {
+            html += QString("<u>Picture:</u> <a href=\"%1\">%1</a><br>").arg(flickr);
+        }
+
+        if (flickr.isEmpty() && !picture.isEmpty()) {
+            html += QString("<u>Picture:</u> <a href=\"%1\">%1</a><br>").arg(picture);
         }
 
         return html;

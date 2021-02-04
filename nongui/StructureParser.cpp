@@ -52,6 +52,8 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
         m_translation = Translation();
 
         m_translation.gender = attributes.value("gender");
+        m_translation.flickr = attributes.value("flickr");
+        m_translation.picture = attributes.value("picture");
     } else if (qName == "expressions") {
         m_inExpressions = true;
         m_expressions = Expressions();
