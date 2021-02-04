@@ -54,6 +54,10 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
         m_translation.gender = attributes.value("gender");
         m_translation.flickr = attributes.value("flickr");
         m_translation.picture = attributes.value("picture");
+    } else if (qName == "catacro") {
+        m_inCatAcro = true;
+    } else if (qName == "engacro") {
+        m_inEngAcro = true;
     } else if (qName == "expressions") {
         m_inExpressions = true;
         m_expressions = Expressions();
@@ -86,6 +90,8 @@ bool StructureParser::characters(const QString& chrs)
             m_inNote = false;
             m_inFems = false;
             m_inFemPlural = false;
+            m_inCatAcro = false;
+            m_inEngAcro = false;
 
             m_type = QString();
         }
@@ -100,6 +106,12 @@ bool StructureParser::characters(const QString& chrs)
 
     if (m_inTranslation && m_inPlural) {
         m_translation.plural = ch;
+    }
+    else if (m_inCatAcro) {
+        m_wordData.setCatalanAcronym(ch);
+    }
+    else if (m_inEngAcro) {
+        m_wordData.setEnglishAcronym(ch);
     }
     else if (m_inTranslation && m_inExample) {
         m_translation.examples.append(ch);
@@ -134,6 +146,12 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
 
     if (m_inPlural && qName == "plural") {
         m_inPlural = false;
+    }
+    else if (m_inCatAcro && qName == "catacro") {
+        m_inCatAcro = false;
+    }
+    else if (m_inEngAcro && qName == "engacro") {
+        m_inEngAcro = false;
     }
     else if (m_inFems && qName == "fems") {
         m_inFems = false;

@@ -192,12 +192,20 @@ struct Entry
 
     QList<Expressions> expressions;
 
-    QString catacro;
-    QString engacro;
+    QString catalanAcronym;
+    QString englishAcronym;
     QStringList mistakes;
 
     QString getHtml() const {
         QString html;
+
+        if (!catalanAcronym.isEmpty()) {
+            html += QString("<u>Catalan Acronym:</u> %1<br><br>").arg(catalanAcronym);
+        }
+
+        if (!englishAcronym.isEmpty()) {
+            html += QString("<u>English Acronym:</u> %1<br><br>").arg(englishAcronym);
+        }
 
         for (const QString& wordType : wordTypesList) {
             if (wordTypes.contains(wordType)) {
@@ -223,6 +231,8 @@ public:
     void addExpressions(const Expressions& expressions);
 
     void setType(const QString& type, const QString& ipa);
+    void setCatalanAcronym(const QString& acronym);
+    void setEnglishAcronym(const QString& acronym);
 
     bool found();
 

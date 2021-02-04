@@ -53,6 +53,8 @@ private:
     bool m_inNote;
     bool m_inFems;
     bool m_inFemPlural;
+    bool m_inCatAcro;
+    bool m_inEngAcro;
 
     bool m_found;
 

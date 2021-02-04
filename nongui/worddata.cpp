@@ -32,6 +32,16 @@ void WordData::setType(const QString& type, const QString& ipa) {
     m_found = false;
 }
 
+void WordData::setCatalanAcronym(const QString& acronym)
+{
+    m_entry.catalanAcronym = acronym;
+}
+
+void WordData::setEnglishAcronym(const QString& acronym)
+{
+    m_entry.englishAcronym = acronym;
+}
+
 void WordData::addTranslation(const Translation& translation, const QString &type) {
     m_found = true;
 
