@@ -39,9 +39,8 @@ void TextBrowser::setFestivalEnable(int f) {
 }
 
 void TextBrowser::setSource(const QUrl& url) {
-    m_browser_process->setProgram(m_browser_location);
-    m_browser_process->setArguments(QStringList() << url.toString());
-    m_browser_process->startDetached();
+    QProcess::startDetached(m_browser_location, QStringList() << url.toString());
+
     Auxiliar::debug("Executing: "+m_browser_location);
 }
 
