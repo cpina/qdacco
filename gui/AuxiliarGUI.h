@@ -4,15 +4,15 @@
 #include <QString>
 
 class AuxiliarGUI {
-	private:
-		static QString version;
-		static QString copyright_date;
+private:
+    static QString version;
+    static QString copyright_date;
 
-        public:
-		static void *m;
+public:
+    static void *m;
 
-		static QString getVersion();
-		static QString getCopyrightDate();
+    static QString getVersion();
+    static QString getCopyrightDate();
 };
 
 #endif

@@ -52,4 +52,4 @@ Per a més informació de l'instal·lació: veure [INSTALL.ca.md](INSTALL.ca.md)
 
 ![qdacco](docs/images/preferences-advanced.png)
 
-Carles Pina i Estany (carles@pina.cat), 2005-2020
+Carles Pina i Estany (carles@pina.cat), 2005-2021

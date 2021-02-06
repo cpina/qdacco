@@ -8,14 +8,14 @@
 void *AuxiliarGUI::m=nullptr;
 
 QString AuxiliarGUI::version = QDACCO_VERSION;
-QString AuxiliarGUI::copyright_date = "2005, 2006, 2007, 2008, 2009, 2011, 2013, 2015, 2017, 2020";
+QString AuxiliarGUI::copyright_date = "2005-2009, 2011, 2013, 2015, 2017, 2020-2021";
 
 QString AuxiliarGUI::getVersion() {
-        return version;
+    return version;
 }
 
 QString AuxiliarGUI::getCopyrightDate() {
-        return copyright_date;
+    return copyright_date;
 }
 
 #endif 

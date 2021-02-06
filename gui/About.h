@@ -44,10 +44,6 @@ class About : public QDialog
 	
 	private:
 		Ui::About ui;
-
-	private slots:
-
-	public slots:
 };
 
 #endif
