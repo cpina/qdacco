@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2015
+ * Copyright (c) 2005, 2006, 2007
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -19,43 +19,40 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef TRAYICON_H
+#define TRAYICON_H
 
-#ifndef MYLINEEDIT_H
-#define MYLINEEDIT_H
+#include <QMenu>
+#include <QSystemTrayIcon>
+#include <QPushButton>
 
-#include <QtGui>
+#include "OneInstance.h"
 
-//qdaccolib
-#include <nongui/Auxiliar.h>
+class OneInstance;
 
-//Adds to QLineEdit capability to scroll list word box
-//Adds to QLineEdit capability to read words
-
-#include <QtWidgets/QLineEdit>
-
-class MyLineEdit : public QLineEdit
+class TrayIcon : public QWidget
 {
 	Q_OBJECT
 
 	public:
-		MyLineEdit (QWidget *parent=0);
-		void setParent(QObject *q);
-		virtual void contextMenuEvent(QContextMenuEvent *e);
-		void setFestivalEnable(int f);
+		TrayIcon();
+		void primerPla();
+	
+		void SetOneInstance(OneInstance *o);
 
-	protected:
-		void keyPressEvent(QKeyEvent *pEvent);
 
 	private:
-		QObject* m_parent;
-		int m_festival_enable;
-		QPoint m_qpoint;
+		void setMenu();
 
-		void selectWord();
-		int getPrevSpace(int pos);
-		int getNextSpace(int pos);
+		QSystemTrayIcon *trayIcon;
+		QMenu *trayIconMenu;
 
+		OneInstance *myoneinstance;
+
+	private slots:
+		void leftclick(QSystemTrayIcon::ActivationReason reason);
+		void changestatus();
+		void quit();
 };
 
 #endif
-

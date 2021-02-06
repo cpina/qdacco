@@ -26,11 +26,11 @@
 #include <QMessageBox>
 
 #include "AuxiliarGUI.h"
-#include "configure.h"
-#include "loadconfig.h"
+#include "Configure.h"
+#include "LoadConfig.h"
 #include "main.h"
-#include "oneinstance.h"
-#include "trayicon.h"
+#include "OneInstance.h"
+#include "TrayIcon.h"
 
 //qdaccolib
 #include <nongui/Auxiliar.h>
@@ -108,7 +108,7 @@ int main(int argc, char **argv)
 	qs.sync();
 
 	LoadConfig loadconfig;
-	oneInstance myOneInstance;
+	OneInstance myOneInstance;
 
 	int single = loadconfig.getSingleInstance();
 	

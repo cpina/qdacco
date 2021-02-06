@@ -20,16 +20,16 @@
  */
 
 
-#include "oneinstance.h"
+#include "OneInstance.h"
 
-oneInstance::oneInstance() :
+OneInstance::OneInstance() :
 	m_dbusAvailable(false)
 {
 	ptr_main = new Main;
 	ptr_main->show();
 }
 
-bool oneInstance::isAnotherInstance() {
+bool OneInstance::isAnotherInstance() {
 	// Return true if there is another instance
 	bool ret=false;
 
@@ -60,7 +60,7 @@ bool oneInstance::isAnotherInstance() {
 	
 }
 
-void oneInstance::sendRestore() {
+void OneInstance::sendRestore() {
 	if (m_dbusAvailable == false)
 	{
 		return;
@@ -72,7 +72,7 @@ void oneInstance::sendRestore() {
 }
 
 
-void oneInstance::restore() {
+void OneInstance::restore() {
 	if (m_dbusAvailable == false)
 	{
 		return;
@@ -98,7 +98,7 @@ void oneInstance::restore() {
 	ptr_main->show();
 }
 
-void oneInstance::registerInstance() {
+void OneInstance::registerInstance() {
 	if (m_dbusAvailable == false)
 	{
 		return;
@@ -108,7 +108,7 @@ void oneInstance::registerInstance() {
 	bus.registerObject("/serveis",this,QDBusConnection::ExportAllSlots);
 }
 
-bool oneInstance::isVisible() {
+bool OneInstance::isVisible() {
 	if (m_dbusAvailable == false)
 	{
 		return true;
@@ -116,7 +116,7 @@ bool oneInstance::isVisible() {
 	return ptr_main->isVisible();
 }
 
-void oneInstance::close() {
+void OneInstance::close() {
 	if (m_dbusAvailable == false)
 	{
 		return;
@@ -124,7 +124,7 @@ void oneInstance::close() {
 	ptr_main->close();
 }
 
-void oneInstance::hide() {
+void OneInstance::hide() {
 	if (m_dbusAvailable == false)
 	{
 		return;
@@ -132,7 +132,7 @@ void oneInstance::hide() {
 	ptr_main->hide();
 }
 
-void oneInstance::show() {
+void OneInstance::show() {
 	if (m_dbusAvailable == false)
 	{
 		return;

@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007
+ * Copyright (c) 2005, 2006, 2007, 2008, 2009
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -19,40 +19,41 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef TRAYICON_H
-#define TRAYICON_H
 
-#include <QMenu>
-#include <QSystemTrayIcon>
-#include <QPushButton>
+#ifndef ONEINSTANCE_H
+#define ONEINSTANCE_H
 
-#include "oneinstance.h"
+#include <QtCore/QObject>
+#include <QtDBus/QtDBus>
 
-class oneInstance;
+#include "main.h"
 
-class TrayIcon : public QWidget
+class Main;
+
+class OneInstance : public QObject
 {
 	Q_OBJECT
 
 	public:
-		TrayIcon();
-		void primerPla();
-	
-		void SetOneInstance(oneInstance *o);
+		OneInstance();
+
+		bool isAnotherInstance();
+		void sendRestore();
+		void sendQuit();
+		void registerInstance();
+
+		bool isVisible();
+
+		void close();
+		void hide();
+		void show();
 
 
 	private:
-		void setMenu();
-
-		QSystemTrayIcon *trayIcon;
-		QMenu *trayIconMenu;
-
-		oneInstance *myoneinstance;
-
-	private slots:
-		void leftclick(QSystemTrayIcon::ActivationReason reason);
-		void changestatus();
-		void quit();
+		Main *ptr_main;
+		bool m_dbusAvailable;
+	
+	public slots:
+		void restore();
 };
-
 #endif

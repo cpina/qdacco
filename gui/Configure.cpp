@@ -22,7 +22,7 @@
 
 #include <QtWidgets/QPushButton>
 
-#include "configure.h"
+#include "Configure.h"
 
 Configure::Configure(QWidget *)  //parent
 {

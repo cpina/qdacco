@@ -21,7 +21,7 @@
 
 
 
-#include "trayicon.h"
+#include "TrayIcon.h"
 
 //TrayIcon* TrayIcon::ptr_trayicon;
 
@@ -42,7 +42,7 @@ TrayIcon::TrayIcon()
 	//installEventFilter(this);
 }
 
-void TrayIcon::SetOneInstance(oneInstance *o)
+void TrayIcon::SetOneInstance(OneInstance *o)
 {
 	myoneinstance = o;
 	setMenu();

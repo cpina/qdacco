@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2008, 2009
+ * Copyright (c) 2005, 2006, 2007, 2009, 2015
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -19,41 +19,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef LISTWIDGET_H
+#define LISTWIDGET_H
 
-#ifndef ONEINSTANCE_H
-#define ONEINSTANCE_H
+#include <QtGui>
+#include <QtWidgets/QListWidget>
 
-#include <QtCore/QObject>
-#include <QtDBus/QtDBus>
+//qdaccolib
+#include <nongui/Auxiliar.h>
 
-#include "main.h"
-
-class Main;
-
-class oneInstance : public QObject
+class ListWidget: public QListWidget
 {
 	Q_OBJECT
 
 	public:
-		oneInstance();
+		ListWidget(QWidget *parent=0);
+		void setParent(QObject *q);
 
-		bool isAnotherInstance();
-		void sendRestore();
-		void sendQuit();
-		void registerInstance();
-
-		bool isVisible();
-
-		void close();
-		void hide();
-		void show();
-
+	protected:
+		void keyPressEvent(QKeyEvent *pEvent);
 
 	private:
-		Main *ptr_main;
-		bool m_dbusAvailable;
-	
-	public slots:
-		void restore();
+		QObject* m_parent;
+
 };
+
 #endif

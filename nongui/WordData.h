@@ -31,7 +31,8 @@
 static QStringList wordTypesList = {"verbs", "nouns", "adjectives", "adverbs", "pronouns",
                                     "exclamations", "abbreviations", "prepositions",
                                     "phrasalverbs", "verbTense", "mistakes",
-                                    "conjunctions", "determiners", "acronyms", "catacro", "engacro",
+                                    "conjunctions", "determiners", "acronyms"
+                                    // , "catacro", "engacro", Handled differently
                                    };
 
 
@@ -77,6 +78,9 @@ struct Translation {
     QString picture;
     QString flickr;
 
+    QString catalanAcronym;
+    QString englishAcronym;
+
     QString getHtml(const QString& typeOfWord) const {
         QString html;
 
@@ -109,8 +113,17 @@ struct Translation {
         }
 
         if (!femalePlural.isEmpty()) {
-            html += QString("<u>Female plural:</u> %1</br>").arg(femalePlural);
+            html += QString("<u>Female plural:</u> %1<br>").arg(femalePlural);
         }
+
+        if (!catalanAcronym.isEmpty()) {
+            html += QString("<u>Catalan acronym:</u> %1<br>").arg(catalanAcronym);
+        }
+
+        if (!englishAcronym.isEmpty()) {
+            html += QString("<u>English acronym:</u> %1<br>").arg(englishAcronym);
+        }
+
 
         for (const QString& example: examples) {
             html += QString("<u>Example:</u> %1<br>").arg(example);
@@ -200,11 +213,11 @@ struct Entry
         QString html;
 
         if (!catalanAcronym.isEmpty()) {
-            html += QString("<u>Catalan Acronym:</u> %1<br><br>").arg(catalanAcronym);
+            html += QString("<u>Catalan acronym:</u> %1<br><br>").arg(catalanAcronym);
         }
 
         if (!englishAcronym.isEmpty()) {
-            html += QString("<u>English Acronym:</u> %1<br><br>").arg(englishAcronym);
+            html += QString("<u>English acronym:</u> %1<br><br>").arg(englishAcronym);
         }
 
         for (const QString& wordType : wordTypesList) {

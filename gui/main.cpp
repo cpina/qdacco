@@ -22,10 +22,10 @@
 #include "main.h"
 
 #include "AuxiliarGUI.h"
-#include "about.h"
-#include "configure.h"
-#include "textbrowser.h"
-#include "trayicon.h"
+#include "About.h"
+#include "Configure.h"
+#include "TextBrowser.h"
+#include "TrayIcon.h"
 
 #include "nongui/StructureList.h"
 

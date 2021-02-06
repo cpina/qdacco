@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007
+ * Copyright (c) 2005, 2006, 2007, 2009
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -20,22 +20,15 @@
  */
 
 #include <QtGui>
-#include <QtCore/QCoreApplication>
-#include <QtWidgets/QAction>
-#include <QtWidgets/QMenu>
-#include "mylineedit.h"
+#include <QCoreApplication>
+#include "ListWidget.h"
 
-MyLineEdit::MyLineEdit(QWidget *parent) : QLineEdit(parent)
+ListWidget::ListWidget(QWidget *parent) : QListWidget(parent)
 {
 
 }
 
-void MyLineEdit::setFestivalEnable(int f) 
-{
-	m_festival_enable=f;
-}
-
-void MyLineEdit::keyPressEvent(QKeyEvent *pEvent)
+void ListWidget::keyPressEvent(QKeyEvent *pEvent)
 {
 	int qkey = pEvent->key();
 	int send=0;
@@ -65,53 +58,12 @@ void MyLineEdit::keyPressEvent(QKeyEvent *pEvent)
 		QEvent qevent((QEvent::Type)type);
 		QCoreApplication::sendEvent(m_parent,&qevent);
 	}
-	
-	QLineEdit::keyPressEvent(pEvent);
+	else {
+		QListWidget::keyPressEvent(pEvent);
+	}
 }
 
-void MyLineEdit::setParent(QObject *q)
+void ListWidget::setParent(QObject *q)
 {
 	m_parent=q;
-}
-
-void MyLineEdit::contextMenuEvent(QContextMenuEvent *e)
-{
-	selectWord();
-	QMenu *menu = createStandardContextMenu();
-	QAction *festival = menu->addAction(tr("Read"));
-	festival->setEnabled(m_festival_enable && this->text().length()>0);
-	connect(festival,SIGNAL(triggered()),m_parent,SLOT(FestivalExecuteEntry()));
-	menu->exec(e->globalPos());
-	
-	//moure-ho
-}
-
-void MyLineEdit::selectWord() {
-	QTextCursor qtc;
-	QString s;
-
-	if (this->hasSelectedText() == false) {
-		//Selecciona paraula on hi ha el cursor
-		int position=this->cursorPosition();
-		int begin,end;
-
-		begin=getPrevSpace(position);
-		end=getNextSpace(position);
-		this->setSelection(begin,end);
-
-	}
-}
-
-int MyLineEdit::getPrevSpace(int pos) {
-	while (pos>0 && this->text()[pos]!=' ') {
-		pos--;
-	}
-	return pos;
-}
-
-int MyLineEdit::getNextSpace(int pos) {
-	while (pos<this->text().length() && this->text()[pos]!=' ') {
-		pos++;
-	}
-	return pos;
 }

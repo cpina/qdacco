@@ -2,20 +2,20 @@
 # qdaccogui					  #
 ###########################################
 
-set (qdaccogui_SRC configure.cpp main.cpp
-	   qdacco.cpp about.cpp mylineedit.cpp 
-	   mylistwidget.cpp AuxiliarGUI.cpp oneinstance.cpp
-	   trayicon.cpp loadconfig.cpp textbrowser.cpp
+set (qdaccogui_SRC Configure.cpp main.cpp
+	   qdacco.cpp About.cpp LineEdit.cpp 
+	   ListWidget.cpp AuxiliarGUI.cpp OneInstance.cpp
+	   TrayIcon.cpp LoadConfig.cpp TextBrowser.cpp
        ../nongui/Auxiliar.cpp
        ../nongui/StructureList.cpp
        ../nongui/StructureParser.cpp
        ../nongui/WordData.cpp
     )
 
-set (qdaccogui_MOCS configure.h main.h 
-	   about.h textbrowser.h mylineedit.h 
-	   mylistwidget.h oneinstance.h
-	   trayicon.h loadconfig.h textbrowser.h)
+set (qdaccogui_MOCS Configure.h main.h 
+	   About.h TextBrowser.h LineEdit.h 
+	   ListWidget.h OneInstance.h
+	   TrayIcon.h LoadConfig.h TextBrowser.h)
 
 set (qdaccogui_H AuxiliarGUI.h
      ../nongui/Auxiliar.h

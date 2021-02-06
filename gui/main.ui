@@ -84,7 +84,7 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="MyLineEdit" name="paraula">
+         <widget class="LineEdit" name="paraula">
           <property name="focusPolicy">
            <enum>Qt::StrongFocus</enum>
           </property>
@@ -124,7 +124,7 @@
        <widget class="TextBrowser" name="definicio" native="true"/>
       </item>
       <item>
-       <widget class="MyListWidget" name="llistat"/>
+       <widget class="ListWidget" name="llistat"/>
       </item>
       <item>
        <widget class="QTextEdit" name="clipboard"/>
@@ -352,18 +352,18 @@
   <customwidget>
    <class>TextBrowser</class>
    <extends>QWidget</extends>
-   <header>textbrowser.h</header>
+   <header>TextBrowser.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>MyLineEdit</class>
+   <class>LineEdit</class>
    <extends>QLineEdit</extends>
-   <header>mylineedit.h</header>
+   <header>LineEdit.h</header>
   </customwidget>
   <customwidget>
-   <class>MyListWidget</class>
+   <class>ListWidget</class>
    <extends>QListWidget</extends>
-   <header>mylistwidget.h</header>
+   <header>ListWidget.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

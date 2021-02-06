@@ -80,7 +80,7 @@ bool StructureParser::characters(const QString& chrs)
 {
     QString ch = chrs.trimmed();
 
-    if (m_isEntry) {
+    if (m_isEntry && !m_found) {
         if (ch == m_entryWanted) {
             m_found = true;
             m_inExpressions = false;
@@ -106,6 +106,12 @@ bool StructureParser::characters(const QString& chrs)
 
     if (m_inTranslation && m_inPlural) {
         m_translation.plural = ch;
+    }
+    else if (m_inTranslation && m_inCatAcro) {
+        m_translation.catalanAcronym = ch;
+    }
+    else if (m_inTranslation && m_inEngAcro) {
+        m_translation.englishAcronym = ch;
     }
     else if (m_inCatAcro) {
         m_wordData.setCatalanAcronym(ch);
