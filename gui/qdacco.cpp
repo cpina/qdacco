@@ -33,7 +33,7 @@
 #include "trayicon.h"
 
 //qdaccolib
-#include <nongui/auxiliar.h>
+#include <nongui/Auxiliar.h>
 
 int main(int argc, char **argv)
 {

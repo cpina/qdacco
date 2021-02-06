@@ -26,7 +26,7 @@
 #include <QtWidgets/QListWidget>
 
 //qdaccolib
-#include <nongui/auxiliar.h>
+#include <nongui/Auxiliar.h>
 
 class MyListWidget: public QListWidget
 {

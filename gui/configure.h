@@ -33,7 +33,7 @@
 #include "ui_configure.h"
 
 //qdaccolib
-#include <nongui/auxiliar.h>
+#include <nongui/Auxiliar.h>
 
 class Configure : public QDialog
 {

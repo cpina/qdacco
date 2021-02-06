@@ -26,8 +26,8 @@
 #include <QtCore/QString>
 #include <QtXml/QXmlDefaultHandler>
 
-#include "worddata.h"
-#include "auxiliar.h"
+#include "WordData.h"
+#include "Auxiliar.h"
 
 class QString;
 

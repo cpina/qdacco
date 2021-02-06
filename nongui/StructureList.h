@@ -25,7 +25,7 @@
 #include <QtCore/QQueue>
 #include <QtCore/QString>
 #include <QtXml/QXmlDefaultHandler>
-#include "worddata.h"
+#include "WordData.h"
 
 class QString;
 

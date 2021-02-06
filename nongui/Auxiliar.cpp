@@ -21,7 +21,7 @@
 
 #include <QDebug>
 
-#include "auxiliar.h"
+#include "Auxiliar.h"
 
 //Variables to adjust
 int Auxiliar::debugLevel=1;

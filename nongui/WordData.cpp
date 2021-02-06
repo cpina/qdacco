@@ -21,7 +21,7 @@
 
 #include <QDebug>
 
-#include "worddata.h"
+#include "WordData.h"
 
 WordData::WordData() {
 }

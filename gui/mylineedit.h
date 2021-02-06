@@ -26,7 +26,7 @@
 #include <QtGui>
 
 //qdaccolib
-#include <nongui/auxiliar.h>
+#include <nongui/Auxiliar.h>
 
 //Adds to QLineEdit capability to scroll list word box
 //Adds to QLineEdit capability to read words
