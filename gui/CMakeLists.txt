@@ -24,7 +24,7 @@ set (qdaccogui_H AuxiliarGUI.h
      ../nongui/WordData.h
    )
 
-set (qdaccogui_UIS configure.ui main.ui about.ui)
+set (qdaccogui_UIS Configure.ui main.ui About.ui)
 
 set(CMAKE_AUTOMOC ON)
 #set(CMAKE_AUTOUIC ON)

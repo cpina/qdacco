@@ -30,7 +30,7 @@
 #include <QDir>
 #include <QToolButton>
 #include <QFileDialog>
-#include "ui_configure.h"
+#include "ui_Configure.h"
 
 //qdaccolib
 #include <nongui/Auxiliar.h>

@@ -29,7 +29,7 @@
 #include <QSettings>
 #include <QDir>
 #include <QToolButton>
-#include "ui_about.h"
+#include "ui_About.h"
 
 #include "AuxiliarGUI.h"
 
