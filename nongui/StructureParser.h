@@ -56,6 +56,7 @@ private:
     bool m_inCatAcro;
     bool m_inEngAcro;
     bool m_inMistakes;
+    bool m_inSynonyms;
 
     bool m_inSearchedWord;
 

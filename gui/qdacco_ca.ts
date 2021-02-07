@@ -396,7 +396,7 @@ Dades llicenciades amb LGPL.</translation>
     </message>
     <message>
         <location filename="main.ui" line="224"/>
-        <location filename="main.cpp" line="59"/>
+        <location filename="main.cpp" line="57"/>
         <source>Copy</source>
         <translation>Copia</translation>
     </message>
@@ -528,32 +528,32 @@ Dades llicenciades amb LGPL.</translation>
         <translation>ang → cat</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="60"/>
+        <location filename="main.cpp" line="58"/>
         <source>Paste</source>
         <translation>Enganxa</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="90"/>
+        <location filename="main.cpp" line="88"/>
         <source>Festival executed and returned error code: </source>
         <translation>Festival ha estat executat i ha retornat el codi d&apos;error: </translation>
     </message>
     <message>
-        <location filename="main.cpp" line="90"/>
+        <location filename="main.cpp" line="88"/>
         <source>Please consult the FAQ for help with this issue</source>
         <translation>Consulteu les PUF per a més ajuda</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="94"/>
+        <location filename="main.cpp" line="92"/>
         <source>You probably haven&apos;t installed the Catalan dictionary for Festival</source>
         <translation>Probablement no teniu el diccionari català per Festival</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="102"/>
+        <location filename="main.cpp" line="100"/>
         <source>Error executing Festival. Please check the FAQ for help with this issue</source>
         <translation>Error executant Festival. Mireu el FAQ per ajuda</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="106"/>
+        <location filename="main.cpp" line="664"/>
         <source>Error executing browser. Please check the FAQ for help with this issue</source>
         <translation>Error executant el navegador. Mireu el FAQ per ajuda</translation>
     </message>
@@ -566,18 +566,18 @@ Dades llicenciades amb LGPL.</translation>
         <translation type="vanished">Error executant el navegador. Si us plau, consulteu les PUF per ajuda en aquesta incidència</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="363"/>
-        <location filename="main.cpp" line="422"/>
+        <location filename="main.cpp" line="357"/>
+        <location filename="main.cpp" line="416"/>
         <source>Cannot open dictionary file. Check configuration directory and permissions</source>
         <translation>No es pot obrir el diccionari. Comproveu el directori i els permisos del diccionari</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="412"/>
+        <location filename="main.cpp" line="406"/>
         <source>You have to write a word. The word has to start with a letter.</source>
         <translation>Heu d&apos;escriure una paraula. La paraula ha de començar amb una lletra.</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="458"/>
+        <location filename="main.cpp" line="452"/>
         <source>Exact match not found</source>
         <translation>Coincidència exacte no trobada</translation>
     </message>
@@ -586,7 +586,7 @@ Dades llicenciades amb LGPL.</translation>
         <translation type="vanished">Envia comentari(s)</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="567"/>
+        <location filename="main.cpp" line="561"/>
         <source>There is no configuration or old configuration. A configuration dialog will now open</source>
         <translation>No hi ha configuració o és massa vella. S&apos;obrirà el diàleg de configuració</translation>
     </message>
@@ -702,43 +702,53 @@ Dades llicenciades amb LGPL.</translation>
     </message>
     <message>
         <location filename="../nongui/WordData.h" line="113"/>
+        <source>Common mistakes</source>
+        <translation>Errors habituals</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="115"/>
         <source>Plural</source>
         <translation>Plural</translation>
     </message>
     <message>
-        <location filename="../nongui/WordData.h" line="115"/>
+        <location filename="../nongui/WordData.h" line="117"/>
         <source>Female</source>
         <translation>Femení</translation>
     </message>
     <message>
-        <location filename="../nongui/WordData.h" line="117"/>
+        <location filename="../nongui/WordData.h" line="119"/>
         <source>Female plural</source>
         <translation>Femení plural</translation>
     </message>
     <message>
-        <location filename="../nongui/WordData.h" line="119"/>
-        <location filename="../nongui/WordData.h" line="205"/>
+        <location filename="../nongui/WordData.h" line="121"/>
+        <location filename="../nongui/WordData.h" line="208"/>
         <source>Catalan acronym</source>
         <translation>Acrònim català</translation>
     </message>
     <message>
-        <location filename="../nongui/WordData.h" line="121"/>
-        <location filename="../nongui/WordData.h" line="207"/>
+        <location filename="../nongui/WordData.h" line="123"/>
+        <location filename="../nongui/WordData.h" line="210"/>
         <source>English acronym</source>
         <translation>Acrònim anglès</translation>
     </message>
     <message>
         <location filename="../nongui/WordData.h" line="125"/>
+        <source>Synonyms</source>
+        <translation>Sinònims</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="128"/>
         <source>Example</source>
         <translation>Exemple</translation>
     </message>
     <message>
-        <location filename="../nongui/WordData.h" line="129"/>
+        <location filename="../nongui/WordData.h" line="132"/>
         <source>Note</source>
         <translation>Nota</translation>
     </message>
     <message>
-        <location filename="../nongui/WordData.h" line="132"/>
+        <location filename="../nongui/WordData.h" line="136"/>
         <source>Picture</source>
         <translation>Foto</translation>
     </message>

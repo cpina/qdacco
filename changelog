@@ -1,3 +1,7 @@
+qdacco 1.1.2 (February 2021)
+============
+-Implement "synonyms" (e.g. "quickly" in eng->cat)
+
 qdacco 1.1.1 (February 2021)
 ============
 Fix small errors:

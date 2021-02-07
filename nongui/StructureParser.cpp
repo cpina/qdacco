@@ -74,6 +74,8 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
         m_inFems = true;
     } else if (qName == "femplural") {
         m_inFemPlural = true;
+    } else if (qName == "synonyms") {
+        m_inSynonyms = true;
     } else if (exampleElements.contains(qName)) {
         m_inExample = true;
     } else if (noteElements.contains(qName)) {
@@ -100,6 +102,7 @@ bool StructureParser::characters(const QString& chrs)
             m_inCatAcro = false;
             m_inEngAcro = false;
             m_inMistakes = false;
+            m_inSynonyms = false;
 
             m_type = QString();
         }
@@ -114,6 +117,9 @@ bool StructureParser::characters(const QString& chrs)
 
     if (m_inTranslation && m_inPlural) {
         m_translation.plural = ch;
+    }
+    else if (m_inTranslation && m_inSynonyms) {
+        m_translation.synonyms = ch;
     }
     else if (m_inTranslation && m_inCatAcro) {
         m_translation.catalanAcronym = ch;
@@ -189,6 +195,9 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
     else if (qName == "mistakes") {
         m_wordData.setMistakes(m_mistakes);
         m_mistakes = QString();
+    }
+    else if (qName == "synonyms") {
+        m_inSynonyms = false;
     }
 
     if (exampleElements.contains(qName)) {

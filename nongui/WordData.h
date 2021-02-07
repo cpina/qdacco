@@ -81,7 +81,7 @@ struct Translation {
     QString catagory;
     QString gender;
 
-    QStringList synonyms;
+    QString synonyms;
     QString picture;
 
     QString catalanAcronym;
@@ -122,6 +122,7 @@ struct Translation {
 
         html += formatInformation(QObject::tr("English acronym"), englishAcronym);
 
+        html += formatInformation(QObject::tr("Synonyms"), synonyms);
 
         for (const QString& example: examples) {
             html += formatInformation(QObject::tr("Example"), example);
