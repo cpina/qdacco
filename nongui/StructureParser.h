@@ -55,6 +55,7 @@ private:
     bool m_inFemPlural;
     bool m_inCatAcro;
     bool m_inEngAcro;
+    bool m_inMistakes;
 
     bool m_found;
 
@@ -66,6 +67,7 @@ private:
     Expressions m_expressions;
 
     QString m_type;
+    QString m_mistakes;
 };
 
 #endif

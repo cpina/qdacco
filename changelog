@@ -1,3 +1,9 @@
+qdacco 1.1.0 (February 2021)
+============
+-Re-implements parser of the XML files: it shows more information that was
+ available in the DACCO files (e.g. expressions) and corrects
+ information that was not correctly parser
+
 qdacco 1.0.3 (November 2020)
 ============
 -Improve arrow in buttons

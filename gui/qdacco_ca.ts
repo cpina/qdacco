@@ -4,27 +4,27 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="about.ui" line="32"/>
+        <location filename="About.ui" line="32"/>
         <source>About qdacco</source>
         <translation>Sobre qdacco</translation>
     </message>
     <message>
-        <location filename="about.ui" line="58"/>
+        <location filename="About.ui" line="58"/>
         <source>Close</source>
         <translation>Tanca</translation>
     </message>
     <message>
-        <location filename="about.ui" line="73"/>
+        <location filename="About.ui" line="73"/>
         <source>About</source>
         <translation>Quant a</translation>
     </message>
     <message>
-        <location filename="about.ui" line="129"/>
+        <location filename="About.ui" line="129"/>
         <source>qdacco 0.8.1</source>
         <translation>qdacco 0.8.1</translation>
     </message>
     <message>
-        <location filename="about.ui" line="163"/>
+        <location filename="About.ui" line="163"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -45,12 +45,12 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Pàgina qdacco: &lt;/span&gt;&lt;a href=&quot;https://github.com/cpina/qdacco&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://github.com/cpina/qdacco&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="about.ui" line="218"/>
+        <location filename="About.ui" line="218"/>
         <source>Carles Pina i Estany, 2005, 2006, 2007, 2008, 2009, 2011, 2013, 2015, 2017, 2020</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="about.ui" line="237"/>
+        <location filename="About.ui" line="237"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -83,7 +83,7 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Suggerències, pegats, idees, etc. a &lt;/span&gt;&lt;a href=&quot;https://github.com/cpina/qdacco &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://github.com/cpina/qdacco &lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;or &lt;/span&gt;&lt;a href=&quot;mailto:carles@pina.cat&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0000ff;&quot;&gt;carles@pina.cat&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="about.ui" line="287"/>
+        <location filename="About.ui" line="287"/>
         <source>qdacco is GPL 3.0 licensed.
 DACCO dictionary is LGPL version 2.1 licensed.</source>
         <translation>qdacco té llicència GPL 3.0.
@@ -116,7 +116,7 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Podeu trobar Dacco a: &lt;/span&gt;&lt;a href=&quot;http://www.catalandictionary.org&quot;&gt;&lt;span style=&quot; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.catalandictionary.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="about.ui" line="201"/>
+        <location filename="About.ui" line="201"/>
         <source>Author</source>
         <translation>Autor</translation>
     </message>
@@ -143,7 +143,7 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Suggerències, pegats, idees, etc. a &lt;/span&gt;&lt;a href=&quot;mailto:carles@pina.cat&quot;&gt;&lt;span style=&quot; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;carles@pina.cat&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="about.ui" line="276"/>
+        <location filename="About.ui" line="276"/>
         <source>License</source>
         <translation>Llicència</translation>
     </message>
@@ -156,7 +156,7 @@ Data is LGPL licensed.</source>
 Dades llicenciades amb LGPL.</translation>
     </message>
     <message>
-        <location filename="about.cpp" line="27"/>
+        <location filename="About.cpp" line="27"/>
         <source>qdacco version:</source>
         <translation>versió qdacco:</translation>
     </message>
@@ -168,52 +168,52 @@ Dades llicenciades amb LGPL.</translation>
         <translation type="vanished">Configura</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="32"/>
+        <location filename="Configure.ui" line="32"/>
         <source>Preferences</source>
         <translation>Preferències</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="46"/>
+        <location filename="Configure.ui" line="46"/>
         <source>Basic</source>
         <translation>Bàsica</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="52"/>
+        <location filename="Configure.ui" line="52"/>
         <source>Default dictionary:</source>
         <translation>Diccionari per omissió:</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="66"/>
+        <location filename="Configure.ui" line="66"/>
         <source>Catalan → English</source>
         <translation>Català → Anglès</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="71"/>
+        <location filename="Configure.ui" line="71"/>
         <source>English → Catalan</source>
         <translation>Anglès → Català</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="79"/>
+        <location filename="Configure.ui" line="79"/>
         <source>&amp;User interface language:</source>
         <translation>&amp;Llengua d&apos;interfície d&apos;usuari:</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="106"/>
+        <location filename="Configure.ui" line="106"/>
         <source>I&amp;gnore diacritics:</source>
         <translation>&amp;Ignorar els diacrítics:</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="126"/>
+        <location filename="Configure.ui" line="126"/>
         <source>&amp;Match case:</source>
         <translation>&amp;Diferencia majúscula/minúscula:</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="237"/>
+        <location filename="Configure.ui" line="237"/>
         <source>Festival (speech synthesis):</source>
         <translation>Festival (sintetizador de veu):</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="278"/>
+        <location filename="Configure.ui" line="278"/>
         <source>A&amp;utocomplete:</source>
         <translation>&amp;Autocompletar:</translation>
     </message>
@@ -230,12 +230,12 @@ Dades llicenciades amb LGPL.</translation>
         <translation type="vanished">Idioma per omissió:</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="93"/>
+        <location filename="Configure.ui" line="93"/>
         <source>Catalan</source>
         <translation>Català</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="98"/>
+        <location filename="Configure.ui" line="98"/>
         <source>English</source>
         <translation>Anglès</translation>
     </message>
@@ -264,12 +264,12 @@ Dades llicenciades amb LGPL.</translation>
         <translation type="vanished">Si envieu suggerències o reportes errades a Dacco sabrem el teu correu electrònic. No és obligatori</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="147"/>
+        <location filename="Configure.ui" line="147"/>
         <source>Advanced</source>
         <translation>Avançada</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="153"/>
+        <location filename="Configure.ui" line="153"/>
         <source>Dictionary directory:</source>
         <translation>Directori del diccionari:</translation>
     </message>
@@ -278,15 +278,15 @@ Dades llicenciades amb LGPL.</translation>
         <translation type="vanished">Seleccioneu el directori &quot;dictionaries&quot; del vostre sistema</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="184"/>
-        <location filename="configure.ui" line="226"/>
-        <location filename="configure.ui" line="267"/>
-        <location filename="configure.ui" line="318"/>
+        <location filename="Configure.ui" line="184"/>
+        <location filename="Configure.ui" line="226"/>
+        <location filename="Configure.ui" line="267"/>
+        <location filename="Configure.ui" line="318"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="configure.ui" line="195"/>
+        <location filename="Configure.ui" line="195"/>
         <source>Browser:</source>
         <translation>Navegador:</translation>
     </message>
@@ -299,35 +299,35 @@ Dades llicenciades amb LGPL.</translation>
         <translation type="vanished">Autocompletar:</translation>
     </message>
     <message>
-        <location filename="configure.ui" line="298"/>
+        <location filename="Configure.ui" line="298"/>
         <source>Single instance:</source>
         <translation>Instància única:</translation>
     </message>
     <message>
-        <location filename="configure.cpp" line="58"/>
-        <location filename="configure.cpp" line="63"/>
-        <location filename="configure.cpp" line="67"/>
-        <location filename="configure.cpp" line="71"/>
+        <location filename="Configure.cpp" line="58"/>
+        <location filename="Configure.cpp" line="63"/>
+        <location filename="Configure.cpp" line="67"/>
+        <location filename="Configure.cpp" line="71"/>
         <source>Information</source>
         <translation>Informació</translation>
     </message>
     <message>
-        <location filename="configure.cpp" line="58"/>
+        <location filename="Configure.cpp" line="58"/>
         <source>Path of the &quot;dictionaries&quot; directory in DACCO. It contains &quot;cateng&quot; and &quot;engcat&quot; directories</source>
         <translation>Camí del directory &quot;dictionaries&quot; a DACCO. Conté els directoris &quot;cateng&quot; i &quot;engcat&quot;</translation>
     </message>
     <message>
-        <location filename="configure.cpp" line="63"/>
+        <location filename="Configure.cpp" line="63"/>
         <source>Path or executable name of the browser to be used for opening links in entries</source>
         <translation>Camí o nom de l&apos;executable del navegador que serà usat per obrir enllaços a les entrades</translation>
     </message>
     <message>
-        <location filename="configure.cpp" line="67"/>
+        <location filename="Configure.cpp" line="67"/>
         <source>Path or executable name to &quot;festival&quot; speech synthesis system. Install it via your package manager or from the Festival webpage: &lt;A HREF=&quot;http://www.cstr.ed.ac.uk/projects/festival/&quot;&gt;http://www.cstr.ed.ac.uk/projects/festival/&lt;/A&gt;</source>
         <translation>Camí o nom de l&apos;executable del sintetitzador de veu &quot;festival&quot;. Es pot instal·lar amb el gestor de paquets o des de la pàgina Web de Festival: &lt;A HREF=&quot;http://www.cstr.ed.ac.uk/projects/festival/&quot;&gt;http://www.cstr.ed.ac.uk/projects/festival/&lt;/A&gt;</translation>
     </message>
     <message>
-        <location filename="configure.cpp" line="71"/>
+        <location filename="Configure.cpp" line="71"/>
         <source>If enabled launching a new qdacco will restore the existing one and be displayed as a trayicon</source>
         <translation>Si està activat i es crida un nou qdacco es restaurarà l&apos;existent i apareix al trayicon</translation>
     </message>
@@ -346,6 +346,14 @@ Dades llicenciades amb LGPL.</translation>
     <message>
         <source>Enabling: you will have a trayicon next to the clock and only want qdacco will be running all the time. If you launch a new one it will bring to the foreground the old one. Disabling: you will not have a trayicon, and every time that you launch a new qdacco you will have a new qdacco instance.</source>
         <translation type="vanished">Activat: tindreu una icona al costat del rellotge i només un qdacco s&apos;executarà a la vegada. Si executeu un nou qdacco, l&apos;anterior serà portat a primer pla. Desactivat: no tindreu cap icona al costat del rellotge, i cada vegada que executeu un nou qdacco en tindreu una instància nova.</translation>
+    </message>
+</context>
+<context>
+    <name>LineEdit</name>
+    <message>
+        <location filename="LineEdit.cpp" line="81"/>
+        <source>Read</source>
+        <translation>Llegir</translation>
     </message>
 </context>
 <context>
@@ -388,7 +396,7 @@ Dades llicenciades amb LGPL.</translation>
     </message>
     <message>
         <location filename="main.ui" line="224"/>
-        <location filename="main.cpp" line="61"/>
+        <location filename="main.cpp" line="59"/>
         <source>Copy</source>
         <translation>Copia</translation>
     </message>
@@ -502,42 +510,50 @@ Dades llicenciades amb LGPL.</translation>
         <translation type="vanished">Suggereix com a nova entrada</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="48"/>
         <source>cat-&gt;eng</source>
-        <translation>cat-&gt;ang</translation>
+        <translation type="vanished">cat-&gt;ang</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="53"/>
         <source>eng-&gt;cat</source>
-        <translation>ang-&gt;cat</translation>
+        <translation type="vanished">ang-&gt;cat</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="62"/>
+        <location filename="main.cpp" line="46"/>
+        <source>cat → eng</source>
+        <translation>cat → ang</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="51"/>
+        <source>eng → cat</source>
+        <translation>ang → cat</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="60"/>
         <source>Paste</source>
         <translation>Enganxa</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="92"/>
+        <location filename="main.cpp" line="90"/>
         <source>Festival executed and returned error code: </source>
         <translation>Festival ha estat executat i ha retornat el codi d&apos;error: </translation>
     </message>
     <message>
-        <location filename="main.cpp" line="92"/>
+        <location filename="main.cpp" line="90"/>
         <source>Please consult the FAQ for help with this issue</source>
         <translation>Consulteu les PUF per a més ajuda</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="96"/>
+        <location filename="main.cpp" line="94"/>
         <source>You probably haven&apos;t installed the Catalan dictionary for Festival</source>
         <translation>Probablement no teniu el diccionari català per Festival</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="104"/>
+        <location filename="main.cpp" line="102"/>
         <source>Error executing Festival. Please check the FAQ for help with this issue</source>
         <translation>Error executant Festival. Mireu el FAQ per ajuda</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="108"/>
+        <location filename="main.cpp" line="106"/>
         <source>Error executing browser. Please check the FAQ for help with this issue</source>
         <translation>Error executant el navegador. Mireu el FAQ per ajuda</translation>
     </message>
@@ -550,18 +566,18 @@ Dades llicenciades amb LGPL.</translation>
         <translation type="vanished">Error executant el navegador. Si us plau, consulteu les PUF per ajuda en aquesta incidència</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="366"/>
-        <location filename="main.cpp" line="427"/>
+        <location filename="main.cpp" line="363"/>
+        <location filename="main.cpp" line="422"/>
         <source>Cannot open dictionary file. Check configuration directory and permissions</source>
         <translation>No es pot obrir el diccionari. Comproveu el directori i els permisos del diccionari</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="417"/>
+        <location filename="main.cpp" line="412"/>
         <source>You have to write a word. The word has to start with a letter.</source>
         <translation>Heu d&apos;escriure una paraula. La paraula ha de començar amb una lletra.</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="473"/>
+        <location filename="main.cpp" line="458"/>
         <source>Exact match not found</source>
         <translation>Coincidència exacte no trobada</translation>
     </message>
@@ -570,7 +586,7 @@ Dades llicenciades amb LGPL.</translation>
         <translation type="vanished">Envia comentari(s)</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="584"/>
+        <location filename="main.cpp" line="567"/>
         <source>There is no configuration or old configuration. A configuration dialog will now open</source>
         <translation>No hi ha configuració o és massa vella. S&apos;obrirà el diàleg de configuració</translation>
     </message>
@@ -598,9 +614,133 @@ Dades llicenciades amb LGPL.</translation>
 <context>
     <name>MyLineEdit</name>
     <message>
-        <location filename="mylineedit.cpp" line="81"/>
         <source>Read</source>
-        <translation>Llegir</translation>
+        <translation type="vanished">Llegir</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../nongui/WordData.h" line="41"/>
+        <source>v</source>
+        <translation>v</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="42"/>
+        <source>n</source>
+        <translation>n</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="43"/>
+        <source>adj</source>
+        <translation>adj</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="44"/>
+        <source>adv</source>
+        <translation>adv</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="45"/>
+        <source>pron</source>
+        <translation>pron</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="46"/>
+        <source>excl</source>
+        <translation>excl</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="47"/>
+        <source>abbrev</source>
+        <translation>abbrev</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="48"/>
+        <source>prep</source>
+        <translation>prep</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="49"/>
+        <source>phrasal verb</source>
+        <translation>phrasal verb</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="50"/>
+        <source>verb tense</source>
+        <translation>temps verbal</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="51"/>
+        <source>mistake</source>
+        <translation>error</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="52"/>
+        <source>conj</source>
+        <translation>conj</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="53"/>
+        <source>det</source>
+        <translation>det</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="54"/>
+        <source>acronym</source>
+        <translation>acrònim</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="55"/>
+        <source>catalan acronym</source>
+        <translation>acrònim català</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="56"/>
+        <source>english acronym</source>
+        <translation>acrònim anglès</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="113"/>
+        <source>Plural</source>
+        <translation>Plural</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="115"/>
+        <source>Female</source>
+        <translation>Femení</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="117"/>
+        <source>Female plural</source>
+        <translation>Femení plural</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="119"/>
+        <location filename="../nongui/WordData.h" line="205"/>
+        <source>Catalan acronym</source>
+        <translation>Acrònim català</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="121"/>
+        <location filename="../nongui/WordData.h" line="207"/>
+        <source>English acronym</source>
+        <translation>Acrònim anglès</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="125"/>
+        <source>Example</source>
+        <translation>Exemple</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="129"/>
+        <source>Note</source>
+        <translation>Nota</translation>
+    </message>
+    <message>
+        <location filename="../nongui/WordData.h" line="132"/>
+        <source>Picture</source>
+        <translation>Foto</translation>
     </message>
 </context>
 <context>
@@ -629,57 +769,57 @@ Dades llicenciades amb LGPL.</translation>
 <context>
     <name>TextBrowser</name>
     <message>
-        <location filename="textbrowser.h" line="100"/>
+        <location filename="TextBrowser.cpp" line="55"/>
         <source>Read</source>
         <translation>Llegir</translation>
     </message>
     <message>
-        <location filename="textbrowser.h" line="129"/>
+        <location filename="TextBrowser.cpp" line="84"/>
         <source>Catalan example(s): </source>
         <translation>Exemple(s) catalans: </translation>
     </message>
     <message>
-        <location filename="textbrowser.h" line="130"/>
+        <location filename="TextBrowser.cpp" line="85"/>
         <source>English example(s): </source>
         <translation>Exemple(s) anglesos: </translation>
     </message>
     <message>
-        <location filename="textbrowser.h" line="131"/>
+        <location filename="TextBrowser.cpp" line="86"/>
         <source>English notes: </source>
         <translation>Notes angleses: </translation>
     </message>
     <message>
-        <location filename="textbrowser.h" line="132"/>
+        <location filename="TextBrowser.cpp" line="87"/>
         <source>Catalan notes: </source>
         <translation>Notes catalanes: </translation>
     </message>
     <message>
-        <location filename="textbrowser.h" line="133"/>
+        <location filename="TextBrowser.cpp" line="88"/>
         <source>Example(s): </source>
         <translation>Exemple(s): </translation>
     </message>
     <message>
-        <location filename="textbrowser.h" line="134"/>
+        <location filename="TextBrowser.cpp" line="89"/>
         <source>Synonym(s): </source>
         <translation>Sinònim(s): </translation>
     </message>
     <message>
-        <location filename="textbrowser.h" line="135"/>
+        <location filename="TextBrowser.cpp" line="90"/>
         <source>Plural: </source>
         <translation>Plural: </translation>
     </message>
     <message>
-        <location filename="textbrowser.h" line="136"/>
+        <location filename="TextBrowser.cpp" line="91"/>
         <source>Female Plural: </source>
         <translation>Plural femení: </translation>
     </message>
     <message>
-        <location filename="textbrowser.h" line="138"/>
+        <location filename="TextBrowser.cpp" line="93"/>
         <source>Picture: </source>
         <translation>Foto: </translation>
     </message>
     <message>
-        <location filename="textbrowser.h" line="139"/>
+        <location filename="TextBrowser.cpp" line="94"/>
         <source>Flickr: </source>
         <translation>Flickr: </translation>
     </message>
@@ -687,17 +827,17 @@ Dades llicenciades amb LGPL.</translation>
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="trayicon.cpp" line="57"/>
+        <location filename="TrayIcon.cpp" line="57"/>
         <source>Hide</source>
         <translation>Amaga</translation>
     </message>
     <message>
-        <location filename="trayicon.cpp" line="60"/>
+        <location filename="TrayIcon.cpp" line="60"/>
         <source>Show</source>
         <translation>Mostra</translation>
     </message>
     <message>
-        <location filename="trayicon.cpp" line="67"/>
+        <location filename="TrayIcon.cpp" line="67"/>
         <source>Quit</source>
         <translation>Abandona</translation>
     </message>

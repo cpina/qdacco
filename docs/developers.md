@@ -4,7 +4,7 @@ Please note that `lrelease` step should be part of the building process instead 
 
 At the moment in `gui/` do:
 ```sh
-lupdate *.cpp *.ui *.h  -ts qdacco_ca.ts
+lupdate *.cpp *.ui *.h ../nongui/*.cpp ../nongui/*.h -ts qdacco_ca.ts
 linguist qdacco_ca.ts
 lrelease qdacco_ca.ts -qm qdacco_ca.qm
 ```

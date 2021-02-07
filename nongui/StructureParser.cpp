@@ -52,8 +52,15 @@ bool StructureParser::startElement(const QString& nameSpaceUri, const QString& l
         m_translation = Translation();
 
         m_translation.gender = attributes.value("gender");
-        m_translation.flickr = attributes.value("flickr");
+
         m_translation.picture = attributes.value("picture");
+
+        if (m_translation.picture.isEmpty()) {
+            // It uses attributes.value("picture") if available, else tries with flickr
+            m_translation.picture = attributes.value("flickr");
+        }
+    } else if (qName == "mistakes") {
+        m_inMistakes = true;
     } else if (qName == "catacro") {
         m_inCatAcro = true;
     } else if (qName == "engacro") {
@@ -92,6 +99,7 @@ bool StructureParser::characters(const QString& chrs)
             m_inFemPlural = false;
             m_inCatAcro = false;
             m_inEngAcro = false;
+            m_inMistakes = false;
 
             m_type = QString();
         }
@@ -137,6 +145,9 @@ bool StructureParser::characters(const QString& chrs)
     else if (m_inExpressions) {
         m_expressions.expression = ch;
     }
+    else if (m_inMistakes) {
+        m_mistakes = ch;
+    }
 
     return true;
 }
@@ -174,6 +185,10 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
         m_wordData.addTranslation(m_translation, m_type);
         m_translation = Translation();
         m_inTranslation = false;
+    }
+    else if (qName == "mistakes") {
+        m_wordData.setMistakes(m_mistakes);
+        m_mistakes = QString();
     }
 
     if (exampleElements.contains(qName)) {

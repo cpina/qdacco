@@ -30,33 +30,40 @@
 
 static QStringList wordTypesList = {"verbs", "nouns", "adjectives", "adverbs", "pronouns",
                                     "exclamations", "abbreviations", "prepositions",
-                                    "phrasalverbs", "verbTense", "mistakes",
+                                    "phrasalverbs", "verbTense",
                                     "conjunctions", "determiners", "acronyms"
-                                    // , "catacro", "engacro", Handled differently
+                                    // "mistakes", "catacro", "engacro", Handled differently
                                    };
 
 
 
 static QString xmlToUserInterface(const QString& xmlWord) {
-    static QHash<QString, QString> xmlInternalToUserInterface = { {"verbs", "v"},
-                                                                  {"nouns", "n"},
-                                                                  {"adjectives", "adj"},
-                                                                  {"adverbs", "adv"},
-                                                                  {"pronouns", "pron"},
-                                                                  {"exclamations", "excl"},
-                                                                  {"abbreviations", "abbrev"},
-                                                                  {"prepositions", "prep"},
-                                                                  {"phrasalverbs", "phrasal verb"},
-                                                                  {"verbTense", "verb tense"},
-                                                                  {"mistakes", "mistake"},
-                                                                  {"conjunctions", "conj"},
-                                                                  {"determiners", "det"},
-                                                                  {"acronyms", "acronym"},
-                                                                  {"catacro", "catalan acronym"},
-                                                                  {"engacro", "english acronym"},
+    static QHash<QString, QString> xmlInternalToUserInterface = { {"verbs", QObject::tr("v")},
+                                                                  {"nouns", QObject::tr("n")},
+                                                                  {"adjectives", QObject::tr("adj")},
+                                                                  {"adverbs", QObject::tr("adv")},
+                                                                  {"pronouns", QObject::tr("pron")},
+                                                                  {"exclamations", QObject::tr("excl")},
+                                                                  {"abbreviations", QObject::tr("abbrev")},
+                                                                  {"prepositions", QObject::tr("prep")},
+                                                                  {"phrasalverbs", QObject::tr("phrasal verb")},
+                                                                  {"verbTense", QObject::tr("verb tense")},
+                                                                  {"mistakes", QObject::tr("mistake")},
+                                                                  {"conjunctions", QObject::tr("conj")},
+                                                                  {"determiners", QObject::tr("det")},
+                                                                  {"acronyms", QObject::tr("acronym")},
+                                                                  {"catacro", QObject::tr("catalan acronym")},
+                                                                  {"engacro", QObject::tr("english acronym")},
                                                                 };
 
     return xmlInternalToUserInterface.value(xmlWord, xmlWord);
+}
+
+static QString formatInformation(const QString& typeOfInformation, const QString& information) {
+    if (information.isEmpty()) {
+        return QString();
+    }
+    return QString("<u>%1:</u> %2<br>").arg(typeOfInformation).arg(information);
 }
 
 struct Translation {
@@ -76,7 +83,6 @@ struct Translation {
 
     QStringList synonyms;
     QString picture;
-    QString flickr;
 
     QString catalanAcronym;
     QString englishAcronym;
@@ -84,12 +90,12 @@ struct Translation {
     QString getHtml(const QString& typeOfWord) const {
         QString html;
 
-        if (!typeOfWord.isNull())
+        if (!typeOfWord.isEmpty())
         {
             html += QString("<i>%1</i>").arg(xmlToUserInterface(typeOfWord));
         }
 
-        if (!gender.isNull()) {
+        if (!gender.isEmpty()) {
             if (!html.isNull()) {
                 html += " ";
             }
@@ -97,49 +103,33 @@ struct Translation {
             html += QString("<i>(%1)</i>").arg(gender);
         }
 
-        if (!html.isNull())
+        if (!html.isEmpty())
         {
             html += "<br>";
         }
 
         html += translation + "<br>";
 
-        if (!plural.isEmpty()) {
-            html += QString("<u>Plural:</u> %1<br>").arg(plural);
-        }
+        html += formatInformation(QObject::tr("Plural"), plural);
 
-        if (!female.isEmpty()) {
-            html += QString("<u>Female:</u> %1<br>").arg(female);
-        }
+        html += formatInformation(QObject::tr("Female"), female);
 
-        if (!femalePlural.isEmpty()) {
-            html += QString("<u>Female plural:</u> %1<br>").arg(femalePlural);
-        }
+        html += formatInformation(QObject::tr("Female plural"), femalePlural);
 
-        if (!catalanAcronym.isEmpty()) {
-            html += QString("<u>Catalan acronym:</u> %1<br>").arg(catalanAcronym);
-        }
+        html += formatInformation(QObject::tr("Catalan acronym"), catalanAcronym);
 
-        if (!englishAcronym.isEmpty()) {
-            html += QString("<u>English acronym:</u> %1<br>").arg(englishAcronym);
-        }
+        html += formatInformation(QObject::tr("English acronym"), englishAcronym);
 
 
         for (const QString& example: examples) {
-            html += QString("<u>Example:</u> %1<br>").arg(example);
+            html += formatInformation(QObject::tr("Example"), example);
         }
 
         for (const QString& note: notes)  {
-            html += QString("<u>Note:</u> %1<br>").arg(note);
+            html += formatInformation(QObject::tr("Note"), note);
         }
 
-        if (!flickr.isEmpty()) {
-            html += QString("<u>Picture:</u> <a href=\"%1\">%1</a><br>").arg(flickr);
-        }
-
-        if (flickr.isEmpty() && !picture.isEmpty()) {
-            html += QString("<u>Picture:</u> <a href=\"%1\">%1</a><br>").arg(picture);
-        }
+        html += formatInformation(QObject::tr("Picture"), picture);
 
         return html;
     }
@@ -207,17 +197,25 @@ struct Entry
 
     QString catalanAcronym;
     QString englishAcronym;
-    QStringList mistakes;
+    QString mistakes;
 
     QString getHtml() const {
         QString html;
 
-        if (!catalanAcronym.isEmpty()) {
-            html += QString("<u>Catalan acronym:</u> %1<br><br>").arg(catalanAcronym);
-        }
+        html += formatInformation(QObject::tr("Catalan acronym"), catalanAcronym);
 
-        if (!englishAcronym.isEmpty()) {
-            html += QString("<u>English acronym:</u> %1<br><br>").arg(englishAcronym);
+        html += formatInformation(QObject::tr("English acronym"), englishAcronym);
+
+        /** Currently "mistakes" are not shown. They should probably be created as a different entry
+         * to help users find the real one. They should not be displayed as part of an entry:
+         * there are many possible mistakes for an entry...
+         * Perhaps building a "spell checker" or "closer match to" would make sense
+         *
+        html += formatInformation(QObject::tr("Mistake"), mistakes);
+        */
+
+        if (!html.isEmpty()) {
+            html += "<br>";
         }
 
         for (const QString& wordType : wordTypesList) {
@@ -246,6 +244,7 @@ public:
     void setType(const QString& type, const QString& ipa);
     void setCatalanAcronym(const QString& acronym);
     void setEnglishAcronym(const QString& acronym);
+    void setMistakes(const QString& mistakes);
 
     bool found();
 

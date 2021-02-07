@@ -42,6 +42,10 @@ void WordData::setEnglishAcronym(const QString& acronym)
     m_entry.englishAcronym = acronym;
 }
 
+void WordData::setMistakes(const QString& mistakes) {
+    m_entry.mistakes = mistakes;
+}
+
 void WordData::addTranslation(const Translation& translation, const QString &type) {
     m_found = true;
 
