@@ -87,7 +87,7 @@ struct Translation {
     QString catalanAcronym;
     QString englishAcronym;
 
-    QString getHtml(const QString& typeOfWord) const {
+    QString getHtml(const QString& typeOfWord, const QString& mistakes = QString()) const {
         QString html;
 
         if (!typeOfWord.isEmpty())
@@ -110,6 +110,8 @@ struct Translation {
 
         html += translation + "<br>";
 
+        html += formatInformation(QObject::tr("Common mistakes"), mistakes);
+
         html += formatInformation(QObject::tr("Plural"), plural);
 
         html += formatInformation(QObject::tr("Female"), female);
@@ -129,14 +131,16 @@ struct Translation {
             html += formatInformation(QObject::tr("Note"), note);
         }
 
-        html += formatInformation(QObject::tr("Picture"), picture);
+        if (!picture.isEmpty()) {
+            html += formatInformation(QObject::tr("Picture"), QString("<a href=\"%1\">%1</a>").arg(picture));
+        }
 
         return html;
     }
 };
 
 struct Translations : public QList<Translation> {
-    QString getHtml(const QString& typeOfWord = QString()) const {
+    QString getHtml(const QString& typeOfWord, const QString& mistakes) const {
         QString html;
 
         QString typeOfWordHtml;
@@ -147,7 +151,7 @@ struct Translations : public QList<Translation> {
                 html += "<br>";
             }
             html += typeOfWordHtml;
-            html += translation.getHtml(typeOfWord);
+            html += translation.getHtml(typeOfWord, mistakes);
             first = false;
         }
 
@@ -161,13 +165,11 @@ struct WordType
     Translations translations;
     QString ipa;
 
-    QString getHtml(const QString& wordType) const {
+    QString getHtml(const QString& wordType, const QString& mistakes) const {
         if (translations.isEmpty()) {
             return QString();
         }
-//        QString html = QString("<i>%1</i><br>").arg(xmlToUserInterface(wordType));
-        QString html = translations.getHtml(wordType);
-        return html;
+        return translations.getHtml(wordType, mistakes);
     }
 };
 
@@ -181,7 +183,7 @@ struct Expressions
 
         html += "<i>expression</i><br>";
         html += "<b>" + expression + "</b>" + "<br>";
-        html += translations.getHtml() + "<br>";
+        html += translations.getHtml(QString(), QString()) + "<br>";
 
         return html;
     }
@@ -206,21 +208,13 @@ struct Entry
 
         html += formatInformation(QObject::tr("English acronym"), englishAcronym);
 
-        /** Currently "mistakes" are not shown. They should probably be created as a different entry
-         * to help users find the real one. They should not be displayed as part of an entry:
-         * there are many possible mistakes for an entry...
-         * Perhaps building a "spell checker" or "closer match to" would make sense
-         *
-        html += formatInformation(QObject::tr("Mistake"), mistakes);
-        */
-
         if (!html.isEmpty()) {
             html += "<br>";
         }
 
         for (const QString& wordType : wordTypesList) {
             if (wordTypes.contains(wordType)) {
-                html += wordTypes[wordType].getHtml(wordType);
+                html += wordTypes[wordType].getHtml(wordType, mistakes);
                 html += "<br>";
             }
         }

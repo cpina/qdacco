@@ -22,12 +22,8 @@ void TextBrowser::selectWord() {
     }
 }
 
-void TextBrowser::setProcess(QProcess *process) {
-    m_browser_process=process;
-}
-
-void TextBrowser::setBrowser(const QString& browser) {
-    m_browser_location=browser;
+void TextBrowser::setBrowser(const QString& browserLocation) {
+    m_browser_location = browserLocation;
 }
 
 void TextBrowser::setParent(QMainWindow *mainWindow) {
@@ -39,9 +35,13 @@ void TextBrowser::setFestivalEnable(int f) {
 }
 
 void TextBrowser::setSource(const QUrl& url) {
-    QProcess::startDetached(m_browser_location, QStringList() << url.toString());
+    bool success = QProcess::startDetached(m_browser_location, QStringList() << url.toString());
 
     Auxiliar::debug("Executing: "+m_browser_location);
+
+    if (!success) {
+        emit browserFailed();
+    }
 }
 
 void TextBrowser::contextMenuEvent(QContextMenuEvent *e) {

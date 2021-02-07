@@ -64,7 +64,6 @@ class Main : public QMainWindow, Ui::Main
 		//static Main* ptr_main;
 
 		HTTPConnection *m_http;
-		QProcess m_browser;
 		QProcess m_festival;
 
 		Ui::Main ui;
@@ -108,7 +107,7 @@ class Main : public QMainWindow, Ui::Main
 		void moveDefinicio(QEvent *event);
 
 
-	private slots:
+    private Q_SLOTS:
 		void buscarEnter();
 		void buscarClicked();
 		void paraulaChanged(const QString &text);
@@ -129,9 +128,9 @@ class Main : public QMainWindow, Ui::Main
 		void searchListWord(QListWidgetItem *a);
 		void UpdateList();
 
-	public slots:
-		void BrowserError(QProcess::ProcessError error);
+        void showBrowserError();
 
+    public Q_SLOTS:
 		void FestivalExecuteEntry();
 		void FestivalExecuteDefinition();
 		void FestivalError(QProcess::ProcessError e);

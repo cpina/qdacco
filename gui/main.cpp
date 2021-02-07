@@ -54,9 +54,7 @@ Main::Main(QWidget *)  //parent
 
 	ui.toolBar->addSeparator();
 
-	ui.definicio->setProcess(&m_browser);
-
-	QAction *copy = ui.toolBar->addAction(QIcon(":icons/editcopy.png"),tr("Copy"));
+    QAction *copy = ui.toolBar->addAction(QIcon(":icons/editcopy.png"),tr("Copy"));
 	QAction *paste = ui.toolBar->addAction(QIcon(":icons/editpaste.png"),tr("Paste"));
 	connect(copy,SIGNAL(triggered()),this,SLOT(copy_definition()));
 	connect(paste,SIGNAL(triggered()),this,SLOT(paste_word()));
@@ -77,7 +75,7 @@ Main::Main(QWidget *)  //parent
 
 	connect(&m_festival,SIGNAL(error(QProcess::ProcessError)),this,SLOT(FestivalError(QProcess::ProcessError)));
 	connect(&m_festival,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(FestivalFinished(int,QProcess::ExitStatus)));
-	connect(&m_browser,SIGNAL(error(QProcess::ProcessError)),this,SLOT(BrowserError(QProcess::ProcessError)));
+    connect(ui.definicio,SIGNAL(browserFailed()),this,SLOT(showBrowserError()));
 	
 	carrega_config(1);
 
@@ -100,10 +98,6 @@ void Main::FestivalFinished(int exitStatus,QProcess::ExitStatus) {
 void Main::FestivalError(QProcess::ProcessError)
 {
 	showError(tr("Error executing Festival. Please check the FAQ for help with this issue"));
-}
-
-void Main::BrowserError(QProcess::ProcessError) {
-	showError(tr("Error executing browser. Please check the FAQ for help with this issue"));
 }
 
 void Main::FestivalExecuteEntry() {
@@ -582,8 +576,8 @@ void Main::carrega_config(int )
 
 		ui.definicio->setBrowser(browser);
 
-                Auxiliar::debug("Load config");
-                Auxiliar::debug("Directory: "+m_directori_usuari);
+        Auxiliar::debug("Load config");
+        Auxiliar::debug("Directory: "+m_directori_usuari);
                 
 		posa_idioma();
         }
@@ -666,6 +660,9 @@ void Main::showError(QString text) {
 	ui.actiu->show();
 }
 
+void Main::showBrowserError() {
+    showError(tr("Error executing browser. Please check the FAQ for help with this issue"));
+}
 
 void Main::showMessage(QString text) {
 	ui.actiu->setText("<CENTER>"+text+"</CENTER>");

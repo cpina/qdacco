@@ -41,9 +41,10 @@ class TextBrowser : public QTextBrowser
 public:
     TextBrowser(QWidget* parent = nullptr);
 
+    void setBrowser(const QString& browserLocation);
+
     void setProcess(QProcess* process);
 
-    void setBrowser(const QString& browser);
 
     void setParent(QMainWindow* mainWindow);
 
@@ -61,13 +62,11 @@ public:
 
 Q_SIGNALS:
     void browserFailed();
-    void browserOpened();
 
 private:
     int getCharPosition() const;
     void selectWord();
 
-    QProcess *m_browser_process;
     QString m_browser_location;
     int m_festival_enable;
 
