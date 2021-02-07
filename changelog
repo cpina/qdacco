@@ -1,3 +1,10 @@
+qdacco 1.1.1 (February 2021)
+============
+Fix small errors:
+-If a word is not found shows an error
+-If the browser is not found shows an error
+-Shows common mistakes for words
+
 qdacco 1.1.0 (February 2021)
 ============
 -Re-implements parser of the XML files: it shows more information that was
