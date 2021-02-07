@@ -45,7 +45,7 @@ public:
 
 private:
     bool m_isEntry;
-
+    bool m_found;
     bool m_inTranslation;
     bool m_inExpressions;
     bool m_inExample;
@@ -57,7 +57,7 @@ private:
     bool m_inEngAcro;
     bool m_inMistakes;
 
-    bool m_found;
+    bool m_inSearchedWord;
 
     QString m_entryWanted;
 

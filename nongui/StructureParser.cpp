@@ -87,9 +87,9 @@ bool StructureParser::characters(const QString& chrs)
 {
     QString ch = chrs.trimmed();
 
-    if (m_isEntry && !m_found) {
+    if (m_isEntry && !m_inSearchedWord) {
         if (ch == m_entryWanted) {
-            m_found = true;
+            m_inSearchedWord = true;
             m_inExpressions = false;
             m_inTranslation = false;
             m_inExample = false;
@@ -104,11 +104,11 @@ bool StructureParser::characters(const QString& chrs)
             m_type = QString();
         }
         else {
-            m_found = false;
+            m_inSearchedWord = false;
         }
     }
 
-    if (!m_found) {
+    if (!m_inSearchedWord) {
         return true;
     }
 
@@ -157,7 +157,7 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
     Q_UNUSED(nameSpaceUri);
     Q_UNUSED(localName);
 
-    if (!m_found) {
+    if (!m_inSearchedWord) {
         return true;
     }
 
@@ -209,8 +209,10 @@ bool StructureParser::endElement(const QString& nameSpaceUri, const QString& loc
         m_type = QString();
     }
 
-    if (qName=="Entry") {	//ja sortim de la paraula
-        m_found=false;
+    if (qName=="Entry") {	// leaving word, if we were in the matched
+                            // not anymore. If we weren't it doesn't matter:
+                            // we are not anymore either
+        m_inSearchedWord=false;
     }
 
     return true;

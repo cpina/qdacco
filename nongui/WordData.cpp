@@ -24,12 +24,13 @@
 #include "WordData.h"
 
 WordData::WordData() {
+    m_found = false;
 }
 
 void WordData::setType(const QString& type, const QString& ipa) {
     m_currentType = type;
     m_currentIpa = ipa;
-    m_found = false;
+    m_found = true;
 }
 
 void WordData::setCatalanAcronym(const QString& acronym)
