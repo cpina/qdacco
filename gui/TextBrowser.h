@@ -43,9 +43,6 @@ public:
 
     void setBrowser(const QString& browserLocation);
 
-    void setProcess(QProcess* process);
-
-
     void setParent(QMainWindow* mainWindow);
 
     void setFestivalEnable(int f);

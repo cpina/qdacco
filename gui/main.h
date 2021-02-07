@@ -58,11 +58,6 @@ class Main : public QMainWindow, Ui::Main
 		void buscar();
 	
 	private:
-		
-		//TrayIcon trayicon;
-
-		//static Main* ptr_main;
-
 		HTTPConnection *m_http;
 		QProcess m_festival;
 
