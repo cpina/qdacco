@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Application
-Name=Qdacco dictionary
+Name=qdacco dictionary
 Name[ca]=Diccionari qdacco
 GenericName=Catalan - English Dictionary
 GenericName[ca]=Diccionari català - anglès
-Comment=Search words in an catalan - english dictionary
+Comment=Search words in a Catalan - English dictionary
 Comment[ca]=Cerca paraules en un diccionari català - anglès
 Icon=/usr/share/qdacco/qdacco.png
 Exec=qdacco
