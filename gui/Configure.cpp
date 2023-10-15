@@ -76,7 +76,7 @@ void Configure::busca_fitxerf() {
 	QString workingDirectory;
 
 	QFileDialog *dlg = new QFileDialog(this);
-	dlg->setFileMode(QFileDialog::DirectoryOnly);
+	dlg->setFileMode(QFileDialog::Directory);
 	dlg->setDirectory(ui.directori->text());
 
 	if (dlg->exec() == QDialog::Accepted) {

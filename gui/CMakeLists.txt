@@ -30,12 +30,9 @@ set(CMAKE_AUTOMOC ON)
 #set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-find_package(Qt5Core REQUIRED)
-find_package(Qt5Gui REQUIRED)
-find_package(Qt5Network REQUIRED)
-find_package(Qt5Xml REQUIRED)
-find_package(Qt5Widgets REQUIRED)
-find_package(Qt5DBus REQUIRED)
+find_package(Qt6Gui REQUIRED)
+find_package(Qt6Network REQUIRED)
+find_package(Qt6Xml REQUIRED)
 
 include_directories(
 	${CMAKE_CURRENT_BINARY_DIR}
@@ -46,10 +43,10 @@ include_directories(
 set(qdaccogui_RCCS icons.qrc translation.qrc)
 # generate rules for building source files that moc generates
 
-QT5_WRAP_UI(qdaccogui_UIS_H ${qdaccogui_UIS})
+QT6_WRAP_UI(qdaccogui_UIS_H ${qdaccogui_UIS})
 #QT5_WRAP_CPP(${qdaccogui_MOCS})
 
-QT5_ADD_RESOURCES(qdaccogui_RCC_SRCS ${qdaccogui_RCCS})
+QT6_ADD_RESOURCES(qdaccogui_RCC_SRCS ${qdaccogui_RCCS})
 
 # Suggeriment CMake 2.6
 if(COMMAND cmake_policy)
@@ -67,9 +64,9 @@ configure_file(
 add_executable(qdacco  ${qdaccogui_H} ${qdaccogui_MOCS} ${qdaccogui_MOC_SRCS} ${qdaccogui_UIS_H}
 	${qdaccogui_SRC} ${qdaccogui_SRCS} ${qdaccogui_RCC_SRCS})
 
-qt5_use_modules(qdacco Widgets)
+#qt6_use_modules(qdacco Widgets)
 
-target_link_libraries( qdacco ${Qt5Xml_LIBRARIES} ${Qt5DBus_LIBRARIES})
+target_link_libraries( qdacco ${QT6_LIBRARIES})
 
 install_targets(/bin qdacco)	
 

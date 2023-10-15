@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2021
+ * Copyright (c) 2005, 2006, 2007, 2013, 2021, 2023
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -22,9 +22,9 @@
 #ifndef STRUCTUREPARSER_H
 #define STRUCTUREPARSER_H
 
-#include <QtCore/QQueue> 
+#include <QtCore/QQueue>
 #include <QtCore/QString>
-#include <QtXml/QXmlDefaultHandler>
+#include <QXmlDefaultHandler>
 
 #include "WordData.h"
 #include "Auxiliar.h"

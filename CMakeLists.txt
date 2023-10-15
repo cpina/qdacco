@@ -1,10 +1,10 @@
  ########## Project setup ##########
 PROJECT(qdacco)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8.11)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.25.1)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-SET( QDACCO_VERSION 1.1.2 )
+SET( QDACCO_VERSION 1.2.0 )
 
 STRING( REGEX MATCHALL "[0-9]+" QDACCO_VERSIONS ${QDACCO_VERSION} )
 LIST( GET QDACCO_VERSIONS 0 QDACCO_VERSION_MAJOR)
@@ -33,17 +33,14 @@ endif()
 
 # ######### General setup ##########
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})
-#IF (APPLE)
-#	SET(QT_QMAKE_EXECUTABLE "/opt/local/bin/qmake-mac")
-#ENDIF (APPLE)
-find_package(Qt5Core REQUIRED)
-find_package(Qt5Gui REQUIRED) 
-find_package(Qt5Network REQUIRED) 
-find_package(Qt5Xml REQUIRED) 
-find_package(Qt5Widgets REQUIRED)
+find_package(Qt6Network REQUIRED) 
+find_package(Qt6Core5Compat REQUIRED)
+find_package(Qt6Widgets REQUIRED)
 
-include_directories(${Qt5Widgets_INCLUDES} ${Qt5Xml_INCLUDES})
-add_definitions(${Qt5Widgets_DEFINITIONS} ${Qt5Xml_DEFINITIONS})
+set(QT6_LIBRARIES Qt6::Widgets Qt6::Network Qt6::Xml Qt6::Core5Compat)
+
+#include_directories(${Qt5Widgets_INCLUDES} ${Qt5Xml_INCLUDES})
+#add_definitions(${Qt5Widgets_DEFINITIONS} ${Qt5Xml_DEFINITIONS})
 
 ########### qdacco gui ##########
 message(STATUS "Working on qdacco gui")
