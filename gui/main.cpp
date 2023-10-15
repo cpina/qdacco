@@ -73,7 +73,7 @@ Main::Main(QWidget *)  //parent
 	connect(ui.llistat,SIGNAL(itemDoubleClicked(QListWidgetItem *)),this,SLOT(searchListWord(QListWidgetItem*)));
 	connect(ui.paraula,SIGNAL(textChanged(const QString &)),this,SLOT(paraulaChanged(const QString &)));
 
-	connect(&m_festival,SIGNAL(error(QProcess::ProcessError)),this,SLOT(FestivalError(QProcess::ProcessError)));
+	connect(&m_festival,SIGNAL(errorOccurred(QProcess::ProcessError)),this,SLOT(FestivalError(QProcess::ProcessError)));
 	connect(&m_festival,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(FestivalFinished(int,QProcess::ExitStatus)));
     connect(ui.definicio,SIGNAL(browserFailed()),this,SLOT(showBrowserError()));
 	
