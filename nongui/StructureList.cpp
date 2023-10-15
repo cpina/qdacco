@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2015
+ * Copyright (c) 2005, 2006, 2007, 2015, 2020, 2021, 2023
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -105,17 +105,17 @@ QString &StructureList::normalize(QString &word) {
         word=word.toLower();
     }
     if (m_IgnoreAccents) {
-        word.replace(L'à','a');
-        word.replace(L'è','e');
-        word.replace(L'ì','i');
-        word.replace(L'ò','o');
-        word.replace(L'ù','u');
+        word.replace(u'à','a');
+        word.replace(u'è','e');
+        word.replace(u'ì','i');
+        word.replace(u'ò','o');
+        word.replace(u'ù','u');
 
-        word.replace(L'á','a');
-        word.replace(L'é','e');
-        word.replace(L'í','i');
-        word.replace(L'ó','o');
-        word.replace(L'ú','u');
+        word.replace(u'á','a');
+        word.replace(u'é','e');
+        word.replace(u'í','i');
+        word.replace(u'ó','o');
+        word.replace(u'ú','u');
     }
 
     //printf("Paraula noramlitzada: %s\n",qPrintable(word));

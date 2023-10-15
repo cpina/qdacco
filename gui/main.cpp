@@ -490,13 +490,13 @@ int Main::isValidWord(QString &q) {
 char Main::removeAccents(const QString& q) {
         QChar c = q.at(0);
 
-        if (c==L'à' || c==L'á' || c==L'â' || c==L'ä') return 'a';
-        if (c==L'è' || c==L'é' || c==L'ê' || c==L'ë') return 'e';
-        if (c==L'ì'  || c==L'í' || c==L'î' || c==L'ï') return 'i';
-        if (c==L'ò' || c==L'ó' || c==L'ô' || c==L'ö') return 'o';
-        if (c==L'ù' || c==L'ú' || c==L'û' || c==L'ü') return 'u';
+        if (c==u'à' || c==u'á' || c==u'â' || c==u'ä') return 'a';
+        if (c==u'è' || c==u'é' || c==u'ê' || c==u'ë') return 'e';
+        if (c==u'ì'  || c==u'í' || c==u'î' || c==u'ï') return 'i';
+        if (c==u'ò' || c==u'ó' || c==u'ô' || c==u'ö') return 'o';
+        if (c==u'ù' || c==u'ú' || c==u'û' || c==u'ü') return 'u';
 
-        if (q.at(0)==L'ç') return 'c';
+        if (q.at(0)==u'ç') return 'c';
 
         return (c.toLatin1());
 }

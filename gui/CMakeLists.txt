@@ -33,6 +33,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(Qt6Gui REQUIRED)
 find_package(Qt6Network REQUIRED)
 find_package(Qt6Xml REQUIRED)
+find_package(Qt6DBus REQUIRED)
 
 include_directories(
 	${CMAKE_CURRENT_BINARY_DIR}
@@ -65,6 +66,8 @@ add_executable(qdacco  ${qdaccogui_H} ${qdaccogui_MOCS} ${qdaccogui_MOC_SRCS} ${
 	${qdaccogui_SRC} ${qdaccogui_SRCS} ${qdaccogui_RCC_SRCS})
 
 #qt6_use_modules(qdacco Widgets)
+
+message(WARNING ${QT6_LIBRARIES})
 
 target_link_libraries( qdacco ${QT6_LIBRARIES})
 

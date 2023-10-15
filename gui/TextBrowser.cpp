@@ -110,7 +110,7 @@ int TextBrowser::getLanguage() const {
             }
         }
     }
-    Auxiliar::debug(QString("Language to read: ") + textLanguage);
+    Auxiliar::debug(QString("Language to read: %d").arg(textLanguage));
     return textLanguage;
 }
 

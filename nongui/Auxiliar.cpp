@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2008, 2009, 2011, 2015
+ * Copyright (c) 2005, 2006, 2007, 2008, 2009, 2011, 2015, 2021, 2023
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -124,13 +124,13 @@ bool Auxiliar::isUnix() {
 char Auxiliar::lletra_buscar(QString q) {
     QChar c = q.at(0);
 
-    if (c==L'à' || c==L'á' || c==L'â' || c==L'ä') return 'a';
-    if (c==L'è' || c==L'é' || c==L'ê' || c==L'ë') return 'e';
-    if (c==L'ì' || c==L'í' || c==L'î' || c==L'ï') return 'i';
-    if (c==L'ò' || c==L'ó' || c==L'ô' || c==L'ö') return 'o';
-    if (c==L'ù' || c==L'ú' || c==L'û' || c==L'ü') return 'u';
+    if (c==u'à' || c==u'á' || c==u'â' || c==u'ä') return 'a';
+    if (c==u'è' || c==u'é' || c==u'ê' || c==u'ë') return 'e';
+    if (c==u'ì' || c==u'í' || c==u'î' || c==u'ï') return 'i';
+    if (c==u'ò' || c==u'ó' || c==u'ô' || c==u'ö') return 'o';
+    if (c==u'ù' || c==u'ú' || c==u'û' || c==u'ü') return 'u';
 
-    if (c==L'ç') return 'c';
+    if (c==u'ç') return 'c';
 
     c = c.toLower();
 

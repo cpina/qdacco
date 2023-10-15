@@ -36,8 +36,9 @@ INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})
 find_package(Qt6Network REQUIRED) 
 find_package(Qt6Core5Compat REQUIRED)
 find_package(Qt6Widgets REQUIRED)
+find_package(Qt6DBus REQUIRED)
 
-set(QT6_LIBRARIES Qt6::Widgets Qt6::Network Qt6::Xml Qt6::Core5Compat)
+set(QT6_LIBRARIES Qt6::Widgets Qt6::Network Qt6::Xml Qt6::Core5Compat Qt6::DBus)
 
 #include_directories(${Qt5Widgets_INCLUDES} ${Qt5Xml_INCLUDES})
 #add_definitions(${Qt5Widgets_DEFINITIONS} ${Qt5Xml_DEFINITIONS})
