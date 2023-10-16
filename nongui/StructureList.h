@@ -58,8 +58,6 @@ public:
 
     int setAddFunction(void function(QString a));
 
-    QString getListWords();
-
 
 private:
     bool entrada;
@@ -69,8 +67,6 @@ private:
 
     QString m_word;
     QString m_word_normalized;
-
-    QString m_list;
 
     void (*m_addEntry)(QString q);
 };

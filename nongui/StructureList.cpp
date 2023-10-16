@@ -25,7 +25,6 @@
 StructureList::StructureList()
 {
     m_addEntry = nullptr;
-    m_list="";
 }
 
 void StructureList::parseFile(QFile& xmlFile) {
@@ -45,7 +44,6 @@ void StructureList::parseFile(QFile& xmlFile) {
             entry = reader.text().toString();
 
             if (myStartsWith(entry,m_word_normalized)) {
-                m_list.append(entry);
                 m_addEntry(entry);
             }
         }
@@ -154,9 +152,4 @@ int StructureList::setAddFunction(void function(QString a)) {
     m_addEntry = function;
 
     return 0;
-}
-
-QString StructureList::getListWords() {
-    // TODO: seems unused, delete
-    return m_list;
 }
