@@ -352,6 +352,7 @@ void Main::UpdateList() {
 
     letter=removeAccents(search);
 	QFile xmlFile(m_directori_usuari+"/"+idioma+"/"+letter+".dic");
+    qDebug() << m_directori_usuari+"/"+idioma+"/"+letter+".dic";
 
 	if (!xmlFile.exists()) {
 		showError(tr("Cannot open dictionary file. Check configuration directory and permissions"));
@@ -359,20 +360,37 @@ void Main::UpdateList() {
 	else {
 		Auxiliar::debug("File2: "+m_directori_usuari+"/"+idioma+"/"+letter+".dic");
 
-		QXmlInputSource source( &xmlFile );
-		QXmlSimpleReader reader;
-		reader.setFeature("http://trolltech.com/xml/features/report-whitespace-only-CharData",false);   //if we don't use it, we get more entries because spaces...
-		reader.setContentHandler(&handler);
+        handler.parseFile(xmlFile);
 
-		handler.setParaula(search);
+//        while (!reader.isEndDocument() && !reader.hasError()) {
+//            if (reader.isStartElement()) {
+//                QString name = reader.name().toString();
+//                if (name == "Entry") {
+//                    reader.readNext();
+//                    qDebug() << reader.text().toString();
+////                    reader.attributes().value("");
+//                }
+//            }
+//            reader.readNext();
+//        }
 
-		reader.parse(source);
+//        while(reader.readNextStartElement()) {
+//            qDebug() << reader.name();
+//        }
 
-		WordData d = handler.getWordData();
+//		while (!reader.atEnd()) {
+//			reader.readNext();
+//		}
 
-		ui.definicio->setPlainText("");
-		m_searched=search;
-		selectItem();
+//		handler.setParaula(search);
+
+//		reader.parse(source);
+
+//		WordData d = handler.getWordData();
+
+//		ui.definicio->setPlainText("");
+//		m_searched=search;
+//		selectItem();
 	}
 }
 
@@ -418,17 +436,18 @@ void Main::treballaBuscar() {
 		else {
 			Auxiliar::debug("File: "+m_directori_usuari+"/"+idioma+"/"+lletra+".dic");
 
-			QXmlInputSource source( &xmlFile );
-			QXmlSimpleReader reader;
-			reader.setFeature("http://trolltech.com/xml/features/report-whitespace-only-CharData",false);   //if we don't use it, we get more entries because spaces...
-			reader.setContentHandler( &handler );
+//			QXmlInputSource source( &xmlFile );
+//			QXmlSimpleReader reader;
+//			reader.setFeature("http://trolltech.com/xml/features/report-whitespace-only-CharData",false);   //if we don't use it, we get more entries because spaces...
+//			reader.setContentHandler( &handler );
 
-			handler.setEntryWanted(buscar_orig);
+//			handler.setEntryWanted(buscar_orig);
 
-			reader.parse(source);
+//			reader.parse(source);
 
-			WordData d = handler.getWordData();
+//			WordData d = handler.getWordData();
 
+            WordData d;
 			ui.definicio->setPlainText("");
 
             if (d.found()) {

@@ -24,21 +24,21 @@
 
 #include <QtCore/QQueue>
 #include <QtCore/QString>
-#include <QXmlDefaultHandler>
+#include <QXmlStreamReader>
 
 #include "WordData.h"
 #include "Auxiliar.h"
 
 class QString;
 
-class StructureParser : public QXmlDefaultHandler
+class StructureParser : public QXmlStreamReader
 {
 public:
-    bool startDocument();
-    bool startElement(const QString& nameSpaceUri, const QString& localName, const QString& qName,
-                      const QXmlAttributes& attributes);
-    bool endElement(const QString& nameSpaceUri, const QString& localName, const QString& qName);
-    bool characters(const QString& chrs);
+//    bool startDocument();
+//    bool startElement(const QString& nameSpaceUri, const QString& localName, const QString& qName,
+//                      const QXmlAttributes& attributes);
+//    bool endElement(const QString& nameSpaceUri, const QString& localName, const QString& qName);
+//    bool characters(const QString& chrs);
     void setEntryWanted(const QString& paraula);
 
     WordData getWordData();

@@ -29,16 +29,19 @@
 
 class QString;
 
-class StructureList : public QXmlDefaultHandler
+class StructureList
 {
 public:
     StructureList();
 
-    bool startDocument();
-    bool startElement( const QString&, const QString&, const QString& ,
-                       const QXmlAttributes& attributes);
-    bool endElement( const QString&, const QString&, const QString& );
-    bool characters ( const QString & ch );
+
+//    bool startDocument();
+//    bool startElement( const QString&, const QString&, const QString& ,
+//                       const QXmlAttributes& attributes);
+//    bool endElement( const QString&, const QString&, const QString& );
+//    bool characters ( const QString & ch );
+
+    void parseFile(QFile& xmlFile);
 
     void setIgnoreCase(bool capital);
     void setIgnoreAccents(bool capital);
@@ -47,11 +50,11 @@ public:
     WordData getWordData() { WordData h; return h;}
 
 
-    void setWord(QString w);
+    void setWord(const QString& w);
 
     bool myStartsWith(const QString &ch, QString &word);
 
-    QString &normalize(QString &word);
+    QString normalize(const QString& word);
 
     int setAddFunction(void function(QString a));
 
