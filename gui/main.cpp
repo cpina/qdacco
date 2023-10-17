@@ -404,7 +404,7 @@ void Main::setIdiomaActiu(int actiu) {
 }
 
 void Main::treballaBuscar() {
-        StructureParser handler;
+        StructureList handler;
 
        	QString buscar = ui.paraula->text();
         QString buscar_orig = ui.paraula->text();
@@ -444,10 +444,11 @@ void Main::treballaBuscar() {
 //			handler.setEntryWanted(buscar_orig);
 
 //			reader.parse(source);
+            handler.setEntryWanted(buscar_orig);
+            handler.parseFile(xmlFile);
+            WordData d = handler.getWordData();
 
-//			WordData d = handler.getWordData();
-
-            WordData d;
+//            WordData d;
 			ui.definicio->setPlainText("");
 
             if (d.found()) {

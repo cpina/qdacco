@@ -22,9 +22,17 @@
 #include <nongui/StructureList.h>
 #include <QXmlStreamReader>
 
+static QStringList exampleElements = {"example", "catexamp", "engexamp"};
+static QStringList noteElements = {"catnote", "engnote"};
+
 StructureList::StructureList()
 {
     m_addEntry = nullptr;
+    m_entryWanted = QString();
+}
+
+void StructureList::setEntryWanted(const QString& entryWanted) {
+    m_entryWanted = entryWanted;
 }
 
 void StructureList::parseFile(QFile& xmlFile) {
@@ -35,19 +43,143 @@ void StructureList::parseFile(QFile& xmlFile) {
 
     QXmlStreamReader reader(&xmlFile);
 
-    QString entry;
-
     while (!reader.isEndDocument() && !reader.hasError()) {
-        if (reader.isStartElement() && reader.name().toString() == "Entry") {
-            reader.readNext();
-
-            entry = reader.text().toString();
-
-            if (myStartsWith(entry,m_word_normalized)) {
-                m_addEntry(entry);
-            }
+        if (reader.isStartElement()) {
+            startElement(reader);
+        }
+        if (reader.isCharacters()) {
+            characters(reader);
+        }
+        if (reader.isEndElement()) {
+            endElement(reader);
         }
         reader.readNext();
+    }
+}
+
+void StructureList::startElement(QXmlStreamReader& reader) {
+    QString qName = reader.name().toString();  // "entry", "translations", "date", "translation", etc.
+
+    reader.readNext();
+
+    if (qName == "Entry") {
+        QString entry = reader.text().toString();
+
+        if (myStartsWith(entry, m_word_normalized) && m_addEntry) {
+            m_addEntry(entry);
+        }
+
+        m_inSearchedWord = (entry == m_entryWanted);
+    }
+}
+
+void StructureList::endElement(QXmlStreamReader& reader) {
+    const QString qName = reader.name().toString();
+
+    if (!m_inSearchedWord) {
+        return;
+    }
+
+        if (m_inPlural && qName == "plural") {
+            m_inPlural = false;
+        }
+        else if (m_inCatAcro && qName == "catacro") {
+            m_inCatAcro = false;
+        }
+        else if (m_inEngAcro && qName == "engacro") {
+            m_inEngAcro = false;
+        }
+        else if (m_inFems && qName == "fems") {
+            m_inFems = false;
+        }
+        else if (m_inFemPlural && qName == "femplural") {
+            m_inFemPlural = false;
+        }
+        else if (m_inExpressions && qName == "translation") {
+            m_expressions.translations.append(m_translation);
+            m_translation = Translation();
+            m_inTranslation = false;
+        }
+        else if (qName == "translation") {
+            m_wordData.addTranslation(m_translation, m_type);
+            m_translation = Translation();
+            m_inTranslation = false;
+        }
+        else if (qName == "mistakes") {
+            m_wordData.setMistakes(m_mistakes);
+            m_mistakes = QString();
+        }
+        else if (qName == "synonyms") {
+            m_inSynonyms = false;
+        }
+
+        if (exampleElements.contains(qName)) {
+            m_inExample = false;
+        }
+
+        if (noteElements.contains(qName)) {
+            m_inNote = false;
+        }
+
+        if (qName == "expressions") {
+            m_wordData.addExpressions(m_expressions);
+            m_expressions = Expressions();
+            m_inExpressions = false;
+        }
+
+        if (wordTypesList.contains(qName)) {
+            m_type = QString();
+        }
+
+        if (qName=="Entry") {	// leaving word, if we were in the matched
+                                // not anymore. If we weren't it doesn't matter:
+                                // we are not anymore either
+            m_inSearchedWord=false;
+        }
+}
+
+void StructureList::characters(QXmlStreamReader &reader) {
+    processEntry(reader);
+}
+
+void StructureList::processEntry(QXmlStreamReader& reader) {
+//    if (wordTypesList.contains(qName)) {
+//        m_type = qName;
+//    }
+    QString qName = reader.text().toString().trimmed();
+    if (m_type == "translation") {
+        m_inTranslation = true;
+        m_translation = Translation();
+
+        m_translation.gender = reader.text().toString();
+        m_translation.picture = reader.attributes().value("picture").toString();
+
+        if (m_translation.picture.isEmpty()) {
+            // It uses attributes.value("picture") if available, else tries with flickr
+            m_translation.picture = reader.attributes().value("flickr").toString();
+        }
+        else if (qName == "mistakes") {
+            m_inMistakes = true;
+        } else if (qName == "catacro") {
+            m_inCatAcro = true;
+        } else if (qName == "engacro") {
+            m_inEngAcro = true;
+        } else if (qName == "expressions") {
+            m_inExpressions = true;
+            m_expressions = Expressions();
+        } else if (qName == "plural") {
+            m_inPlural = true;
+        } else if (qName == "fems") {
+            m_inFems = true;
+        } else if (qName == "femplural") {
+            m_inFemPlural = true;
+        } else if (qName == "synonyms") {
+            m_inSynonyms = true;
+        } else if (exampleElements.contains(qName)) {
+            m_inExample = true;
+        } else if (noteElements.contains(qName)) {
+            m_inNote = true;
+        }
     }
 }
 
@@ -119,8 +251,6 @@ bool StructureList::myStartsWith(const QString &ch, QString &word)
     QString dict(ch);
     dict=normalize(dict);
 
-        qDebug() << ch << word << dict.startsWith(word);
-
     return dict.startsWith(word);
 }
 
@@ -152,4 +282,8 @@ int StructureList::setAddFunction(void function(QString a)) {
     m_addEntry = function;
 
     return 0;
+}
+
+WordData StructureList::getWordData() {
+    return m_wordData;
 }

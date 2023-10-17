@@ -24,7 +24,8 @@
 
 #include <QtCore/QQueue>
 #include <QtCore/QString>
-#include <QXmlDefaultHandler>
+#include <QXmlStreamReader>
+#include <QFile>
 #include "WordData.h"
 
 class QString;
@@ -47,7 +48,7 @@ public:
     void setIgnoreAccents(bool capital);
 
     void setParaula(const QString &) {}
-    WordData getWordData() { WordData h; return h;}
+    WordData getWordData();
 
 
     void setWord(const QString& w);
@@ -58,8 +59,15 @@ public:
 
     int setAddFunction(void function(QString a));
 
+    void setEntryWanted(const QString& entryWanted);
 
 private:
+    void startElement(QXmlStreamReader& reader);
+    void endElement(QXmlStreamReader& reader);
+    void characters(QXmlStreamReader& reader);
+
+    void processEntry(QXmlStreamReader& reader);
+
     bool entrada;
 
     int m_IgnoreCase;
@@ -68,7 +76,35 @@ private:
     QString m_word;
     QString m_word_normalized;
 
+    WordData m_wordData;
+
+    QString m_entryWanted;
+
     void (*m_addEntry)(QString q);
+
+
+    ///////////
+    bool m_isEntry;
+    bool m_found;
+    bool m_inTranslation;
+    bool m_inExpressions;
+    bool m_inExample;
+    bool m_inPlural;
+    bool m_inNote;
+    bool m_inFems;
+    bool m_inFemPlural;
+    bool m_inCatAcro;
+    bool m_inEngAcro;
+    bool m_inMistakes;
+    bool m_inSynonyms;
+
+    Translation m_translation;
+    Expressions m_expressions;
+
+    bool m_inSearchedWord;
+
+    QString m_type;
+    QString m_mistakes;
 };
 
 #endif
