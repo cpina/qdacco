@@ -32,6 +32,31 @@ class QString;
 
 class StructureList
 {
+    /**
+        If searchFor(const QString&) is set: search the file
+        and stops when the word is found. Then set all the entry
+        information in to m_wordData. The user can call getWordData()
+        to get the data.
+
+        If m_addEntry is set: for each word call m_addEntry() so it
+        can be added in the UI.
+
+        Yes, this is the original 2004 class interface. Why I didn't
+        emit each entry or return a QStringList? I think that I thought
+        that the m_addEntry low level callback was faster than returning
+        a QStringList because qdacco would add the words incrementally and
+        the user would see it. This is obvious to me that the main event
+        loop is not processing events so the user will not see anything
+        until it's finished.
+
+        I'm leaving this because I consider qdacco a historic project,
+        and this is part of history. It makes me smile and give me some
+        headache when upgrading from Qt to Qt version.
+
+        On the other hand I joined StructureParser and StructureList
+        which returned the list or the word (at least to improve maintanibility)
+        in 2023 :-)
+     */
 public:
     StructureList();
 
@@ -47,7 +72,7 @@ public:
     void setIgnoreCase(bool capital);
     void setIgnoreAccents(bool capital);
 
-    void setParaula(const QString &) {}
+    void setParaula(const QString &searchFor);
     WordData getWordData();
 
 
@@ -68,7 +93,7 @@ private:
 
     void processEntry(QXmlStreamReader& reader);
 
-    bool entrada;
+    bool m_isEntry;
 
     int m_IgnoreCase;
     int m_IgnoreAccents;
@@ -84,7 +109,6 @@ private:
 
 
     ///////////
-    bool m_isEntry;
     bool m_found;
     bool m_inTranslation;
     bool m_inExpressions;
