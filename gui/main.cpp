@@ -386,11 +386,11 @@ void Main::UpdateList() {
 
 //		reader.parse(source);
 
-//		WordData d = handler.getWordData();
+        WordData d = handler.getWordData();
 
-//		ui.definicio->setPlainText("");
-//		m_searched=search;
-//		selectItem();
+        ui.definicio->setPlainText("");
+        m_searched=search;
+        selectItem();
 	}
 }
 
