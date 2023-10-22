@@ -103,14 +103,22 @@ void LineEdit::selectWord() {
 }
 
 int LineEdit::getPrevSpace(int pos) {
-	while (pos>0 && this->text()[pos]!=' ') {
+    QString text = this->text();
+
+    if (pos >= text.length()) {
+        pos = text.length() - 1;
+    }
+
+    while (pos>0 && text.at(pos) != QChar(' ')) {
 		pos--;
 	}
 	return pos;
 }
 
 int LineEdit::getNextSpace(int pos) {
-	while (pos<this->text().length() && this->text()[pos]!=' ') {
+    QString text;
+
+    while (pos<this->text().length() && text.at(pos) != QChar(' ')) {
 		pos++;
 	}
 	return pos;
