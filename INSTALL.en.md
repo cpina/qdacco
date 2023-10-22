@@ -46,5 +46,5 @@ PD: first revision of this text has been revised by Linda Oxnard
 and Jonathan Kaye.
 
 ---
-Carles Pina i Estany, 2005, 2006, 2007, 2008, 2009, 2011, 2013, 2015, 2017, 2020
+Carles Pina i Estany, 2005-2009, 2011, 2013, 2015, 2017, 2020-2023
 carles@pina.cat
