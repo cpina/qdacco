@@ -58,8 +58,54 @@ void StructureList::parseFile(QFile& xmlFile) {
 }
 
 void StructureList::startElement(QXmlStreamReader& reader) {
-    m_isEntry = (reader.name().toString() == "Entry");
-    return;
+    QString qName = reader.name().toString();
+    m_isEntry = (qName == "Entry");
+
+    if (m_addEntry) {
+        // Nothing else to do: the entry will be added in the processEntry()
+        // Not interested in other features for the listing
+        return;
+    }
+
+    if (wordTypesList.contains(qName)) {
+        m_type = qName;
+    }
+
+    if (qName == "translation") {
+        m_inTranslation = true;
+        m_translation = Translation();
+
+        m_translation.gender = reader.attributes().value("gender").toString();
+
+        m_translation.picture = reader.attributes().value("picture").toString();
+
+        if (m_translation.picture.isEmpty()) {
+            // It uses attributes.value("picture") if available, else tries with flickr
+            m_translation.picture = reader.attributes().value("flickr").toString();
+        }
+
+    } else if (qName == "mistakes") {
+        m_inMistakes = true;
+    } else if (qName == "catacro") {
+        m_inCatAcro = true;
+    } else if (qName == "engacro") {
+        m_inEngAcro = true;
+    } else if (qName == "expressions") {
+        m_inExpressions = true;
+        m_expressions = Expressions();
+    } else if (qName == "plural") {
+        m_inPlural = true;
+    } else if (qName == "fems") {
+        m_inFems = true;
+    } else if (qName == "femplural") {
+        m_inFemPlural = true;
+    } else if (qName == "synonyms") {
+        m_inSynonyms = true;
+    } else if (exampleElements.contains(qName)) {
+        m_inExample = true;
+    } else if (noteElements.contains(qName)) {
+        m_inNote = true;
+    }
 
 //    m_isEntry = (reader.name() == QString("Entry"));
 
@@ -110,7 +156,68 @@ void StructureList::startElement(QXmlStreamReader& reader) {
 }
 
 void StructureList::endElement(QXmlStreamReader& reader) {
-    return;
+    if (!m_inSearchedWord) {
+        return;
+    }
+
+    QString qName = reader.name().toString();
+
+    if (m_inPlural && qName == "plural") {
+        m_inPlural = false;
+    }
+    else if (m_inCatAcro && qName == "catacro") {
+        m_inCatAcro = false;
+    }
+    else if (m_inEngAcro && qName == "engacro") {
+        m_inEngAcro = false;
+    }
+    else if (m_inFems && qName == "fems") {
+        m_inFems = false;
+    }
+    else if (m_inFemPlural && qName == "femplural") {
+        m_inFemPlural = false;
+    }
+    else if (m_inExpressions && qName == "translation") {
+        m_expressions.translations.append(m_translation);
+        m_translation = Translation();
+        m_inTranslation = false;
+    }
+    else if (qName == "translation") {
+        m_wordData.addTranslation(m_translation, m_type);
+        m_translation = Translation();
+        m_inTranslation = false;
+    }
+    else if (qName == "mistakes") {
+        m_wordData.setMistakes(m_mistakes);
+        m_mistakes = QString();
+    }
+    else if (qName == "synonyms") {
+        m_inSynonyms = false;
+    }
+    if (exampleElements.contains(qName)) {
+        m_inExample = false;
+    }
+
+    if (noteElements.contains(qName)) {
+        m_inNote = false;
+    }
+
+    if (qName == "expressions") {
+        m_wordData.addExpressions(m_expressions);
+        m_expressions = Expressions();
+        m_inExpressions = false;
+    }
+
+    if (wordTypesList.contains(qName)) {
+        m_type = QString();
+    }
+
+    if (qName=="Entry") {       // leaving word, if we were in the matched
+        // not anymore. If we weren't it doesn't matter:
+        // we are not anymore either
+        m_inSearchedWord=false;
+    }
+
 //    const QString qName = reader.name().toString();
 
 //    if (!m_inSearchedWord) {
@@ -180,13 +287,84 @@ void StructureList::characters(QXmlStreamReader &reader) {
 }
 
 void StructureList::processEntry(QXmlStreamReader& reader) {
+    QString ch = reader.text().toString().trimmed();
+
     if (m_isEntry) {
-        QString entry = reader.text().toString();
+        QString entry = ch;
         if (m_addEntry && myStartsWith(entry, m_word_normalized)) {
             m_addEntry(entry);
             return;
         }
     }
+
+    if (m_isEntry && !m_inSearchedWord) {
+        if (ch == m_entryWanted) {
+            m_inSearchedWord = true;
+            m_inExpressions = false;
+            m_inTranslation = false;
+            m_inExample = false;
+            m_inPlural = false;
+            m_inNote = false;
+            m_inFems = false;
+            m_inFemPlural = false;
+            m_inCatAcro = false;
+            m_inEngAcro = false;
+            m_inMistakes = false;
+            m_inSynonyms = false;
+
+            m_type = QString();
+        }
+        else {
+            m_inSearchedWord = false;
+        }
+    }
+
+    if (!m_inSearchedWord) {
+        return;
+    }
+
+    if (m_inTranslation && m_inPlural) {
+        m_translation.plural = ch;
+    }
+    else if (m_inTranslation && m_inSynonyms) {
+        m_translation.synonyms = ch;
+    }
+    else if (m_inTranslation && m_inCatAcro) {
+        m_translation.catalanAcronym = ch;
+    }
+    else if (m_inTranslation && m_inEngAcro) {
+        m_translation.englishAcronym = ch;
+    }
+    else if (m_inCatAcro) {
+        m_wordData.setCatalanAcronym(ch);
+    }
+    else if (m_inEngAcro) {
+        m_wordData.setEnglishAcronym(ch);
+    }
+    else if (m_inTranslation && m_inExample) {
+        m_translation.examples.append(ch);
+    }
+    else if (m_inTranslation && m_inNote) {
+        m_translation.notes.append(ch);
+    }
+    else if (m_inFems) {
+        m_translation.female = ch;
+    }
+    else if (m_inFemPlural) {
+        m_translation.femalePlural = ch;
+    }
+    else if (m_inTranslation) {
+        m_translation.translation = ch;
+    }
+    else if (m_inExpressions) {
+        m_expressions.expression = ch;
+    }
+    else if (m_inMistakes) {
+        m_mistakes = ch;
+    }
+}
+
+
 //    if (wordTypesList.contains(qName)) {
 //        m_type = qName;
 //    }
@@ -225,7 +403,7 @@ void StructureList::processEntry(QXmlStreamReader& reader) {
 //            m_inNote = true;
 //        }
 //    }
-}
+//}
 
 //bool StructureList::startDocument()
 //{
