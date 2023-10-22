@@ -372,9 +372,6 @@
   <tabstop>definicio</tabstop>
   <tabstop>llistat</tabstop>
  </tabstops>
- <includes>
-  <include location="global">nongui/StructureParser.h</include>
- </includes>
  <resources>
   <include location="icons.qrc"/>
  </resources>
