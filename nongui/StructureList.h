@@ -60,13 +60,6 @@ class StructureList
 public:
     StructureList();
 
-
-//    bool startDocument();
-//    bool startElement( const QString&, const QString&, const QString& ,
-//                       const QXmlAttributes& attributes);
-//    bool endElement( const QString&, const QString&, const QString& );
-//    bool characters ( const QString & ch );
-
     void parseFile(QFile& xmlFile);
 
     void setIgnoreCase(bool capital);
