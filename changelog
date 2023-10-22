@@ -1,3 +1,11 @@
+qdacco 1.2.1 (October 2023)
+============
+-Update changelog
+
+qdacco 1.2.0 (October 2023)
+============
+-Migrate to Qt6
+
 qdacco 1.1.2 (February 2021)
 ============
 -Implement "synonyms" (e.g. "quickly" in eng->cat)
