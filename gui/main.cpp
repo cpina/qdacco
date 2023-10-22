@@ -362,30 +362,6 @@ void Main::UpdateList() {
 
         handler.parseFile(xmlFile);
 
-//        while (!reader.isEndDocument() && !reader.hasError()) {
-//            if (reader.isStartElement()) {
-//                QString name = reader.name().toString();
-//                if (name == "Entry") {
-//                    reader.readNext();
-//                    qDebug() << reader.text().toString();
-////                    reader.attributes().value("");
-//                }
-//            }
-//            reader.readNext();
-//        }
-
-//        while(reader.readNextStartElement()) {
-//            qDebug() << reader.name();
-//        }
-
-//		while (!reader.atEnd()) {
-//			reader.readNext();
-//		}
-
-//		handler.setParaula(search);
-
-//		reader.parse(source);
-
         WordData d = handler.getWordData();
 
         ui.definicio->setPlainText("");
