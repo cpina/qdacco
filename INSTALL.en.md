@@ -16,7 +16,7 @@ http://www.catalandictionary.org
 
 ## GNU/Linux specific instructions
 In order to compile qdacco, in Debian-based distributions you can execute:
-```apt install qt5-default cmake
+```apt install qt6-base-dev cmake
 git clone git@github.com:cpina/qdacco.git
 cd qdacco
 mkdir build

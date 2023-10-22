@@ -17,7 +17,7 @@ http://www.catalandictionary.org
 ## Instruccions de compilació per GNU/Linux
 Per tal de compilar qdacco, en distribucions basades en Debian podeu executar:
 
-```apt install qt5-default cmake
+```apt install qt6-base-dev cmake
 git clone git@github.com:cpina/qdacco.git
 cd qdacco
 mkdir build
