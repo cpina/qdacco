@@ -8,7 +8,6 @@ set (qdaccogui_SRC Configure.cpp main.cpp
 	   TrayIcon.cpp LoadConfig.cpp TextBrowser.cpp
        ../nongui/Auxiliar.cpp
        ../nongui/StructureList.cpp
-       ../nongui/StructureParser.cpp
        ../nongui/WordData.cpp
     )
 
@@ -20,7 +19,6 @@ set (qdaccogui_MOCS Configure.h main.h
 set (qdaccogui_H AuxiliarGUI.h
      ../nongui/Auxiliar.h
      ../nongui/StructureList.h
-     ../nongui/StructureParser.h
      ../nongui/WordData.h
    )
 

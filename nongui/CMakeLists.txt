@@ -18,11 +18,11 @@ LIST( GET QDACCO_LIB_VERSIONS 2 QDACCO_LIB_VERSION_PATCH)
 INCLUDE(${QT_USE_FILE})
 
 set(qdaccolib_SRCS Auxiliar.cpp 
-			StructureList.cpp  StructureParser.cpp
+			StructureList.cpp
 			WordData.cpp)
 
 set(qdacco_HDRS qdacco/Auxiliar.h qdacco/StructureList.h
-qdacco/StructureParser.h qdacco/WordData.h)
+qdacco/WordData.h)
 
 
 set(qdaccolib_MOCS)
