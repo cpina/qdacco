@@ -114,6 +114,7 @@ private:
     bool m_inEngAcro;
     bool m_inMistakes;
     bool m_inSynonyms;
+    bool m_inOtherLocal;
 
     Translation m_translation;
     Expressions m_expressions;

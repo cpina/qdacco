@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2015, 2020, 2021, 2023
+ * Copyright (c) 2005, 2006, 2007, 2015, 2020, 2021, 2023-2024
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
@@ -101,6 +101,8 @@ void StructureList::startElement(QXmlStreamReader& reader) {
         m_inFemPlural = true;
     } else if (qName == "synonyms") {
         m_inSynonyms = true;
+    } else if (qName == "otherlocal") {
+        m_inOtherLocal = true;
     } else if (exampleElements.contains(qName)) {
         m_inExample = true;
     } else if (noteElements.contains(qName)) {
@@ -146,6 +148,8 @@ void StructureList::endElement(QXmlStreamReader& reader) {
     }
     else if (qName == "synonyms") {
         m_inSynonyms = false;
+    } else if (qName == "otherlocal") {
+        m_inOtherLocal = false;
     }
     if (exampleElements.contains(qName)) {
         m_inExample = false;
@@ -194,6 +198,7 @@ void StructureList::processEntry(QXmlStreamReader& reader) {
             m_inTranslation = false;
             m_inExample = false;
             m_inPlural = false;
+            m_inOtherLocal = false;
             m_inNote = false;
             m_inFems = false;
             m_inFemPlural = false;
@@ -215,6 +220,11 @@ void StructureList::processEntry(QXmlStreamReader& reader) {
 
     if (m_inTranslation && m_inPlural) {
         m_translation.plural = ch;
+    }
+    if (m_inTranslation && m_inOtherLocal) {
+        // This is added but not used in the UI
+        // (it also needs to read the "local="us" and then show it as British local)
+        m_translation.otherLocal = ch;
     }
     else if (m_inTranslation && m_inSynonyms) {
         m_translation.synonyms = ch;
@@ -244,7 +254,19 @@ void StructureList::processEntry(QXmlStreamReader& reader) {
         m_translation.femalePlural = ch;
     }
     else if (m_inTranslation) {
-        m_translation.translation = ch;
+        /* There are entries where the "translation" is between different parts. For example:
+         *
+         *   <Entry frequency="17500000">neighbor<nouns><translations><translation gender="mf" local="us">veí<otherlocal>neighbour</otherlocal>
+         *
+         *                      </translation></translations></nouns>
+         *
+         * </Entry>
+         * Since there are empty spaces after </otherlocal> and before </translation>,
+         * the m_translation.translation = ch; was removing the previous text added in the translation.
+         * Now it's adding it trimmed so "veí" stays, and if there was some other meaningul text it would
+         * be added.
+         */
+        m_translation.translation += ch.trimmed();
     }
     else if (m_inExpressions) {
         m_expressions.expression = ch;

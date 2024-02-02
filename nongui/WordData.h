@@ -77,6 +77,7 @@ struct Translation {
     QStringList examples;
     QStringList notes;
     QString plural;
+    QString otherLocal;
 
     QString catagory;
     QString gender;
