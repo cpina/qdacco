@@ -248,10 +248,10 @@ void StructureList::processEntry(QXmlStreamReader& reader) {
         m_translation.notes.append(ch);
     }
     else if (m_inFems) {
-        m_translation.female = ch;
+        m_translation.female += ch.trimmed();
     }
     else if (m_inFemPlural) {
-        m_translation.femalePlural = ch;
+        m_translation.femalePlural += ch.trimmed();
     }
     else if (m_inTranslation) {
         /* There are entries where the "translation" is between different parts. For example:
@@ -269,7 +269,7 @@ void StructureList::processEntry(QXmlStreamReader& reader) {
         m_translation.translation += ch.trimmed();
     }
     else if (m_inExpressions) {
-        m_expressions.expression = ch;
+        m_expressions.expression += ch.trimmed();
     }
     else if (m_inMistakes) {
         m_mistakes = ch;

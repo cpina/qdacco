@@ -2,6 +2,8 @@ qdacco 1.2.2 (UNRELEASED)
 ============
 -Fix entries such as "neighbor" where, inside the <translation> there was
 something such as <otherlocal>xxx</otherlocal>[MORE SPACES]</translation>
+-Fix "expressions" in entries (e.g. "taula"). They didn't have the expression
+meaning (only its translation). Similar problem as above
 
 qdacco 1.2.1 (October 2023)
 ============
