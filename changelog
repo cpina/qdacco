@@ -1,3 +1,7 @@
+qdacco 1.2.3 (February 2024)
+============
+-Delete non-needed debug message
+
 qdacco 1.2.2 (February 2024)
 ============
 -Fix entries such as "neighbor" where, inside the <translation> there was
