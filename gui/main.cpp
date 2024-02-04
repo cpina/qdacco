@@ -352,7 +352,6 @@ void Main::UpdateList() {
 
     letter=removeAccents(search);
 	QFile xmlFile(m_directori_usuari+"/"+idioma+"/"+letter+".dic");
-    qDebug() << m_directori_usuari+"/"+idioma+"/"+letter+".dic";
 
 	if (!xmlFile.exists()) {
 		showError(tr("Cannot open dictionary file. Check configuration directory and permissions"));
