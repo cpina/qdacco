@@ -219,9 +219,6 @@ void StructureList::processEntry(QXmlStreamReader& reader) {
         return;
     }
 
-    if (m_inTranslation && m_inPlural) {
-        m_translation.plural = ch;
-    }
     if (m_inTranslation && m_inOtherLocal) {
         // This is added but not used in the UI
         // (it also needs to read the "local="us" and then show it as British local)
@@ -247,6 +244,9 @@ void StructureList::processEntry(QXmlStreamReader& reader) {
     }
     else if (m_inTranslation && m_inNote) {
         m_translation.notes.append(ch);
+    }
+    else if (m_inTranslation && m_inPlural) {
+        m_translation.plural = ch;
     }
     else if (m_inFems) {
         m_translation.female += ch.trimmed();
