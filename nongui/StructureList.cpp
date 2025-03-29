@@ -29,6 +29,7 @@ StructureList::StructureList()
 {
     m_addEntry = nullptr;
     m_entryWanted = QString();
+    m_inSearchedWord = false;
 }
 
 void StructureList::setEntryWanted(const QString& entryWanted) {
