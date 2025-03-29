@@ -1,3 +1,12 @@
+qdacco 1.2.4 (March 2025)
+============
+-Fix not matching certain words (e.g. "pace" in English->Catalan). See GitHub
+ Issue #13
+-Fix wrong information of a word (e.g. "expect" in English->Catalan including
+ information from "e-" entry). See GitHub Issue #15
+- Fix including wrong information from the same word (bad formatting). See
+ GitHub Issue #14
+
 qdacco 1.2.3 (February 2024)
 ============
 -Delete non-needed debug message

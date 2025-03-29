@@ -2,7 +2,7 @@
  * This file is part of qdacco
  * qdacco: offline Dacco Catalan <-> English dictionary
  *
- * Copyright (c) 2005, 2006, 2007, 2015, 2020, 2021, 2023-2024
+ * Copyright (c) 2005, 2006, 2007, 2015, 2020, 2021, 2023-2025
  *      Carles Pina i Estany <carles@pina.cat>
  *
  * qdacco is free software; you can redistribute it and/or modify
