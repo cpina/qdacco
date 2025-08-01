@@ -1,6 +1,6 @@
  ########## Project setup ##########
-PROJECT(qdacco)
 CMAKE_MINIMUM_REQUIRED(VERSION 3.25.1)
+PROJECT(qdacco)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
